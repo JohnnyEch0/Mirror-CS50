@@ -19,6 +19,7 @@ void print_row(int length)
 {
     for (int j = 0; j < length; j++)
         {
+            
             printf("#");
         }
     printf("\n");
