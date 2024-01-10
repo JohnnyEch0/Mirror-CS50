@@ -3,6 +3,8 @@
 
 void print_row(int length);
 
+// this seems really clunky, kinda works for everything below 5, but not really for things above 5
+
 
 int main(void)
 {
