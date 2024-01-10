@@ -17,18 +17,24 @@ int main(void)
 
 void print_row(int length)
 {
+    // print a number of spaces before the #, so that they are centered
     for (int k = 5 - length; k > 0; k--)
     {
         printf(" ");
     }
 
+    //print the first #'s
     for (int j = 0; j < length; j++)
         {
 
             printf("#");
 
         }
+
+    // print the space in between
     printf("  ");
+
+    //print the second #`s
     for (int j = 0; j < length; j++)
         {
 
