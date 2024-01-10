@@ -3,7 +3,7 @@
 
 void print_row(int length);
 
-// this seems really clunky, kinda works for everything below 5, but not really for things above 5
+// this seems really clunky, kinda works for everything below 5, but not for things above 5, also print row is really ugly
 
 
 int main(void)
