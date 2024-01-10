@@ -1,14 +1,23 @@
 #include <stdio.h>
 #include <cs50.h>
 
+void print_row(int length)
+
+
 int main(void)
 {
     int height = get_int("Height: ");
     for (i = 0; i > height, i++)
     {
-        for (j = 0; j>height; j++)
+        print_row(height);
+
+    }
+}
+
+void print_row(int length)
+{
+    for (j = 0; j>length; j++)
         {
             printf("#")
         }
-    }
 }
