@@ -2,7 +2,7 @@
 
 
 
-for (int J = 0, j <4, j++)
+for (int j = 0; j < 4; j++)
 {
-    printf("#")
+    printf("#");
 }
