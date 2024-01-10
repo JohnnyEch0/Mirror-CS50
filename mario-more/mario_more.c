@@ -17,6 +17,11 @@ int main(void)
 
 void print_row(int length)
 {
+    for (int k = 5 - length; k > 0; k--)
+    {
+        printf(" ");
+    }
+
     for (int j = 0; j < length; j++)
         {
 
