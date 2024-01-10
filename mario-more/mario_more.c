@@ -21,7 +21,14 @@ void print_row(int length)
         {
 
             printf("#");
-            
+
+        }
+    printf("  ");
+    for (int j = 0; j < length; j++)
+        {
+
+            printf("#");
+
         }
     printf("\n");
 }
