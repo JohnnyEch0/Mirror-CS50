@@ -7,5 +7,5 @@ int main(void)
     int age = get_int("How old r u ? ");
     long phone_number = get_long("What's your Phone Number? ");
 
-    printf("Hello, %s\n you are %i y o \n and %lo is your number.\n", name, age, phone_number);
+    printf("Hello, %s\nyou are %i y o \nand %li is your number.\n", name, age, phone_number);
 }
