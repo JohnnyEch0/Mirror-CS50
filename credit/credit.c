@@ -29,7 +29,8 @@ bool valid_check(int number)
 
     for (int i = 0; i < nDigits; i++) //len(number)
     {
-        int digit = number % 10;
+        int perc_value = (i+1);
+        int digit = number % (i*10);
 
         if (counter == 0)
         {
