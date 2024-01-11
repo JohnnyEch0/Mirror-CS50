@@ -12,7 +12,7 @@ int main(void)
     {
         height = get_int("How big Should the Construct be? (Int1-8)");
     }
-    while (1check50 cs50/problems/2024/x/mario/more > height || height > 8);
+    while (1 > height || height > 8);
 
 
     for (int i = 0; i < height; i++)
