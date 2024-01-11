@@ -27,7 +27,7 @@ bool valid_check(int number)
     int nDigits = floor(log10(labs(number))) + 1;
     // printf("%i\n", nDigits);
 
-    for (int i = 0; i > 5; i++) //len(number)
+    for (int i = 0; i < nDigits; i++) //len(number)
     {
         if (counter == 0)
         {
@@ -45,6 +45,8 @@ bool valid_check(int number)
             printf("Counter Error >1");
         }
 
+
     }
+    printf("%i\n", sum);
     return valid;
 }
