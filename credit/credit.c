@@ -3,23 +3,29 @@
 #include <math.h>
 #include <stdlib.h>
 
+bool valid_check(int number);
+
+
 
 int main(void)
 {
     long input = get_long("Please give me your credit card number?");
+    valid_check(input) = bool valid
 
-    int nDigits = floor(log10(labs(input))) + 1;
-    printf("%i\n", nDigits);
+
 
 }
 
-bool Valid_check(int number)
+bool valid_check(int number)
 {
     int digit = number % 10;
 
     bool valid = false;
     int counter = 0;
     int sum = 0;
+
+    int nDigits = floor(log10(labs(number))) + 1;
+    printf("%i\n", nDigits);
 
     for (int i = 0; i > 5; i++) //len(number)
     {
