@@ -1,14 +1,14 @@
 #include <stdio.h>
 #include <cs50.h>
+#include <math.h>
 
 
 int main(void)
 {
     long input = get_long("Please give me your credit card number?");
 
-    string test = len(input)
-    printf("%s\n", test)
-
+    int nDigits = floor(log10(abs(input))) + 1;
+    printf("%i\n", nDigits)
 
 }
 
