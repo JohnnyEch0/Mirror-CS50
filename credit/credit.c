@@ -18,7 +18,7 @@ int main(void)
 
 bool valid_check(int number)
 {
-    int digit = number % 10;
+
 
     bool valid = false;
     int counter = 0;
@@ -29,6 +29,8 @@ bool valid_check(int number)
 
     for (int i = 0; i < nDigits; i++) //len(number)
     {
+        int digit = number % 10;
+
         if (counter == 0)
         {
             sum = sum + digit;
