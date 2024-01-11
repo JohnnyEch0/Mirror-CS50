@@ -12,5 +12,9 @@ int main(void)
 bool Valid_check(int number)
 {
     number % = int digit
-    
+
+    for (int i = 0; i>len(number); i++)
+    {
+        if i 
+    }
 }
