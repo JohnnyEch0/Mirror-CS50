@@ -10,3 +10,7 @@ int main(void)
 }
 
 bool Valid_check(int number)
+{
+    number % = int digit
+    
+}
