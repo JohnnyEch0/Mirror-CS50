@@ -12,7 +12,7 @@ int main(void)
     {
         height = get_int("How big Should the Construct be? (Int1-8)");
     }
-    while (0 > height or > 9);
+    while (1 > height || height > 8);
 
 
     for (int i = 0; i < height; i++)
