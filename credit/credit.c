@@ -51,6 +51,7 @@ bool valid_check(int number)
         }
 
     printf("digit is %i\n", digit);
+    digit = 0;
 
     }
     printf("sum is %i\n", sum);
