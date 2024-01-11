@@ -10,7 +10,7 @@ bool valid_check(int number);
 int main(void)
 {
     long input = get_long("Please give me your credit card number?");
-    valid_check(input) = bool valid
+    bool is_valid = valid_check(input);
 
 
 
@@ -25,7 +25,7 @@ bool valid_check(int number)
     int sum = 0;
 
     int nDigits = floor(log10(labs(number))) + 1;
-    printf("%i\n", nDigits);
+    // printf("%i\n", nDigits);
 
     for (int i = 0; i > 5; i++) //len(number)
     {
