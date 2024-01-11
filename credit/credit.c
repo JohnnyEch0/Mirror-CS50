@@ -27,7 +27,7 @@ bool valid_check(int number)
     int nDigits = floor(log10(labs(number))) + 1;
     // printf("%i\n", nDigits);
 
-    for (int i = 0; i < nDigits; i++) //len(number)
+    for (int i = 0; i < nDigits; i++)
     {
         int perc_value = (i+1);
         int digit = number % (perc_value*10);
@@ -44,7 +44,7 @@ bool valid_check(int number)
             sum = sum + digit;
             counter--;
         }
-        
+
         else
         {
             printf("Counter Error >1");
