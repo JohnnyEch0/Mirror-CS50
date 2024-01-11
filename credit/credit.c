@@ -37,12 +37,14 @@ bool valid_check(int number)
             sum = sum + digit;
             counter++;
         }
+
         else if (counter == 1)
         {
             digit = digit * 2;
             sum = sum + digit;
             counter--;
         }
+        
         else
         {
             printf("Counter Error >1");
