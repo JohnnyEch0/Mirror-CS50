@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <cs50.h>
 
-
+// this prints basic Stairs :)
 
 void print_row(int length);
 
