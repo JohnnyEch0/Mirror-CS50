@@ -30,7 +30,7 @@ bool valid_check(int number)
     for (int i = 0; i < nDigits; i++) //len(number)
     {
         int perc_value = (i+1);
-        int digit = number % (i*10);
+        int digit = number % (perc_value*10);
 
         if (counter == 0)
         {
@@ -48,9 +48,10 @@ bool valid_check(int number)
             printf("Counter Error >1");
         }
 
+    printf("digit is %i\n", digit);
 
     }
     printf("sum is %i\n", sum);
-    printf("digit is %i\n", digit);
+
     return valid;
 }
