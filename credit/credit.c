@@ -47,6 +47,7 @@ bool valid_check(int number)
 
 
     }
-    printf("%i\n", sum);
+    printf("sum is %i\n", sum);
+    printf("digit is %i\n", digit);
     return valid;
 }
