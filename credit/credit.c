@@ -9,4 +9,4 @@ int main(void)
 
 }
 
-bool Valid_check(input)
+bool Valid_check(int number)
