@@ -10,9 +10,11 @@ int main(void)
     int height;
     do
     {
-        height = getint("How big Should the Construct be? (Int1-8)")
+        height = get_int("How big Should the Construct be? (Int1-8)");
     }
-    while (0 < height < 9)
+    while (0 < height and height > 9) and (height > 9);
+
+
     for (int i = 0; i < height; i++)
     {
         print_row(i + 1, height);
