@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <cs50.h>
 
-void print_row(int length, int user_input);
+void print_row(int length_i, int user_input);
 
 
 
@@ -16,16 +16,16 @@ int main(void)
     }
 }
 
-void print_row(int length, int user_input)
+void print_row(int length_i, int user_input)
 {
     // print a number of spaces before the #, so that they are centered
-    for (int k = 5 - length; k > 0; k--)
+    for (int k = user_input - length_i; k > 0; k--)
     {
         printf(" ");
     }
 
     //print the first #'s
-    for (int j = 0; j < length; j++)
+    for (int j = 0; j < length_i; j++)
         {
 
             printf("#");
@@ -36,7 +36,7 @@ void print_row(int length, int user_input)
     printf("  ");
 
     //print the second #`s
-    for (int j = 0; j < length; j++)
+    for (int j = 0; j < length_i; j++)
         {
 
             printf("#");
