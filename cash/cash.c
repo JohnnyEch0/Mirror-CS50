@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <cs50.h>
 
-int coins_needed(change);
+int coins_needed(int change);
 
 
 int main(void)
@@ -14,39 +14,39 @@ int main(void)
     while (input < 1);
     // printf("%i\n", input);
     int output = coins_needed(input);
-    print("%i coins needed", output);
+    printf("%i coins needed", output);
 
 
 }
 
 int coins_needed(change)
 {
-    int counter = 0
+    int counter = 0;
 
     do
     {
-        if change >= 25
+        if (change >= 25)
         {
         change - 25;
         counter++;
         }
-        else if change >= 10
+        else if (change >= 10)
         {
             change - 10;
             counter++;
         }
-        else if change >= 5;
+        else if (change >= 5)
         {
             change - 5;
             counter++;
         }
-        else if change >= 1;
+        else if (change >= 1)
         {
             change - 1;
             counter++;
         }
         else
-            printf("Change calc error")
+            printf("Change calc error");
     }
     while (change > 0);
     return counter;
