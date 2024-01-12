@@ -44,4 +44,3 @@ int check_coin_size (int change1)
             coin_size = 1;
         return coin_size;
 }
-
