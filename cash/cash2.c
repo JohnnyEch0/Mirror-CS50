@@ -2,6 +2,7 @@
 #include <cs50.h>
 
 int coins_needed(int change);
+int check_coin_size (int change1);
 
 int main(void)
 {
@@ -23,25 +24,23 @@ int coins_needed(change)
     do
     {
         counter++;
-        if (change >= 25)
-        {
-            change = change - 25;
-        }
-        else if (change >= 10)
-        {
-            change = change - 10;
-        }
-        else if (change >= 5)
-        {
-            change = change - 5;
-        }
-        else if (change >= 1)
-        {
-            change = change - 1;
-        }
-        else
-            printf("Change calc error");
+        int coin_size = check_coin_size(change);
+        change = change - coin_size;
     }
     while (change > 0);
     return counter;
+
+    int check_coin_size (int change1)
+    {
+        int coin_size = 0;
+        if (change1 >= 25)
+            coin_size = 25;
+        else if (change1 >= 10)
+            coin_size = 10;
+        else if (change1 >= 5)
+            coin_size = 5;
+        else
+            coin_size = 1;
+        return coin_size
+    }
 }
