@@ -14,7 +14,7 @@ int main(void)
     while (input < 1);
     // printf("%i\n", input);
     int output = coins_needed(input);
-    printf("%i coins needed", output);
+    printf("%i coins needed\n", output);
 
 
 }
@@ -25,28 +25,26 @@ int coins_needed(change)
 
     do
     {
+        counter++;
         if (change >= 25)
         {
-        change - 25;
-        counter++;
+            change = change - 25;
         }
         else if (change >= 10)
         {
-            change - 10;
-            counter++;
+            change = change - 10;
         }
         else if (change >= 5)
         {
-            change - 5;
-            counter++;
+            change = change - 5;
         }
         else if (change >= 1)
         {
-            change - 1;
-            counter++;
+            change = change - 1;
         }
         else
             printf("Change calc error");
+
     }
     while (change > 0);
     return counter;
