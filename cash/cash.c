@@ -3,7 +3,6 @@
 
 int coins_needed(int change);
 
-
 int main(void)
 {
     int input;
@@ -15,8 +14,6 @@ int main(void)
     // printf("%i\n", input);
     int output = coins_needed(input);
     printf("%i coins needed\n", output);
-
-
 }
 
 int coins_needed(change)
@@ -44,9 +41,7 @@ int coins_needed(change)
         }
         else
             printf("Change calc error");
-
     }
     while (change > 0);
     return counter;
-
 }
