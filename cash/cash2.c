@@ -29,9 +29,10 @@ int coins_needed(change)
     }
     while (change > 0);
     return counter;
+}
 
-    int check_coin_size (int change1)
-    {
+int check_coin_size (int change1)
+{
         int coin_size = 0;
         if (change1 >= 25)
             coin_size = 25;
@@ -41,6 +42,6 @@ int coins_needed(change)
             coin_size = 5;
         else
             coin_size = 1;
-        return coin_size
-    }
+        return coin_size;
 }
+
