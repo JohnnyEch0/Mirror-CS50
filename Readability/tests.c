@@ -12,6 +12,7 @@ int main(void)
         {
             printf("there is a space as position %i\n", i);
             printf("%s", text[]);
+            //should i just count the spaces?
         }
     }
 }
