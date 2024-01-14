@@ -3,7 +3,7 @@
 
 int main(void)
 {
-    string text = getstring("Please give me the text to evaluate:");
+    string text = get_string("Please give me the text to evaluate:");
     for (int i = 0, int n = getlen(text); i < n; i++)
     {
         if int(text[i]) == 32
