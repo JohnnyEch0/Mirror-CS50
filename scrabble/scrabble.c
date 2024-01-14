@@ -12,7 +12,7 @@ int main(void)
     string word2 = get_string("player2 word?\n");
 
     int value[2];
-    value[0]= calc_points(word1);
+    value[0] = calc_points(word1);
     value[1] = calc_points(word2);
 
     if (value[0] < value[1])
@@ -32,7 +32,7 @@ int main(void)
 int calc_points(string word)
 {
     int points = 0;
-    for (int i=0, n = strlen(word); i < n; i++)
+    for (int i = 0, n = strlen(word); i < n; i++)
     {
         if (isupper(word[i]))
         {
