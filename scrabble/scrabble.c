@@ -7,12 +7,13 @@ int calc_points(string word);
 
 int main(void)
 {
-    word1 = get_string("player1 word?");
-    word2 = get_string("player2 word?");
+    string word1 = get_string("player1 word?");
+    string word2 = get_string("player2 word?");
 
 
-    int value[0] = calc_points(word1);
-    int value[1] = calc_points(word2);
+    int value[2];
+    value[0]= calc_points(word1);
+    value[1] = calc_points(word2);
 
     if (value[0] < value[1])
     {
