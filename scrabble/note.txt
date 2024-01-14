@@ -1,0 +1,4 @@
+Readability Notes
+
+1. Evaluate the text for average word length per word(L)
+2. Evaluate the text for average sentence length (S)
