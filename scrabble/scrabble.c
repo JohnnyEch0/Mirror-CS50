@@ -3,6 +3,7 @@
 #include <string.h>
 
 int POINTS[] = {1, 3, 3, 2, 1, 4, 2, 4, 1, 8, 5, 1, 3, 1, 1, 3, 10, 1, 1, 1, 1, 4, 4, 8, 4, 10};
+int calc_points(string word);
 
 int main(void)
 {
@@ -13,6 +14,14 @@ int main(void)
     int value[0] = calc_points(word1);
     int value[1] = calc_points(word2);
 
+    if (value[0] < value[1])
+    {
+        printf("player 2 wins");
+    }
+    else
+    {
+        printf("player 1 wins");
+    }
 }
 
 int calc_points(string word)
@@ -32,5 +41,7 @@ int calc_points(string word)
     }
     return score
 }
+
+
 
 // for each player, check each letter of the word and assign it a value, add them together and compare them
