@@ -31,7 +31,7 @@ int main(void)
 
 int calc_points(string word)
 {
-    for (i=0, n = strleng(word); i < n; i++)
+    for (int i=0, n = strlen(word); i < n; i++)
     {
         int points = 0;
 
