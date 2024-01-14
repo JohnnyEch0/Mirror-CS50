@@ -32,9 +32,10 @@ int main(void)
 
 int calc_points(string word)
 {
+    int points = 0;
     for (int i=0, n = strlen(word); i < n; i++)
     {
-        int points = 0;
+
 
         if (isupper(word[i]))
         {
@@ -45,7 +46,7 @@ int calc_points(string word)
             points += POINTS[word[i] - 'a'];
         }
     }
-    return points
+    return points;
 }
 
 
