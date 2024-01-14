@@ -11,7 +11,7 @@ int main(void)
         if (letter == 32)
         {
             printf("there is a space as position %i\n", i);
-            
+            printf("%s", text[0i]);
         }
     }
 }
