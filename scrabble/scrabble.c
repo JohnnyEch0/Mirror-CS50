@@ -18,9 +18,13 @@ int main(void)
     {
         printf("player 2 wins");
     }
-    else
+    else if (value[0] > value[1])
     {
         printf("player 1 wins");
+    }
+    else
+    {
+        printf("Its a Tie.");
     }
 }
 
