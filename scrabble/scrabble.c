@@ -8,9 +8,8 @@ int calc_points(string word);
 
 int main(void)
 {
-    string word1 = get_string("player1 word?");
-    string word2 = get_string("player2 word?");
-
+    string word1 = get_string("player1 word?\n");
+    string word2 = get_string("player2 word?\n");
 
     int value[2];
     value[0]= calc_points(word1);
@@ -18,15 +17,15 @@ int main(void)
 
     if (value[0] < value[1])
     {
-        printf("player 2 wins");
+        printf("player 2 wins %i points\n", value[1]);
     }
     else if (value[0] > value[1])
     {
-        printf("player 1 wins");
+        printf("player 1 wins with %i points\n", value[0]);
     }
     else
     {
-        printf("Its a Tie.");
+        printf("Its a Tie.\n");
     }
 }
 
@@ -35,8 +34,6 @@ int calc_points(string word)
     int points = 0;
     for (int i=0, n = strlen(word); i < n; i++)
     {
-
-
         if (isupper(word[i]))
         {
             points += POINTS[word[i] - 'A'];
@@ -48,7 +45,3 @@ int calc_points(string word)
     }
     return points;
 }
-
-
-
-// for each player, check each letter of the word and assign it a value, add them together and compare them
