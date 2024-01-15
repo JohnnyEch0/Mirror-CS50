@@ -35,7 +35,7 @@ bool has_letters(string key_l)
 {
     for (int i=0; i < 26; i++);
     {
-        bool test = strchr(key_l, (int)'a' + i);
+        bool test = strchr(key_l, ((int)'a' + i));
         if test == NULL
             return false;
     }
