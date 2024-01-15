@@ -3,9 +3,10 @@
 #include <ctype.h>
 #include <string.h>
 
-int main(string key)
+int main(int argc, string argv[])
 {
-    validate_input(key);
+    if (argc < 1) 
+    validate_input(argv[1]);
 }
 
 void validate_input(key)
