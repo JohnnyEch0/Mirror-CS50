@@ -21,6 +21,7 @@ int main(void)
         else if (letter <= 64)
         {
             punc_marks++;
+            // this includes " which is bad.
         }
     }
     float non_letters = spaces+punc_marks;
