@@ -18,14 +18,16 @@ int main(int argc, string argv[])
     else
         printf("Usage: .substitution key\n");
 
-    string message = get_string("What's the message to be encrypted?");
+    string message = get_string("What's the message to be encrypted?\n");
     for (int i = 0; i > strlen(message); i++)
         {
-            string cypher;
+            string cypher = message;
             if (isupper(message[i]))
             {
-                cypher[i] = (int)(message[i]) 
+                int cyp_pos = (int)(message[i]) - 65
+                cypher[i] = 
             }
+            printf("%s\n", cypher);
         }
 }
 
