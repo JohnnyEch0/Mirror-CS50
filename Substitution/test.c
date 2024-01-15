@@ -75,7 +75,7 @@ bool has_letters(string key_l)
 
 bool encrypt(string key_e)
 {
-    string message = get_string("What's the message to be encrypted?\n");
+    string message = get_string("plaintext:");
     string cypher = message;
     for (int i = 0; i < strlen(message); i++)
         {
@@ -95,6 +95,6 @@ bool encrypt(string key_e)
                 return false;
             }
         }
-        printf("%s\n", cypher);
+        printf("ciphertext: %s\n", cypher);
         return true;
 }
