@@ -3,39 +3,18 @@
 #include <string.h>
 #include <math.h>
 
-int calc_index(string input);
-
 int main(void)
 {
     string text = get_string("Please give me the text to evaluate:");
 
-    int index = calc_index(text);
-
-
-
-
-
-
-
-
-
-    // this can be a seperate function
-
-    printf("Level: %i\n", index);
-
-}
-
-
-int calc_index(string input)
-{
     int spaces = 0;
     int non_let_spa = 0;
-    int txt_len = strlen(input);
+    int txt_len = strlen(text);
     int punc = 0;
 
     for (int i = 0, n = txt_len; i < n; i++)
     {
-        int letter = input[i];
+        int letter = text[i];
 
         if (letter == 32)
         {
@@ -62,6 +41,9 @@ int calc_index(string input)
 
 
     int index = round(0.0588 * av_word_len - 0.296 * sen_p_words - 15.8);
-    return index;
+
+    // this can be a seperate function
+
+    printf("Level: %i\n", index);
 
 }
