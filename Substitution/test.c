@@ -14,6 +14,7 @@ int main(int argc, string argv[])
     if (argc == 2)
     {
         validate_input(argv[1]);
+        // inster cyphering function here, return 0
     }
     else
         printf("Usage: .substitution key\n");
