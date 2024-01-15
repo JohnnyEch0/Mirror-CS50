@@ -26,6 +26,7 @@ void validate_input(string key)
     {
         printf("len verified\n");
         bool let_check = has_letters(key);
+        printf("has all letters is %s\n", let_check ? "true" : "false");
     }
     else
         printf("input must be 26 letters\n");
@@ -35,7 +36,7 @@ bool has_letters(string key_l)
 {
     for (int i=0; i < 26; i++)
     {
-        char *test = strchr(key_l, (int)'a' + i); //+i
+        char *test = strchr(key_l, (int)'a' + i);
         if (test == NULL)
             return false;
     }
