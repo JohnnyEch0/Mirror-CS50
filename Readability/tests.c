@@ -7,8 +7,9 @@ int main(void)
 {
     string text = get_string("Please give me the text to evaluate:");
     int spaces = 0;
-    int punc_marks = 0;
+    int non_let_spa = 0; // was punc_marks
     int txt_len = strlen(text);
+    int non_punc = 0;
 
     for (int i = 0, n = txt_len; i < n; i++)
     {
@@ -20,16 +21,21 @@ int main(void)
         }
         else if (letter <= 64)
         {
-            punc_marks++;
-            // this includes " which is bad.
+            non_let_spa++;
+            if (letter == 22) //excludes " in the end, however there's only 3 ways to end a sentence.....
+            {
+                non_punc++;
+            }
         }
     }
-    float non_letters = spaces+punc_marks;
+
+    float non_letters = spaces+non_let_spa;
     int word_count = spaces+1;
+    int punc = non_let_spa - non_punc;
 
 
     float av_word_len = (float)(txt_len-non_letters) / word_count * 100;
-    float sen_p_words = (float)punc_marks / word_count * 100;
+    float sen_p_words = (float)punc / word_count * 100;
 
     // printf("%f is the average words per 100 words (kindoff haha)\n", av_word_len);
     // printf("there are %f sentences per 100 words", sen_p_words);
