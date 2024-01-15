@@ -6,7 +6,7 @@ int main(void)
 {
     string text = get_string("Please give me the text to evaluate:");
     int spaces = 0;
-    txt_len = strlen(text);
+    int txt_len = strlen(text);
 
     for (int i = 0, n = txt_len; i < n; i++)
     {
