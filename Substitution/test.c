@@ -34,10 +34,10 @@ void validate_input(string key)
 
 bool has_letters(string key_l)
 {
-    for (int i=0; i < 25; i++)
+    for (int i=0; i < 26; i++)
     {
-        char *test = strchr(key_l, (int)'a' + i);
-        printf(")
+        char *test = strchr(key_l, (int)'A' + i);
+        // printf("%c is the letter being checked for\n", (char)('A' + i));
         if (test == NULL)
             return false;
     }
