@@ -19,7 +19,7 @@ int main(void)
             // printf("there is a space as position %i\n", i);
             //should i just count the spaces? is the number of words always the number of spaces+1?
         }
-        if (letter == 46 || letter == 33 || letter == 59 || letter == 58 || letter == 63)
+        if (letter <= 64)
         {
             punc_marks++;
         }
