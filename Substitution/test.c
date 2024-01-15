@@ -21,9 +21,10 @@ int main(int argc, string argv[])
     string message = get_string("What's the message to be encrypted?");
     for (int i = 0; i > strlen(message); i++)
         {
+            string cypher;
             if (isupper(message[i]))
             {
-                
+                cypher[i] = (int)(message[i]) 
             }
         }
 }
