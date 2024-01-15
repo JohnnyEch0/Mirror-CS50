@@ -18,10 +18,11 @@ int main(void)
             // printf("there is a space as position %i\n", i);
             //should i just count the spaces? is the number of words always the number of spaces+1?
         }
+        if (letter == )
 
     }
 
-    float av_word_len = (txt_len-spaces) / (spaces+1);
+    float av_word_len = (float)(txt_len-spaces) / (spaces+1);
 
     // printf("there are %i spaces in this text, which should tell me that it has %i words\n", spaces, spaces + 1);
     printf("%f is the average word length\n", av_word_len);
