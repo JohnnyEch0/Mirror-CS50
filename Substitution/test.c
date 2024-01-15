@@ -40,7 +40,8 @@ string strupr(string)
 {
     for (int i = 0; i < strlen(string), i++)
     {
-        if isupper
+        if islower(string[i])
+            toupper(string[i]);
     }
 }
 bool has_letters(string key_l)
