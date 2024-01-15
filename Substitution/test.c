@@ -24,8 +24,8 @@ int main(int argc, string argv[])
             string cypher = message;
             if (isupper(message[i]))
             {
-                int cyp_pos = (int)(message[i]) - 65
-                cypher[i] = 
+                int cyp_pos = (int)(message[i]) - 65;
+                cypher[i] = argv[1][cyp_pos];
             }
             printf("%s\n", cypher);
         }
