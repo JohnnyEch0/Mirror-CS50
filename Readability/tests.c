@@ -27,7 +27,7 @@ int main(void)
 
 
     float av_word_len = (float)(txt_len-non_letters) / word_count * 100;
-    float sen_p_words = punc_marks / word_count * 100;
+    float sen_p_words = (float)punc_marks / word_count * 100;
 
     printf("%f is the average words per 100 words (kindoff haha)\n", av_word_len);
     printf("there are %f sentences per 100 words", sen_p_words);
