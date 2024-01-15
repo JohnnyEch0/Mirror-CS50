@@ -2,10 +2,10 @@ Substitution Notes
 
 1. get key from cmdl input
 2. check if the key is valid
-    is it 26(25) long?
-    does it contain each letter once
-    is there a non-alphabetic letter
-    was there another arg given or was there non arg given -> printf
+    is it 26(25) long?                      check
+    does it contain each letter once        check
+    is there a non-alphabetic letter        should be bc has to b 26 and include all alph
+    was there another arg given or was there non arg given -> printf        check
 3. output: plaintext:(nonewline) - wait for input
 4. change each letter in the input to the corresponding letter in the key
 5. print the cyphertext
