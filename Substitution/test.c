@@ -33,10 +33,10 @@ void validate_input(string key)
 
 bool has_letters(string key_l)
 {
-    for (int i=0; i < 26; i++);
+    for (int i=0; i < 26; i++)
     {
-        bool test = strchr(key_l, (int)'a'); //+i
-        if test == NULL
+        char *test = strchr(key_l, (int)'a' + i); //+i
+        if (test == NULL)
             return false;
     }
     return true;
