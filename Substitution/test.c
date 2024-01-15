@@ -4,6 +4,7 @@
 #include <string.h>
 
 void validate_input(string key);
+bool has_letters(string key_l);
 
 int main(int argc, string argv[])
 {
@@ -24,16 +25,19 @@ void validate_input(string key)
     if (len == 26)
     {
         printf("len verified\n");
-        bool has_letters(key);
+        bool let_check = has_letters(key);
     }
     else
         printf("input must be 26 letters\n");
 }
 
-bool has_letters(key_l)
+bool has_letters(string key_l)
 {
-    for (i=0; i < 26; i++);
+    for (int i=0; i < 26; i++);
     {
-        strchr(key_l, (int)'a' + i)
+        bool test = strchr(key_l, (int)'a' + i);
+        if test == NULL
+            return false;
     }
+    return true;
 }
