@@ -13,3 +13,6 @@ Substitution Notes
 
 
 - key should be case insensitive
+
+
+handles invalid characters in key
