@@ -19,6 +19,10 @@ int main(int argc, string argv[])
         printf("Usage: .substitution key\n");
 
     string message = get_string("What's the message to be encrypted?");
+    for (int i = 0; i > strlen(message); i++)
+        {
+            if (message[i] isupper)
+        }
 }
 
 void validate_input(string key)
