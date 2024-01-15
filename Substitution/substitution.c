@@ -43,7 +43,10 @@ bool validate_input(string key)
         string key_up = strupr(key);
 
         bool let_check = has_letters(key_up);
-        return true;
+        if (let-check)
+            return true;
+        else
+            return false;
     }
     else
     {
