@@ -16,10 +16,8 @@ int main(void)
         if (letter == 32)
         {
             spaces++;
-            // printf("there is a space as position %i\n", i);
-            //should i just count the spaces? is the number of words always the number of spaces+1?
         }
-        if (letter <= 64)
+        else if (letter <= 64)
         {
             punc_marks++;
         }
@@ -27,6 +25,5 @@ int main(void)
     float non_letters = spaces+punc_marks;
     float av_word_len = (float)(txt_len-non_letters) / (spaces+1);
 
-    // printf("there are %i spaces in this text, which should tell me that it has %i words\n", spaces, spaces + 1);
     printf("%f is the average word length\n", av_word_len);
 }
