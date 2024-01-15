@@ -17,11 +17,14 @@ int main(int argc, string argv[])
         bool input_valid = validate_input(argv[1]);
         if (input_valid)
         {
-            // printf("insert a function here if all ok");
-            bool input2_valid = bool encrypt(argv[1])
+            bool input2_valid = encrypt(argv[1])
+            if (input2_valid)
+                return 0;
+            else
+                return 1;
         }
         else
-            return 1; //return 1 if something isnt valid.
+            return 1; //return 1 if something isnt valid. printing hadled by input_valid func
     }
     else
     {
