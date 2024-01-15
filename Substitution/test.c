@@ -34,7 +34,7 @@ void validate_input(string key)
 
 bool has_letters(string key_l)
 {
-    for (int i=0; i < 26; i++)
+    for (int i=0; i < 25; i++)
     {
         char *test = strchr(key_l, (int)'a' + i);
         if (test == NULL)
