@@ -7,12 +7,12 @@ void validate_input(string key);
 
 int main(int argc, string argv[])
 {
-    if (argc == 1)
+    if (argc == 2)
     {
         validate_input(argv[1]);
     }
     else
-        printf("Usage: .substitution key");
+        printf("Usage: .substitution key\n");
 
 }
 
@@ -24,5 +24,5 @@ void validate_input(string key)
         printf("len verified");
     }
     else
-        printf("input must be 26 letters");
+        printf("input must be 26 letters\n");
 }
