@@ -37,7 +37,7 @@ int main(int argc, string argv[])
             }
             else
             {
-                printf("No Support for numb3rs or signs, sorry\n");
+                printf("No Support for numb3rs or signs, sorry \n");
                 return 1;
             }
 
