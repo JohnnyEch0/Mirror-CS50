@@ -30,7 +30,13 @@ int main(int argc, string argv[])
             }
             else if (islower(message[i]))
             {
-
+                int cyp_pos = (int)(message[i]) - 97;
+                cypher[i] = tolower(argv[1][cyp_pos]);
+            }
+            else
+            {
+                printf("No Support for numb3rs or signs, sorry\n");
+                return 1;
             }
 
         }
