@@ -1,14 +1,12 @@
 #include <cs50.h>
-#include<stdio.h>
 #include <ctype.h>
+#include <stdio.h>
 #include <string.h>
-
 
 bool validate_input(string key);
 bool has_letters(string key_l);
 bool encrypt(string key_e);
 string strupr(string key_u);
-
 
 int main(int argc, string argv[])
 {
@@ -24,15 +22,13 @@ int main(int argc, string argv[])
                 return 1;
         }
         else
-            return 1; //return 1 if something isnt valid. printing hadled by input_valid func
+            return 1; // return 1 if something isnt valid. printing hadled by input_valid func
     }
     else
     {
         printf("Usage: .substitution key\n");
         return 1;
     }
-
-
 }
 
 bool validate_input(string key)
@@ -59,7 +55,7 @@ string strupr(string key_u)
 {
     for (int i = 0; i < strlen(key_u); i++)
     {
-        if islower(key_u[i])
+        if islower (key_u[i])
             key_u[i] = toupper(key_u[i]);
     }
     return key_u;
@@ -67,9 +63,9 @@ string strupr(string key_u)
 
 bool has_letters(string key_l)
 {
-    for (int i=0; i < 26; i++)
+    for (int i = 0; i < 26; i++)
     {
-        char *test = strchr(key_l, (int)'A' + i);
+        char *test = strchr(key_l, (int) 'A' + i);
         if (test == NULL)
             return false;
     }
@@ -81,22 +77,22 @@ bool encrypt(string key_e)
     string message = get_string("plaintext: ");
     string cypher = message;
     for (int i = 0; i < strlen(message); i++)
+    {
+        if (isupper(message[i]))
         {
-            if (isupper(message[i]))
-            {
-                int cyp_pos = (int)(message[i]) - 65;
-                cypher[i] = toupper(key_e[cyp_pos]);
-            }
-            else if (islower(message[i]))
-            {
-                int cyp_pos = (int)(message[i]) - 97;
-                cypher[i] = tolower(key_e[cyp_pos]);
-            }
-            else
-            {
-                cypher[i] = message[i];
-            }
+            int cyp_pos = (int) (message[i]) - 65;
+            cypher[i] = toupper(key_e[cyp_pos]);
         }
-        printf("ciphertext: %s\n", cypher);
-        return true;
+        else if (islower(message[i]))
+        {
+            int cyp_pos = (int) (message[i]) - 97;
+            cypher[i] = tolower(key_e[cyp_pos]);
+        }
+        else
+        {
+            cypher[i] = message[i];
+        }
+    }
+    printf("ciphertext: %s\n", cypher);
+    return true;
 }
