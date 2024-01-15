@@ -23,8 +23,10 @@ int main(int argc, string argv[])
         // inster cyphering function here, return 0
     }
     else
+    {
         printf("Usage: .substitution key\n");
         return 1;
+    }
 
     string message = get_string("What's the message to be encrypted?\n");
     string cypher = message;
@@ -62,9 +64,13 @@ bool validate_input(string key)
 
         bool let_check = has_letters(key_up);
         printf("has all letters is %s\n", let_check ? "true" : "false");
+        return true;
     }
     else
+    {
         printf("input must be 26 letters\n");
+        return false;
+    }
 }
 
 string strupr(string key_u)
