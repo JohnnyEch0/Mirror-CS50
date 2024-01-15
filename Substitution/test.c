@@ -36,6 +36,13 @@ void validate_input(string key)
         printf("input must be 26 letters\n");
 }
 
+string strupr(string)
+{
+    for (int i = 0; i < strlen(string), i++)
+    {
+        if isupper
+    }
+}
 bool has_letters(string key_l)
 {
     for (int i=0; i < 26; i++)
