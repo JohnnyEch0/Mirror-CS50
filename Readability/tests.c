@@ -23,7 +23,7 @@ int main(void)
         {
             // we need to check if the char is ?,! or .
             non_let_spa++;
-            if (letter == 21 || letter == )
+            if (letter == 33 || letter == 63 || letter == 46)
             {
                 punc++; //was non_punc
             }
