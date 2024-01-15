@@ -26,7 +26,11 @@ int main(int argc, string argv[])
             {
                 int cyp_pos = (int)(message[i]) - 65;
                 // printf("%c", argv[1][cyp_pos]);
-                cypher[i] = argv[1][cyp_pos];
+                cypher[i] = toupper(argv[1][cyp_pos]);
+            }
+            else if (islower(message[i]))
+            {
+
             }
 
         }
