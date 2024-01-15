@@ -14,8 +14,7 @@ int main(int argc, string argv[])
     else
         printf("Usage: .substitution key\n");
     string abc = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    int stringcomp = strcmp(argv[1], abc);
-    printf("%i\n", stringcomp);
+
 
 }
 
@@ -25,7 +24,16 @@ void validate_input(string key)
     if (len == 26)
     {
         printf("len verified\n");
+        bool has_letters(key);
     }
     else
         printf("input must be 26 letters\n");
+}
+
+bool has_letters(key_l)
+{
+    for (i=0; i < 26; i++);
+    {
+        strchr(key_l, (int)'a' + i)
+    }
 }
