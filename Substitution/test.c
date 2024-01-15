@@ -3,16 +3,23 @@
 #include <ctype.h>
 #include <string.h>
 
+void validate_input(string key);
+
 int main(int argc, string argv[])
 {
-    if (argc < 1) 
-    validate_input(argv[1]);
+    if (argc == 1)
+    {
+        validate_input(argv[1]);
+    }
+    else
+        printf("Usage: .substitution key");
+
 }
 
-void validate_input(key)
+void validate_input(string key)
 {
     int len = strlen(key);
-    if len = 26
+    if (len == 26)
     {
         printf("len verified");
     }
