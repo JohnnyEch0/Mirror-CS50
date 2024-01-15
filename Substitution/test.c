@@ -6,6 +6,7 @@
 
 bool validate_input(string key);
 bool has_letters(string key_l);
+bool encrypt(string key_e);
 string strupr(string key_u);
 
 
@@ -16,8 +17,8 @@ int main(int argc, string argv[])
         bool input_valid = validate_input(argv[1]);
         if (input_valid)
         {
-            printf("insert a function here if all ok");
-            bool input2_valid = bool encrypt()
+            // printf("insert a function here if all ok");
+            bool input2_valid = bool encrypt(argv[1])
         }
         else
             return 1; //return 1 if something isnt valid.
@@ -28,29 +29,7 @@ int main(int argc, string argv[])
         return 1;
     }
 
-    string message = get_string("What's the message to be encrypted?\n");
-    string cypher = message;
-    for (int i = 0; i < strlen(message); i++)
-        {
-            if (isupper(message[i]))
-            {
-                int cyp_pos = (int)(message[i]) - 65;
-                // printf("%c", argv[1][cyp_pos]);
-                cypher[i] = toupper(argv[1][cyp_pos]);
-            }
-            else if (islower(message[i]))
-            {
-                int cyp_pos = (int)(message[i]) - 97;
-                cypher[i] = tolower(argv[1][cyp_pos]);
-            }
-            else
-            {
-                printf("No Support for numb3rs or signs, sorry \n");
-                return 1;
-            }
 
-        }
-        printf("%s\n", cypher);
 }
 
 bool validate_input(string key)
@@ -58,12 +37,12 @@ bool validate_input(string key)
     int len = strlen(key);
     if (len == 26)
     {
-        printf("len verified\n");
+        // printf("len verified\n");
 
         string key_up = strupr(key);
 
         bool let_check = has_letters(key_up);
-        printf("has all letters is %s\n", let_check ? "true" : "false");
+        // printf("has all letters is %s\n", let_check ? "true" : "false");
         return true;
     }
     else
@@ -93,4 +72,33 @@ bool has_letters(string key_l)
             return false;
     }
     return true;
+}
+
+bool encrypt(string key_e)
+{
+    string message = get_string("What's the message to be encrypted?\n");
+    string cypher = message;
+    for (int i = 0; i < strlen(message); i++)
+        {
+            if (isupper(message[i]))
+            {
+                int cyp_pos = (int)(message[i]) - 65;
+                // printf("%c", argv[1][cyp_pos]);
+                cypher[i] = toupper(key_e[cyp_pos]);
+            }
+            else if (islower(message[i]))
+            {
+                int cyp_pos = (int)(message[i]) - 97;
+                cypher[i] = tolower(key_e[cyp_pos]);
+            }
+            else
+            {
+                printf("No Support for numb3rs or signs, sorry \n");
+                return false;
+                // break;
+            }
+
+        }
+        printf("%s\n", cypher);
+        return true;
 }
