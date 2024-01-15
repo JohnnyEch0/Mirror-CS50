@@ -6,6 +6,8 @@
 
 void validate_input(string key);
 bool has_letters(string key_l);
+string strupr(string key_u);
+
 
 int main(int argc, string argv[])
 {
@@ -36,14 +38,16 @@ void validate_input(string key)
         printf("input must be 26 letters\n");
 }
 
-string strupr(string)
+string strupr(string key_u)
 {
-    for (int i = 0; i < strlen(string), i++)
+    for (int i = 0; i < strlen(key_u), i++)
     {
-        if islower(string[i])
-            toupper(string[i]);
+        if islower(key_u[i])
+            toupper(key_u[i]);
     }
+    return key_u;
 }
+
 bool has_letters(string key_l)
 {
     for (int i=0; i < 26; i++)
