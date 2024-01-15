@@ -17,9 +17,8 @@ int main(int argc, string argv[])
     }
     else
         printf("Usage: .substitution key\n");
-    string abc = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
-
+    string message = get_string("What's the message to be encrypted?");
 }
 
 void validate_input(string key)
