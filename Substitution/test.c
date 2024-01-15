@@ -17,10 +17,10 @@ int main(int argc, string argv[])
         if (input_valid)
         {
             printf("insert a function here if all ok");
+            bool input2_valid = bool encrypt()
         }
         else
-            return 1;
-        // inster cyphering function here, return 0
+            return 1; //return 1 if something isnt valid.
     }
     else
     {
