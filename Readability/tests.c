@@ -9,7 +9,7 @@ int main(void)
     int spaces = 0;
     int non_let_spa = 0; // was punc_marks
     int txt_len = strlen(text);
-    int non_punc = 0;
+    int punc = 0; //was non_punc
 
     for (int i = 0, n = txt_len; i < n; i++)
     {
@@ -21,17 +21,18 @@ int main(void)
         }
         else if (letter <= 64)
         {
+            // we need to check if the char is ?,! or .
             non_let_spa++;
-            if (letter == 22) //excludes " in the end, however there's only 3 ways to end a sentence.....
+            if (letter == 21 || letter == )
             {
-                non_punc++;
+                punc++; //was non_punc
             }
         }
     }
 
     float non_letters = spaces+non_let_spa;
     int word_count = spaces+1;
-    int punc = non_let_spa - non_punc;
+    // int punc = non_let_spa - non_punc; //was non_punc
 
 
     float av_word_len = (float)(txt_len-non_letters) / word_count * 100;
