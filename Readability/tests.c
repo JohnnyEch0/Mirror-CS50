@@ -21,7 +21,7 @@ int main(void)
 
     }
 
-    float av_word_len = txt_len-spaces / (spaces+1);
+    float av_word_len = (txt_len-spaces) / (spaces+1);
 
     // printf("there are %i spaces in this text, which should tell me that it has %i words\n", spaces, spaces + 1);
     printf("%f is the average word length\n", av_word_len);
