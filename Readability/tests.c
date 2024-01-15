@@ -26,4 +26,5 @@ int main(void)
     float av_word_len = (float)(txt_len-non_letters) / (spaces+1) * 100;
 
     printf("%f is the average words per 100 words (kindoff haha)\n", av_word_len);
+    
 }
