@@ -1,0 +1,6 @@
+Substitution Notes
+
+1. get key from cmdl input
+2. check if the key is valid
+    is it 26(25) long?
+    does it contain each letter once
