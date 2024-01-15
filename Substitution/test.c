@@ -40,10 +40,10 @@ void validate_input(string key)
 
 string strupr(string key_u)
 {
-    for (int i = 0; i < strlen(key_u), i++)
+    for (int i = 0; i < strlen(key_u); i++)
     {
         if islower(key_u[i])
-            toupper(key_u[i]);
+            key_u[i] = toupper(key_u[i]);
     }
     return key_u;
 }
