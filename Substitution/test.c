@@ -19,9 +19,9 @@ int main(int argc, string argv[])
         printf("Usage: .substitution key\n");
 
     string message = get_string("What's the message to be encrypted?\n");
+    string cypher = message;
     for (int i = 0; i > strlen(message); i++)
         {
-            string cypher = message;
             if (isupper(message[i]))
             {
                 int cyp_pos = (int)(message[i]) - 65;
