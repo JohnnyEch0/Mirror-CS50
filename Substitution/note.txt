@@ -4,3 +4,12 @@ Substitution Notes
 2. check if the key is valid
     is it 26(25) long?
     does it contain each letter once
+    is there a non-alphabetic letter
+    was there another arg given or was there non arg given -> printf
+3. output: plaintext:(nonewline) - wait for input
+4. change each letter in the input to the corresponding letter in the key
+5. print the cyphertext
+
+
+
+- key should be case insensitive
