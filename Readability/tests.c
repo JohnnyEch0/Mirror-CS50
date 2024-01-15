@@ -6,8 +6,9 @@ int main(void)
 {
     string text = get_string("Please give me the text to evaluate:");
     int spaces = 0;
+    txt_len = strlen(text);
 
-    for (int i = 0, n = strlen(text); i < n; i++)
+    for (int i = 0, n = txt_len; i < n; i++)
     {
         int letter = text[i];
 
@@ -20,7 +21,7 @@ int main(void)
 
     }
 
-    float av_word_len = strlen(text)-spaces / (spaces+1);
+    float av_word_len = txt_len-spaces / (spaces+1);
 
     // printf("there are %i spaces in this text, which should tell me that it has %i words\n", spaces, spaces + 1);
     printf("%f is the average word length\n", av_word_len);
