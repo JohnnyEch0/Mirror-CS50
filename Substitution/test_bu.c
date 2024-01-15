@@ -4,7 +4,7 @@
 #include <string.h>
 
 
-bool validate_input(string key);
+void validate_input(string key);
 bool has_letters(string key_l);
 string strupr(string key_u);
 
@@ -13,13 +13,7 @@ int main(int argc, string argv[])
 {
     if (argc == 2)
     {
-        bool input_valid = validate_input(argv[1]);
-        if (input_valid)
-        {
-
-        }
-        else
-            return 1;
+        validate_input(argv[1]);
         // inster cyphering function here, return 0
     }
     else
@@ -51,7 +45,7 @@ int main(int argc, string argv[])
         printf("%s\n", cypher);
 }
 
-bool validate_input(string key)
+void validate_input(string key)
 {
     int len = strlen(key);
     if (len == 26)
