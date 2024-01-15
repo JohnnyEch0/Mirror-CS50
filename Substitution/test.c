@@ -40,12 +40,9 @@ bool validate_input(string key)
     int len = strlen(key);
     if (len == 26)
     {
-        // printf("len verified\n");
-
         string key_up = strupr(key);
 
         bool let_check = has_letters(key_up);
-        // printf("has all letters is %s\n", let_check ? "true" : "false");
         return true;
     }
     else
@@ -70,7 +67,6 @@ bool has_letters(string key_l)
     for (int i=0; i < 26; i++)
     {
         char *test = strchr(key_l, (int)'A' + i);
-        // printf("%c is the letter being checked for\n", (char)('A' + i));
         if (test == NULL)
             return false;
     }
@@ -86,7 +82,6 @@ bool encrypt(string key_e)
             if (isupper(message[i]))
             {
                 int cyp_pos = (int)(message[i]) - 65;
-                // printf("%c", argv[1][cyp_pos]);
                 cypher[i] = toupper(key_e[cyp_pos]);
             }
             else if (islower(message[i]))
@@ -98,9 +93,7 @@ bool encrypt(string key_e)
             {
                 printf("No Support for numb3rs or signs, sorry \n");
                 return false;
-                // break;
             }
-
         }
         printf("%s\n", cypher);
         return true;
