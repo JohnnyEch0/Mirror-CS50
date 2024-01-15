@@ -6,8 +6,9 @@
 int main(void)
 {
     string text = get_string("Please give me the text to evaluate:");
+    
     int spaces = 0;
-    int non_let_spa = 0; 
+    int non_let_spa = 0;
     int txt_len = strlen(text);
     int punc = 0;
 
