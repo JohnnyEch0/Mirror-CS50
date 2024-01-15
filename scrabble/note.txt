@@ -4,7 +4,8 @@ Readability Notes
 1. Evaluate the text for average word length per word(L)
     how to check for single words?
     - a function that cuts the entire string into seperate strings
-        - via " " 
+        - via " "
 2. Evaluate the text for average sentence length (S)
+    NUMBER OF SENTENCES PER 100 WORDS
 3. Calculate the grade
 4. Output the grade
