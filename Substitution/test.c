@@ -17,6 +17,7 @@ int main(int argc, string argv[])
     }
     else
         printf("Usage: .substitution key\n");
+        return 1;
 
     string message = get_string("What's the message to be encrypted?\n");
     string cypher = message;
