@@ -1,5 +1,5 @@
 #include <cs50.h>
-#include <stdio.h>
+#include<stdio.h>
 #include <ctype.h>
 #include <string.h>
 
@@ -26,7 +26,7 @@ void validate_input(string key)
     if (len == 26)
     {
         printf("len verified\n");
-        
+
         string key_up = strupr(key);
 
         bool let_check = has_letters(key_up);
