@@ -16,7 +16,7 @@ int main(int argc, string argv[])
         bool input_valid = validate_input(argv[1]);
         if (input_valid)
         {
-
+            printf("insert a function here if all ok");
         }
         else
             return 1;
