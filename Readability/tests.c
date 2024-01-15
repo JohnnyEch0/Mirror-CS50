@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <cs50.h>
 #include <string.h>
+#include <math.h>
 
 int main(void)
 {
@@ -32,6 +33,8 @@ int main(void)
     // printf("%f is the average words per 100 words (kindoff haha)\n", av_word_len);
     // printf("there are %f sentences per 100 words", sen_p_words);
 
-    index = 0.0588 * av_word_len - 0.296 * sen_p_words - 15.8
+    int index = round(0.0588 * av_word_len - 0.296 * sen_p_words - 15.8);
+
+    printf("Level: %i\n", index);
 
 }
