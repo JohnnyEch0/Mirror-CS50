@@ -20,16 +20,17 @@ int main(int argc, string argv[])
 
     string message = get_string("What's the message to be encrypted?\n");
     string cypher = message;
-    for (int i = 0; i > strlen(message); i++)
+    for (int i = 0; i < strlen(message); i++)
         {
             if (isupper(message[i]))
             {
                 int cyp_pos = (int)(message[i]) - 65;
-                printf("%c", argv[1][cyp_pos]);
+                // printf("%c", argv[1][cyp_pos]);
                 cypher[i] = argv[1][cyp_pos];
             }
-            printf("%s\n", cypher);
+
         }
+        printf("%s\n", cypher);
 }
 
 void validate_input(string key)
