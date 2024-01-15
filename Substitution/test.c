@@ -37,6 +37,7 @@ bool has_letters(string key_l)
     for (int i=0; i < 25; i++)
     {
         char *test = strchr(key_l, (int)'a' + i);
+        printf(")
         if (test == NULL)
             return false;
     }
