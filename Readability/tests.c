@@ -27,16 +27,12 @@ int calc_index(string input)
         int letter = input[i];
 
         if (letter == 32)
-        {
             spaces++;
-        }
         else if (letter <= 64) // we need to check if the char is ?,! or .
         {
             non_let_spa++;
             if (letter == 33 || letter == 63 || letter == 46)
-            {
                 punc++;
-            }
         }
     }
 
@@ -53,15 +49,9 @@ int calc_index(string input)
 void print_answer(int p_index)
 {
     if (p_index < 1)
-    {
         printf("Before Grade 1\n");
-    }
     else if (p_index > 16)
-    {
         printf("Grade 16+\n");
-    }
     else
-    {
         printf("Grade %i\n", p_index);
-    }
 }
