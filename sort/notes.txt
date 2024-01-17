@@ -1,0 +1,34 @@
+sort1 uses: TODO
+
+How do you know?: TODO
+- really fast w random 5k, 10k
+- random 50k - takes long to start, quick to finish  -->  r6, u5, s0
+- sorted 50k doesnt take long to start --> r0.6 u0.04 s 0.03
+- rev r5, u4,5
+
+--> this is the slowerst with random, but really fast with sorted
+GUess: this is binary sort, bc when set is sorted, its really fast, bc only n steps are done, theta n
+
+
+sort2 uses: TODO
+
+How do you know?: TODO
+- r50k  seems quite liquid r0.6 u 0.02 sys 0.3   just as sorted
+- rev 0.5, u 0.02
+
+--> this should be merge sort, because its the fastest across every set
+
+
+
+
+sort3 uses: TODO
+
+How do you know?: TODO
+- really fast w r 5k
+- random 50k - takes long to start, quick to finish r2.248 u1.7 s0.3
+- sorted 50k ABOUT THE SAME TIME --> r 3, u2, s0.3
+- rev --> r 2,7 - u2
+
+
+--> this is fast with random, but just as fast with sorted
+
