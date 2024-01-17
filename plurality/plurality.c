@@ -88,7 +88,7 @@ void print_winner(void)
     // TODO
     // Find out who has the most votes - by ordering everbody and printing the first
     candidate winner = find_winner();
-    printf("%s wins the election with %i Votes", winner.name, winner.votes);
+    printf("%s wins the election with %i Votes.\n", winner.name, winner.votes);
 
 
     return;
