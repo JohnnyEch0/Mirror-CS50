@@ -110,5 +110,7 @@ candidate find_winner(void)
 
     return highest_fn;
 
+    // you can add each winner to a winners group of candidates and in the end print %s for every i in tracked number of winners
+
 
 }
