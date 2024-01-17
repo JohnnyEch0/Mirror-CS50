@@ -86,12 +86,14 @@ void print_winner(void)
 {
     // TODO
     // Find out who has the most votes - by ordering everbody and printing the first
+    candidate winner = find_winner();
+    printf("%s wins the election with %i Votes", winner.name, winner.votes);
 
 
     return;
 }
 
-void find_winner(void)
+candidate find_winner(void)
 {
     // order the candidates by their votes
 
@@ -105,5 +107,7 @@ void find_winner(void)
             highest_fn = candidates[i];
     }
 
-    
+    return highest_fn
+
+
 }
