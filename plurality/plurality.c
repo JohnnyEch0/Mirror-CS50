@@ -93,5 +93,17 @@ void print_winner(void)
 
 void find_winner(void)
 {
+    // order the candidates by their votes
 
+    // ini a variable to compare each candidate against
+    candidate highest_fn = candidates[0];
+
+    // loop through candidates and replace highest_fn if a a value is higher
+    for (int i = 0; i < candidate_count; i++)
+    {
+        if (candidates[i].votes > highest_fn)
+            highest_fn = candidates[i];
+    }
+
+    
 }
