@@ -104,11 +104,11 @@ candidate find_winner(void)
     // loop through candidates and replace highest_fn if a a value is higher
     for (int i = 0; i < candidate_count; i++)
     {
-        if (candidates[i].votes > highest_fn)
+        if (candidates[i].votes > highest_fn.votes)
             highest_fn = candidates[i];
     }
 
-    return highest_fn
+    return highest_fn;
 
 
 }
