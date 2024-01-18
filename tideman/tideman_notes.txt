@@ -15,10 +15,10 @@
 
     a) Vote
     bekommt j ( Wahlreihe), name (für wen wurde gestimmt) und ranks (Liste die wir updaten müssen)
-    
+
     Wird für jeden Kandidaten einmal gerufen
 
-    Am Ende soll ranks[i] der i-te Wahlwunsch sein
+    Am Ende soll INT ranks[i] der i-te Wahlwunsch sein
 
 
 
