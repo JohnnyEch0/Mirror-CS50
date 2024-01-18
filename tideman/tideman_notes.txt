@@ -20,6 +20,8 @@
 
     Am Ende soll INT ranks[i] der i-te Wahlwunsch sein
 
+    Tina, John, Chris
+
 
 
 2. Sortiere die Paare nach Stärke des Sieges. (Stärke = Anzahl der Wähler die x bevorzugen)
