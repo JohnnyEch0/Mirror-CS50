@@ -24,6 +24,9 @@
     ranks[0] = Nr of TIna
     ranks[1] = Nr of John
 
+    b)
+    
+
 
 
 2. Sortiere die Paare nach Stärke des Sieges. (Stärke = Anzahl der Wähler die x bevorzugen)
