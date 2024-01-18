@@ -41,37 +41,32 @@ int main(int argc, string argv[])
         printf("Maximum number of candidates is %i\n", MAX);
         return 2;
     }
+
+    // Initialize the Array of Candidates with argv
     for (int i = 0; i < candidate_count; i++)
     {
         candidates[i].name = argv[i + 1];
         candidates[i].votes = 0;
     }
 
+    // get votes and check validity
     int voter_count = get_int("Number of voters: ");
 
-    // Loop over all voters
     for (int i = 0; i < voter_count; i++)
     {
         string name = get_string("Vote: ");
-
-        // Check for invalid vote
-        if (!vote(name))
+        if (!vote(name)) // while testing, this also increases candidates[i].votes if True
         {
             printf("Invalid vote.\n");
         }
     }
-
-    // Display winner of election
-
     print_winner();
 }
 
-// Update vote totals given a new vote
 bool vote(string name)
 {
     for (int i = 0; i < candidate_count; i++)
     {
-        // string name_check = candidate[i].name;
         if (!strcmp(name, candidates[i].name))
         {
             candidates[i].votes++;
@@ -84,8 +79,8 @@ bool vote(string name)
 // Print the winner (or winners) of the election
 void print_winner(void)
 {
-    candidate winner = find_winner();
-    for (int i = 0; i < candidate_count; i++)
+    candidate winner = find_winner(); // this measures the highest nr of votes
+    for (int i = 0; i < candidate_count; i++) //now print everybody w that number
     {
         if (candidates[i].votes == winner.votes)
             printf("%s\n", candidates[i].name);
