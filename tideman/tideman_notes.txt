@@ -13,6 +13,8 @@
 
     preferences[i][j] gibt an wieviele Wähler i besser fanden als  j
 
+    
+
 
 2. Sortiere die Paare nach Stärke des Sieges. (Stärke = Anzahl der Wähler die x bevorzugen)
 
