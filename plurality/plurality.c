@@ -75,7 +75,6 @@ bool vote(string name)
         if (!strcmp(name, candidates[i].name))
         {
             candidates[i].votes++;
-            printf("%s  has %i votes\n", candidates[i].name, candidates[i].votes);
             return true;
         }
     }
@@ -88,10 +87,12 @@ void print_winner(void)
     // TODO
     // Find out who has the most votes - by ordering everbody and printing the first
     candidate winner = find_winner();
-    printf("%s wins the election with %i Votes.\n", winner.name, winner.votes);
-
-
-    return;
+    for (int i = 0; i < candidate_count; i++)
+    {
+        if (candidates[i].votes == winner.votes)
+            printf("%s\n", candidates[i].name);
+    }
+    // printf("%s \n", winner.name, winner.votes);
 }
 
 candidate find_winner(void)
