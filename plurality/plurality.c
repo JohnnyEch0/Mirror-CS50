@@ -84,34 +84,21 @@ bool vote(string name)
 // Print the winner (or winners) of the election
 void print_winner(void)
 {
-    // TODO
-    // Find out who has the most votes - by ordering everbody and printing the first
     candidate winner = find_winner();
     for (int i = 0; i < candidate_count; i++)
     {
         if (candidates[i].votes == winner.votes)
             printf("%s\n", candidates[i].name);
     }
-    // printf("%s \n", winner.name, winner.votes);
 }
 
 candidate find_winner(void)
 {
-    // order the candidates by their votes
-
-    // ini a variable to compare each candidate against
     candidate highest_fn = candidates[0];
-
-    // loop through candidates and replace highest_fn if a a value is higher
     for (int i = 0; i < candidate_count; i++)
     {
         if (candidates[i].votes > highest_fn.votes)
             highest_fn = candidates[i];
     }
-
     return highest_fn;
-
-    // you can add each winner to a winners group of candidates and in the end print %s for every i in tracked number of winners
-
-
 }
