@@ -5,6 +5,12 @@
 
 
 1. Für jedes Paar, finde heraus wer gewonnen hat und wie sehr.
+
+    candidates[i] ist eine Liste der Kandidaten
+
+    pair is Int Winner and Int Looser
+    pairs is a list of the pair
+
     preferences[i][j] gibt an wieviele Wähler i besser fanden als  j
 
 
