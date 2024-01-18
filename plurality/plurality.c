@@ -18,12 +18,10 @@ candidate candidates[MAX];
 // Number of candidates
 int candidate_count;
 
-
 // Function prototypes
 bool vote(string name);
 void print_winner(void);
 candidate find_winner(void);
-
 
 int main(int argc, string argv[])
 {
@@ -79,8 +77,8 @@ bool vote(string name)
 // Print the winner (or winners) of the election
 void print_winner(void)
 {
-    candidate winner = find_winner(); // this measures the highest nr of votes
-    for (int i = 0; i < candidate_count; i++) //now print everybody w that number
+    candidate winner = find_winner();         // this measures the highest nr of votes
+    for (int i = 0; i < candidate_count; i++) // now print everybody w that number
     {
         if (candidates[i].votes == winner.votes)
             printf("%s\n", candidates[i].name);
