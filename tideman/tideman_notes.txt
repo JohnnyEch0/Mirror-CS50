@@ -15,8 +15,11 @@
 
     a) Vote
     bekommt j ( Wahlreihe), name (für wen wurde gestimmt) und ranks (Liste die wir updaten müssen)
-    Am Ende soll ranks[i] der i-te Wahlwunsch sein
     
+    Wird für jeden Kandidaten einmal gerufen
+
+    Am Ende soll ranks[i] der i-te Wahlwunsch sein
+
 
 
 2. Sortiere die Paare nach Stärke des Sieges. (Stärke = Anzahl der Wähler die x bevorzugen)
