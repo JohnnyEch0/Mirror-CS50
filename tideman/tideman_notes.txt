@@ -21,6 +21,8 @@
     Am Ende soll INT ranks[i] der i-te Wahlwunsch sein
 
     Tina, John, Chris
+    ranks[0] = Nr of TIna
+    ranks[1] = Nr of John
 
 
 
