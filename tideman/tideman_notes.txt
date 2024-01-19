@@ -31,6 +31,15 @@
         fill candidates with [i][j] where j is the number of candidates of a higher rank
 
 
+ranks[0] = i --> This i is equal to the Candidates i, if 0 it might be John
+
+candidates[John, Mike Sven]
+Vote: John, Sven, Mike
+ranks[0] = 0
+ranks[1] = 2
+ranks[2] = 1
+
+
 
 
 2. Sortiere die Paare nach Stärke des Sieges. (Stärke = Anzahl der Wähler die x bevorzugen)
