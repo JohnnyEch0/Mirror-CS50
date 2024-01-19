@@ -122,7 +122,9 @@ void record_preferences(int ranks[])
     // loop through the fckin ranks
     for (int i = 0; i < candidate_count; i++)
     {
-        // each higher rank is 
+        // each higher rank is to be added into candidates
+        // 3 cand   rank0 --> j0,1,2
+        //          rank1 --> j0,1
         for (int j = 0; j < candidate_count-i; j++)
             preferences[rank[i]][rank[i+x]]++;
         // candidates[ranks[i]]
