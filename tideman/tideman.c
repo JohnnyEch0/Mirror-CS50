@@ -174,6 +174,7 @@ void add_pairs(void)
 void sort_pairs(void)
 {
     // TODO
+    // theres a number of pairs, who win by different amounts
     return;
 }
 
