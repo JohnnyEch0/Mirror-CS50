@@ -191,6 +191,8 @@ void sort_pairs(void)
                 int mem_pos = i;
                 mem_value = preferences[pairs[i].winner][pairs[i].loser]
             }
+            1,2,4,3
+            0,1,2,3
         }
 
 
