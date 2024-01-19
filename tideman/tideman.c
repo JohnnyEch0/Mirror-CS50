@@ -178,20 +178,22 @@ void sort_pairs(void)
     {
         // pairs[0], pairs[1] are i
         // preferences[pairs[i].winner][pairs[i].loser] = its points
-        int i_value = preferences[pairs[i].winner][pairs[i].loser];
+        int mem_value = preferences[pairs[i].winner][pairs[i].loser];
 
         for (int j = 1; j < pair_count; j++)
         {
             //compare it with the other pairs, pairs[j]
             int j_value = preferences[pairs[j].winner][pairs[j].loser];
-            if (i_value < j_value)
+
+            if (mem_value < j_value)
             {
                 pair mem_pair = pairs[i];
                 int mem_pos = i;
+                mem_value = preferences[pairs[i].winner][pairs[i].loser]
             }
         }
 
-        
+
     }
 
     // debug print stuffff
