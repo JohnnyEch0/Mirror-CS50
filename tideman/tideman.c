@@ -179,12 +179,14 @@ void sort_pairs(void)
     {
         for (int j = 1; j < pair count -1; j++)
         {
+            pair mem_pair;
+            
             if (preferences[i][j] < preferences[i][j+1])
             {
                 // int mem = preferences[i][j];
-                pair mem_pair = {candidates[i], candidates[j]}
+                mem_pair = {candidates[i], candidates[j]}
             }
-            
+
         }
     }
     return;
