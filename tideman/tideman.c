@@ -202,9 +202,7 @@ void sort_pairs(void)
         // mem_pair2 = pairs[pait_count-1-i];
         // pairs[pair_count-1-i] = mem_pair;
 
-        pair mem_pair2 = pairs[pair_count-1-i];
-        pairs[pair_count-1-i] = low_pair;
-        pairs[low_pair_pos] = mem_pair2;
+        swap(pairs[pair_count-1-i], low_pair_pos)
         //Low_pair_pos might not even be set here, if no low value was ever found
 
     }
@@ -219,7 +217,7 @@ void sort_pairs(void)
     return;
 }
 
-void swap(pair swap_set[1], pair swapset[2], pair swap_set[])
+void swap(pair swap_set[1], pair swapset[2])
 {
     pair temp = swap_set[1];
     swap_set[1] = swap_set[2];
