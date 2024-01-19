@@ -87,7 +87,7 @@ int main(int argc, string argv[])
 
         record_preferences(ranks);
 
-        printf("\n");
+        // printf("\n");
     }
 
     add_pairs();
