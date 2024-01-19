@@ -146,6 +146,12 @@ void add_pairs(void)
     // TODO
     // read preferences
     // pair is a list of pairs that consist of int winner and int looser
+
+    // for every candidate[i], when preferences[i][j] is > then [j][i] create pair candidate[i] candidate[j]
+    for (int i = 0; i < candidate_count; i++)
+    {
+        
+    }
     return;
 }
 
