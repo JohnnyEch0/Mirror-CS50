@@ -123,10 +123,14 @@ void record_preferences(int ranks[])
     {
         for (int j = candidate_count; j > i; j++)
         {
-            if (candidate)
+            if (ranks[i] < ranks[j])
+            {
+                preferences[i][j]++;
+            }
         }
         // candidates[ranks[i]]
         // preferences[candidates[rank[i]]][candidates[rank[i+]]]
+        printf(")
     }
     return;
 }
