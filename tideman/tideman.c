@@ -194,11 +194,11 @@ void sort_pairs(void)
 
             if (j_value > j2_value)
             {
-                swap(pairs[j], pairs[j+1]);
+                swap(&pairs[j], &pairs[j+1]);
                 swapped = true;
             }
         }
-        if (swapped = false)
+        if (swapped == false)
             break;
 
         //Low_pair_pos might not even be set here, if no low value was ever found
