@@ -205,6 +205,7 @@ void sort_pairs(void)
         pair mem_pair2 = pairs[pair_count-1-i];
         pairs[pair_count-1-i] = low_pair;
         pairs[low_pair_pos] = mem_pair2;
+        //Low_pair_pos might not even be set here, if no low value was ever found
 
     }
 
