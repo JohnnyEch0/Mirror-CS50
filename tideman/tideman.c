@@ -136,8 +136,6 @@ void record_preferences(int ranks[])
             preferences[ranks[i]][ranks[j+1+i]]++;
             printf("%i points %s over %s\n",   preferences[ranks[i]][ranks[j+1+i]],  candidates[ranks[i]], candidates[ranks[j+i+1]]);
         }
-        // candidates[ranks[i]]
-        // preferences[candidates[rank[i]]][candidates[rank[i+]]]
     }
     return;
 }
