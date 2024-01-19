@@ -175,6 +175,8 @@ void sort_pairs(void)
 {
     // TODO
     // theres a number of pairs, who win by different     amounts     =preferences[pairs[pair_nr].winner][pairs[pair_rn].loser]
+    for (int i = 0; i < pair count; i++)
+        
     return;
 }
 
