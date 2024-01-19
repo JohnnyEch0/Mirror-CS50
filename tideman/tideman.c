@@ -180,11 +180,13 @@ void sort_pairs(void)
         for (int j = 1; j < pair count -1; j++)
         {
             pair mem_pair;
-            
-            if (preferences[i][j] < preferences[i][j+1])
+            int mem_value = 100; //magic number
+
+            if (preferences[i][j] < preferences[i][j+1] && preferences[i][j] < mem_value)
             {
                 // int mem = preferences[i][j];
-                mem_pair = {candidates[i], candidates[j]}
+                mem_pair = {candidates[i], candidates[j]};
+                mem_value = preferences[i][j];
             }
 
         }
