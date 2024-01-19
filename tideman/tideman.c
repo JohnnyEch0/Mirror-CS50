@@ -178,6 +178,7 @@ void sort_pairs(void)
     {
         pair mem_pair;
         int mem_value = 100; //magic number, number of voters +1 would work
+        int mem_pos = 0;
 
         for (int j = 1; j < pair_count -1; j++)
         {
@@ -187,6 +188,7 @@ void sort_pairs(void)
                 mem_pair.winner = candidates[i];
                 mem_pair.loser = candidates[j];
 
+                mem_pos = 
                 mem_value = preferences[i][j];
             }
         }
