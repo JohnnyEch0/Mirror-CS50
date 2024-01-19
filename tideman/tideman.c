@@ -186,11 +186,12 @@ void sort_pairs(void)
                 // int mem = preferences[i][j];
                 mem_pair.winner = candidates[i];
                 mem_pair.loser = candidates[j];
-                
+
                 mem_value = preferences[i][j];
             }
         }
         pairs[pair_count-1-i] = mem_pair;       // replace last pair with the mem_pair
+                                                // 
 
     }
     for (int k = 0; k < pair_count; k++)
