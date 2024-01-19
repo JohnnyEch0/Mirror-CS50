@@ -184,11 +184,12 @@ void sort_pairs(void)
             if (preferences[i][j] < preferences[i][j+1] && preferences[i][j] < mem_value)
             {
                 // int mem = preferences[i][j];
-                mem_pair = {candidates[i], candidates[j]};
+                mem_pair.winner = candidates[i];
+                mem_pair.loser = candidates[j];
                 mem_value = preferences[i][j];
             }
         }
-        pairs[pair_count-1-i] = mem_pair;
+        pairs[pair_count-1-i] = mem_pair;       replace last pair with the mem_pair
     }
     for (int k = 0; k < pair_count; k++)
         {
