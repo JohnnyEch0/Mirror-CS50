@@ -192,13 +192,16 @@ void sort_pairs(void)
 
                 // loop through the values of the other pairs, if a smaller one is found, replace
                 i_value = j_value;
-                
+                pair low_pair = pairs[j];
+                int low_pair_pos = j;
             }
         }
         // mem_pair2 = pairs[pait_count-1-i];
         // pairs[pair_count-1-i] = mem_pair;
 
-
+        mem_pair2 = pairs[pait_count-1-i];
+        pairs[pair_count-1-i] = low_pair;
+        pairs[low_pair_pos] = mem_pair2;
 
     }
 
