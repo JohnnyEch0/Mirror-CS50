@@ -188,7 +188,7 @@ void sort_pairs(void)
                 mem_pair.winner = candidates[i];
                 mem_pair.loser = candidates[j];
 
-                mem_pos = 
+                mem_pos = j
                 mem_value = preferences[i][j];
             }
         }
