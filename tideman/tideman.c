@@ -179,6 +179,8 @@ void sort_pairs(void)
         // pairs[0], pairs[1] are i
         // preferences[pairs[i].winner][pairs[i].loser] = its points
         int i_value = preferences[pairs[i].winner][pairs[i].loser];
+        pair low_pair;
+        int low_pair_pos;
 
         for (int j = 1; j < pair_count; j++)
         {
@@ -192,8 +194,8 @@ void sort_pairs(void)
 
                 // loop through the values of the other pairs, if a smaller one is found, replace
                 i_value = j_value;
-                pair low_pair = pairs[j];
-                int low_pair_pos = j;
+                low_pair = pairs[j];
+                low_pair_pos = j;
             }
         }
         // mem_pair2 = pairs[pait_count-1-i];
