@@ -219,9 +219,11 @@ void sort_pairs(void)
     return;
 }
 
-void swap(pair *xp, pair *yp)
+void swap(pair one, pair two, pair pairs[])
 {
-    pair temp = 
+    pair temp = pair one;
+    pair one = pair two;
+    pair two = pair one;
 
 }
 
