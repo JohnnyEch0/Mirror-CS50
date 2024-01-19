@@ -173,7 +173,7 @@ void add_pairs(void)
 void sort_pairs(void)
 {
     // TODO
-    // theres a number of pairs, who win by different     amounts     =preferences[pairs[pair_nr].winner][pairs[pair_rn].loser]
+    // theres a number of pairs, who win by different     amounts     =preferences[pairs[pair_nr].winner][pairs[pair_nr].loser]
     for (int i = 0; i < pair_count; i++)
     {
         pair mem_pair;
