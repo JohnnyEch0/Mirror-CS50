@@ -192,7 +192,7 @@ void sort_pairs(void)
             int j2_value = preferences[pairs[j+1].winner][pairs[j+1].loser];
 
 
-            if (j_value > j2_value)
+            if (j_value < j2_value)
             {
                 swap(&pairs[j], &pairs[j+1]);
                 swapped = true;
