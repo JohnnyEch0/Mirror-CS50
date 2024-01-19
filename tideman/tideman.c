@@ -124,9 +124,15 @@ void record_preferences(int ranks[])
     {
         // each higher rank is to be added into candidates
         // 3 cand   rank0 --> j0,1,2
+        //              j0 pref[candidate at rank[i=0]][candidate at rank[1 = j+1]]
+        //              j1 pref[candidate at rank[i=0]][candidate at rank[2= j+1]]
+
         //          rank1 --> j0,1
+                    //  j0 pref[candidate at rank[i= 1]][candidate at rank [1 = j+1]]
+                    //  j1 pref[candidate at rank[i=1]][candidate at rank [2 = j+1]]
+                    
         for (int j = 0; j < candidate_count-i; j++)
-            preferences[rank[i]][rank[i+x]]++;
+            preferences[rank[i]][rank[j+1]]++;
         // candidates[ranks[i]]
         // preferences[candidates[rank[i]]][candidates[rank[i+]]]
     }
