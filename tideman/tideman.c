@@ -32,6 +32,7 @@ void add_pairs(void);
 void sort_pairs(void);
 void lock_pairs(void);
 void print_winner(void);
+void swap(pair swap_set[1], pair swapset[2]);
 
 int main(int argc, string argv[])
 {
@@ -182,24 +183,24 @@ void sort_pairs(void)
         int i_value = preferences[pairs[i].winner][pairs[i].loser];
         pair low_pair;
         int low_pair_pos;
-        bool swap;
+        bool swapped;
 
         for (int j = 0; j < pair_count; j++)
         {
             //compare it with the other pairs, pairs[j]
             int j_value = preferences[pairs[j].winner][pairs[j].loser];
-            int j2_value = preferences[pairs[j+1].winner][pairs[j].loser];
-            
+            int j2_value = preferences[pairs[j+1].winner][pairs[j+1].loser];
 
-            if (i_value > j_value)
+
+            if (j_value > j2_value)
             {
-                i_value = j_value;
-                low_pair = pairs[j];
-                low_pair_pos = j;
+                swap(pairs[j], pairs[j+1]);
+                swapped = true;
             }
         }
+        if (swapped = false)
+            break;
 
-        swap(pairs[pair_count-1-i], low_pair_pos)
         //Low_pair_pos might not even be set here, if no low value was ever found
 
     }
