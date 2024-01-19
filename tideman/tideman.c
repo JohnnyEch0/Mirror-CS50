@@ -199,7 +199,7 @@ void sort_pairs(void)
         // mem_pair2 = pairs[pait_count-1-i];
         // pairs[pair_count-1-i] = mem_pair;
 
-        mem_pair2 = pairs[pait_count-1-i];
+        pair mem_pair2 = pairs[pair_count-1-i];
         pairs[pair_count-1-i] = low_pair;
         pairs[low_pair_pos] = mem_pair2;
 
