@@ -123,7 +123,7 @@ void record_preferences(int ranks[])
     {
         for (int j = 0; j < candidate_count; j++)
         {
-            if (ranks[i] < ranks[j])
+            if (ranks[i] < ranks[j]) // rank indexes are not candidate indexes,
             {
                 preferences[i][j]++;
                 printf("%s overr %s : %i\n",candidates[i], candidates[j], preferences[i][j]);
