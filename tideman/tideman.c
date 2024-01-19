@@ -145,6 +145,7 @@ void add_pairs(void)
 {
     // TODO
     // read preferences
+    // pair is a list of pairs that consist of int winner and int looser
     return;
 }
 
