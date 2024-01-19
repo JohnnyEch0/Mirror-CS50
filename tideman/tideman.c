@@ -188,10 +188,11 @@ void sort_pairs(void)
                 mem_pair.winner = candidates[i];
                 mem_pair.loser = candidates[j];
 
-                mem_pos = j
+
                 mem_value = preferences[i][j];
             }
         }
+        mem_pair2 = pairs[pait_count-1-i];
         pairs[pair_count-1-i] = mem_pair;       // replace last pair with the mem_pair
                                                 // replace mem_pairs old location with last pair
 
