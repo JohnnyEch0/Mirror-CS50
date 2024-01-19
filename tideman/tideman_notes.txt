@@ -27,6 +27,9 @@
     b) record_preferences
     Aus Ranks[x] sollen jetzt John> Tina; John> Chris, Tina > Chris geholt werden
 
+    for every rank i
+        fill candidates with [i][j] where j is the number of candidates of a higher rank
+
 
 
 
