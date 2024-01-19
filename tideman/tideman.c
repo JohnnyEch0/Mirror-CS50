@@ -120,10 +120,10 @@ void record_preferences(int ranks[])
     // TODO
     // ranks[0,1,2] for candidate
     // loop through the fckin ranks
-    for (int i = 0; i < candidate_count; i++)
+    for (int i = 0; i < candidate_count-1; i++)
     {
         // each higher rank is to be added into candidates
-        // 3 cand   rank0 --> j0,1
+        // 3 cand   rank0 -->
                     //  loop j > c_c(3) -i(0)    -1     =[2] times
         //              j0 pref[candidate at rank[i=0]][candidate at rank[1 = j+1+i]]
         //              j1 pref[candidate at rank[i=0]][candidate at rank[2= j+1+i]]
@@ -132,7 +132,10 @@ void record_preferences(int ranks[])
                     //  j0 pref[candidate at rank[i= 1]][candidate at rank [2 = j+1+i]]
 
         for (int j = 0; j < candidate_count-1 -i; j++)
-            preferences[rank[i]][rank[j+1+i]]++;
+        {
+            preferences[ranks[i]][ranks[j+1+i]]++;
+            printf("%i points %s over %s",   preferences[ranks[i]][ranks[j+1+i]],  candidates[ranks[i]], candidates[ranks[j+i+1]]);
+        }
         // candidates[ranks[i]]
         // preferences[candidates[rank[i]]][candidates[rank[i+]]]
     }
