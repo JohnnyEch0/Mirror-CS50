@@ -182,7 +182,7 @@ void sort_pairs(void)
             if (preferences[i][j] < preferences[i][j+1])
             {
                 // int mem = preferences[i][j];
-                pair mem_pair = {}
+                pair mem_pair = {candidates[i], candidates[j]}
             }
         }
     }
