@@ -219,6 +219,12 @@ void sort_pairs(void)
     return;
 }
 
+void swap(pair *xp, pair *yp)
+{
+    pair temp = 
+
+}
+
 // Lock pairs into the candidate graph in order, without creating cycles
 void lock_pairs(void)
 {
