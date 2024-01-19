@@ -122,6 +122,9 @@ void record_preferences(int ranks[])
     for (int i = 0; o < getlen(ranks); i++)  //getlen(ranks) == candidate_count
     {
         for (int j = candidate_count; j > i; j++)
+        {
+            if (candidate)
+        }
         // candidates[ranks[i]]
         // preferences[candidates[rank[i]]][candidates[rank[i+]]]
     }
