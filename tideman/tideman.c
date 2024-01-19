@@ -159,7 +159,7 @@ void add_pairs(void)
             //check wether pref[i][j+1+i] > then its counterpart
             if preferences[i][j+i+1] > preferences[i+j+1][i]
             {
-                pairs[pair_nr] = preferences[i]
+                pairs[pair_nr] = {
                 //create a pair and add them to pairs
             }
         }
