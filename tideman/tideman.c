@@ -150,6 +150,7 @@ void add_pairs(void)
     // for every candidate[i], when preferences[i][j] is > then [j][i] create pair candidate[i] candidate[j]
 
     // for every candidate[i]
+    int pair_nr = 0
     for (int i = 0; i < candidate_count; i++)
     {
         //loop through every other candidate
@@ -158,6 +159,7 @@ void add_pairs(void)
             //check wether pref[i][j+1+i] > then its counterpart
             if preferences[i][j+i+1] > preferences[i+j+1][i]
             {
+                pairs[pair_nr] = preferences[i]
                 //create a pair and add them to pairs
             }
         }
