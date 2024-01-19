@@ -191,9 +191,11 @@ void sort_pairs(void)
             }
         }
         pairs[pair_count-1-i] = mem_pair;       // replace last pair with the mem_pair
-                                                // 
+                                                // replace mem_pairs old location with last pair
 
     }
+
+    // debug print stuffff
     for (int k = 0; k < pair_count; k++)
         {
             printf("%s wins over %s with %i points \n", candidates[pairs[k].winner], candidates[pairs[k].loser], preferences[pairs[k].winner][pairs[k].loser]);
