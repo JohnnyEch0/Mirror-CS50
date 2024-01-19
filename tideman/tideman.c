@@ -185,12 +185,19 @@ void sort_pairs(void)
             //compare it with the other pairs, pairs[j]
             int j_value = preferences[pairs[j].winner][pairs[j].loser];
 
-            if (i_value < j_value)
+            if (i_value > j_value)
             {
-                pair mem_pair = pairs[i];
-                int mem_pos = i;
+                // pair mem_pair = pairs[i];
+                // int mem_pos = i;
+
+                // loop through the values of the other pairs, if a smaller one is found, replace
+                i_value = j_value;
+                
             }
         }
+        // mem_pair2 = pairs[pait_count-1-i];
+        // pairs[pair_count-1-i] = mem_pair;
+
 
 
     }
