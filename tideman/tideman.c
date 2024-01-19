@@ -183,7 +183,7 @@ void sort_pairs(void)
         int i_value = preferences[pairs[i].winner][pairs[i].loser];
         pair low_pair;
         int low_pair_pos;
-        bool swapped;
+        bool swapped = false;
 
         for (int j = 0; j < pair_count; j++)
         {
