@@ -122,16 +122,9 @@ void record_preferences(int ranks[])
     for (int i = 0; i < candidate_count; i++)
     {
         // i = 0 --> candidate 1, 2 ...  - but it ccould also be the ranks
-        ranks[i] 
-        for (int j = 0; j < candidate_count; j++)
-        {
-            if (ranks[i] < ranks[j]) // rank indexes are not candidate indexes,
-            {
-                preferences[i][j]++;
-                printf("%s overr %s : %i\n",candidates[i], candidates[j], preferences[i][j]);
-            }
-        }
-
+        // ranks[i] equals the number of the candidate at rank 1
+        for (int j = 0; j < candidate_count-i; j++)
+            preferences[rank[i]][rank[i+x]]++;
         // candidates[ranks[i]]
         // preferences[candidates[rank[i]]][candidates[rank[i+]]]
     }
