@@ -128,6 +128,7 @@ void record_preferences(int ranks[])
                 preferences[i][j]++;
             }
         }
+        
         // candidates[ranks[i]]
         // preferences[candidates[rank[i]]][candidates[rank[i+]]]
         printf(")
