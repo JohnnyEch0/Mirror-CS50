@@ -24,8 +24,9 @@
     ranks[0] = Nr of TIna
     ranks[1] = Nr of John
 
-    b)
-    
+    b) record_preferences
+    Aus Ranks[x] sollen jetzt John> Tina; John> Chris, Tina > Chris geholt werden
+
 
 
 
