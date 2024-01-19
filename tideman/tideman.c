@@ -198,6 +198,7 @@ void sort_pairs(void)
                 swapped = true;
             }
         }
+        printf(")
         if (swapped == false)
             break;
 
