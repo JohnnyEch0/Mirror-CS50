@@ -48,3 +48,22 @@ ranks[2] = 1
 3. Angefangen vom größten Paar, setze die Beziehungen zw den Kandidaten fest, falls sie nicht zu einem kreis führen würden
 
     locked
+
+
+
+
+for (int j = 1; j < pair_count -1; j++)
+        {
+            if (preferences[i][j] < preferences[i][j+1] && preferences[i][j] < mem_value)
+            {
+                // int mem = preferences[i][j];
+                mem_pair.winner = candidates[i];
+                mem_pair.loser = candidates[j];
+
+
+                mem_value = preferences[i][j];
+            }
+        }
+        mem_pair2 = pairs[pait_count-1-i];
+        pairs[pair_count-1-i] = mem_pair;       // replace last pair with the mem_pair
+                                                // replace mem_pairs old location with last pair

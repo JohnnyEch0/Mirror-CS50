@@ -176,26 +176,22 @@ void sort_pairs(void)
     // theres a number of pairs, who win by different     amounts     =preferences[pairs[pair_nr].winner][pairs[pair_nr].loser]
     for (int i = 0; i < pair_count; i++)
     {
-        pair mem_pair;
-        int mem_value = 100; //magic number, number of voters +1 would work
-        int mem_pos = 0;
+        // pairs[0], pairs[1] are i
+        // preferences[pairs[i].winner][pairs[i].loser] = its points
+        int i_value = preferences[pairs[i].winner][pairs[i].loser];
 
-        for (int j = 1; j < pair_count -1; j++)
+        for (int j = 1; j < pair_count; j++)
         {
-            if (preferences[i][j] < preferences[i][j+1] && preferences[i][j] < mem_value)
+            //compare it with the other pairs, pairs[j]
+            int j_value = preferences[pairs[j].winner][pairs[j].loser];
+            if (i_value < j_value)
             {
-                // int mem = preferences[i][j];
-                mem_pair.winner = candidates[i];
-                mem_pair.loser = candidates[j];
-
-
-                mem_value = preferences[i][j];
+                pair mem_pair = pairs[i];
+                int mem_pos = i;
             }
         }
-        mem_pair2 = pairs[pait_count-1-i];
-        pairs[pair_count-1-i] = mem_pair;       // replace last pair with the mem_pair
-                                                // replace mem_pairs old location with last pair
 
+        
     }
 
     // debug print stuffff
