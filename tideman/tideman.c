@@ -121,12 +121,12 @@ void record_preferences(int ranks[])
     // ranks[0,1,2] for candidate
     for (int i = 0; i < candidate_count; i++)  //getlen(ranks) == candidate_count
     {
-        for (int j = 0; j > candidate_count; j++)
+        for (int j = 0; j < candidate_count; j++)
         {
             if (ranks[i] < ranks[j])
             {
                 preferences[i][j]++;
-                printf("%i\n", preferences[i][j]);
+                printf("%s overr %s : %i\n",candidates[i], candidates[j], preferences[i][j]);
             }
         }
 
