@@ -174,7 +174,7 @@ void add_pairs(void)
 void sort_pairs(void)
 {
     // TODO
-    // theres a number of pairs, who win by different amounts
+    // theres a number of pairs, who win by different     amounts     =preferences[pairs[pair_nr].winner][pairs[pair_rn].loser]
     return;
 }
 
