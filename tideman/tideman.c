@@ -198,21 +198,22 @@ void sort_pairs(void)
                 swapped = true;
             }
         }
-        printf(")
         if (swapped == false)
+        {
+            for (int k = 0; k < pair_count; k++)
+            {
+                printf("%s wins over %s with %i points \n", candidates[pairs[k].winner], candidates[pairs[k].loser], preferences[pairs[k].winner][pairs[k].loser]);
+            }
             break;
+        }
+
 
         //Low_pair_pos might not even be set here, if no low value was ever found
 
     }
 
     // debug print stuffff
-    for (int k = 0; k < pair_count; k++)
-        {
-            printf("%s wins over %s with %i points \n", candidates[pairs[k].winner], candidates[pairs[k].loser], preferences[pairs[k].winner][pairs[k].loser]);
-            //printf("%s is the winner over %s by %i pints\n",  candidates[i],  candidates[i+j+1], preferences[i][j+i+1] - preferences[i+j+1][i] );
 
-        }
     return;
 }
 
