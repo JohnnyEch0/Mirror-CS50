@@ -119,20 +119,8 @@ bool vote(int rank, string name, int ranks[])
 // Update preferences given one voter's ranks
 void record_preferences(int ranks[])
 {
-    // TODO
-    // ranks[0,1,2] for candidate
-    // loop through the fckin ranks
     for (int i = 0; i < candidate_count-1; i++)
     {
-        // each higher rank is to be added into candidates
-        // 3 cand   rank0 -->
-                    //  loop j > c_c(3) -i(0)    -1     =[2] times
-        //              j0 pref[candidate at rank[i=0]][candidate at rank[1 = j+1+i]]
-        //              j1 pref[candidate at rank[i=0]][candidate at rank[2= j+1+i]]
-
-        //          rank1 --> j0
-                    //  j0 pref[candidate at rank[i= 1]][candidate at rank [2 = j+1+i]]
-
         for (int j = 0; j < candidate_count-1 -i; j++)
         {
             preferences[ranks[i]][ranks[j+1+i]]++;
