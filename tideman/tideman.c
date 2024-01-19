@@ -162,8 +162,7 @@ void add_pairs(void)
                 pairs[pair_nr].winner = i;
                 pairs[pair_nr].loser = j+i+1;
                 pair_nr++;
-                printf("%s is the winner over %s by %i pints\n",  candidates[i],  candidates[i+j+1], preferences[i][j+i+1] - preferences[i+j+1][i] );
-                //create a pair and add them to pairs
+                //printf("%s is the winner over %s by %i pints\n",  candidates[i],  candidates[i+j+1], preferences[i][j+i+1] - preferences[i+j+1][i] );
             }
         }
     }
@@ -193,7 +192,9 @@ void sort_pairs(void)
     }
     for (int k = 0; k < pair_count; k++)
         {
-            printf(")
+            printf("%s wins over %s with %i points \n", candidates[pairs[k].winner], candidates[pairs[k].loser], preferences[pairs[k].winner][pairs[k].loser]);
+            //printf("%s is the winner over %s by %i pints\n",  candidates[i],  candidates[i+j+1], preferences[i][j+i+1] - preferences[i+j+1][i] );
+
         }
     return;
 }
