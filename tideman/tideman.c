@@ -184,6 +184,7 @@ void sort_pairs(void)
                 // int mem = preferences[i][j];
                 pair mem_pair = {candidates[i], candidates[j]}
             }
+            
         }
     }
     return;
