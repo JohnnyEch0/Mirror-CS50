@@ -191,17 +191,11 @@ void sort_pairs(void)
 
             if (i_value > j_value)
             {
-                // pair mem_pair = pairs[i];
-                // int mem_pos = i;
-
-                // loop through the values of the other pairs, if a smaller one is found, replace
                 i_value = j_value;
                 low_pair = pairs[j];
                 low_pair_pos = j;
             }
         }
-        // mem_pair2 = pairs[pait_count-1-i];
-        // pairs[pair_count-1-i] = mem_pair;
 
         swap(pairs[pair_count-1-i], low_pair_pos)
         //Low_pair_pos might not even be set here, if no low value was ever found
