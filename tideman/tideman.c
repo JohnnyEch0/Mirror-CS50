@@ -119,8 +119,9 @@ void record_preferences(int ranks[])
 {
     // TODO
     // ranks[0,1,2] for candidate
-    for (int i = 0; i < candidate_count; i++)  //getlen(ranks) == candidate_count
+    for (int i = 0; i < candidate_count; i++)
     {
+        // i = 0 --> candidate 1, 2 ...
         for (int j = 0; j < candidate_count; j++)
         {
             if (ranks[i] < ranks[j]) // rank indexes are not candidate indexes,
