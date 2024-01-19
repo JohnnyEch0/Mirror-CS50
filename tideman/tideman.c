@@ -150,16 +150,18 @@ void add_pairs(void)
     // for every candidate[i], when preferences[i][j] is > then [j][i] create pair candidate[i] candidate[j]
 
     // for every candidate[i]
-    int pair_nr = 0
+    int pair_nr = 0;
     for (int i = 0; i < candidate_count; i++)
     {
         //loop through every other candidate
         for (int j = 0; j < candidate_count-1 -i; j++)
         {
             //check wether pref[i][j+1+i] > then its counterpart
-            if preferences[i][j+i+1] > preferences[i+j+1][i]
+            if (preferences[i][j+i+1] > preferences[i+j+1][i])
             {
-                pairs[pair_nr] = {
+                pairs[pair_nr] = {i, j+i+1};
+                pair_nr++;
+                printf("%s is the winner over %s by %i pints\n",  candidates[ranks[i]],  candidates[ranks[i+j+1]], preferences[i][j+i+1] - preferences[i+j+1][i] );
                 //create a pair and add them to pairs
             }
         }
