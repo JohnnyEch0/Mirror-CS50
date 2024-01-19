@@ -179,6 +179,7 @@ void sort_pairs(void)
             //compare it with the other pairs, pairs[j]
             int j_value = preferences[pairs[j].winner][pairs[j].loser];
             int j2_value = preferences[pairs[j+1].winner][pairs[j+1].loser];
+            
 
 
             if (j_value < j2_value)
