@@ -134,7 +134,7 @@ void record_preferences(int ranks[])
         for (int j = 0; j < candidate_count-1 -i; j++)
         {
             preferences[ranks[i]][ranks[j+1+i]]++;
-            printf("%i points %s over %s\n",   preferences[ranks[i]][ranks[j+1+i]],  candidates[ranks[i]], candidates[ranks[j+i+1]]);
+            // printf("%i points %s over %s\n",   preferences[ranks[i]][ranks[j+1+i]],  candidates[ranks[i]], candidates[ranks[j+i+1]]);
         }
     }
     return;
@@ -162,7 +162,7 @@ void add_pairs(void)
                 pairs[pair_nr].winner = i;
                 pairs[pair_nr].loser = j+i+1;
                 pair_nr++;
-                printf("%s is the winner over %s by %i pints\n",  candidates[i]],  candidates[i+j+1], preferences[i][j+i+1] - preferences[i+j+1][i] );
+                printf("%s is the winner over %s by %i pints\n",  candidates[i],  candidates[i+j+1], preferences[i][j+i+1] - preferences[i+j+1][i] );
                 //create a pair and add them to pairs
             }
         }
