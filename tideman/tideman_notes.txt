@@ -28,7 +28,7 @@
     Aus Ranks[x] sollen jetzt John> Tina; John> Chris, Tina > Chris geholt werden
 
     for every rank i
-        fill candidates with [i][j] where j is the number of candidates of a higher rank
+        fill preferences with [i][j] where j is the number of candidates of a higher rank
 
 
 ranks[0] = i --> This i is equal to the Candidates i, if 0 it might be John

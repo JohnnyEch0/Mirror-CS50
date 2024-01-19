@@ -121,7 +121,8 @@ void record_preferences(int ranks[])
     // ranks[0,1,2] for candidate
     for (int i = 0; i < candidate_count; i++)
     {
-        // i = 0 --> candidate 1, 2 ...
+        // i = 0 --> candidate 1, 2 ...  - but it ccould also be the ranks
+        ranks[i] 
         for (int j = 0; j < candidate_count; j++)
         {
             if (ranks[i] < ranks[j]) // rank indexes are not candidate indexes,
