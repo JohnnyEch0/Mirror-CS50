@@ -127,12 +127,16 @@ int main(int argc, string argv[])
 bool vote(int voter, int rank, string name)
 {
     // TODO
-    if (!strcmp(name, candidates[i])) // if equal we get 0 - True
+    for (int i = 0; i < candidate_count; i++)
+    {
+        if (!strcmp(name, candidates[i])) // if equal we get 0 - True
         {
-            ranks[rank] = i;
+            # ranks[rank] = i;
             // printf("%s is at rank %i\n", candidates[i], rank);
             return true;
         }
+    //
+    }
     return false;
 }
 
