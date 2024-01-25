@@ -137,7 +137,7 @@ bool vote(int voter, int rank, string name)
 
             // i is the number of the candidate?
             preferences[voter][rank] = i;
-            printf("%ist preferenc is %s\n", i, name);
+            printf("%ist preferenc is %s\n", rank, name);
             return true;
         }
     //
