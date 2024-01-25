@@ -77,8 +77,9 @@ int main(int argc, string argv[])
                 printf("Invalid vote.\n");
                 return 4;
             }
-            
+
             printf("%s\n ", candidates[preferences[i][j]].name );
+            printf("")
         }
         printf("\n");
     }
