@@ -80,7 +80,7 @@ int main(int argc, string argv[])
             // the candidate at that rank
             printf("%s ", candidates[preferences[i][j]].name );
             // prefered by
-            printf(" is the %i", i);
+            printf(" is pref of voter %i", i);
             // at rank
             printf(" at rank %i \n", j);
         }
