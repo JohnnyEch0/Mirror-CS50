@@ -77,9 +77,12 @@ int main(int argc, string argv[])
                 printf("Invalid vote.\n");
                 return 4;
             }
-
+            // the candidate at that rank
             printf("%s\n ", candidates[preferences[i][j]].name );
-            printf("")
+            // prefered by
+            printf("the %i", voter[i])
+            // at rank
+            printf("at rank %i", )
         }
         printf("\n");
     }
