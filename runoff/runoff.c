@@ -192,7 +192,10 @@ void tabulate(void)
 bool print_winner(void)
 {
     // check if there is a winner
-    
+    for (int i = 0; i < candidate_count; i++)
+    {
+        
+    }
     return false;
 }
 
