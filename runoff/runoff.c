@@ -80,22 +80,28 @@ int main(int argc, string argv[])
             //print to get
 
             // the candidate at that rank
-            printf("%s ", candidates[preferences[i][j]].name );
+            // printf("%s ", candidates[preferences[i][j]].name );
             // prefered by
-            printf(" is pref of voter %i", i);
+            // printf(" is pref of voter %i", i);
             // at rank
-            printf(" at rank %i \n", j);
+            // printf(" at rank %i \n", j);
         }
-        printf("\n");
+        // printf("\n");
     }
-    printf("prog ended\n");
-        return 0;
+
 
     // Keep holding runoffs until winner exists
     while (true)
     {
         // Calculate votes given remaining candidates
         tabulate();
+
+        // check if everything works until here
+        for (int i = 0, i < candidate_count, i++)
+
+        //end the program
+        printf("prog ended\n");
+        return 0;
 
         // Check if election has been won
         bool won = print_winner();
@@ -167,8 +173,8 @@ void tabulate(void)
         {
             if candidates[preferences[i][j]].eliminated != True
             {
-                candidates[preferences[i][j]].votes += 1
-                break
+                candidates[preferences[i][j]].votes += 1;
+                break;
             }
         }
 
