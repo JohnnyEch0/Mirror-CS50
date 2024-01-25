@@ -158,10 +158,18 @@ bool vote(int voter, int rank, string name)
 void tabulate(void)
 {
     // for every candidate
-   for ( int i = 0; i < voter_count)
+   for ( int i = 0; i < voter_count, i++)
    {
         // get their hightest vote, if its not eliminated
-        
+
+        //iterate over their votes
+        for (int j = 0; j < candidate_count, j++)
+        {
+            if candidates[preferences[i][j]].eliminated != True
+            {
+                
+            }
+        }
 
    }
     return;
