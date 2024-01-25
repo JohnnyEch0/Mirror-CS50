@@ -77,10 +77,12 @@ int main(int argc, string argv[])
                 printf("Invalid vote.\n");
                 return 4;
             }
+            printf(" %s ", candidates[preferences[i][j]].name );
         }
-
         printf("\n");
     }
+    printf("prog ended\n");
+        return 0;
 
     // Keep holding runoffs until winner exists
     while (true)
@@ -137,7 +139,7 @@ bool vote(int voter, int rank, string name)
 
             // i is the number of the candidate?
             preferences[voter][rank] = i;
-            printf("%i is  the rank, name:%s\n", rank, name);
+            // printf("%i is  the rank, name:%s\n", rank, name);
             return true;
         }
     //
