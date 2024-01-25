@@ -97,7 +97,7 @@ int main(int argc, string argv[])
         tabulate();
 
         // check if everything works until here
-        for (int i = 0, i < candidate_count, i++)
+        for (int i = 0; i < candidate_count; i++)
         {
             printf("%s has %i votes, \n", candidates[i].name, candidates[i].votes);
         }
