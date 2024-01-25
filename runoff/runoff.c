@@ -108,7 +108,7 @@ int main(int argc, string argv[])
             {
                 if (!candidates[i].eliminated)
                 {
-                    printf("%s\n", candidates[i].name);
+                    // printf("%s\n", candidates[i].name);
                 }
             }
             break;
