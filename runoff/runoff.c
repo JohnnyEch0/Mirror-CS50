@@ -106,6 +106,7 @@ int main(int argc, string argv[])
         printf("prog ended\n");
         return 0;
 
+
         // Check if election has been won
         bool won = print_winner();
         if (won)
@@ -190,7 +191,8 @@ void tabulate(void)
 // Print the winner of the election, if there is one
 bool print_winner(void)
 {
-    // TODO
+    // check if there is a winner
+    
     return false;
 }
 
