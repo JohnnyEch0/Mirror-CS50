@@ -78,11 +78,11 @@ int main(int argc, string argv[])
                 return 4;
             }
             // the candidate at that rank
-            printf("%s\n ", candidates[preferences[i][j]].name );
+            printf("%s ", candidates[preferences[i][j]].name );
             // prefered by
             printf("the %i", voter[i])
             // at rank
-            printf("at rank %i", )
+            printf("at rank %i \n", j)
         }
         printf("\n");
     }
