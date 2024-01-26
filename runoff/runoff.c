@@ -194,6 +194,7 @@ bool print_winner(void)
 // temp variable for the highest resuolt
 
     winner_1 = candidadates[0];
+    
     // check if there is a winner
     for (int i = 0; i < candidate_count; i++)
     {
@@ -203,7 +204,7 @@ bool print_winner(void)
         }
         else if (winner_1.value = candidate[i].value):
         {
-            
+
         }
 
     }
