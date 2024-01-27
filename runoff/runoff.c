@@ -116,7 +116,7 @@ int main(int argc, string argv[])
 
         // Eliminate last-place candidates
         int min = find_min();
-        
+
 
         //end the program
 
@@ -239,7 +239,7 @@ int find_min(void)
     // temp variable for the highest resuolt
 
 
-    // check if there is a winner
+    // find the lowest amount of votes
     for (int i = 0; i < candidate_count; i++)
     {
         if (candidates[i].votes > candidates[i+1].votes && candidate[i].eliminated != true && candidate[i+1].eliminated != true )
@@ -248,7 +248,7 @@ int find_min(void)
         }
     }
     printf("%s lost with %i votes\n" looser.name, looser.votes);
-    return 0;
+    return looser.votes;
 }
 
 // Return true if the election is tied between all candidates, false otherwise
