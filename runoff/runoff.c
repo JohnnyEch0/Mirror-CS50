@@ -241,7 +241,7 @@ int find_min(void)
     candidate looser = candidates[0];
 
     // find the lowest amount of votes
-    for (int i = 0; i < candidate_count; i++)
+    for (int i = 0; i < (candidate_count - 1); i++)
     {
         if (candidates[i].votes > candidates[i+1].votes && candidates[i].eliminated != true && candidates[i+1].eliminated != true )
         {
