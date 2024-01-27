@@ -118,13 +118,15 @@ int main(int argc, string argv[])
         int min = find_min();
 
 
+
+        bool tie = is_tie(min);
+
+
         //end the program
 
         printf("prog ended\n");
         return 0;
 
-
-        bool tie = is_tie(min);
 
         // If tie, everyone wins
         if (tie)
@@ -248,10 +250,8 @@ int find_min(void)
             lowest_votes = candidates[i].votes;
         }
     }
-
-    if (looser != none)
-    printf("%i is the lowest amount of votes", looser.name, looser.votes);
-    return looser.votes;
+    printf("%i is the lowest amount of votes \n", lowest_votes);
+    return lowest_votes;
 }
 
 // Return true if the election is tied between all candidates, false otherwise
