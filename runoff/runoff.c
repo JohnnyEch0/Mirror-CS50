@@ -236,9 +236,9 @@ bool print_winner(void)
 // Return the minimum number of votes any remaining candidate has
 int find_min(void)
 {
-    // temp variable for the highest resuolt
+    // temp variable for the lowest candidate
 
-    candidate looser = candidates[0];
+    candidate looser;
 
     // find the lowest amount of votes
     for (int i = 0; i < (candidate_count); i++)
@@ -249,6 +249,7 @@ int find_min(void)
         }
     }
 
+    if (looser != none)
     printf("%s lost with %i votes\n", looser.name, looser.votes);
     return looser.votes;
 }
