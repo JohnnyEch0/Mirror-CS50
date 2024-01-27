@@ -122,10 +122,7 @@ int main(int argc, string argv[])
         bool tie = is_tie(min);
 
 
-        //end the program
 
-        printf("prog ended\n");
-        return 0;
 
 
         // If tie, everyone wins
@@ -135,11 +132,16 @@ int main(int argc, string argv[])
             {
                 if (!candidates[i].eliminated)
                 {
-                    // printf("%s\n", candidates[i].name);
+                    printf("%s\n", candidates[i].name);
                 }
             }
             break;
         }
+
+        //end the program
+
+        printf("prog ended\n");
+        return 0;
 
         // Eliminate anyone with minimum number of votes
         eliminate(min);
@@ -259,11 +261,14 @@ bool is_tie(int min)
 {
     for (int i = 0; i < (candidate_count); i++)
     {
-        if (candidates[i].eliminated != true)
+        if (!candidates[i].eliminated)
         {
-            
+            if (candidates[i].votes != min)
+                return false;
+
         }
     }
+    return true;
 }
 
 // Eliminate the candidate (or candidates) in last place
