@@ -194,7 +194,8 @@ bool print_winner(void)
 // temp variable for the highest resuolt
 
     winner_1 = candidadates[0];
-    
+    winner_2 = candidadates[0];
+
     // check if there is a winner
     for (int i = 0; i < candidate_count; i++)
     {
@@ -204,10 +205,16 @@ bool print_winner(void)
         }
         else if (winner_1.value = candidate[i].value):
         {
+            printf("Same Value found");
+            winner_2 = candidates[i];
 
         }
 
+
     }
+    printf("%s has %i votes", winner_1.name, winner_1.value);
+    if (winner_2 != candidates[0]):
+        printf("%s has %i votes", winner_2.name, winner_2.value);
     return false;
 }
 
