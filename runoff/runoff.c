@@ -201,17 +201,17 @@ bool print_winner(void)
     // check if there is a winner
     for (int i = 0; i < candidate_count; i++)
     {
-        if (winner_1.votes < candidate[i].value):
+        if (winner_1.votes < candidates[i].votes):
         {
-            winner_1 = candidate[i];
+            winner_1 = candidates[i];
         }
     }
     // check if some1 has the same score
     for (int i = 0; i < candidate_count; i++)
     {
-        if (winner_1.votes = candidate[i].value):
+        if (winner_1.votes = candidates[i].votes):
         {
-            candidate winner_2 = candidate[i];
+            candidate winner_2 = candidates[i];
         }
     }
 
