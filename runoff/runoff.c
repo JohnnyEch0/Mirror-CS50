@@ -212,14 +212,14 @@ bool print_winner(void)
         if (winner_1.votes == candidates[i].votes)
         {
             candidate winner_2 = candidates[i];
+            printf("%s has %i votes aswell\n", winner_2.name, winner_2.votes);
         }
     }
 
     printf("%s has %i votes\n", winner_1.name, winner_1.votes);
-    if (winner_2 != None):
 
-    else:
-        printf("winner found\n")
+    else
+        printf("winner found\n");
         return True;
     return false;
 }
