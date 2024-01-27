@@ -238,19 +238,19 @@ int find_min(void)
 {
     // temp variable for the lowest candidate
 
-    candidate looser;
+    int lowest_votes = 0;
 
     // find the lowest amount of votes
     for (int i = 0; i < (candidate_count); i++)
     {
         if (candidates[i].votes < candidates[i+1].votes && candidates[i].eliminated != true && candidates[i+1].eliminated != true )
         {
-            looser = candidates[i];
+            lowest_votes = candidates[i].votes;
         }
     }
 
     if (looser != none)
-    printf("%s lost with %i votes\n", looser.name, looser.votes);
+    printf("%i is the lowest amount of votes", looser.name, looser.votes);
     return looser.votes;
 }
 
