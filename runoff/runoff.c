@@ -201,7 +201,7 @@ bool print_winner(void)
     // check if there is a winner
     for (int i = 0; i < candidate_count; i++)
     {
-        if (winner_1.value < candidate[i].value):
+        if (winner_1.votes < candidate[i].value):
         {
             winner_1 = candidate[i];
         }
@@ -209,15 +209,15 @@ bool print_winner(void)
     // check if some1 has the same score
     for (int i = 0; i < candidate_count; i++)
     {
-        if (winner_1.value = candidate[i].value):
+        if (winner_1.votes = candidate[i].value):
         {
             candidate winner_2 = candidate[i];
         }
     }
 
-    printf("%s has %i votes\n", winner_1.name, winner_1.value);
+    printf("%s has %i votes\n", winner_1.name, winner_1.votes);
     if (winner_2 != None):
-        printf("%s has %i votes aswell\n", winner_2.name, winner_2.value);
+        printf("%s has %i votes aswell\n", winner_2.name, winner_2.votes);
     else:
         printf("winner found\n")
         return True;
