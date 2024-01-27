@@ -97,14 +97,12 @@ int main(int argc, string argv[])
         tabulate();
 
         // check if everything works until here
-        for (int i = 0; i < candidate_count; i++)
-        {
-            printf("%s has %i votes, \n", candidates[i].name, candidates[i].votes);
-        }
 
-        //end the program
-        printf("prog ended\n");
-        return 0;
+        // for (int i = 0; i < candidate_count; i++)
+        //     printf("%s has %i votes, \n", candidates[i].name, candidates[i].votes);
+
+
+
 
 
         // Check if election has been won
@@ -113,6 +111,11 @@ int main(int argc, string argv[])
         {
             break;
         }
+
+        //end the program
+
+        printf("prog ended\n");
+        return 0;
 
         // Eliminate last-place candidates
         int min = find_min();
@@ -193,8 +196,8 @@ bool print_winner(void)
 {
 // temp variable for the highest resuolt
 
-    winner_1 = candidadates[0];
-    winner_2 = candidadates[0];
+    candidate winner_1 =  candidates[0];
+    candidate winner_2 =  None;
 
     // check if there is a winner
     for (int i = 0; i < candidate_count; i++)
@@ -203,18 +206,22 @@ bool print_winner(void)
         {
             winner_1 = candidate[i];
         }
-        else if (winner_1.value = candidate[i].value):
-        {
-            printf("Same Value found");
-            winner_2 = candidates[i];
-
-        }
-
-
     }
-    printf("%s has %i votes", winner_1.name, winner_1.value);
-    if (winner_2 != candidates[0]):
-        printf("%s has %i votes", winner_2.name, winner_2.value);
+    // check if some1 has the same score
+    for (int i = 0; i < candidate_count; i++)
+    {
+        if (winner_1.value = candidate[i].value):
+        {
+            winner_2 = candidate[i];
+        }
+    }
+
+    printf("%s has %i votes\n", winner_1.name, winner_1.value);
+    if (winner_2 != None):
+        printf("%s has %i votes aswell\n", winner_2.name, winner_2.value);
+    else:
+        printf("winner found\n")
+        return True;
     return false;
 }
 
