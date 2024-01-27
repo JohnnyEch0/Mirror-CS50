@@ -226,7 +226,10 @@ bool print_winner(void)
         if (winner_1.votes == candidates[i].votes && winner_1.name != candidates[i].name)
         {
             candidate winner_2 = candidates[i];
-            printf("%s has %i votes aswell\n", winner_2.name, winner_2.votes);
+
+            // check print
+            // printf("%s has %i votes aswell\n", winner_2.name, winner_2.votes);
+
             return false;
         }
     }
@@ -242,7 +245,7 @@ int find_min(void)
 {
     // temp variable for the lowest candidate
 
-    int lowest_votes = 0;
+    int lowest_votes = candidates[0].votes;
 
     // find the lowest amount of votes
     for (int i = 0; i < (candidate_count); i++)
