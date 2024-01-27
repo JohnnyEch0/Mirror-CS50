@@ -271,7 +271,7 @@ bool is_tie(int min)
 
         }
     }
-    printf("all cand have the same nr of votes");
+    printf("all candi have the same nr of votes");
     return true;
 }
 
