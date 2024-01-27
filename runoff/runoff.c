@@ -233,16 +233,16 @@ int find_min(void)
 {
     // temp variable for the highest resuolt
 
-    candidate loser_1 =  candidates[0];
 
     // check if there is a winner
     for (int i = 0; i < candidate_count; i++)
     {
-        if (winner_1.votes > candidates[i].votes)
+        if (candidates[i].votes > candidates[i+1].votes && candidate[i].eliminated != true && candidate[i+1].eliminated != true )
         {
-            winner_1 = candidates[i];
+            candidate looser = candidates[i+1];
         }
     }
+    printf("%s lost with %i votes\n" looser.name, looser.votes);
     return 0;
 }
 
