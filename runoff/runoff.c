@@ -248,11 +248,11 @@ int find_min(void)
     int lowest_votes = candidates[0].votes;
 
     // find the lowest amount of votes
-    for (int i = 0; i < (candidate_count); i++)
+    for (int i = 0; i < (candidate_count-1); i++)
     {
-        if (candidates[i].votes < candidates[i+1].votes && candidates[i].eliminated != true && candidates[i+1].eliminated != true )
+        if (candidates[i].votes > candidates[i+1].votes && !candidates[i].eliminated && !candidates[i+1].eliminated)
         {
-            lowest_votes = candidates[i].votes;
+            lowest_votes = candidates[i+1].votes;
         }
     }
     printf("%i is the lowest amount of votes \n", lowest_votes);
@@ -271,7 +271,7 @@ bool is_tie(int min)
 
         }
     }
-    printf("all cand have the same nr of votes")
+    printf("all cand have the same nr of votes");
     return true;
 }
 
