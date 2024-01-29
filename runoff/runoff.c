@@ -139,8 +139,8 @@ bool vote(int voter, int rank, string name)
 void tabulate(void)
 {
     // for every candidate
-   for (int i = 0; i < voter_count; i++)
-   {
+    for (int i = 0; i < voter_count; i++)
+    {
         // iterate over their votes
         for (int j = 0; j < candidate_count; j++)
         {
@@ -152,8 +152,7 @@ void tabulate(void)
                 break;
             }
         }
-
-   }
+    }
     return;
 }
 
@@ -170,24 +169,23 @@ bool print_winner(void)
         }
     }
     return false;
-
 }
 
 // Return the minimum number of votes any remaining candidate has
 int find_min(void)
 {
     // temp variable for the lowest candidate
-        // there could be a bug here, when candidates[0] has been eliminated
+    // there could be a bug here, when candidates[0] has been eliminated
 
     int lowest_votes = candidates[0].votes;
 
     // find the lowest amount of votes
 
-    for (int i = 0; i < (candidate_count-1); i++)
+    for (int i = 0; i < (candidate_count - 1); i++)
     {
-        if (candidates[i].votes > candidates[i+1].votes && !candidates[i].eliminated && !candidates[i+1].eliminated)
+        if (candidates[i].votes > candidates[i + 1].votes && !candidates[i].eliminated && !candidates[i + 1].eliminated)
         {
-            lowest_votes = candidates[i+1].votes;
+            lowest_votes = candidates[i + 1].votes;
         }
     }
     return lowest_votes;
@@ -210,7 +208,7 @@ bool is_tie(int min)
 // Eliminate the candidate (or candidates) in last place
 void eliminate(int min)
 {
-    for (int i = 0; i< candidate_count; i++)
+    for (int i = 0; i < candidate_count; i++)
     {
         if (candidates[i].votes == min)
             candidates[i].eliminated = true;
