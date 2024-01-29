@@ -192,10 +192,12 @@ bool print_winner(void)
 int find_min(void)
 {
     // temp variable for the lowest candidate
+        // there could be a bug here, when candidates[0] has been eliminated
 
     int lowest_votes = candidates[0].votes;
 
     // find the lowest amount of votes
+
     for (int i = 0; i < (candidate_count-1); i++)
     {
         if (candidates[i].votes > candidates[i+1].votes && !candidates[i].eliminated && !candidates[i+1].eliminated)
