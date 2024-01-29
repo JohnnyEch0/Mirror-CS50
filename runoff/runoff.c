@@ -79,7 +79,6 @@ int main(int argc, string argv[])
         }
     }
 
-
     // Keep holding runoffs until winner exists
     while (true)
     {
@@ -96,7 +95,6 @@ int main(int argc, string argv[])
         int min = find_min();
 
         bool tie = is_tie(min);
-
 
         // If tie, everyone wins
         if (tie)
@@ -141,9 +139,9 @@ bool vote(int voter, int rank, string name)
 void tabulate(void)
 {
     // for every candidate
-   for ( int i = 0; i < voter_count; i++)
+   for (int i = 0; i < voter_count; i++)
    {
-        //iterate over their votes
+        // iterate over their votes
         for (int j = 0; j < candidate_count; j++)
         {
             // get their hightest vote, if its not eliminated
