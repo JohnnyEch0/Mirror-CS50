@@ -95,12 +95,7 @@ int main(int argc, string argv[])
         // Eliminate last-place candidates
         int min = find_min();
 
-
-
         bool tie = is_tie(min);
-
-
-
 
 
         // If tie, everyone wins
@@ -208,7 +203,6 @@ int find_min(void)
             lowest_votes = candidates[i+1].votes;
         }
     }
-    printf("%i is the lowest amount of votes \n", lowest_votes);
     return lowest_votes;
 }
 
