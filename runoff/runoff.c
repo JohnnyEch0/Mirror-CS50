@@ -162,17 +162,14 @@ void tabulate(void)
 // Print the winner of the election, if there is one
 bool print_winner(void)
 {
-    candidate winner_1 =  candidates[0];
-
-    // check if there is a winner
     for (int i = 0; i < candidate_count; i++)
     {
-        if (winner_1.votes < candidates[i].votes)
+        if candidates[i].votes > (voter_count / 2)
         {
-            winner_1 = candidates[i];
+            candidate winner = candidates[i];
+            return true;
         }
     }
-
     // check if some1 has the same score
     for (int i = 0; i < candidate_count; i++)
     {
