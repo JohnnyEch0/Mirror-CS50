@@ -1,11 +1,13 @@
 #include <stdio.h>
+#include <cs50.h>
+
 
 void collatz(int x, int y)
 {
     if (x == 1)
         printf("%i steps to Collatz %i", y, x);
 
-    elif (argc % 2 == 0)
+    else if (argc % 2 == 0)
     {
         y++;
         return collatz(x/2, y);
@@ -20,7 +22,7 @@ void collatz(int x, int y)
 }
 
 
-void main(argc, argv)
+void main(int argc, string argv)
 {
     if (argc != 2)
         return 1;
