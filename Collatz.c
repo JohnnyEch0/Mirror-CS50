@@ -1,4 +1,4 @@
-void collatz(x)
+void collatz(int x)
 {
     if x == 1
         return 1
