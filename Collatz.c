@@ -7,7 +7,7 @@ void collatz(int x, int y)
     if (x == 1)
         printf("%i steps to Collatz %i", y, x);
 
-    else if (argc % 2 == 0)
+    else if (x % 2 == 0)
     {
         y++;
         return collatz(x/2, y);
@@ -22,9 +22,9 @@ void collatz(int x, int y)
 }
 
 
-void main(int argc, string argv)
+int main(int argc, string argv[])
 {
-    if (argc != 2)
+    if (int(argv[1]) != 2)
         return 1;
 
 
