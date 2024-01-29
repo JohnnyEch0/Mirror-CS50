@@ -71,22 +71,12 @@ int main(int argc, string argv[])
         {
             string name = get_string("Rank %i: ", j + 1);
 
-            // Record vote, unless it's invalid
             if (!vote(i, j, name))
             {
                 printf("Invalid vote.\n");
                 return 4;
             }
-            //print to get
-
-            // the candidate at that rank
-            // printf("%s ", candidates[preferences[i][j]].name );
-            // prefered by
-            // printf(" is pref of voter %i", i);
-            // at rank
-            // printf(" at rank %i \n", j);
         }
-        // printf("\n");
     }
 
 
@@ -95,15 +85,6 @@ int main(int argc, string argv[])
     {
         // Calculate votes given remaining candidates
         tabulate();
-
-        // check if everything works until here
-
-        // for (int i = 0; i < candidate_count; i++)
-        //     printf("%s has %i votes, \n", candidates[i].name, candidates[i].votes);
-
-
-
-
 
         // Check if election has been won
         bool won = print_winner();
@@ -157,15 +138,9 @@ bool vote(int voter, int rank, string name)
     {
         if (!strcmp(name, candidates[i].name))
         {
-            // ranks[rank] = i;
-            // printf("%s is at rank %i\n", candidates[i], rank);
-
-            // i is the number of the candidate?
             preferences[voter][rank] = i;
-            // printf("%i is  the rank, name:%s\n", rank, name);
             return true;
         }
-    //
     }
     return false;
 }
@@ -176,8 +151,6 @@ void tabulate(void)
     // for every candidate
    for ( int i = 0; i < voter_count; i++)
    {
-
-
         //iterate over their votes
         for (int j = 0; j < candidate_count; j++)
         {
