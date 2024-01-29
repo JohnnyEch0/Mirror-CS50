@@ -138,11 +138,6 @@ int main(int argc, string argv[])
             break;
         }
 
-        //end the program
-
-        printf("prog ended\n");
-        return 0;
-
         // Eliminate anyone with minimum number of votes
         eliminate(min);
 
@@ -268,17 +263,18 @@ bool is_tie(int min)
         {
             if (candidates[i].votes != min)
                 return false;
-
         }
     }
-    // debug print 
-    printf("all candi have the same nr of votes\n");
     return true;
 }
 
 // Eliminate the candidate (or candidates) in last place
 void eliminate(int min)
 {
-    // TODO
+    for (int i = 0; i< candidate_count; i++)
+    {
+        if (candidates[i].votes == min)
+            candidates[i].eliminated = true;
+    }
     return;
 }
