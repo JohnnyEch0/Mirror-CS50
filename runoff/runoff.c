@@ -183,12 +183,11 @@ bool print_winner(void)
     {
         if (winner_1.votes == candidates[i].votes && winner_1.name != candidates[i].name)
         {
-            candidate winner_2 = candidates[i];
+            // is the next line necessary?
+            // candidate winner_2 = candidates[i];
             return false;
         }
     }
-
-
 
     printf("%s\n", winner_1.name);
     return true;
