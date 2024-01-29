@@ -3,28 +3,22 @@
 #include <stdlib.h>
 
 
-void collatz(int x, int y)
+void collatz(int x)
 {
     if (x == 1)
-        printf("%i steps to Collatz\n", y);
+        return 1;
 
     else if (x % 2 == 0)
-    {
-        y++;
-        collatz(x/2, y);
-    }
+        return 1 + collatz(x/2);
 
     else
-    {
-        y++;
-        collatz(3*x + 1, y);
-    }
-
+        return 1 + collatz(3*x + 1);
 }
 
 
 int main()
 {
     int x = get_int("Whats the numver to be Collatz'd?");
-    collatz(x, 0);
+    int y = collatz(x);
+    printf("%i steps to Collatz\n", y)
 }
