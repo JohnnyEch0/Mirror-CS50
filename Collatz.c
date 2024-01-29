@@ -6,7 +6,7 @@
 void collatz(int x, int y)
 {
     if (x == 1)
-        printf("%i steps to Collatz", y);
+        printf("%i steps to Collatz\n", y);
 
     else if (x % 2 == 0)
     {
