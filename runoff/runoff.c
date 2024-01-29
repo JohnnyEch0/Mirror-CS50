@@ -153,10 +153,9 @@ int main(int argc, string argv[])
 // Record preference if vote is valid
 bool vote(int voter, int rank, string name)
 {
-    // TODO
     for (int i = 0; i < candidate_count; i++)
     {
-        if (!strcmp(name, candidates[i].name)) // if equal we get 0 - True
+        if (!strcmp(name, candidates[i].name))
         {
             // ranks[rank] = i;
             // printf("%s is at rank %i\n", candidates[i], rank);
