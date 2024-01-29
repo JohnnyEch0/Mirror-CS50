@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <cs50.h>
+#include <stdlib.h>
 
 
 void collatz(int x, int y)
@@ -24,6 +25,6 @@ void collatz(int x, int y)
 
 int main(int argc, string argv[])
 {
-    int x = (argv[1]);
-    collatz(x, 0);
+    // int x = (argv[1]);
+    collatz(x, strtol(argv[1]));
 }
