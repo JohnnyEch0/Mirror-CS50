@@ -6,7 +6,7 @@
 void collatz(int x, int y)
 {
     if (x == 1)
-        printf("%i steps to Collatz %i", y, x);
+        printf("%i steps to Collatz", y);
 
     else if (x % 2 == 0)
     {
@@ -23,8 +23,8 @@ void collatz(int x, int y)
 }
 
 
-int main(int argc, string argv[])
+int main()
 {
-    // int x = (argv[1]);
-    collatz(x, strtol(argv[1]));
+    int x = get_int("Whats the numver to be Collatz'd?");
+    collatz(x, 0);
 }
