@@ -164,25 +164,15 @@ bool print_winner(void)
 {
     for (int i = 0; i < candidate_count; i++)
     {
-        if candidates[i].votes > (voter_count / 2)
+        if (candidates[i].votes > (voter_count / 2))
         {
             candidate winner = candidates[i];
+            printf("%s\n", winner.name);
             return true;
         }
     }
-    // check if some1 has the same score
-    for (int i = 0; i < candidate_count; i++)
-    {
-        if (winner_1.votes == candidates[i].votes && winner_1.name != candidates[i].name)
-        {
-            // is the next line necessary?
-            // candidate winner_2 = candidates[i];
-            return false;
-        }
-    }
+    return false;
 
-    printf("%s\n", winner_1.name);
-    return true;
 }
 
 // Return the minimum number of votes any remaining candidate has
