@@ -92,19 +92,13 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                 }
             }
             // now calculate its values
-            // propably, this is gonna crash
-            //b because of byte overflow
             BYTE bb = 0x00;
             BYTE gg = 0x00;
             BYTE rr = 0x00;
 
             // workaround with int, to prevent overflow
-            int colors[3];
-            for (int c = 0; c < 3; c++)
-            {
-                colors[c] = 0;
-            }
-            
+            int colors[3] = {0,0,0};
+
             for (int neig = 0; neig <= count; neig++)
             {
                 colors[0] += (arr_neig[neig].rgbtBlue / count+1);
