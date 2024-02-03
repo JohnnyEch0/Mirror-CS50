@@ -99,22 +99,17 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             BYTE rr = 0x00;
             for (int neig = 0; neig <= count; neig++)
             {
-                if  (!(bb + (arr_neig[neig].rgbtBlue / count+1) >= 255))
-                    bb += (arr_neig[neig].rgbtBlue / count+1);
-
-                if  (!gg + (arr_neig[neig].rgbtBlue / count+1) >= 255)
-                    gg += (arr_neig[neig].rgbtGreen / count+1);
-
-                if  (!rr + (arr_neig[neig].rgbtBlue / count+1) >= 255)
-                    rr += (arr_neig[neig].rgbtRed / count+1);
+                bb += (arr_neig[neig].rgbtBlue / count+1);
+                gg += (arr_neig[neig].rgbtGreen / count+1);
+                rr += (arr_neig[neig].rgbtRed / count+1);
             }
 
-            if (bb > 0xFF)
-                bb = 0xFF;
-            if (gg > 0xFF)
-                gg = 0xFF;
-            if (rr > 0xFF)
-                rr = 0xFF;
+            int colors[3];
+            for (int c = 0; c < 3; c++)
+            {
+                colors[c] = 0;
+            }
+
 
 
             image[i][j].rgbtBlue = bb;
