@@ -97,13 +97,8 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             BYTE bb = 0x00;
             BYTE gg = 0x00;
             BYTE rr = 0x00;
-            for (int neig = 0; neig <= count; neig++)
-            {
-                bb += (arr_neig[neig].rgbtBlue / count+1);
-                gg += (arr_neig[neig].rgbtGreen / count+1);
-                rr += (arr_neig[neig].rgbtRed / count+1);
-            }
 
+            // workaround with int, to prevent overflow
             int colors[3];
             for (int c = 0; c < 3; c++)
             {
@@ -116,7 +111,15 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                 colors[2] += (arr_neig[neig].rgbtRed / count+1);
             }
 
+            for (int o = 0; o < 3; o++)
+            {
+                if (colors[o] > 255)
+                colors[o] = 255;
+            }
 
+            bb = colors[0];
+            gg = colors[1];
+            rr = colors[2];
 
             image[i][j].rgbtBlue = bb;
             image[i][j].rgbtGreen = gg;
