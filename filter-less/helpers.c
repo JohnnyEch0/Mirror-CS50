@@ -24,18 +24,22 @@ void sepia(int height, int width, RGBTRIPLE image[height][width])
     {
         for (int j = 0; j < width; j++)
         {
+            // First, conver to grayscale
             BYTE gray_pixel = (image[i][j].rgbtBlue + image[i][j].rgbtGreen + image[i][j].rgbtRed) / 3;
-            // printf("%s \n", &gray_pixel);
-            BYTE rr = gray_pixel + 0x14;
 
-            // printf("%s \n", &rr);
-            // return;
-            if (rr > 0xFF)
+            // increase red and green values
+            int SCALE = 20;
+            BYTE rr = gray_pixel + (SCALE);
+            BYTE gg = gray_pixel + (SCALE) / 2;
+
+
+            // if "overflowing" - repair
+            if (gg <= SCALE / 2 - 1)
+                gg = 0xFF;
+            if (rr <= SCALE - 1)
                 rr = 0xFF;
 
-            BYTE gg = gray_pixel + 0xA;
-            if (gg > 0xFF)
-                gg = 0xFF;
+            // set the new values for the pixel
             image[i][j].rgbtBlue = gray_pixel;
             image[i][j].rgbtGreen = gg;
             image[i][j].rgbtRed = rr;
@@ -47,6 +51,15 @@ void sepia(int height, int width, RGBTRIPLE image[height][width])
 // Reflect image horizontally
 void reflect(int height, int width, RGBTRIPLE image[height][width])
 {
+    for (int i = 0; i < width; i++)
+    {
+        for (int j = 0, h_height = height / 2; j < h_height; j++)
+        {
+            RGBTRIPLE buffer = image[i][j];
+            image[i][j] = image[i][height-j];
+            image[i][height-j] = buffer;
+        }
+    }
     return;
 }
 
