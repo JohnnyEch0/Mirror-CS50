@@ -66,15 +66,36 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
 // Blur image
 void blur(int height, int width, RGBTRIPLE image[height][width])
 {
+
+    // for every pixel
     for (int i = 0; i < heigth; i++)
     {
         for (int j = 0; j < width; j++)
         {
+            // variables for neighbors
+            RGBTRIPLE arr_neig[9];
+            int count = -1;
+
+            // assemble its neighbors
             for (int k = 0; k < 3; k++)
             {
-                for (int l = 0; l < 0; l++)
-                
+                for (int l = 0; l < 3; l++)
+                {
+                    int cur_x = i+k-1;
+                    int cur_y = j+l-1;
+                    // dont assemble if they are negative
+                    if (cur_x >= 0 && cur_y >= 0)
+                        count += 1;
+                        arr_neig[count] = image[cur_x][cur_y];
+                }
             }
+            // now calculate its values
+            BYTE bb;
+            BYTE gg;
+            BYTE rr;
+            for (int neig = 0; neig < count; neig++)
+
+            image[i][j] =
         }
     }
     return;
