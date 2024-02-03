@@ -108,7 +108,12 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             for (int c = 0; c < 3; c++)
             {
                 colors[c] = 0;
-                
+            }
+            for (int neig = 0; neig <= count; neig++)
+            {
+                colors[0] += (arr_neig[neig].rgbtBlue / count+1);
+                colors[1] += (arr_neig[neig].rgbtGreen / count+1);
+                colors[2] += (arr_neig[neig].rgbtRed / count+1);
             }
 
 
