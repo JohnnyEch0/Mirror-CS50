@@ -104,6 +104,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             {
                 colors[c] = 0;
             }
+            
             for (int neig = 0; neig <= count; neig++)
             {
                 colors[0] += (arr_neig[neig].rgbtBlue / count+1);
