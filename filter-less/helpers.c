@@ -68,7 +68,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
 {
 
     // for every pixel
-    for (int i = 0; i < heigth; i++)
+    for (int i = 0; i < height; i++)
     {
         for (int j = 0; j < width; j++)
         {
@@ -85,17 +85,31 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                     int cur_y = j+l-1;
                     // dont assemble if they are negative
                     if (cur_x >= 0 && cur_y >= 0)
+                    {
                         count += 1;
                         arr_neig[count] = image[cur_x][cur_y];
+                    }
                 }
             }
             // now calculate its values
-            BYTE bb;
-            BYTE gg;
-            BYTE rr;
+            // propably, this is gonna crash
+            //b because of byte overflow
+            BYTE bb = 0x00;
+            BYTE gg = 0x00;
+            BYTE rr = 0x00;
             for (int neig = 0; neig < count; neig++)
+            {
+                bb += arr_neig[neig].rgbtBlue;
+                gg += arr_neig[neig].rgbtGreen;
+                rr += arr_neig[neig].rgbtRed;
+            }
+            bb /= count;
+            gg /= count;
+            rr /= count;
 
-            image[i][j] =
+            image[i][j].rgbtBlue = bb;
+            image[i][j].rgbtGreen = gg;
+            image[i][j].rgbtRed = rr;
         }
     }
     return;
