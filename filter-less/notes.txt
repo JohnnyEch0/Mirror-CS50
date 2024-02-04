@@ -6,16 +6,19 @@ c -1
 
 k = 0
 
-l = 0
-    cur_x = 0+0-1 = -1
-    cur_y = 0+0-1 = -1
-    brek
-l = 1
-    cur_x = -1
-    cur_y = 0
-    brek
+    l = 0
+        cur_x = 0+0-1 = -1
+        cur_y = 0+0-1 = -1
+        brek
+    l = 1
+        cur_x = -1
+        cur_y = 0
+        brek
 
-l = 2 -same
+    l = 2 -same
+        cur_x = -1
+        cur_y = 1
+        brek
 
 k= 1
 l= 0
