@@ -23,6 +23,7 @@ int main(int argc, char *argv[])
     uint8_t buffer[512];
     int count = -1;
     char *out = malloc(8);
+    FILE *output;
 
 
     while (fread(&buffer, 1, 512, input) == 512)
@@ -33,11 +34,14 @@ int main(int argc, char *argv[])
             count++;
             sprintf(out, "%.3d.jpg", count);
             // printf("%s\n", out);
-            FILE *output = fopen(out, "w");
-            if (output == NULL)
-                printf("NOTFOUND");
+            output = fopen(out, "w");
+
         }
 
+        if (output == NULL)
+                printf("NOTFOUND"\n);
+        else
+            fwrite(&buffer, sizeof(buffer), 1, output);
     }
 
     // close files
