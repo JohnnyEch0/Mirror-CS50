@@ -1,6 +1,6 @@
 #include "helpers.h"
-#include <stdio.h>
 #include <math.h>
+#include <stdio.h>
 
 // Convert image to grayscale
 void grayscale(int height, int width, RGBTRIPLE image[height][width])
@@ -41,7 +41,6 @@ void sepia(int height, int width, RGBTRIPLE image[height][width])
             else
                 gg = 255;
 
-
             int ibb = round(0.272 * image[i][j].rgbtRed + 0.534 * image[i][j].rgbtGreen + 0.131 * image[i][j].rgbtBlue);
             if (ibb < 256)
                 bb = ibb;
@@ -61,11 +60,11 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
 {
     for (int i = 0; i < height; i++)
     {
-        for (int j = 0, h_width = width/2; j < h_width; j++)
+        for (int j = 0, h_width = width / 2; j < h_width; j++)
         {
             RGBTRIPLE buffer = image[i][j];
-            image[i][j] = image[i][width-j-1];
-            image[i][width-j-1] = buffer;
+            image[i][j] = image[i][width - j - 1];
+            image[i][width - j - 1] = buffer;
         }
     }
 
@@ -76,7 +75,7 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
 void blur(int height, int width, RGBTRIPLE image[height][width])
 {
     // make a copy of the image
-    //otherwise bluring applies from the values of blurred pixels
+    // otherwise bluring applies from the values of blurred pixels
 
     RGBTRIPLE copy[height][width];
     for (int h = 0; h < height; h++)
@@ -101,9 +100,10 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             {
                 for (int l = 0; l < 3; l++)
                 {
-                    int cur_x = i+k-1;
-                    int cur_y = j+l-1;
+                    int cur_x = i + k - 1;
+                    int cur_y = j + l - 1;
                     // dont assemble if they are negative
+                    // also dont assemble if out of image width/height
                     if (cur_x >= 0 && cur_y >= 0 && cur_x < height && cur_y < width)
                     {
                         count += 1;
@@ -118,7 +118,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             BYTE rr = 0x00;
 
             // workaround with int, to prevent overflow
-            int colors[3] = {0,0,0};
+            int colors[3] = {0, 0, 0};
 
             // add all the neighbor values
             for (int neig = 0; neig <= count; neig++)
@@ -131,7 +131,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             // prevent overflow
             for (int o = 0; o < 3; o++)
             {
-                colors[o] = round(colors[o] / (float)(count+1));
+                colors[o] = round(colors[o] / (float) (count + 1));
                 if (colors[o] > 255)
                     colors[o] = 255;
             }
