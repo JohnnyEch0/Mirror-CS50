@@ -1,3 +1,4 @@
+#include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -23,9 +24,9 @@ int main(int argc, char *argv[])
 
     while (fread(&buffer, sizeof(buffer), 1, input) != 0)
     {
-        printf("block found\n);
+        printf("block found\n");
     }
-    
+
     return 0;
 
 }
