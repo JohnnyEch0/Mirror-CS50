@@ -25,7 +25,8 @@ int main(int argc, char *argv[])
     while (fread(&buffer, 1, 512, input) == 512)
     {
         printf("block found\n");
-        // if the block starts with 0xff 0xd8 0xff 0xe0 (last zero might be different)
+        // if the block starts with 0xff 0xd8 0xff 0xe0 (last zero might be different
+        )
     }
 
     // close files
