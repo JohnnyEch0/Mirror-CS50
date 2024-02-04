@@ -39,9 +39,10 @@ int main(int argc, char *argv[])
             output = fopen(out, "w");
 
         }
-        if (output == NULL)
-                printf("NOTFOUND\n");
-        else
+        // if (output == NULL)
+        //        printf("NOTFOUND\n");
+        // else
+        if (output != NULL)
             fwrite(&buffer, sizeof(buffer), 1, output);
     }
 
