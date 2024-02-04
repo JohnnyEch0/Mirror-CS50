@@ -34,6 +34,8 @@ int main(int argc, char *argv[])
             plates[idx][i] = &buffer[i];
 
         printf("%s\n", *plates[idx]);
+        // when re-assigning, we always also change the index before us
+        // platex[0][i] is always equal to plates[1][i] and so on
         idx++;
     }
 
