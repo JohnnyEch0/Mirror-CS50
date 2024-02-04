@@ -2,3 +2,24 @@ sepiaRed = .393 * originalRed + .769 * originalGreen + .189 * originalBlue
 sepiaGreen = .349 * originalRed + .686 * originalGreen + .168 * originalBlue
 sepiaBlue = .272 * originalRed + .534 * originalGreen + .131 * originalBlue
 
+
+
+            // First, conver to grayscale
+            BYTE gray_pixel = round((image[i][j].rgbtBlue + image[i][j].rgbtGreen + image[i][j].rgbtRed) / 3.0f);
+
+            // increase red and green values
+            int SCALE = 20;
+            BYTE rr = gray_pixel + (SCALE);
+            BYTE gg = gray_pixel + (SCALE) / 2;
+
+
+            // if "overflowing" - repair
+            if (gg <= SCALE / 2 - 1)
+                gg = 0xFF;
+            if (rr <= SCALE - 1)
+                rr = 0xFF;
+
+            // set the new values for the pixel
+            image[i][j].rgbtBlue = gray_pixel;
+            image[i][j].rgbtGreen = gg;
+            image[i][j].rgbtRed = rr;

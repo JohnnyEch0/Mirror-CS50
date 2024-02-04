@@ -25,23 +25,11 @@ void sepia(int height, int width, RGBTRIPLE image[height][width])
     {
         for (int j = 0; j < width; j++)
         {
-            // First, conver to grayscale
-            BYTE gray_pixel = round((image[i][j].rgbtBlue + image[i][j].rgbtGreen + image[i][j].rgbtRed) / 3.0f);
+            BYTE rr = round(0.393 * image[i][j].rgbtRed + 0.769 * image[i][j].rgbtGreen + 0.189 * image[i][j].rgbtBlue);
+            BYTE gg = round(0.349 * image[i][j].rgbtRed + 0.686 * image[i][j].rgbtGreen + 0.168 * image[i][j].rgbtBlue);
+            BYTE bb = round(0.272 * image[i][j].rgbtRed + 0.534 * image[i][j].rgbtGreen + 0.131 * image[i][j].rgbtBlue);
 
-            // increase red and green values
-            int SCALE = 20;
-            BYTE rr = gray_pixel + (SCALE);
-            BYTE gg = gray_pixel + (SCALE) / 2;
-
-
-            // if "overflowing" - repair
-            if (gg <= SCALE / 2 - 1)
-                gg = 0xFF;
-            if (rr <= SCALE - 1)
-                rr = 0xFF;
-
-            // set the new values for the pixel
-            image[i][j].rgbtBlue = gray_pixel;
+            image[i][j].rgbtBlue = bb;
             image[i][j].rgbtGreen = gg;
             image[i][j].rgbtRed = rr;
         }
