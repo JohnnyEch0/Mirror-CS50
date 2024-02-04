@@ -31,11 +31,11 @@ int main(int argc, char *argv[])
         if (buffer[0] == 0xFF && buffer[1] == 0xD8 && buffer[2] == 0xFF && buffer[3] >= 0xE0)
         {
             count++;
-            sprintf(out, "%.3d.png", count);
+            sprintf(out, "%.3d.jpg", count);
             // printf("%s\n", out);
             FILE *output = fopen(out, "w");
         }
-        // fwrite(&buffer, sizeof(buffer), 1, output);
+        fwrite(&buffer, sizeof(buffer), 1, output);
 
     }
 
