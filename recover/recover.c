@@ -38,6 +38,7 @@ int main(int argc, char *argv[])
         if (out != NULL)
         {
             FILE *output = fopen(out, "w");
+            printf("%s\n", out);
             fwrite(&buffer, sizeof(buffer), 1, output);
         }
     }
