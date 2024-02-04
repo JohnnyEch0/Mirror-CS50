@@ -31,7 +31,19 @@ int main(int argc, char *argv[])
         if (buffer[0] == 0xFF && buffer[1] == 0xD8 && buffer[2] == 0xFF && buffer[3] >= 0xE0)
         {
             count++;
-            out += (char) count;
+            if (count > 9)
+            {
+                ;
+            }
+            for (int i = 0; i < 3; i++)
+            {
+                if (count > 9)
+                {
+                    out = "0" + (c) 
+                }
+                out[i] = 0;
+            }
+
             printf("%s\n", out);
 
 
