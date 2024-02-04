@@ -120,7 +120,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             // workaround with int, to prevent overflow
             int colors[3] = {0,0,0};
 
-            // add all the neighbor values, divided by their amount
+            // add all the neighbor values
             for (int neig = 0; neig <= count; neig++)
             {
                 colors[0] += arr_neig[neig].rgbtBlue;
@@ -134,10 +134,9 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                 colors[o] = round(colors[o] / (count+1));
                 if (colors[o] > 255)
                     colors[o] = 255;
-
             }
 
-            // convert do Bytes
+            // convert to Bytes
             bb = colors[0];
             gg = colors[1];
             rr = colors[2];
