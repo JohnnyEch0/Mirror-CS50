@@ -21,7 +21,7 @@ int main(int argc, char *argv[])
 
     // create the buffer
     uint8_t buffer[512];
-    uint4_t header[7]; //3.5?
+    uint4_t header[7]; 
 
     while (fread(&buffer, 1, 512, input) == 512)
     {
