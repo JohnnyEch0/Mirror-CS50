@@ -111,7 +111,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                     }
                 }
             }
-            
+
             // now calculate its values
             BYTE bb = 0x00;
             BYTE gg = 0x00;
