@@ -56,4 +56,15 @@ count+1 (divider) = 9
 ___
 
 
+// try: add all and devide
+
+//out:
+
+    // add all the neighbor values, divided by their amount
+            for (int neig = 0; neig <= count; neig++)
+            {
+                colors[0] += round(arr_neig[neig].rgbtBlue / (count+1));
+                colors[1] += round(arr_neig[neig].rgbtGreen / (count+1));
+                colors[2] += round(arr_neig[neig].rgbtRed / (count+1));
+            }
 
