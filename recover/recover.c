@@ -33,11 +33,10 @@ int main(int argc, char *argv[])
             count++;
             sprintf(out, "%.3d.jpg", count);
             // printf("%s\n", out);
-
-        }
-        if (out != NULL)
-        {
             FILE *output = fopen(out, "w");
+        }
+        if (output != NULL)
+        {
             printf("%s\n", out);
             fwrite(&buffer, sizeof(buffer), 1, output);
         }
