@@ -23,7 +23,7 @@ int main(int argc, char *argv[])
     uint8_t buffer[512];
     int count = -1;
     char *out = malloc(8);
-    FILE *output;
+    FILE *output = NULL;
 
 
     while (fread(&buffer, 1, 512, input) == 512)
