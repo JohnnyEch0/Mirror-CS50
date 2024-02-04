@@ -39,9 +39,6 @@ int main(int argc, char *argv[])
             output = fopen(out, "w");
 
         }
-        // if (output == NULL)
-        //        printf("NOTFOUND\n");
-        // else
         if (output != NULL)
             fwrite(&buffer, sizeof(buffer), 1, output);
     }
@@ -50,7 +47,7 @@ int main(int argc, char *argv[])
     fclose(input);
     fclose(output);
 
-
+    // free malloc
     free(out);
 
     return 0;
