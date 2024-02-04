@@ -83,7 +83,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
     {
         for (int w = 0; w < width; w++)
         {
-            copy[h][w] = image[h][w]
+            copy[h][w] = image[h][w];
         }
     }
 
@@ -119,6 +119,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             // workaround with int, to prevent overflow
             int colors[3] = {0,0,0};
 
+            // add all the neighbor values, divided by their amount
             for (int neig = 0; neig <= count; neig++)
             {
                 colors[0] += (arr_neig[neig].rgbtBlue / count+1);
@@ -126,16 +127,19 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                 colors[2] += (arr_neig[neig].rgbtRed / count+1);
             }
 
+            // prevent overflow
             for (int o = 0; o < 3; o++)
             {
                 if (colors[o] > 255)
                 colors[o] = 255;
             }
 
+            // convert do Bytes
             bb = colors[0];
             gg = colors[1];
             rr = colors[2];
 
+            // write to image
             image[i][j].rgbtBlue = bb;
             image[i][j].rgbtGreen = gg;
             image[i][j].rgbtRed = rr;
