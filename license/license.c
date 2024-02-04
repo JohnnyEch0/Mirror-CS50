@@ -33,7 +33,7 @@ int main(int argc, char *argv[])
         for (int i = 0; i < 7; i++)
             plates[idx][i] = &buffer[i];
 
-        // printf("%s\n", *plates[idx]);
+        printf("%s\n", *plates[idx]);
         idx++;
     }
 
