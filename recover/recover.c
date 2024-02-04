@@ -18,6 +18,14 @@ int main(int argc, char *argv[])
         return 2;
     }
 
+    // create the buffer
+    uint8_t buffer[512];
+
     while (fread(&buffer, sizeof(buffer), 1, input) != 0)
+    {
+        printf("block found\n);
+    }
+    
+    return 0;
 
 }
