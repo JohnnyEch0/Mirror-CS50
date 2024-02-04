@@ -1,0 +1,19 @@
+fprintf(stdout, "%s, %s %d, %.2d:%.2d\n",
+        weekday, month, day, hour, min);
+
+
+// out
+
+count++;
+            if (count > 9)
+            {
+                ;
+            }
+            for (int i = 0; i < 3; i++)
+            {
+                if (count > 9)
+                {
+                    out = "0" + (c)
+                }
+                out[i] = 0;
+            }
