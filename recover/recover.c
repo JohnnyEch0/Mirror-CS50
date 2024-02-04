@@ -27,20 +27,14 @@ int main(int argc, char *argv[])
 
     while (fread(&buffer, 1, 512, input) == 512)
     {
-        // printf("block found\n");
+        // if a new file is found, create a new name
         if (buffer[0] == 0xFF && buffer[1] == 0xD8 && buffer[2] == 0xFF && buffer[3] >= 0xE0)
         {
             count++;
             sprintf(out, "%.3d", count);
-
             // printf("%s\n", out);
-
-
-
         }
-        // if the block starts with 0xff 0xd8 0xff 0xe0 (last zero might be different)
-        // --> start a new file
-        //
+        // fwrite(&buffer, sizeof(buffer), 1, output);
 
     }
 
