@@ -37,11 +37,10 @@ int main(int argc, char *argv[])
             sprintf(out, "%.3d.jpg", count);
             // printf("%s\n", out);
             output = fopen(out, "w");
-
         }
         if (output != NULL)
             fwrite(&buffer, sizeof(buffer), 1, output);
-        
+
     }
 
     // close files
