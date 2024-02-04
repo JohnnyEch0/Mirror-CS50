@@ -22,7 +22,7 @@ int main(int argc, char *argv[])
     // create the buffer
     uint8_t buffer[512];
 
-    while (fread(&buffer, sizeof(buffer), 1, input) != 0)
+    while (fread(&buffer, 1, 512, input) == 512)
     {
         printf("block found\n");
     }
