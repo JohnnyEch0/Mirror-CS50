@@ -1,9 +1,12 @@
-    for (int i = 0; i < width; i++)
+void blur(int height, int width, RGBTRIPLE image[height][width])
+{
+    // Create a copy of image
+    RGBTRIPLE copy[height][width];
+    for (int i = 0; i < height; i++)
     {
-        for (int j = 0, h_height = height / 2; j < h_height; j++)
+        for (int j = 0; j < width; j++)
         {
-            RGBTRIPLE buffer = image[j][i];
-            image[j][i] = image[height-j][i];
-            image[height-j][i] = buffer;
+            copy[i][j] = image[i][j];
         }
     }
+}
