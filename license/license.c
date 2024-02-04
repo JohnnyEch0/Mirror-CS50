@@ -31,14 +31,14 @@ int main(int argc, char *argv[])
 
         // Save plate number in array
         for (int i = 0; i < 7; i++)
-            plates[idx][i] = buffer[i];
+            plates[idx][i] = &buffer[i];
+
+        // printf("%s\n", *plates[idx]);
         idx++;
     }
 
     for (int i = 0; i < 8; i++)
     {
-        for (int j = 0; j < 7; j++)
-            printf("%c", *plates[i][j]);
-        printf("\n");
+            printf("%s\n", *plates[i]);
     }
 }
