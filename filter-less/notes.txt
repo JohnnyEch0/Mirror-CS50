@@ -47,4 +47,10 @@ ____
 for mid pixel
 count += 1 is called 9 times
 --> count = 8
+--Y arrneig 0-8
+
+for 0++ <= count --> happens 9 times
+___
+
+
 
