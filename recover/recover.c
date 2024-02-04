@@ -39,7 +39,6 @@ int main(int argc, char *argv[])
             output = fopen(out, "w");
 
         }
-
         if (output == NULL)
                 printf("NOTFOUND\n");
         else
