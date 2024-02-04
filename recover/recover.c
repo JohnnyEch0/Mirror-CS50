@@ -31,6 +31,8 @@ int main(int argc, char *argv[])
         // if a new file is found, create a new name
         if (buffer[0] == 0xFF && buffer[1] == 0xD8 && buffer[2] == 0xFF && buffer[3] >= 0xE0)
         {
+            if (output != NULL)
+                fclose(output);
             count++;
             sprintf(out, "%.3d.jpg", count);
             // printf("%s\n", out);
@@ -39,13 +41,15 @@ int main(int argc, char *argv[])
         }
 
         if (output == NULL)
-                printf("NOTFOUND"\n);
+                printf("NOTFOUND\n");
         else
             fwrite(&buffer, sizeof(buffer), 1, output);
     }
 
     // close files
     fclose(input);
+    fclose(output);
+
 
     free(out);
 
