@@ -22,7 +22,7 @@ int main(int argc, char *argv[])
     // create the buffer
     uint8_t buffer[512];
     int count = -1;
-    char *out[4];
+    char *out = malloc(4);
 
 
     while (fread(&buffer, 1, 512, input) == 512)
@@ -31,9 +31,11 @@ int main(int argc, char *argv[])
         if (buffer[0] == 0xFF && buffer[1] == 0xD8 && buffer[2] == 0xFF && buffer[3] >= 0xE0)
         {
             count++;
-            sprintf(out, "%.3d\n", count);
+            sprintf(out, "%.3d", count);
 
-            // printf("image found\n");
+            // printf("%s\n", out);
+
+
 
         }
         // if the block starts with 0xff 0xd8 0xff 0xe0 (last zero might be different)
@@ -44,6 +46,8 @@ int main(int argc, char *argv[])
 
     // close files
     fclose(input);
+
+    free(out);
 
     return 0;
 }
