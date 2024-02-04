@@ -22,7 +22,7 @@ int main(int argc, char *argv[])
     // create the buffer
     uint8_t buffer[512];
     int count = -1;
-    char *out = "000";
+    char *out[4];
 
 
     while (fread(&buffer, 1, 512, input) == 512)
@@ -31,7 +31,7 @@ int main(int argc, char *argv[])
         if (buffer[0] == 0xFF && buffer[1] == 0xD8 && buffer[2] == 0xFF && buffer[3] >= 0xE0)
         {
             count++;
-            fprintf(stdout, "%.3d\n", count);
+            sprintf(out, "%.3d\n", count);
 
             // printf("image found\n");
 
