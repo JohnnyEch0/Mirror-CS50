@@ -37,6 +37,8 @@ int main(int argc, char *argv[])
 
     for (int i = 0; i < 8; i++)
     {
-        printf("%s\n", plates[i]);
+        for (int j = 0; j < 7; j++)
+            printf("%c", *plates[i][j]);
+        printf("\n");
     }
 }
