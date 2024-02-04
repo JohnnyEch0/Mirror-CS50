@@ -13,7 +13,12 @@ int main(int argc, char *argv[])
     char buffer[7];
 
     // Create array to store plate numbers
-    char *plates[8];
+    // out: char *plates[8];
+    // this is a string
+
+    // in: char *plates[8][7];
+    // we need a list of strings
+    char *plates[8][7];
 
     FILE *infile = fopen(argv[1], "r");
 
