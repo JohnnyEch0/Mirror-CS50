@@ -131,7 +131,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             // prevent overflow
             for (int o = 0; o < 3; o++)
             {
-                colors[o] = round(colors[o] / (count+1));
+                colors[o] = round(colors[o] / float(count+1));
                 if (colors[o] > 255)
                     colors[o] = 255;
             }
