@@ -41,6 +41,7 @@ int main(int argc, char *argv[])
         }
         if (output != NULL)
             fwrite(&buffer, sizeof(buffer), 1, output);
+        
     }
 
     // close files
