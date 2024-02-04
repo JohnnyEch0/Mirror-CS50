@@ -26,7 +26,9 @@ int main(int argc, char *argv[])
     {
         printf("block found\n");
     }
+    
+    // close files
+    fclose(input);
 
     return 0;
-
 }
