@@ -18,6 +18,6 @@ int main(int argc, char *argv[])
         return 2;
     }
 
-    
+    while (fread(&buffer, sizeof(buffer), 1, input) != 0)
 
 }
