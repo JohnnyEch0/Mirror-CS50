@@ -34,12 +34,10 @@ int main(int argc, char *argv[])
             sprintf(out, "%.3d.jpg", count);
             // printf("%s\n", out);
             FILE *output = fopen(out, "w");
+            if (output == NULL)
+                printf("NOTFOUND");
         }
-        if (output != NULL)
-        {
-            printf("%s\n", out);
-            fwrite(&buffer, sizeof(buffer), 1, output);
-        }
+
     }
 
     // close files
