@@ -1,3 +1,28 @@
-255,0,0     0,0,255
-[0][0]      [0][1]
+i = 0
+j= 0
+[0][0]
 
+c -1
+
+k = 0
+
+l = 0
+    cur_x = 0+0-1 = -1
+    cur_y = 0+0-1 = -1
+    brek
+l = 1
+    cur_x = -1
+    cur_y = 0
+    brek
+
+l = 2 -same
+
+k= 1
+l= 0
+    cur_x = 0+1-1 = 0
+    cur_y = 0+0-1 = -1
+    brek
+l = 1
+    cur_x = 0
+    cur_y = 0
+    arr_neig[0] = copy[0][0]
