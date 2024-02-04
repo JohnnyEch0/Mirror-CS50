@@ -104,7 +104,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                     int cur_x = i+k-1;
                     int cur_y = j+l-1;
                     // dont assemble if they are negative
-                    if (cur_x >= 0 && cur_y >= 0 && cur_x <= width && cur_y <= height)
+                    if (cur_x >= 0 && cur_y >= 0 && cur_x <= height && cur_y <= width)
                     {
                         count += 1;
                         arr_neig[count] = copy[cur_x][cur_y];
