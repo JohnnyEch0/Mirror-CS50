@@ -18,7 +18,9 @@ int main(int argc, char *argv[])
 
     // in: char *plates[8][7];
     // we need a list of strings
-    char *plates[8][7];
+
+    // pointer out.
+    char plates[8][7];
 
     FILE *infile = fopen(argv[1], "r");
 
@@ -31,16 +33,13 @@ int main(int argc, char *argv[])
 
         // Save plate number in array
         for (int i = 0; i < 7; i++)
-            plates[idx][i] = &buffer[i];
+            plates[idx][i] = buffer[i];
 
-        printf("%s\n", *plates[idx]);
-        // when re-assigning, we always also change the index before us
-        // platex[0][i] is always equal to plates[1][i] and so on
         idx++;
     }
 
     for (int i = 0; i < 8; i++)
     {
-            printf("%s\n", *plates[i]);
+            printf("%s\n", plates[i]);
     }
 }
