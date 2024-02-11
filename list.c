@@ -29,7 +29,7 @@ int main(void)
         //create the node
         node *n = malloc(sizeof(node));
         // abort if malloc didnt work
-        if n == NULL
+        if (n == NULL)
             return 1;
         // set value and append to list
         n->phrase = phrase;
