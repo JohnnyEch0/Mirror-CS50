@@ -31,7 +31,7 @@ bool check(const char *word)
     node *cursor = table[x];
     if (cursor == NULL)
         return false;
-    for (int i = 0; i < 500; i++)
+    for (int i = 0, j = size_oflist(table[x]); i < j; i++)
     {
         if (!strcasecmp(cursor->word, word))
             return true;
@@ -138,4 +138,16 @@ bool unload(void)
         }
     }
     return true;
+}
+
+unsigned int size_oflist(node *cursor)
+{
+    int count = 0;
+
+    while (cursor != NULL)
+    {
+        count++;
+        cursor = cursor->next;
+    }
+    return count;
 }
