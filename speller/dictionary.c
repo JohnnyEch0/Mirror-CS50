@@ -113,6 +113,8 @@ bool load(const char *dictionary)
         }
 
     }
+    free(word_);
+    fclose(input);
 
     return true;
 }
