@@ -63,7 +63,8 @@ unsigned int hash(const char *word)
     // TODO: Improve this hash function
     // for 26*26 Hashtable
         // return ((toupper(word[0])-'A') * 26 + (toupper(word[1]) - 'A'))
-    return toupper(word[0]) - 'A';
+    return ((toupper(word[0])-'A') * 676 + (toupper(word[1])-'A') * 26 + (toupper(word[0])-'A'));
+    // return toupper(word[0]) - 'A';
 }
 
 // Loads dictionary into memory, returning true if successful, else false
