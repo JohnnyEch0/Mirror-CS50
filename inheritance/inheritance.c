@@ -85,7 +85,6 @@ void free_family(person *p)
     if (p->parents[0] == NULL && p->parents[1] == NULL)
     {
         free(p);
-        printf("%c \n", p)
     }
 
     // TODO: Free parents recursively
@@ -93,13 +92,8 @@ void free_family(person *p)
     {
         free_family(p->parents[0]);
         free_family(p->parents[1]);
-    }
-
-    // TODO: Free child
-    if (p != NULL)
         free(p);
-
-
+    }
 }
 
 // Print each family member and their alleles.
