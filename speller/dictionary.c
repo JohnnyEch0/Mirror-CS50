@@ -115,8 +115,10 @@ unsigned int size(void)
 bool unload(void)
 {
     // TODO
+    node *cursor;
     for (int i = 0; i < N; i++)
     {
+        cursor = table[i];
         
     }
     return false;
