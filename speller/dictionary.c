@@ -40,8 +40,50 @@ unsigned int hash(const char *word)
 // Loads dictionary into memory, returning true if successful, else false
 bool load(const char *dictionary)
 {
-    printf("line 54 reached");
-    
+    printf("load reached");
+    // TODO
+    // open dict - check if return is NULL
+
+    FILE *input = fopen(dictionary, "r");
+    if (input == NULL)
+    {
+        printf("Could not open file.\n");
+        return 1;
+    }
+
+    // create a node
+    // fscanf(file, "%s", word) --> word is an char array to save the word --> until fscanf returns EOF
+    char *word_ = NULL;
+
+
+    while (fscanf(input, "%s", word_) != EOF)
+    {
+
+        // maloc *n -> check if return is NULL
+        node *n = malloc(sizeof(node));
+        if (n == NULL)
+            return false;
+        // copy the read word into the node
+        strcpy(n->word, word_);
+        //get the hash
+        unsigned int x = hash(word_);
+        // if there is nothing inside that linked list, have it point to new node
+        printf("%p", table[x]->next);
+        if (table[x]->next == NULL)
+        {
+            n->next = NULL;
+            table[x]->next = n;
+
+        }
+        // else: new node points to first element of linked list, which points to new element
+        else
+        {
+            n->next = table[x]->next;
+            table[x]->next = n;
+        }
+        printf("%s", word_);
+
+    }
 
 
     return true;
