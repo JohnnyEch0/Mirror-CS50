@@ -1,5 +1,7 @@
 // Implements a dictionary's functionality
 #include <stdio.h>
+#include <stdlib.h>
+
 #include <ctype.h>
 #include <stdbool.h>
 
@@ -47,7 +49,7 @@ bool load(const char *dictionary)
     }
     // create a node
     // fscanf(file, "%s", word) --> word is an char array to save the word --> until fscanf returns EOF
-    char *word[LENGTH];
+    const char *word = NULL;
 
     while (fscanf(input, "%s", word) != EOF)
     {
@@ -58,7 +60,7 @@ bool load(const char *dictionary)
         // copy the read word into the node
         strcopy(n->word, "word");
         //get the hash
-        int x = hash(word);
+        unsigned int x = hash(word);
         // if there is nothing inside that linked list, have it point to new node
         if (table[x] == NULL)
         {
@@ -72,7 +74,7 @@ bool load(const char *dictionary)
             n->next = table[x]->next;
             table[x] = n->next;
         }
-        printf("%s", &word);
+        printf("%s", word);
 
     }
 
