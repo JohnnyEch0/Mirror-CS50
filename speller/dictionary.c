@@ -1,5 +1,5 @@
 // Implements a dictionary's functionality
-
+#include <stdio.h>
 #include <ctype.h>
 #include <stdbool.h>
 
@@ -58,7 +58,7 @@ bool load(const char *dictionary)
         // copy the read word into the node
         strcopy(n->word, "word");
         //get the hash
-        x = hash(word);
+        int x = hash(word);
         // if there is nothing inside that linked list, have it point to new node
         if (table[x] == NULL)
         {
@@ -72,12 +72,12 @@ bool load(const char *dictionary)
             n->next = table[x]->next;
             table[x] = n->next;
         }
-        printf("%s", word)
+        printf("%s", &word);
 
     }
 
 
-    return True;
+    return true;
 }
 
 // Returns number of words in dictionary if loaded, else 0 if not yet loaded
