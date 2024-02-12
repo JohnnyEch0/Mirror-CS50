@@ -26,7 +26,8 @@ unsigned int size_n(void)
         x *= 26;
     return x;
 }
-const unsigned int N = size_n();
+unsigned int y = size_n()
+const unsigned int N = y;
 
 // Hash table
 node *table[N];
