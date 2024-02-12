@@ -85,6 +85,7 @@ void free_family(person *p)
     if (p->parents[0] == NULL && p->parents[1] == NULL)
     {
         free(p);
+        printf("%c \n", p)
     }
 
     // TODO: Free parents recursively
