@@ -39,8 +39,16 @@ bool load(const char *dictionary)
 {
     // TODO
     // open dict - check if return is NULL
-    // for each word in the dict --> use size?, get the seperate word, fread(charsize)
+    FILE *input = fopen(dictionary, "r");
+    if (input == NULL)
+    {
+        printf("Could not open file.\n");
+        return 1;
+    }
+
     // fscanf(file, "%s", word) --> word is an char array to save the word --> until fscanf returns EOF
+    char *word;
+    fscanf(input, "%s", word)
         // create a node
             // maloc *n -> check if return is NULL
             // strcopy(n->word, "word")
