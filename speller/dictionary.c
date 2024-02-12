@@ -32,13 +32,15 @@ bool check(const char *word)
     if (cursor == NULL)
         return false;
     for (int i = 0; i < N; i++)
+    {
         if (strcasecmp(cursor->word, word))
             return true;
         else if (cursor->next == NULL)
             return false;
         else
             cursor = cursor->next;
-
+    }
+    return false;
 }
 
 // Hashes word to a number
