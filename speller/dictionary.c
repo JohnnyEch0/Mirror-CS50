@@ -95,7 +95,7 @@ bool load(const char *dictionary)
         // else: new node points to first element of linked list, which points to new element
         else
         {
-            n->next = table[x]->next;
+            n->next = table[x];
             table[x] = n;
         }
 
@@ -116,7 +116,6 @@ unsigned int size(void)
         {
             count++;
             cursor = cursor->next;
-            printf("%i", count);
         }
     }
     return count;
