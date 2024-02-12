@@ -29,6 +29,8 @@ bool check(const char *word)
 unsigned int hash(const char *word)
 {
     // TODO: Improve this hash function
+    // for 26*26 Hashtable
+        // return ((toupper(word[0])-'A') * 26 + (toupper(word[1]) - 'A'))
     return toupper(word[0]) - 'A';
 }
 
@@ -36,12 +38,13 @@ unsigned int hash(const char *word)
 bool load(const char *dictionary)
 {
     // TODO
-    // open dict
+    // open dict - check if return is NULL
     // for each word in the dict --> use size?, get the seperate word, fread(charsize)
+    // fscanf(file, "%s", word) --> word is an char array to save the word --> until fscanf returns EOF
         // create a node
-        // maloc *n
-        // strcopy(n->word, "Word")
-        // n->next = NULL;
+            // maloc *n -> check if return is NULL
+            // strcopy(n->word, "word")
+            // n->next = NULL;
         // find n for table[n] / hash the word(?)
             // hash returns the bucket- or the index for the hashlist
             // now create a Node with char[LENGTH+1]
