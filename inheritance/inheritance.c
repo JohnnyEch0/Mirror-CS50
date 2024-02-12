@@ -95,7 +95,9 @@ void free_family(person *p)
     }
 
     // TODO: Free child
-    free(p);
+    if (p->parents[0] != NULL || p->parents[1] != NULL)
+    
+
 }
 
 // Print each family member and their alleles.
