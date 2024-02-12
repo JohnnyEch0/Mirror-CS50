@@ -40,6 +40,8 @@ bool load(const char *dictionary)
         // create a node
         // find n for table[n] / hash the word(?)
             // hash returns the bucket- or the index for the hashlist
+            // now create a Node with char[LENGTH+1]
+                // check if struct->next should be NULL or prev
         // if there is a node there
             // node->next = the node already there
             // what if there are multiple nodes?
