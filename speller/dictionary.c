@@ -47,8 +47,15 @@ bool load(const char *dictionary)
     }
 
     // fscanf(file, "%s", word) --> word is an char array to save the word --> until fscanf returns EOF
-    char *word;
-    fscanf(input, "%s", word)
+    char *word[LENGTH];
+    while (fscanf(input, "%s", word) != EOF)
+    {
+        node *n = malloc(sizeof(node));
+        strcopy(n->word, "word");
+        hash(word);
+        
+    }
+
         // create a node
             // maloc *n -> check if return is NULL
             // strcopy(n->word, "word")
