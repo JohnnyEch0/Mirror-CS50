@@ -76,9 +76,16 @@ void free_family(person *p)
 {
     // TODO: Handle base case
     if (person-> parent[0] && person -> parent[1])
-    {}
+    {
+        free(person);
+    }
 
     // TODO: Free parents recursively
+    else
+    {
+        free_family(person->parent[0]);
+        free_family(person->parent[1]);
+    }
 
     // TODO: Free child
 }
