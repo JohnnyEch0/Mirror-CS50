@@ -53,10 +53,11 @@ bool load(const char *dictionary)
 
     // create a node
     // fscanf(file, "%s", word) --> word is an char array to save the word --> until fscanf returns EOF
-    char *word_[LENGTH];
+    // char *word_[LENGTH];
+    char *word_ = malloc(LENGTH);
 
 
-    while (fscanf(input, "%s", *word_) != EOF)
+    while (fscanf(input, "%s", word_) != EOF)
     {
 
         // maloc *n -> check if return is NULL
@@ -65,9 +66,9 @@ bool load(const char *dictionary)
             return false;
         // copy the read word into the node
 
-        strcpy(n->word, *word_);
+        strcpy(n->word, word_);
         //get the hash
-        unsigned int x = hash(*word_);
+        unsigned int x = hash(word_);
         // if there is nothing inside that linked list, have it point to new node
         printf("%p", table[x]->next);
         if (table[x]->next == NULL)
@@ -82,7 +83,7 @@ bool load(const char *dictionary)
             n->next = table[x]->next;
             table[x]->next = n;
         }
-        printf("%s", *word_);
+        printf("%s", word_);
 
     }
 
