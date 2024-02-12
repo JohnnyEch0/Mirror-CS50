@@ -74,7 +74,7 @@ bool load(const char *dictionary)
         else
         {
             n->next = table[x]->next;
-            table[x] = n->next;
+            table[x] = n;
         }
         printf("%s", word_);
 
