@@ -26,8 +26,8 @@ unsigned int size_n(void)
         x *= 26;
     return x;
 }
-unsigned int y = size_n()
-const unsigned int N = y;
+
+const unsigned long long N = 4718464138887779754509230339014256179122137026607683635171557376;
 
 // Hash table
 node *table[N];
