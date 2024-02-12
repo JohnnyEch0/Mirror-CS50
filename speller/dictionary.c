@@ -53,7 +53,7 @@ bool load(const char *dictionary)
 
     // create a node
     // fscanf(file, "%s", word) --> word is an char array to save the word --> until fscanf returns EOF
-    // char *word = NULL;
+    char *word_[LENGTH];
 
 
     while (fscanf(input, "%s", word_) != EOF)
