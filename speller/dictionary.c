@@ -31,9 +31,9 @@ bool check(const char *word)
     node *cursor = table[x];
     if (cursor == NULL)
         return false;
-    for (int i = 0; i < N; i++)
+    for (int i = 0; i < 500; i++)
     {
-        if (strcasecmp(cursor->word, word))
+        if (!strcasecmp(cursor->word, word))
             return true;
         else if (cursor->next == NULL)
             return false;
