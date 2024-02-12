@@ -116,6 +116,7 @@ unsigned int size(void)
         {
             count++;
             cursor = cursor->next;
+            printf("%i", count);
         }
     }
     return count;
