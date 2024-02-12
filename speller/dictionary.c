@@ -67,14 +67,14 @@ bool load(const char *dictionary)
         if (table[x] == NULL)
         {
             n->next = NULL;
-            table[x] = n;
+            table[x]->next = n;
 
         }
         // else: new node points to first element of linked list, which points to new element
         else
         {
             n->next = table[x]->next;
-            table[x] = n;
+            table[x]->next = n;
         }
         printf("%s", word_);
 
