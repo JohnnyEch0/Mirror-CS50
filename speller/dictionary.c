@@ -23,6 +23,19 @@ const unsigned int N = 26;
 // Hash table
 node *table[N];
 
+unsigned int size_oflist(node *cursor)
+{
+    int count = 0;
+
+    while (cursor != NULL)
+    {
+        count++;
+        cursor = cursor->next;
+    }
+    return count;
+}
+
+
 // Returns true if word is in dictionary, else false
 bool check(const char *word)
 {
@@ -140,14 +153,3 @@ bool unload(void)
     return true;
 }
 
-unsigned int size_oflist(node *cursor)
-{
-    int count = 0;
-
-    while (cursor != NULL)
-    {
-        count++;
-        cursor = cursor->next;
-    }
-    return count;
-}
