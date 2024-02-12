@@ -36,8 +36,12 @@ unsigned int hash(const char *word)
 bool load(const char *dictionary)
 {
     // TODO
+    // open dict
     // for each word in the dict --> use size?, get the seperate word, fread(charsize)
         // create a node
+        // maloc *n
+        // strcopy(n->word, "Word")
+        // n->next = NULL;
         // find n for table[n] / hash the word(?)
             // hash returns the bucket- or the index for the hashlist
             // now create a Node with char[LENGTH+1]
