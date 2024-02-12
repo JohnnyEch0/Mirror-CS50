@@ -7,7 +7,6 @@
 #include <ctype.h>
 #include <stdbool.h>
 
-
 #include "dictionary.h"
 
 // Represents a node in a hash table
@@ -36,7 +35,6 @@ unsigned int size_oflist(node *cursor)
     return count;
 }
 
-
 // Returns true if word is in dictionary, else false
 bool check(const char *word)
 {
@@ -62,14 +60,14 @@ unsigned int hash(const char *word)
 {
     // TODO: Improve this hash function
     // for 26*26 Hashtable
-        // return ((toupper(word[0])-'A') * 26 + (toupper(word[1]) - 'A'))
+    // return ((toupper(word[0])-'A') * 26 + (toupper(word[1]) - 'A'))
     if (strlen(word) == 1)
-        return (toupper(word[0])-'A') * 676;
+        return (toupper(word[0]) - 'A') * 676;
     else if (strlen(word) == 2)
-        return ((toupper(word[0])-'A') * 676 + (toupper(word[1])-'A') * 26 );
+        return ((toupper(word[0]) - 'A') * 676 + (toupper(word[1]) - 'A') * 26);
     else
-        return ((toupper(word[0])-'A') * 676 + (toupper(word[1])-'A') * 26 + (toupper(word[0])-'A'));
-        // return toupper(word[0]) - 'A';
+        return ((toupper(word[0]) - 'A') * 676 + (toupper(word[1]) - 'A') * 26 + (toupper(word[0]) - 'A'));
+    // return toupper(word[0]) - 'A';
 }
 
 // Loads dictionary into memory, returning true if successful, else false
@@ -88,21 +86,20 @@ bool load(const char *dictionary)
     // char *word_[LENGTH]; big mistaky
     char *word_ = malloc(LENGTH);
 
-
     // fscanf(file, "%s", word) --> word is an char array to save the word --> until fscanf returns EOF
     while (fscanf(input, "%s", word_) != EOF)
     {
         // create a node
-            // maloc *n -> check if return is NULL
+        // maloc *n -> check if return is NULL
         node *n = malloc(sizeof(node));
-            //TODO, Free Memory thus far if n == NULL
+        // TODO, Free Memory thus far if n == NULL
         if (n == NULL)
             return false;
 
         // copy the read word into the node
         strcpy(n->word, word_);
 
-        //get the hash
+        // get the hash
         unsigned int x = hash(word_);
         // if there is nothing inside that linked list, have it point to new node
 
@@ -118,7 +115,6 @@ bool load(const char *dictionary)
             n->next = table[x];
             table[x] = n;
         }
-
     }
     free(word_);
     fclose(input);
@@ -161,4 +157,3 @@ bool unload(void)
     }
     return true;
 }
-
