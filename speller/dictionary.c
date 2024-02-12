@@ -59,7 +59,7 @@ bool load(const char *dictionary)
         if (n == NULL)
             return false;
         // copy the read word into the node
-        strcopy(n->word, "word");
+        char* strcopy(n->word, "word");
         //get the hash
         unsigned int x = hash(word);
         // if there is nothing inside that linked list, have it point to new node
