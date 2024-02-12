@@ -55,7 +55,7 @@ bool load(const char *dictionary)
     // fscanf(file, "%s", word) --> word is an char array to save the word --> until fscanf returns EOF
     // char *word_[LENGTH];
     char *word_ = malloc(LENGTH);
-
+    table[0] = NULL;
 
     while (fscanf(input, "%s", word_) != EOF)
     {
