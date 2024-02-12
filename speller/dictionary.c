@@ -25,11 +25,17 @@ node *table[N];
 bool check(const char *word)
 {
     // TODO
-    x = hash(word);
+    int x = hash(word);
     node *cursor = table[x];
     if (cursor == NULL)
         return false;
-    else if cursor->word
+    for (int i = 0; i < N; i++)
+        if (strcasecmp(cursor->word, word))
+            return true;
+        else if (cursor->next == NULL)
+            return false;
+        else
+            cursor = cursor->next;
 
 }
 
