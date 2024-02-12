@@ -40,7 +40,6 @@ unsigned int hash(const char *word)
 // Loads dictionary into memory, returning true if successful, else false
 bool load(const char *dictionary)
 {
-    printf("load reached");
     // TODO
     // open dict - check if return is NULL
 
@@ -56,11 +55,7 @@ bool load(const char *dictionary)
     // char *word_[LENGTH];
     char *word_ = malloc(LENGTH);
 
-    // try Nulling each index of the list
-    for (int i = 0; i < N; i++)
-    {
-        table[i] = NULL;
-    }
+
 
     while (fscanf(input, "%s", word_) != EOF)
     {
@@ -81,15 +76,15 @@ bool load(const char *dictionary)
         if (table[x] == NULL)
         {
             n->next = NULL;
-            table[x]->next = n;
+            table[x] = n;
         }
         // else: new node points to first element of linked list, which points to new element
         else
         {
             n->next = table[x]->next;
-            table[x]->next = n;
+            table[x] = n;
         }
-        printf("%s", word_);
+        // printf("%s", word_);
 
     }
 
