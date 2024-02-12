@@ -36,7 +36,7 @@ unsigned int hash(const char *word)
 bool load(const char *dictionary)
 {
     // TODO
-    // for each word in the dict
+    // for each word in the dict --> use size?, get the seperate word, fread(charsize)
         // create a node
         // find n for table[n] / hash the word(?)
         // if there is a node there
