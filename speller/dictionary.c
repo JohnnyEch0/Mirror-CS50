@@ -52,8 +52,12 @@ bool load(const char *dictionary)
     {
         node *n = malloc(sizeof(node));
         strcopy(n->word, "word");
-        hash(word);
-        
+        x = hash(word);
+        if (table[x] == NULL)
+        {
+            table[x] = n;
+        }
+
     }
 
         // create a node
