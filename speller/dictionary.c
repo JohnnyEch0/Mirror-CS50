@@ -36,6 +36,12 @@ unsigned int hash(const char *word)
 bool load(const char *dictionary)
 {
     // TODO
+    // for each word in the dict
+        // create a node
+        // find n for table[n] / hash the word(?)
+        // if there is a node there
+            // node->next = the node already there
+            // what if there are multiple nodes?
     return false;
 }
 
