@@ -71,11 +71,10 @@ bool load(const char *dictionary)
         unsigned int x = hash(word_);
         // if there is nothing inside that linked list, have it point to new node
         // printf("%p", table[x]->next);
-        if (table[x]->next == NULL)
+        if (table[x] == NULL)
         {
             n->next = NULL;
             table[x]->next = n;
-
         }
         // else: new node points to first element of linked list, which points to new element
         else
