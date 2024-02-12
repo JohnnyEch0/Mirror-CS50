@@ -47,8 +47,9 @@ bool load(const char *dictionary)
             // n->next = NULL;
         // find n for table[n] / hash the word(?)
             // hash returns the bucket- or the index for the hashlist
-            // now create a Node with char[LENGTH+1]
-                // check if struct->next should be NULL or prev
+            // set new node pointer to the first element in the linked list
+                // now have the list pointer ponint to new node
+
         // if there is a node there
             // node->next = the node already there
             // what if there are multiple nodes?
