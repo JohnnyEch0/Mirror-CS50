@@ -45,37 +45,39 @@ bool load(const char *dictionary)
         printf("Could not open file.\n");
         return 1;
     }
-
+    // create a node
     // fscanf(file, "%s", word) --> word is an char array to save the word --> until fscanf returns EOF
     char *word[LENGTH];
+
     while (fscanf(input, "%s", word) != EOF)
     {
+        // maloc *n -> check if return is NULL
         node *n = malloc(sizeof(node));
+        if (n == NULL)
+            return false;
+        // copy the read word into the node
         strcopy(n->word, "word");
+        //get the hash
         x = hash(word);
+        // if there is nothing inside that linked list, have it point to new node
         if (table[x] == NULL)
         {
+            n->next = NULL;
             table[x] = n;
+
         }
+        // else: new node points to first element of linked list, which points to new element
+        else
+        {
+            n->next = table[x]->next;
+            table[x] = n->next;
+        }
+        printf("%s", word)
 
     }
 
-        // create a node
-            // maloc *n -> check if return is NULL
-            // strcopy(n->word, "word")
-            // n->next = NULL;
-        // find n for table[n] / hash the word(?)
-            // hash returns the bucket- or the index for the hashlist
-            // set new node pointer to the first element in the linked list
-                // now have the list pointer ponint to new node
 
-        // if there is a node there
-            // node->next = the node already there
-            // what if there are multiple nodes?
-
-
-    //return True
-    return false;
+    return True;
 }
 
 // Returns number of words in dictionary if loaded, else 0 if not yet loaded
