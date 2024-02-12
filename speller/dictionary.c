@@ -50,9 +50,7 @@ bool load(const char *dictionary)
         return 1;
     }
 
-
-
-    // char *word_[LENGTH];
+    // char *word_[LENGTH]; big mistaky
     char *word_ = malloc(LENGTH);
 
 
@@ -73,6 +71,7 @@ bool load(const char *dictionary)
         unsigned int x = hash(word_);
         // if there is nothing inside that linked list, have it point to new node
 
+        // tablex[x]-> next - big mistakey
         if (table[x] == NULL)
         {
             n->next = NULL;
