@@ -42,6 +42,9 @@ bool load(const char *dictionary)
         // if there is a node there
             // node->next = the node already there
             // what if there are multiple nodes?
+
+
+    //return True
     return false;
 }
 
