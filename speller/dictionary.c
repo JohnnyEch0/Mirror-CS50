@@ -55,13 +55,19 @@ bool load(const char *dictionary)
     // fscanf(file, "%s", word) --> word is an char array to save the word --> until fscanf returns EOF
     // char *word_[LENGTH];
     char *word_ = malloc(LENGTH);
-    table[0] = NULL;
+
+    // try Nulling each index of the list
+    for (int i = 0; i < N; i++)
+    {
+        table[i] = NULL;
+    }
 
     while (fscanf(input, "%s", word_) != EOF)
     {
 
         // maloc *n -> check if return is NULL
         node *n = malloc(sizeof(node));
+        //TODO, Free Memory thus far if n == NULL
         if (n == NULL)
             return false;
         // copy the read word into the node
@@ -71,6 +77,7 @@ bool load(const char *dictionary)
         unsigned int x = hash(word_);
         // if there is nothing inside that linked list, have it point to new node
         // printf("%p", table[x]->next);
+
         if (table[x] == NULL)
         {
             n->next = NULL;
