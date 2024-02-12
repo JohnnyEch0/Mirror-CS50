@@ -95,6 +95,7 @@ void free_family(person *p)
     }
 
     // TODO: Free child
+    free(person);
 }
 
 // Print each family member and their alleles.
