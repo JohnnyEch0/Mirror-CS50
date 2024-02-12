@@ -39,6 +39,7 @@ bool load(const char *dictionary)
     // for each word in the dict --> use size?, get the seperate word, fread(charsize)
         // create a node
         // find n for table[n] / hash the word(?)
+            // hash returns the bucket- or the index for the hashlist
         // if there is a node there
             // node->next = the node already there
             // what if there are multiple nodes?
