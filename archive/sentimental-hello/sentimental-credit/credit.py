@@ -8,7 +8,8 @@ mult2 = 0
 for i, digit in enumerate(number):
     number[-2]
     number[-4]
-    
+    number[-6]
+
     if i % 2 == 0:
         digit = int(digit) * 2
         mult = str(digit)
