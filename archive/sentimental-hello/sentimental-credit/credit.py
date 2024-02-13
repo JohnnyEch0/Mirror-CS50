@@ -13,9 +13,9 @@ for i, digit in enumerate(number):
             mult = str(digit)
             for j, digit in enumerate(mult):
                 mult2 += int(digit)
-                print("digit to mult2", digit)
+                print("case 0: digit to mult", digit)
             digit2 = number[-1]
-            print("digit to add", digit2)
+            print("case 0: digit to add", digit2)
             add += int(digit2)
         else:
             add += int(digit)
