@@ -15,12 +15,13 @@ for i, digit in enumerate(number):
             for j, digit in enumerate(mult):
                 mult2 += int(digit)
                 print("case 0: digit to mult", digit)
-            digit2 = number[-1]
-            print("case 0: last digit to add", digit2)
-            add += int(digit2)
+
         else:
             add += int(digit)
             print("case 0: first digit to add", digit)
+            digit2 = number[-1]
+            print("case 0: last digit to add", digit2)
+            add += int(digit2)
 
         # print("Case 0:", add, mult2)
 
