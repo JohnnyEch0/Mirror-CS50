@@ -1,13 +1,17 @@
 from cs50 import get_string
 
 number = get_string("Number: ")
-print(len(number))
+length = len(number)
 mult = ""
 add = 0
 mult2 = 0
 
 for i, digit in enumerate(number):
-    if i * 2 <= len(number):
+    if i == 0:
+        if length % 2 == 0:
+            
+
+    if i * 2 <= length:
         digit = number[-2 * i]
 
     if i % 2 == 0:
