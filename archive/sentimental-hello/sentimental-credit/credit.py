@@ -23,7 +23,8 @@ for i, digit in enumerate(number):
         for j, digit in enumerate(mult):
                 mult2 += int(digit)
         if (i*2) + 1 < length:
-            
+            digit2 = number[(-2*i) - 1]
+
 
 
     if i % 2 == 0:
