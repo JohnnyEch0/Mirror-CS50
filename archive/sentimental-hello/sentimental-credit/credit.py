@@ -26,18 +26,7 @@ for i, digit in enumerate(number):
                 mult2 += int(digit)
         if (i*2) + 1 < length:
             digit2 = number[(-2*i) - 1]
-
-
-
-    if i % 2 == 0:
-        digit = int(digit) * 2
-        mult = str(digit)
-        # print("mult", mult)
-        for j, digit in enumerate(mult):
-            mult2 += int(digit)
-            # print("mult2", mult2)
-    else:
-        add += int(digit)
+            add += int(digit2)
 
 print(mult2, add)
 
