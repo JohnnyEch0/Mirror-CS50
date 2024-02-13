@@ -1,7 +1,9 @@
 x = 0
-while (x < 9 and x > 1):
+while True:
     x = int(input("Height:"))
+    if x < 9 and x > 1:
+        break
 
 for i in range(x):
-    line = str((" " * (x - i)) + ("#" * x) + "  " + ("#" * x) + (" " * (x - i)))
+    line = str((" " * (x - i-1)) + ("#" * (i+1)) + "  " + ("#" * (i+1)) + (" " * (x - i-1)))
     print(line)
