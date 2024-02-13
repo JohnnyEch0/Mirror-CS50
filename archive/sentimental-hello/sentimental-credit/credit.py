@@ -13,8 +13,9 @@ for i, digit in enumerate(number):
             mult = str(digit)
             for j, digit in enumerate(mult):
                 mult2 += int(digit)
+                print("digit to mult2", digit)
             digit2 = number[-1]
-            print(digit2)
+            print("digit to add", digit2)
             add += int(digit2)
         else:
             add += int(digit)
@@ -27,9 +28,10 @@ for i, digit in enumerate(number):
         mult = str(digit)
         for j, digit in enumerate(mult):
                 mult2 += int(digit)
+                print("digit to mult2", digit)
         if (i*2) + 1 < length:
             digit2 = number[(-2*i) - 1]
-            print(digit2)
+            print("digit to add", digit2)
             add += int(digit2)
 
 
