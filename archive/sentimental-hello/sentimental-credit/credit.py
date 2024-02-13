@@ -16,6 +16,7 @@ for i, digit in enumerate(number):
         else:
             add += int(digit)
             digit2 = number[-1]
+            print(digit2)
             add += int(digit2)
         # print("Case 0:", add, mult2)
 
@@ -29,6 +30,7 @@ for i, digit in enumerate(number):
             digit2 = number[(-2*i) - 1]
             print(digit2)
             add += int(digit2)
+
 
 print(add, mult2)
 
