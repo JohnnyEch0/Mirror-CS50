@@ -17,8 +17,12 @@ for i, digit in enumerate(number):
             add += int(digit)
 
 
-    elif i * 2 <= length:
+    elif i * 2 < length:
         digit = number[-2 * i]
+        mult = str(digit)
+        for j, digit in enumerate(mult):
+                mult2 += int(digit)
+    
 
     if i % 2 == 0:
         digit = int(digit) * 2
