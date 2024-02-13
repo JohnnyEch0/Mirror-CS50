@@ -13,11 +13,12 @@ for i, digit in enumerate(number):
             mult = str(digit)
             for j, digit in enumerate(mult):
                 mult2 += int(digit)
-        else:
-            add += int(digit)
             digit2 = number[-1]
             print(digit2)
             add += int(digit2)
+        else:
+            add += int(digit)
+
         # print("Case 0:", add, mult2)
 
 
