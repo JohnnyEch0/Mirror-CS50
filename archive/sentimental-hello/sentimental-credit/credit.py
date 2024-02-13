@@ -15,6 +15,8 @@ for i, digit in enumerate(number):
                 mult2 += int(digit)
         else:
             add += int(digit)
+            digit2 = number[-1]
+            add += int(digit2)
 
 
     elif i * 2 < length:
