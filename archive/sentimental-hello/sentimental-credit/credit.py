@@ -2,6 +2,7 @@ from cs50 import get_string
 
 number = get_string("Number: ")
 length = len(number)
+print("Length: ", length)
 mult = ""
 add = 0
 mult2 = 0
@@ -19,7 +20,7 @@ for i, digit in enumerate(number):
             add += int(digit2)
         else:
             add += int(digit)
-            print("case 0: digit to add", digit2)
+            print("case 0: first digit to add", digit)
 
         # print("Case 0:", add, mult2)
 
