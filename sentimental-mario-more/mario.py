@@ -1,7 +1,7 @@
 x = 0
 while True:
     x = int(input("Height:"))
-    if x < 9 and x > 1:
+    if x < 9 and x > 0:
         break
 
 for i in range(x):
