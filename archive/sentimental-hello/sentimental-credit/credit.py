@@ -9,9 +9,15 @@ mult2 = 0
 for i, digit in enumerate(number):
     if i == 0:
         if length % 2 == 0:
-            
+            digit = int(digit) * 2
+            mult = str(digit)
+            for j, digit in enumerate(mult):
+                mult2 += int(digit)
+        else:
+            add += int(digit)
 
-    if i * 2 <= length:
+
+    elif i * 2 <= length:
         digit = number[-2 * i]
 
     if i % 2 == 0:
