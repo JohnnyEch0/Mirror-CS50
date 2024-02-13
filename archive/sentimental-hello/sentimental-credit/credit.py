@@ -18,5 +18,5 @@ for i, digit in enumerate(number):
 
 res = mult2 + add
 
-
+# amex 15, MC 16, visa 13 and 16
     # print(i, mult2)
