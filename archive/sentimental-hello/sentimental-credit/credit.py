@@ -16,7 +16,19 @@ for i, digit in enumerate(number):
     else:
         add += int(digit)
 
-res = mult2 + add
+print(mult2, add)
+
+if mult2 + add != 20:
+    print("INVALID")
+elif number[0] == 4:
+    print("VISA")
+elif number[0] == 3 and number[1] == 4 or number[1] == 7:
+    print("AMEX")
+else:
+    print("MASTERCARD")
 
 # amex 15, MC 16, visa 13 and 16
+# all amex start with 34 or 37
+# all visa start with 4
+# all mc start with 51, 52, 53, 54 or 55
     # print(i, mult2)
