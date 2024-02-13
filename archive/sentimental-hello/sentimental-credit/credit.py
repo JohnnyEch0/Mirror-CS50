@@ -6,6 +6,8 @@ add = 0
 mult2 = 0
 
 for i, digit in enumerate(number):
+    number[-2]
+    number[-4]
     
     if i % 2 == 0:
         digit = int(digit) * 2
