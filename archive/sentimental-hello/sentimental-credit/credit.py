@@ -44,9 +44,8 @@ if (mult2 + add) % 10 != 0:
     print("INVALID")
 elif (int(number[0])) == 4:
     print("VISA")
-if int(number[0]) == 3 and int(number[1] == 4 or int(number[1]) == 7):
+elif int(number[0]) == 3 and int(number[1] == 4 or int(number[1]) == 7):
     print("AMEX")
-
 else:
     print("MASTERCARD")
     # print(number[1] == 7)
