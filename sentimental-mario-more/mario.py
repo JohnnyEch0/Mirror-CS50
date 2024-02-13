@@ -7,5 +7,5 @@ while True:
         print("Usage: int 1-8")
 
 for i in range(x):
-    line = str((" " * (x - i-1)) + ("#" * (i+1)) + "  " + ("#" * (i+1)) + (" " * (x - i-1)))
+    line = str((" " * (x - i-1)) + ("#" * (i+1)) + "  " + ("#" * (i+1)))
     print(line)
