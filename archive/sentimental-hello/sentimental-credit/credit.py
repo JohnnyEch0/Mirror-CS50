@@ -9,12 +9,14 @@ for i, digit in enumerate(number):
     if i % 2 == 0:
         digit = int(digit) * 2
         mult = str(digit)
-        print("mult", mult)
+        # print("mult", mult)
         for j, digit in enumerate(mult):
             mult2 += int(digit)
-            print("mult2", mult2)
+            # print("mult2", mult2)
     else:
         add += int(digit)
+
+res = mult2 + add
 
 
     # print(i, mult2)
