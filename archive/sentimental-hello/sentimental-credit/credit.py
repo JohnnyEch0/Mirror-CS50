@@ -22,7 +22,9 @@ for i, digit in enumerate(number):
         mult = str(digit)
         for j, digit in enumerate(mult):
                 mult2 += int(digit)
-    
+        if (i*2) + 1 < length:
+            
+
 
     if i % 2 == 0:
         digit = int(digit) * 2
