@@ -17,6 +17,7 @@ for i, digit in enumerate(number):
             add += int(digit)
             digit2 = number[-1]
             add += int(digit2)
+        print("Case 0:", add, mult2)
 
 
     elif i * 2 < length:
