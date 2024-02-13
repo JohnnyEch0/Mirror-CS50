@@ -7,11 +7,12 @@ mult2 = 0
 
 for i, digit in enumerate(number):
     if i % 2 == 0:
-        mult = str((int(digit*2)))
+        digit = int(digit) * 2
+        mult = str(digit)
+        print("mult", mult)
         for j, digit in enumerate(mult):
-
             mult2 += int(digit)
-            print(mult, mult2)
+            print("mult2", mult2)
     else:
         add += int(digit)
 
