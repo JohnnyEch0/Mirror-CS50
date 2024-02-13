@@ -21,7 +21,7 @@ for i, digit in enumerate(number):
 
 
     elif i * 2 < length:
-        digit = number[-2 * i]
+        digit = int(number[-2 * i]) * 2
         mult = str(digit)
         for j, digit in enumerate(mult):
                 mult2 += int(digit)
@@ -29,7 +29,7 @@ for i, digit in enumerate(number):
             digit2 = number[(-2*i) - 1]
             add += int(digit2)
 
-print(mult2, add)
+print(add, mult2)
 
 if mult2 + add != 20:
     print("INVALID")
