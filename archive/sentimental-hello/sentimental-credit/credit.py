@@ -10,11 +10,11 @@ mult2 = 0
 for i, digit in enumerate(number):
     if i == 0:
         if length % 2 == 0:
-            digit = int(digit) * 2
-            mult = str(digit)
-            for j, digit in enumerate(mult):
-                mult2 += int(digit)
-                print("case 0: digit to mult", digit)
+            digit_3 = int(digit) * 2
+            mult = str(digit_3)
+            for j, digit_j in enumerate(mult):
+                mult2 += int(digit_j)
+                print("case 0: digit to mult", digit_j, "from", digit)
 
         else:
             add += int(digit)
@@ -29,9 +29,9 @@ for i, digit in enumerate(number):
     elif i * 2 < length:
         digit = int(number[-2 * i]) * 2
         mult = str(digit)
-        for j, digit in enumerate(mult):
-                mult2 += int(digit)
-                print("digit to mult2", digit)
+        for j, digit_j in enumerate(mult):
+                mult2 += int(digit_j)
+                print("digit to mult2", digit_j, "from", digit)
         if (i*2) + 1 < length:
             digit2 = number[(-2*i) - 1]
             print("digit to add", digit2)
