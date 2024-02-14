@@ -45,9 +45,14 @@ for i, digit in enumerate(number):
 
 if (mult2 + add) % 10 != 0:
     print("INVALID")
-elif (int(number[0])) == 4:
+elif (int(number[0])) == 4 and length == 13 or length == 16:
     print("VISA")
-elif int(number[0]) == 3 and int(number[1] == 4 or int(number[1]) == 7):
+elif int(number[0]) == 3 and int(number[1] == 4 or int(number[1]) == 7) and length == 15:
     print("AMEX")
 else:
-    print("MASTERCARD")
+    if length == 16:
+        print("MASTERCARD")
+    else:
+        print("INVALID")
+
+# American Express uses 15-digit numbers, MasterCard uses 16-digit numbers, and Visa uses 13- and 16-digit numbers.
