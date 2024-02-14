@@ -7,7 +7,7 @@ def luhn_valid(number):
 
     checksum = 0
     for i, digit in enumerate(digits):
-        if digit % 2 == 0:
+        if digit % 2 != 0:
             digit *= 2
             if digit > 9:
                 # clever trick, if digit*2 is more then one digit, substract 9 to get quersum
