@@ -31,5 +31,7 @@ if luhn_valid(number):
         print("MASTERCARD")
     else:
         print("INVALID")
+else:
+    print("INVALID")
 
 
