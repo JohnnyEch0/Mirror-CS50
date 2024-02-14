@@ -45,7 +45,7 @@ for i, digit in enumerate(number):
 
 if (mult2 + add) % 10 != 0:
     print("INVALID")
-elif (int(number[0])) == 4 and length == 13 or length == 16:
+elif (int(number[0])) == 4 and (length == 13 or length == 16):
     print("VISA")
 elif int(number[0]) == 3 and int(number[1] == 4 or int(number[1]) == 7) and length == 15:
     print("AMEX")
