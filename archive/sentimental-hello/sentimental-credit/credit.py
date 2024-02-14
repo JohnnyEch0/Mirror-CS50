@@ -1,4 +1,5 @@
 from cs50 import get_string
+# credit in python, it's not pretty, it's porpably not the best, but it works.
 
 number = get_string("Number: ")
 length = len(number)
@@ -35,22 +36,25 @@ for i, digit in enumerate(number):
         # check if this is even in range
     elif i * 2 < length:
         # starting from the second last character
-        # get 
+        # get char at [-2 * i] and do the mult computation
         digit = int(number[-2 * i]) * 2
         mult = str(digit)
         for j, digit_j in enumerate(mult):
             mult2 += int(digit_j)
-            # print("digit to mult2", digit_j, "from", digit)
+
+        # get char at [-2 * i - 1]
+            # if possible
         if (i*2) + 1 < length:
+            # add it to add int
             digit2 = number[(-2*i) - 1]
-            # print("digit to add", digit2)
             add += int(digit2)
 
 
-# print(add, mult2)
-
+# check if the verification formular works
 if (mult2 + add) % 10 != 0:
     print("INVALID")
+# check if its VISA, AMEX, MC or INVALID
+    # via length and starting numbers
 elif (int(number[0])) == 4 and (length == 13 or length == 16):
     print("VISA")
 elif int(number[0]) == 3 and int(number[1] == 4 or int(number[1]) == 7) and length == 15:
