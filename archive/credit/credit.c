@@ -12,8 +12,6 @@ int main(void)
     long input = get_long("Please give me your credit card number?");
     bool is_valid = valid_check(input);
 
-
-
 }
 
 bool valid_check(int number)

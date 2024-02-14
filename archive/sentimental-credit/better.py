@@ -22,6 +22,7 @@ def luhn_valid(number):
 
 
 number = input("Number: ")
+if 
 if luhn_valid(number):
     if re.match(visa_pattern, number):
         print("VISA")
