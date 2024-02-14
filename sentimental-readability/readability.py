@@ -17,8 +17,8 @@ for c in text:
 
 words = spaces+1
 
-av_word_length = (length - spaces - sentences) / words * 100
-sen_p_words = sentences / words * 100
+av_word_length = round((length - spaces - sentences) / words * 100)
+sen_p_words = round(sentences / words * 100)
 cl_index = round(0.0588 * av_word_length - 0.296 * sen_p_words - 15.8)
 
 if cl_index < 1:
