@@ -1,66 +1,36 @@
-from cs50 import get_string
-# credit in python, it's not pretty, it's porpably not the best, but it works.
+import re
 
-number = get_string("Number: ")
-length = len(number)
-# print("Length: ", length)
-mult = ""
-add = 0
-mult2 = 0
+# re patterns for easy format checking
+visa_pattern = r"^4\d{12}(?:\d{3})?$"
+amex_pattern = r"^3[47]\d{13}$"
+mastercard_pattern = r"^5[1-5]\d{14}$"
 
-for i, digit in enumerate(number):
-    # uneven and even numbers need to be processed differently
-    # this we do in the first iteration
-    # also we're doin a whole lot of weird typecasting!
-    if i == 0:
-        # if it is even
-        if length % 2 == 0:
-            # first character of number
-            # multiply by 2 and add seperated digits to the mult integer
-            digit_3 = int(digit) * 2
-            mult = str(digit_3)
-            for j, digit_j in enumerate(mult):
-                mult2 += int(digit_j)
-            # add the last character to the add integer
-            digit2 = number[-1]
-            add += int(digit2)
-        # if it is uneven
-        else:
-            # add first and last character to the add int
-            add += int(digit)
-            digit2 = number[-1]
-            add += int(digit2)
+def luhn_valid(number):
+    digits = [int(d) for d in number[::-1]]
+    # :: omits start and end values, so uses entire string
+    # -1 iterates in reverse
 
-    # now all the other characters
-    # as were working in 2*i indexes of the number now,
-        # check if this is even in range
-    elif i * 2 < length:
-        # starting from the second last character
-        # get char at [-2 * i] and do the mult computation
-        digit = int(number[-2 * i]) * 2
-        mult = str(digit)
-        for j, digit_j in enumerate(mult):
-            mult2 += int(digit_j)
-
-        # get char at [-2 * i - 1]
-            # if possible
-        if (i*2) + 1 < length:
-            # add it to add int
-            digit2 = number[(-2*i) - 1]
-            add += int(digit2)
+    checksum = 0
+    for i, digit in enumerate(digits):
+        if i % 2 != 0:
+            digit *= 2
+            if digit > 9:
+                # clever trick, if digit*2 is more then one digit, substract 9 to get quersum
+                digit -= 9
+        checksum += digit
+    return checksum % 10 == 0
 
 
-# check if the verification formular works
-if (mult2 + add) % 10 != 0:
-    print("INVALID")
-# check if its VISA, AMEX, MC or INVALID
-    # via length and starting numbers
-elif (int(number[0])) == 4 and (length == 13 or length == 16):
-    print("VISA")
-elif int(number[0]) == 3 and int(number[1] == 4 or int(number[1]) == 7) and length == 15:
-    print("AMEX")
-else:
-    if length == 16 and int(number[0]) == 5 and int(number[1]) < 6:
+number = input("Number: ")
+if 
+if luhn_valid(number):
+    if re.match(visa_pattern, number):
+        print("VISA")
+    elif re.match(amex_pattern, number):
+        print("AMEX")
+    elif re.match(mastercard_pattern, number):
         print("MASTERCARD")
     else:
         print("INVALID")
+
+
