@@ -1,5 +1,6 @@
 import re
 
+# re patterns for easy format checking
 visa_pattern = r"^4\d{12}(?:\d{3})?$"
 amex_pattern = r"^3[47]\d{13}$"
 mastercard_pattern = r"^5[1-5]\d{14}$"
