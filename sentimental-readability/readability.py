@@ -1,4 +1,6 @@
 import cs50
+import math
+
 text = cs50.get_string("Text: ")
 sentences = 0
 spaces = 0
@@ -17,7 +19,7 @@ words = spaces+1
 
 av_word_length = (length - spaces - sentences) / words * 100
 sen_p_words = sentences / words * 100
-cl_index = round(0.0588 * av_word_length - 0.296 * sen_p_words - 15.8)
+cl_index = math.ceil(0.0588 * av_word_length - 0.296 * sen_p_words - 15.8)
 
 if cl_index < 1:
     print("Before Grade 1")
