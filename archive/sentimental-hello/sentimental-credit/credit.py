@@ -28,13 +28,12 @@ for i, digit in enumerate(number):
 
         # print("Case 0:", add, mult2)
 
-
     elif i * 2 < length:
         digit = int(number[-2 * i]) * 2
         mult = str(digit)
         for j, digit_j in enumerate(mult):
-                mult2 += int(digit_j)
-                # print("digit to mult2", digit_j, "from", digit)
+            mult2 += int(digit_j)
+            # print("digit to mult2", digit_j, "from", digit)
         if (i*2) + 1 < length:
             digit2 = number[(-2*i) - 1]
             # print("digit to add", digit2)
@@ -54,6 +53,3 @@ else:
         print("MASTERCARD")
     else:
         print("INVALID")
-
-# American Express uses 15-digit numbers, MasterCard uses 16-digit numbers, and Visa uses 13- and 16-digit numbers.
-        # 51, 52, 53, 54, or 55
