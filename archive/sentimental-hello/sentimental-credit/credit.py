@@ -8,27 +8,34 @@ add = 0
 mult2 = 0
 
 for i, digit in enumerate(number):
+    # uneven and even numbers need to be processed differently
+    # this we do in the first iteration
+    # also we're doin a whole lot of weird typecasting!
     if i == 0:
+        # if it is even
         if length % 2 == 0:
+            # first character of number
+            # multiply by 2 and add seperated digits to the mult integer
             digit_3 = int(digit) * 2
             mult = str(digit_3)
             for j, digit_j in enumerate(mult):
                 mult2 += int(digit_j)
-                # print("case 0: digit to mult", digit_j, "from", digit)
-                digit2 = number[-1]
-            # print("case 0: last digit to add", digit2)
-            add += int(digit2)
-
-        else:
-            add += int(digit)
-            # print("case 0: first digit to add", digit)
+            # add the last character to the add integer
             digit2 = number[-1]
-            # print("case 0: last digit to add", digit2)
+            add += int(digit2)
+        # if it is uneven
+        else:
+            # add first and last character to the add int
+            add += int(digit)
+            digit2 = number[-1]
             add += int(digit2)
 
-        # print("Case 0:", add, mult2)
-
+    # now all the other characters
+    # as were working in 2*i indexes of the number now,
+        # check if this is even in range
     elif i * 2 < length:
+        # starting from the second last character
+        # get 
         digit = int(number[-2 * i]) * 2
         mult = str(digit)
         for j, digit_j in enumerate(mult):
