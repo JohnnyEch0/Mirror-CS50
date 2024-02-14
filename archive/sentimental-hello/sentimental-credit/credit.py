@@ -50,9 +50,10 @@ elif (int(number[0])) == 4 and (length == 13 or length == 16):
 elif int(number[0]) == 3 and int(number[1] == 4 or int(number[1]) == 7) and length == 15:
     print("AMEX")
 else:
-    if length == 16:
+    if length == 16 and int(number[0]) == 5 and int(number[1]) < 6:
         print("MASTERCARD")
     else:
         print("INVALID")
 
 # American Express uses 15-digit numbers, MasterCard uses 16-digit numbers, and Visa uses 13- and 16-digit numbers.
+        # 51, 52, 53, 54, or 55
