@@ -44,18 +44,25 @@ def main():
     # isolate the str's into a list
     load_str = rows[0].keys()
     str = []
+    long_matches = []
     for key in load_str:
         if key == "name":
             continue
         else:
             str.append(key)
             lon_match = longest_match(dna_string, key)
+            long_matches.append(long_match)
             # print(lon_match)
 
     print(rows)
 
     # TODO: Check database for matching profiles
     for i, row in enumerate(rows):
+        if i == 0:
+            continue
+        else:
+            for j, _str in enumerate(str):
+                
 
     return
 
