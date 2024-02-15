@@ -55,7 +55,9 @@ def main():
     # print(str)
 
     # TODO: Check database for matching profiles
-    
+    results = []
+    for i, sequ in enumerate(str):
+        results[i] = longest_match()
 
     return
 
