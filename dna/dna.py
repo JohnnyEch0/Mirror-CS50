@@ -43,6 +43,8 @@ def main():
 
     # isolate the str's into a list
     load_str = rows[0].keys()
+
+    # find larges matches and out str's and longest matches into a list
     str = []
     long_matches = []
     for key in load_str:
@@ -51,16 +53,12 @@ def main():
         else:
             str.append(key)
             lon_match = longest_match(dna_string, key)
-            # print(key, lon_match)
             long_matches.append(lon_match)
-            # print(lon_match)
 
-    # print(rows)
 
     # TODO: Check database for matching profiles
 
-
-    for i, row in enumerate(rows):
+    for _, row in enumerate(rows):
         matches = 0
         # print(row)
         for j, _str in enumerate(str):
@@ -76,7 +74,7 @@ def main():
                 print(row["name"])
                 return
 
-    print("no match")
+    print("No Match")
 
     # syntax reminder
     # for r in rows:
