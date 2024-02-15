@@ -40,8 +40,10 @@ def main():
 
 
     # TODO: Find longest match of each STR in DNA sequence
-    load_ste = rows[0].keys()
-    print()
+    load_str = rows[0].keys()
+    len_str = len(load_str)
+
+    print(load_str[1:len_str])
     # for i, c in enumerate(rows):
         # print(c)
 
