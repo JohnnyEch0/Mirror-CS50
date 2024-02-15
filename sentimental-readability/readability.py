@@ -11,14 +11,9 @@ for c in text:
         sentences += 1
     elif c == " ":
         spaces += 1
-    elif c.isalpha:
+    elif c.isalpha():
         letters += 1
-# print(letters, sentences)
-for c in text:
-    if c.isalpha:
-        letters += 1
-        print(f"{c}", end="")
-# print(letters)
+
 
 words = spaces+1
 
