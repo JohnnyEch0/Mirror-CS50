@@ -6,7 +6,6 @@ def main():
 
     # TODO: Check for command-line usage
     if len(sys.argv) != 3:
-        # print(sys.argv)
         print("Usage: (csvfile), (DNA-Sequence)")
         return 1
 
@@ -18,22 +17,18 @@ def main():
     except:
         print("Couldn't open CSV file")
 
+    # split rows and save them in an array
     rows = []
     with open(sys.argv[1]) as file:
         reader = csv.DictReader(file)
         for row in reader:
             rows.append(row)
 
-    # syntax reminder
-    # for r in rows:
-    #     print(r["name"], r["AGATC"])
-
 
     # TODO: Read DNA sequence file into a variable
     try:
         with open(sys.argv[2]) as dna_file:
             dna_string = dna_file.read()
-            # print(dna_string)
 
     except:
         print("Couldn't open DNA file")
@@ -41,46 +36,22 @@ def main():
 
     # TODO: Find longest match of each STR in DNA sequence
 
-    # isolate the str's into a list
-    load_str = rows[0].keys()
+    # isolate the first line of the csv for matches
+    load_first_row = rows[0].keys()
 
-    # find larges matches and out str's and longest matches into a list
-    str = []
-    long_matches = []
-    for key in load_str:
-        if key == "name":
-            continue
-        else:
-            str.append(key)
-            lon_match = longest_match(dna_string, key)
-            long_matches.append(lon_match)
+    # get larges matches and str's
+    str, long_matches = get_str_largest_matches(load_first_row, dna_string)
 
 
     # TODO: Check database for matching profiles
 
-    for _, row in enumerate(rows):
-        matches = 0
-        # print(row)
-        for j, _str in enumerate(str):
-            # for each str, if long_matches[j] matches
-            # if all match, print name
-            if long_matches[j] != int(row[_str]):
-                # print(long_matches[j], row[_str], _str)
-                # print(long_matches[j] != row[_str])
-                continue
-            else:
-                matches +=1
-        if matches == len(str):
-                print(row["name"])
-                return
+    # input rows, str's and longest matches
+    # the function handles final printing.
+    get_match(rows, str, long_matches)
 
-    print("No Match")
 
-    # syntax reminder
-    # for r in rows:
-    #     print(r["name"], r["AGATC"])
 
-    return
+
 
 
 def longest_match(sequence, subsequence):
@@ -120,5 +91,39 @@ def longest_match(sequence, subsequence):
     # After checking for runs at each character in seqeuence, return longest run found
     return longest_run
 
+def get_str_largest_matches(strs, dna):
+    # takes a list of the first line of the csv strs and the dna
+    # returns a list of strs and one of longest matches
+    str = []
+    long_matches = []
+    for key in strs:
+        if key == "name":
+            continue
+        else:
+            str.append(key)
+            lon_match = longest_match(dna, key)
+            long_matches.append(lon_match)
+    return str, long_matches
+
+
+def get_match(rows, str, long_matches):
+    for _, row in enumerate(rows):
+        matches = 0
+        for j, _str in enumerate(str):
+            # for each str, if long_matches[j] matches
+            if long_matches[j] != int(row[_str]):
+                # when a longest match is unequal to a persons longest match, skip this j
+                continue
+            else:
+                # count
+                matches +=1
+        # if all match, print name and stop function
+        if matches == len(str):
+                print(row["name"])
+                return
+
+    # else print No Match
+    print("No Match")
+    return
 
 main()
