@@ -58,6 +58,7 @@ def main():
 
     # TODO: Check database for matching profiles
     for i, row in enumerate(rows):
+        print(row)
         if i == 0:
             continue
         else:
@@ -65,6 +66,7 @@ def main():
                 # for each str, if long_matches[j] matches
                 # if all match, print name
                 if long_matches[j] != row[_str]:
+                    # print(long_matches[j], row[_str], _str)
                     break
                 else:
                     print(row["name"])
