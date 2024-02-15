@@ -25,17 +25,18 @@ def main():
             rows.append(row)
 
     # syntax reminder
-    for r in rows:
-        print(r["name"], r["AGATC"])
+    # for r in rows:
+    #     print(r["name"], r["AGATC"])
 
 
     # TODO: Read DNA sequence file into a variable
     try:
         with open(sys.argv[2]) as dna_file:
-            reader = csv.DictReader(dna_file)
+            dna_string = dna_file.read(dna_file)
+            print(dna_string)
 
     except:
-        print("Couldn't open CSV file")
+        print("Couldn't open DNA file")
 
     # TODO: Find longest match of each STR in DNA sequence
 
