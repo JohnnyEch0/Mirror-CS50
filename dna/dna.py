@@ -50,11 +50,12 @@ def main():
         else:
             str.append(key)
             lon_match = longest_match(dna_string, key)
-            print(lon_match)
+            # print(lon_match)
 
-    # print(str)
+    print(rows)
 
     # TODO: Check database for matching profiles
+    for i, row in enumerate(rows):
 
     return
 
