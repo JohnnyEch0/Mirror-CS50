@@ -42,16 +42,24 @@ def main():
     # TODO: Find longest match of each STR in DNA sequence
     load_str = rows[0].keys()
     len_str = len(load_str)
-    for i in range(len_str):
-        print(load_str)
+    str = []
+    for key in load_str:
+        if key == "name":
+            continue
+        else:
+            str.append(key)
+    print(str)
+
+    # for i in range(len_str):
+        # print(load_str)
 
     # print(load_str[1])
     # for i, c in enumerate(rows):
         # print(c)
 
     # might be garbage
-    for r in rows: # [1:-1]
-        print(r["name"])
+    # for r in rows: # [1:-1]
+        # print(r["name"])
 
     # TODO: Check database for matching profiles
 
