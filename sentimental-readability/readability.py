@@ -1,5 +1,4 @@
 import cs50
-import math
 
 text = cs50.get_string("Text: ")
 sentences = 0
