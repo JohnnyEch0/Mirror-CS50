@@ -24,7 +24,6 @@ def main():
         for row in reader:
             rows.append(row)
 
-
     # TODO: Read DNA sequence file into a variable
     try:
         with open(sys.argv[2]) as dna_file:
@@ -32,7 +31,6 @@ def main():
 
     except:
         print("Couldn't open DNA file")
-
 
     # TODO: Find longest match of each STR in DNA sequence
 
@@ -42,16 +40,11 @@ def main():
     # get larges matches and str's
     str, long_matches = get_str_largest_matches(load_first_row, dna_string)
 
-
     # TODO: Check database for matching profiles
 
     # input rows, str's and longest matches
     # the function handles final printing.
     get_match(rows, str, long_matches)
-
-
-
-
 
 
 def longest_match(sequence, subsequence):
@@ -91,6 +84,7 @@ def longest_match(sequence, subsequence):
     # After checking for runs at each character in seqeuence, return longest run found
     return longest_run
 
+
 def get_str_largest_matches(strs, dna):
     # takes a list of the first line of the csv strs and the dna
     # returns a list of strs and one of longest matches
@@ -116,14 +110,15 @@ def get_match(rows, str, long_matches):
                 continue
             else:
                 # count
-                matches +=1
+                matches += 1
         # if all match, print name and stop function
         if matches == len(str):
-                print(row["name"])
-                return
+            print(row["name"])
+            return
 
     # else print No Match
     print("No Match")
     return
+
 
 main()
