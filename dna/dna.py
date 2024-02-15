@@ -57,7 +57,9 @@ def main():
     # TODO: Check database for matching profiles
     results = []
     for i, sequ in enumerate(str):
-        results[i] = longest_match()
+        results[i] = longest_match(dna_string, sequ)
+
+    
 
     return
 
