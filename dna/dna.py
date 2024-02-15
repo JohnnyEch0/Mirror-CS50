@@ -60,7 +60,7 @@ def main():
         results.append(longest_match(dna_string, sequ))
 
     highest = max(results)
-    print(highest)
+    # print(highest)
 
 
     return
