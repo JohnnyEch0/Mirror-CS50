@@ -43,7 +43,7 @@ def main():
     load_str = rows[0].keys()
     len_str = len(load_str)
 
-    print(load_str[1:len_str])
+    print(load_str[1])
     # for i, c in enumerate(rows):
         # print(c)
 
