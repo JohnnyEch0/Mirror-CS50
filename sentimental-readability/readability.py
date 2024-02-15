@@ -35,4 +35,7 @@ else:
 # 62 until bank
 # 22 until to do
 # 53 until reading
-# 
+# 37 until in it
+# 22 until book
+    # 41 until conversation
+
