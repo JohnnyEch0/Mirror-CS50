@@ -62,7 +62,13 @@ def main():
             continue
         else:
             for j, _str in enumerate(str):
-                
+                # for each str, if long_matches[j] matches
+                # if all match, print name
+                if longest_matches[j] ==
+
+    # syntax reminder
+    # for r in rows:
+    #     print(r["name"], r["AGATC"])
 
     return
 
