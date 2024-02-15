@@ -14,9 +14,16 @@ def main():
     try:
         with open(sys.argv[1]) as file:
             reader = csv.DictReader(file)
-            print(reader.fieldnames)
+
     except:
         print("Couldn't open CSV file")
+
+    rows = []
+    with open(sys.argv[1]) as file:
+        reader = csv.DictReader(file)
+        for row in reader:
+            rows.append(row)
+        print(rows[1])
 
     # TODO: Read DNA sequence file into a variable
 
