@@ -17,6 +17,7 @@ print(letters, sentences)
 for c in text:
     if c.isalpha:
         letters += 1
+        print(f"{c}", end="")
 print(letters)
 
 words = spaces+1
