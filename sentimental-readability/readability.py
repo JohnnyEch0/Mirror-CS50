@@ -13,12 +13,12 @@ for c in text:
         spaces += 1
     elif c.isalpha:
         letters += 1
-print(letters, sentences)
+# print(letters, sentences)
 for c in text:
     if c.isalpha:
         letters += 1
         print(f"{c}", end="")
-print(letters)
+# print(letters)
 
 words = spaces+1
 
