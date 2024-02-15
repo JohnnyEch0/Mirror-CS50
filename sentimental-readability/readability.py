@@ -12,7 +12,7 @@ for c in text:
     elif c == " ":
         spaces += 1
     elif c.isalpha:
-            letters += 1
+        letters += 1
 
 words = spaces+1
 
