@@ -38,4 +38,4 @@ else:
 # 37 until in it
 # 22 until book
     # 41 until conversation
-
+# counted 237, got 244
