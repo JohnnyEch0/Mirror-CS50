@@ -12,7 +12,7 @@ def main():
 
     # TODO: Read database file into a variable
     try:
-        with open(argv[1]) as file:
+        with open(sys.argv[1]) as file:
             reader = csv.DictReader(file)
             print(reader.fieldnames)
     except:
