@@ -59,9 +59,8 @@ def main():
     for i, sequ in enumerate(str):
         results[i] = longest_match(dna_string, sequ)
 
-    highest = 0
-    for i, result in enumerate(results):
-        if result > 0
+    highest = max(results)
+    print(highest)
 
 
     return
