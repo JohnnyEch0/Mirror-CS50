@@ -11,11 +11,10 @@ for c in text:
         sentences += 1
     elif c == " ":
         spaces += 1
-    else:
-        if c.isalpha:
+    elif c.isalpha:
             letters += 1
 
-words = spaces+1
+words = spaces
 
 av_word_length = (letters) / words * 100 # letters?
 sen_p_words = sentences / words * 100
