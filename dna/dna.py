@@ -41,7 +41,7 @@ def main():
 
     # TODO: Find longest match of each STR in DNA sequence
     for i, c in enumerate(rows):
-        print[c]
+        print(c)
 
     # might be garbage
     for r in rows: # [1:-1]
