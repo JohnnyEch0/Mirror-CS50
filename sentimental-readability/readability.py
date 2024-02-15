@@ -15,6 +15,7 @@ for c in text:
         letters += 1
 
 words = spaces+1
+print(words, letters, sentences)
 
 av_word_length = (letters) / words * 100 # letters?
 sen_p_words = sentences / words * 100
