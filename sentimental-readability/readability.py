@@ -18,7 +18,7 @@ for c in text:
 words = spaces+1
 
 
-av_word_length = (letters) / words * 100 # letters?
+av_word_length = (letters) / words * 100
 sen_p_words = sentences / words * 100
 # print(av_word_length, sen_p_words)
 
