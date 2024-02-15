@@ -13,9 +13,14 @@ for c in text:
         spaces += 1
     elif c.isalpha:
         letters += 1
+print(letters, sentences)
+for c in text:
+    if c.isalpha:
+        letters += 1
+print(letters)
 
 words = spaces+1
-print(words, letters, sentences)
+
 
 av_word_length = (letters) / words * 100 # letters?
 sen_p_words = sentences / words * 100
