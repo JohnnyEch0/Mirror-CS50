@@ -5,13 +5,14 @@ import sys
 def main():
 
     # TODO: Check for command-line usage
-    if sys.argv != 3:
+    if len(sys.argv) != 3:
+        # print(sys.argv)
         print("Usage: (csvfile), (DNA-Sequence)")
         return 1
 
     # TODO: Read database file into a variable
     try:
-        with open("foo.csv") as file:
+        with open(argv[1]) as file:
             reader = csv.DictReader(file)
             print(reader.fieldnames)
     except:
