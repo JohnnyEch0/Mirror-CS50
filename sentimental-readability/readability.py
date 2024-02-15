@@ -17,8 +17,7 @@ for c in text:
 words = spaces+1
 
 av_word_length = (letters) / words * 100
-sen_p_words = (sentences / words * 100)
-print(av_word_length, sen_p_words)
+sen_p_words = sentences / words * 100
 
 cl_index = round(0.0588 * av_word_length - 0.296 * sen_p_words - 15.8)
 
