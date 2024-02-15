@@ -51,7 +51,7 @@ def main():
         else:
             str.append(key)
             lon_match = longest_match(dna_string, key)
-            print(key, lon_match)
+            # print(key, lon_match)
             long_matches.append(lon_match)
             # print(lon_match)
 
@@ -74,8 +74,9 @@ def main():
                 matches +=1
         if matches == len(str):
                 print(row["name"])
-        else:
-            print("no match")
+                return
+
+    print("no match")
 
     # syntax reminder
     # for r in rows:
