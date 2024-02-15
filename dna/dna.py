@@ -32,11 +32,12 @@ def main():
     # TODO: Read DNA sequence file into a variable
     try:
         with open(sys.argv[2]) as dna_file:
-            dna_string = dna_file.read(dna_file)
-            print(dna_string)
+            dna_string = dna_file.read()
+            # print(dna_string)
 
     except:
         print("Couldn't open DNA file")
+
 
     # TODO: Find longest match of each STR in DNA sequence
 
