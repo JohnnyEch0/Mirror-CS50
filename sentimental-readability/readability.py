@@ -8,11 +8,11 @@ length = len(text)
 
 for c in text:
     if c == "." or c == "?" or c == "!":
-        sentences +=1
+        sentences += 1
     elif c == " ":
         spaces += 1
     else:
-        letters +=1
+        letters += 1
 
 words = spaces+1
 
