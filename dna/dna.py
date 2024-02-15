@@ -51,6 +51,7 @@ def main():
         else:
             str.append(key)
             lon_match = longest_match(dna_string, key)
+            print(key, lon_match)
             long_matches.append(lon_match)
             # print(lon_match)
 
