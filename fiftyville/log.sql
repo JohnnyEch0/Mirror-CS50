@@ -14,5 +14,6 @@ SELECT activity, license_plate, hour, minute FROM bakery_security_logs WHERE
 -- rerun with .output results.txt bc i cant copy from the terminal
 
 
+-- read the police interviews and select the ones concerning our theft
 SELECT name, transcript FROM interviews WHERE
     month = 7 AND day = 28 AND year = 2023;
