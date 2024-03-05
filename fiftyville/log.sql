@@ -10,3 +10,7 @@ SELECT * FROM crime_scene_reports WHERE street = 'Humphrey Street' AND month = 7
 -- read the bakeries sec logs at the given hour, sort by time
 SELECT activity, license_plate, hour, minute FROM bakery_security_logs WHERE
     month = 7 AND day = 28 AND year = 2023 AND hour = 10 ORDER BY hour;
+
+-- rerun with .output results.txt bc i cant copy from the terminal
+
+
