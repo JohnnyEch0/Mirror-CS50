@@ -2,3 +2,8 @@
 
 -- Check the Crime Scene reports for matching Reports
 SELECT * FROM crime_scene_reports WHERE street = 'Humphrey Street' AND month = 7 AND day = 28;
+
+-- all witnesses mention the bakery
+-- Time: 10:15am
+
+SELECT * FROM bakery_security_logs WHERE 
