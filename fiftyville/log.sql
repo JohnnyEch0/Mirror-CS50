@@ -15,4 +15,4 @@ SELECT activity, license_plate, hour, minute FROM bakery_security_logs WHERE
 
 
 SELECT name, transcript FROM interviews WHERE
-    month = 7 AND day = 28 AND year = 2023 AND street = 'Humphrey Street';
+    month = 7 AND day = 28 AND year = 2023;
