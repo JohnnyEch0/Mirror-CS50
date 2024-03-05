@@ -17,3 +17,5 @@ SELECT activity, license_plate, hour, minute FROM bakery_security_logs WHERE
 -- read the police interviews and select the ones concerning our theft
 SELECT name, transcript FROM interviews WHERE
     month = 7 AND day = 28 AND year = 2023;
+
+-- switch to .output stdout
