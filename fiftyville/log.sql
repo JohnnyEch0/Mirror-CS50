@@ -26,3 +26,5 @@ SELECT name, transcript FROM interviews WHERE
 
 SELECT account_number, transaction_type, amount FROM atm_transactions WHERE
     month = 7 AND day = 28 AND year = 2023 AND atm_location = 'Leggett Street';
+
+-- 
