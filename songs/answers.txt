@@ -1,0 +1,26 @@
+sql queries like:
+SELECT AVG(energy), AVG(valence), AVG(danceability) FROM songs;
+
+do the same for valence and danceability.
+
+Evaluate those 3 values and derive a descriptive text from it that will impress the user.
+- Each of the values might have 4 adjectives and Nouns, one from 0-0.25, another from 0.25-0.5, and so on.
+- Then you can create a fstring out of the adjectives and the nouns
+
+Damn {username}, what a wild year it has been! You seem to like {energy_adjective} {valence_noun} that is also {danceability_adjective}.
+Ofcourse a certain {valence_adjective} {energy_nouns} should be there!
+
+For example, Skipping the first sentence:
+You seem to like engaging Tunes that are also quite danceable. Ofcourse a certain casual Energy should be there!
+
+
+Why is this a little suboptimal?
+- The Senteces can look ugly and generated.
+    - LLM could fix this (or more clever engineering of Mine.)
+- U could evaluate the songs based on how often they were heard
+    - so the top songs would have more weight
+    - average gives the same weight to top and vbottom 100 songs, that is not perfect
+- you could play specific songs in the background while showing messages to the user
+
+
+
