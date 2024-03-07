@@ -148,3 +148,4 @@ SELECT * FROM people WHERE passport_number IN (
                         SELECT passport_number FROM passengers
                             WHERE flight_id = 36
                     );
+SELECT * FROM people WHERE
