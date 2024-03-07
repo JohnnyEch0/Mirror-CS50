@@ -83,7 +83,7 @@ SELECT * FROM people WHERE
 
 -- this gives us 4 options, we need to dig deeper
 -- lets check the bank accounts with possible account_numbers
-    -- and people_id from last search
+
 
 SELECT  * FROM people JOIN bank_accounts
 ON people.id = bank_accounts.person_id WHERE
@@ -92,5 +92,6 @@ ON people.id = bank_accounts.person_id WHERE
             month = 7 AND day = 28 AND year = 2023 AND atm_location = 'Leggett Street'
     );
 
--- Only Bruce and Taylor are left
+-- only matches with last search are valid
+    -- Only Bruce and Taylor are left
 
