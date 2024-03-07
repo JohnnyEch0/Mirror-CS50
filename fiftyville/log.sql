@@ -92,3 +92,5 @@ ON people.id = bank_accounts.person_id WHERE
             month = 7 AND day = 28 AND year = 2023 AND atm_location = 'Leggett Street'
     );
 
+-- Only Bruce and Taylor are left
+
