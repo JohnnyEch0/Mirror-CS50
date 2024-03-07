@@ -110,7 +110,8 @@ ON people.id = bank_accounts.person_id WHERE
 SELECT * FROM atm_transactions WHERE account_number IN (
     SELECT account_number FROM bank_accounts WHERE person_id IN (
         SELECT id from people WHERE phone_number IN (
-            SELECT receiver FROM phone_calls WHERE caller IN (
+            SELECT receiver FROM phone_calls
+            WHERE caller IN (
                 SELECT phone_number FROM people JOIN bank_accounts
                     ON people.id = bank_accounts.person_id
                     WHERE
@@ -133,6 +134,7 @@ SELECT * FROM atm_transactions WHERE account_number IN (
                     SELECT account_number FROM atm_transactions WHERE
                         month = 7 AND day = 28 AND year = 2023 AND atm_location = 'Leggett Street'
                     )
+            )
         )
     )
 );
