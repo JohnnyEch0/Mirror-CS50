@@ -63,3 +63,19 @@ SELECT passport_number FROM passengers
     -- possible passport_numbers
 -- what we can do:
     -- search the bank accounts with atm data
+
+-- get possible Thiefs from people via passport numbers from the flight.
+SELECT * FROM people WHERE
+    passport_number IN (
+        SELECT passport_number FROM passengers
+            WHERE flight_id = 36
+    )
+    AND phone_number IN (
+        SELECT caller FROM phone_calls WHERE
+            month = 7 AND day = 28 AND year = 2023 AND duration < 60
+    )
+    AND license_plate IN (
+        SELECT license_plate FROM bakery_security_logs WHERE
+    month = 7 AND day = 28 AND year = 2023 AND hour = 10 AND minute > 15
+    );
+
