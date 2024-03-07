@@ -30,3 +30,7 @@ SELECT account_number, transaction_type, amount FROM atm_transactions WHERE
 -- Raymond | As the thief was leaving the bakery, they called someone who talked to them for less than a minute.
 --      In the call, I heard the thief say that they were planning to take the earliest flight out of Fiftyville tomorrow.
 --      The thief then asked the person on the other end of the phone to purchase the flight ticket.
+
+-- get possible calls
+SELECT caller, receiver FROM phone_calls WHERE
+    month = 7 AND day = 28 AND year = 2023 AND duration < 60;
