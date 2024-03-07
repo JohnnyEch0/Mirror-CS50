@@ -140,4 +140,8 @@ SELECT * FROM atm_transactions WHERE account_number IN (
 )
 AND month = 7 AND day = 28 AND year = 2023;
 
--- lets try and look if the account number withdrawing 100 
+-- lets try and look if the account number withdrawing 100
+
+
+-- lets look if something is odd with the passport numbers
+SELECT * FROM people WHERE passport_number IN 
