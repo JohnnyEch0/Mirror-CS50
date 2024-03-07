@@ -167,3 +167,12 @@ SELECT * FROM people WHERE phone_number IN (
 -- Taylor only called James
 
 -- lookinf if one of those possible accompliced did the 100 withdrawl
+    -- Bruce, his accomplice: ROBIN
+SELECT * FROM people JOIN bank_accounts
+    ON people.id = bank_accounts.person_id WHERE
+        phone_number IN (
+        SELECT receiver FROM phone_calls
+            WHERE month = 7 AND day = 28 AND year = 2023 AND duration < 60
+            AND caller = "(367) 555-5533"
+        )
+        AND 
