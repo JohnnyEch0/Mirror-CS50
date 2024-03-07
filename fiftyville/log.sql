@@ -34,3 +34,30 @@ SELECT account_number, transaction_type, amount FROM atm_transactions WHERE
 -- get possible calls
 SELECT caller, receiver FROM phone_calls WHERE
     month = 7 AND day = 28 AND year = 2023 AND duration < 60;
+
+-- now we have:
+    -- possible License plate of the Thief
+    -- possible ATM-Number of the Thief
+    -- possible phone numbers of the Thief and the Complice
+
+-- get fiftyvilles airport ID's
+SELECT * FROM airports WHERE
+    city = "Fiftyville";
+
+-- get the earliest flight on 29th from fiftyville airport (id = 8)
+SELECT id, hour, minute, destination_airport_id FROM flights WHERE
+    month = 7 AND day = 29 AND year = 2023 AND origin_airport_id = 8;
+
+-- its flight nr 36 to aiport (id 4)
+SELECT * FROM airports WHERE
+    id = 4;
+
+-- get passenger data?
+SELECT passport_number FROM passengers
+    WHERE flight_id = 36;
+
+-- now we have:
+    -- possible License plate of the Thief
+    -- possible ATM-Number of the Thief
+    -- possible phone numbers of the Thief and the Complice
+    -- possible passport_numbers
