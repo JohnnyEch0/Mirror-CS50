@@ -165,3 +165,5 @@ SELECT * FROM people WHERE phone_number IN (
         AND caller = "(286) 555-6063"
 );
 -- Taylor only called James
+
+-- lookinf if one of those possible accompliced did the 100 withdrawl
