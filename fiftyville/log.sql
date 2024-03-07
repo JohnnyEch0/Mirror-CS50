@@ -137,4 +137,5 @@ SELECT * FROM atm_transactions WHERE account_number IN (
             )
         )
     )
-);
+)
+AND month = 7 AND day = 28 AND year = 2023;
