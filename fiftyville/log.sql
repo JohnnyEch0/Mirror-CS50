@@ -189,3 +189,5 @@ SELECT * FROM people WHERE phone_number IN (
             )
             AND account_number = 16654966;
 -- Deadend
+-- we cant know if the accomplice bought flight tickets
+-- so theres somethin we are missing regarding the Thief.
