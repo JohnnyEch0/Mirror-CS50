@@ -194,3 +194,5 @@ SELECT * FROM people WHERE phone_number IN (
 
 
 -- new trail, it seems that Taylors license plate wasnt listed in the bakery logs?
+SELECT license_plate FROM bakery_security_logs WHERE
+            month = 7 AND day = 28 AND year = 2023 AND hour = 10;
