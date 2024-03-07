@@ -85,6 +85,10 @@ SELECT * FROM people WHERE
 -- lets check the bank accounts with possible account_numbers
     -- and people_id from last search
 
-SELECT  * FROM name FROM people JOIN bank_accounts
+SELECT  * FROM people JOIN bank_accounts
 ON people.id = bank_accounts.person_id WHERE
-    
+    account_number IN (
+        SELECT account_number FROM atm_transactions WHERE
+            month = 7 AND day = 28 AND year = 2023 AND atm_location = 'Leggett Street'
+    );
+
