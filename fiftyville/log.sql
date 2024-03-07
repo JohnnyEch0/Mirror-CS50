@@ -101,11 +101,11 @@ ON people.id = bank_accounts.person_id WHERE
 -- get atm_transactions for possible complice
     -- we can get the phone calls receiver's account number IN
         -- Select account_number from bank_accounts WHERE person_id IN
-            
+            -- SELECT id from people WHERE phone Number IN
+                -- SELECT receiver FROM phone_calls WHERE caller IN
+                    -- SELECT phone_number FROM people WHERE
+                        -- previous 2 querries
 
-        -- From phone calls WHERE
-            -- caller IN SELECT phone number FROM people WHERE
-                -- previous 2 querries --> only Bruce and Tayle left as callers
 
 SELECT * FROM atm_transactions WHERE account_number IN (
 
