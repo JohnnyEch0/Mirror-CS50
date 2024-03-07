@@ -105,8 +105,34 @@ ON people.id = bank_accounts.person_id WHERE
                 -- SELECT receiver FROM phone_calls WHERE caller IN
                     -- SELECT phone_number FROM people WHERE
                         -- previous 2 querries
-
+-- maybe this is stupid, as u dont need to withdraw cash for buying a flight
 
 SELECT * FROM atm_transactions WHERE account_number IN (
-    
-)
+    SELECT account_number FROM bank_accounts WHERE person_id IN (
+        SELECT id from people WHERE phone_number IN (
+            SELECT receiver FROM phone_calls WHERE caller IN (
+                SELECT phone_number FROM people JOIN bank_accounts
+                    ON people.id = bank_accounts.person_id
+                    WHERE
+
+                    passport_number IN (
+                        SELECT passport_number FROM passengers
+                            WHERE flight_id = 36
+                    )
+
+                    AND phone_number IN (
+                        SELECT caller FROM phone_calls WHERE
+                            month = 7 AND day = 28 AND year = 2023 AND duration < 60
+                    )
+
+                    AND license_plate IN (
+                        SELECT license_plate FROM bakery_security_logs WHERE
+                            month = 7 AND day = 28 AND year = 2023 AND hour = 10 AND minute > 15
+                    )
+                    AND account_number IN (
+                    SELECT account_number FROM atm_transactions WHERE
+                        month = 7 AND day = 28 AND year = 2023 AND atm_location = 'Leggett Street'
+                    )
+        )
+    )
+);
