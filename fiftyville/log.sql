@@ -61,3 +61,5 @@ SELECT passport_number FROM passengers
     -- possible ATM-Number of the Thief
     -- possible phone numbers of the Thief and the Complice
     -- possible passport_numbers
+-- what we can do:
+    -- search the bank accounts with atm data
