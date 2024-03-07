@@ -194,5 +194,8 @@ SELECT * FROM people WHERE phone_number IN (
 
 
 -- new trail, it seems that Taylors license plate wasnt listed in the bakery logs?
+    -- this is because i deletet the cars that left the bakery after 10:25
+    -- because ruth said it occured within 10 minutes of the theft
+    -- The only logical conclusion is that Bruce stole the duck, with ROBIN being his accomplice!
 SELECT license_plate FROM bakery_security_logs WHERE
             month = 7 AND day = 28 AND year = 2023 AND hour = 10;
