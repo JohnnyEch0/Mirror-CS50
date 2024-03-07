@@ -78,11 +78,13 @@ SELECT * FROM people WHERE
     )
     AND license_plate IN (
         SELECT license_plate FROM bakery_security_logs WHERE
-    month = 7 AND day = 28 AND year = 2023 AND hour = 10 AND minute > 15
+            month = 7 AND day = 28 AND year = 2023 AND hour = 10 AND minute > 15
     );
 
 -- this gives us 4 options, we need to dig deeper
 -- lets check the bank accounts with possible account_numbers
     -- and people_id from last search
 
-SELECT 
+SELECT  * FROM name FROM people JOIN bank_accounts
+ON people.id = bank_accounts.person_id WHERE
+    
