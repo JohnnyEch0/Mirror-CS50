@@ -108,5 +108,5 @@ ON people.id = bank_accounts.person_id WHERE
 
 
 SELECT * FROM atm_transactions WHERE account_number IN (
-
+    
 )
