@@ -82,3 +82,7 @@ SELECT * FROM people WHERE
     );
 
 -- this gives us 4 options, we need to dig deeper
+-- lets check the bank accounts with possible account_numbers
+    -- and people_id from last search
+
+SELECT 
