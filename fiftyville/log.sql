@@ -99,6 +99,9 @@ ON people.id = bank_accounts.person_id WHERE
 -- One of them had a call with the buyer of the flight
 
 -- get atm_transactions for possible complice
-    -- 
+    -- we can get the phone calls receiver's account number
+        -- From phone calls WHERE
+            -- caller IN SELECT phone number FROM people WHERE
+            -- 
 
 SELECT * FROM atm_transactions WHERE account_number IN ()
