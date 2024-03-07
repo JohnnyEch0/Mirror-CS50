@@ -191,3 +191,6 @@ SELECT * FROM people WHERE phone_number IN (
 -- Deadend
 -- we cant know if the accomplice bought flight tickets
 -- so theres somethin we are missing regarding the Thief.
+
+
+-- new trail, it seems that Taylors license plate wasnt listed in the bakery logs?
