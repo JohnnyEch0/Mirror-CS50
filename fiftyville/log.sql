@@ -95,3 +95,5 @@ ON people.id = bank_accounts.person_id WHERE
 -- only matches with last search are valid
     -- Only Bruce and Taylor are left
 
+
+-- One of them had a call with the buyer of the flight
