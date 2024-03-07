@@ -148,4 +148,20 @@ SELECT * FROM people WHERE passport_number IN (
                         SELECT passport_number FROM passengers
                             WHERE flight_id = 36
                     );
-SELECT * FROM people WHERE
+-- nah dont know
+
+-- lets look if we find an accomplice for Bruce
+SELECT * FROM people WHERE phone_number IN (
+    SELECT receiver FROM phone_calls
+        WHERE month = 7 AND day = 28 AND year = 2023 AND duration < 60
+        AND caller = "(367) 555-5533"
+);
+-- Bruce only called Robin, who has no passport-number?
+
+-- lets look if we find an accomplice for Tylor
+SELECT * FROM people WHERE phone_number IN (
+    SELECT receiver FROM phone_calls
+        WHERE month = 7 AND day = 28 AND year = 2023 AND duration < 60
+        AND caller = "(286) 555-6063"
+);
+-- Taylor only called James
