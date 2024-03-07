@@ -144,4 +144,7 @@ AND month = 7 AND day = 28 AND year = 2023;
 
 
 -- lets look if something is odd with the passport numbers
-SELECT * FROM people WHERE passport_number IN 
+SELECT * FROM people WHERE passport_number IN (
+                        SELECT passport_number FROM passengers
+                            WHERE flight_id = 36
+                    );
