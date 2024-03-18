@@ -45,9 +45,17 @@
                 </form>
 
                 <script>
-                    document.querySelector('form').addEventListener('submit', function() {
+                    document.querySelector('form').addEventListener('submit', function(validateInput) {
                         document.querySelector('#result').innerHTML = "Incorrect"
                     });
+
+                    function validateInput() {
+                        let x = document.forms["myForm"]["fname"].value;
+                        if (x == "") {
+                            alert("Name must be filled out");
+                            return false;
+                        }
+}
                 </script>
             </div>
         </div>
