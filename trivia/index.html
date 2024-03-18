@@ -23,6 +23,14 @@
                 <button id="False2">A car</button>
                 <button id="True">A protein</button>
                 <button id="False3">A cocktail</button>
+
+                <script>
+                    let body = document.querySelector('body');
+                    document.querySelector('#False1').addEventListener('click', function() {document.querySelector('#False1').style.backgroundColor = 'red';});
+                    document.querySelector('#False2').addEventListener('click', function() {document.querySelector('#False1').style.backgroundColor = 'red';});
+                    document.querySelector('#False3').addEventListener('click', function() {document.querySelector('#False1').style.backgroundColor = 'red';});
+                    document.querySelector('#True').addEventListener('click', function() {document.querySelector('#False1').style.backgroundColor = 'green';});
+                </script>
             </div>
 
             <div class="section">
