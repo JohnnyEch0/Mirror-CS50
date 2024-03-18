@@ -34,7 +34,7 @@
             </div>
 
             <div class="section">
-                let correct_free_response = "first"
+
                 <h2>Part 2: Free Response</h2>
                 <hr>
                 <h3>What Pokemon Generation has Pikachu first been in? Respond with an ordered number, written out, lowercase. </h3>
@@ -45,16 +45,21 @@
                 </form>
 
                 <script>
-                    document.querySelector('form').addEventListener('submit', function(validateInput) {
-                        document.querySelector('#result').innerHTML = "Incorrect"
+                    let correct_free_response = "first"
+
+                    document.querySelector('form').addEventListener('submit', function() {
+                        let x = document.forms["form"]["form"].value;
+                        if (x == "correct_free_response") {
+                            document.querySelector('#result').innerHTML = "Correct!";
+                        }
+                        else {
+                            document.querySelector('#result').innerHTML = "Correct!";
+                        }
                     });
 
                     function validateInput() {
-                        let x = document.forms["myForm"]["fname"].value;
-                        if (x == "") {
-                            alert("Name must be filled out");
-                            return false;
-                        }
+
+
 }
                 </script>
             </div>
