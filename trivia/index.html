@@ -43,7 +43,7 @@
 
                 <script>
                     let body = document.querySelector('body');
-                    document.querySelector(form).addEventListener('submit', function() {document.querySelector('#False1').style.backgroundColor = 'red';});
+                    document.querySelector(form).addEventListener('submit', function(event) {});
 
 
                     document.querySelector('form').addEventLIstener('submit', function(event) {alert('hello, ' + document.querySelector('#name').value); e.preventdefault()
