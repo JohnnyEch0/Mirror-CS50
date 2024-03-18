@@ -49,11 +49,11 @@
                         input = form.elements.input.value;
                         if (input == "first") {
                             document.querySelector('#result').innerHTML = "Correct!";
-                            document.getElementById('myForm').elements.input.value.style.background = 'green';
+                            document.getElementById('myForm').elements.input.style.background = 'green';
                         }
                         else {
                             document.querySelector('#result').innerHTML = "Incorrect";
-                            input.style.background = 'red';
+                            document.getElementById('myForm').elements.input.style.background = 'red';
                         }
 
                         event.preventdefault();
