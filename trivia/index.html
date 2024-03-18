@@ -51,7 +51,8 @@
                     });
 
                     function validateInput() {
-                        let x = document.forms.FreeAnswer.value;
+                        let freeform = document.forms.FreeAnswer;
+                        let x = freeform.elements.FreeAnswerInput;
                         if (x == "correct_free_response") {
                             document.querySelector('#result').innerHTML = "Correct!";
                         }
