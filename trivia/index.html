@@ -39,16 +39,17 @@
                 <hr>
                 <h3>What Pokemon Generation has Pikachu first been in? Respond with an ordered number, written out, lowercase. </h3>
                 <p id="result"></p>
-                <form id=FreeAnswer>
+                <form id="FreeAnswer">
                     <input name="FreeAnswerInput" autocomplete="off" autofocus id="name" placeholder="Name" type="text">
                 </form>
 
                 <script>
 
 
-                    document.querySelector('form').addEventListener('submit', function() {
+                    document.querySelector('#FreeAnswer').addEventListener('submit', function() {
                         let correct_free_response = "first";
                         let freeform = document.forms.FreeAnswer;
+                        freeform = document.querySelector('#FreeAnswer');
                         let x = freeform.elements('#FreeAnswerInput');
                         if (x == "first") {
                             document.querySelector('#result').innerHTML = "Correct!";
