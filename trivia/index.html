@@ -38,18 +38,14 @@
                 <hr>
                 <h3>What Pokemon Generation has Pikachu first been in? </h3>
                 <form id=form>
-                    <input autocomplete="off" autofocus name="Answer" placeholder="Answer">
-                    <input type="sumbit">
+                    <input autocomplete="off" autofocus id="name" placeholder="Name" type="text">
+                    <input type="submit">
                 </form>
 
                 <script>
-                    document.querySelector('form').addEventLIstener('submit', function(event) {alert('Incorrect'); e.preventdefault(); });
-
-
-                    document.querySelector('form').addEventListener('submit', function(event) {
-                     alert('hello, ' + document.querySelector('#name').value);
-                     event.preventDefault();
-                     });
+                    document.querySelector('form').addEventListener('submit', function(event) {alert('hello, ' + document.querySelector('#name').value);
+                    event.preventDefault();
+                    });
                 </script>
             </div>
         </div>
