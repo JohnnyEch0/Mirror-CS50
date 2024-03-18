@@ -47,14 +47,15 @@
 
 
                     document.querySelector('form').addEventListener('submit', function() {
-                        let correct_free_response = "first"
+                        let correct_free_response = "first";
                         let freeform = document.forms.FreeAnswer;
-                        let x = freeform.elements.FreeAnswerInput;
-                        if (x == "correct_free_response") {
+                        let x = freeform.elements('#FreeAnswerInput');
+                        if (x == "first") {
                             document.querySelector('#result').innerHTML = "Correct!";
                         }
                         else {
                             document.querySelector('#result').innerHTML = "Incorrect";
+
                         }
                     });
 
