@@ -37,13 +37,17 @@
                 <h2>Part 2: Free Response</h2>
                 <hr>
                 <h3>What Pokemon Generation has Pikachu first been in? </h3>
-                <form>
+                <form id=form>
                     <input autocomplete="off" autofocus name="Answer">
                 </form>
 
                 <script>
                     let body = document.querySelector('body');
-                    document.querySelector('#False1').addEventListener('click', function() {document.querySelector('#False1').style.backgroundColor = 'red';});
+                    document.querySelector(form).addEventListener('submit', function() {document.querySelector('#False1').style.backgroundColor = 'red';});
+
+
+                    document.querySelector('form').addEventLIstener('submit', function(event) {alert('hello, ' + document.querySelector('#name').value); e.preventdefault()
+		});
                 </script>
             </div>
         </div>
