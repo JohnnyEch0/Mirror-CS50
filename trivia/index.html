@@ -47,18 +47,18 @@
                 <script>
                     let correct_free_response = "first"
 
-                    document.querySelector('form').addEventListener('submit', function() {
-                        let x = document.forms[0].value;
+                    document.querySelector('form').addEventListener('submit', function(validateInput) {
+
+                    });
+
+                    function validateInput() {
+                        let x = document.forms["form"]["form"].value;
                         if (x == "correct_free_response") {
                             document.querySelector('#result').innerHTML = "Correct!";
                         }
                         else {
                             document.querySelector('#result').innerHTML = "Correct!";
                         }
-                    });
-
-                    function validateInput() {
-
 
 }
                 </script>
