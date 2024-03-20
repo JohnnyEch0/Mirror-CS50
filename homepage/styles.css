@@ -3,3 +3,7 @@ h1 {
     font-family: verdana;
     border: 2px solid powderblue;
   }
+
+img {
+    float:right;width:42px;height:42px;
+}
