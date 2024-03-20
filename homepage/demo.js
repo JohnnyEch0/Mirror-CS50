@@ -9,21 +9,25 @@ function ready() {
         '5_Colonization.html',
         '6_Final.html'
         ];
-
         current=$(location).attr('pathname').substr($(location).attr('pathname').lastIndexOf("/")+1); // get current page: just last part - page name and extension
         if(current.inArray(current, site_index)!==-1) { //check if it is in array
             index=current.inArray(current, site_index);
-        }
+        };
 }
 
 
 
     function next() {
         alert('ok');
+
+
+
+
         if(index<site_index.length){
-        next=site_index[index+1];
-        window.location.href = next;
-        }
+            next=site_index[index+1];
+            window.location.href = next;
+        };
+
 
     }
 
