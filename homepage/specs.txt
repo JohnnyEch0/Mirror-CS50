@@ -3,12 +3,16 @@ Create a simple homepage that introduces yourself, your favorite hobby or extrac
 index + 3 hmtl pages that are all linked to each other
 
 10 different hmtl tags exluding head, main, body and title
+a   button  span    ul  li  nav
 
 Integrate one or more features from Bootstrap into your site.
+Navbar included
 
 Style css of my own, with 5 different style selectors
 
+
 Do a Javascript feature
+
 
 Make sure it looks good on smartphones aswell
 
