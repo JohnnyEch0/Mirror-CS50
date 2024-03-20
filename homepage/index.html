@@ -44,27 +44,25 @@
           <!-- Navbar End -->
           <h1>Caliban and the Witch by Sylvia Federici</h1>
 
-          <button onclick="document.getElementById('data_table').innerHTML=Date()">The time is?</button>
-          <p id="data_table"> </p>
+            <button id="data_table_button">The time is?</button>
+            <p id="data_table">
 
-          <table class="center">
-            <tr>
-              <th style="width:15%" >Language</th>
-              <th style="width:15%">Publisher</th>
-              <th style="width:15%">Publication Date</th>
-              <th style="width:15%">Pages</th>
-              <th style="width:15%">ISBN</th>
-            <tr>
-                <td>English</td>
-                <td>Autonomedia</td>
-                <td>2004</td>
-                <td>288</td>
-                <td>978-0-241-53253-9</td>
-            </tr>
-
-
-
-            </table>
+                <table class="center">
+                    <tr>
+                    <th style="width:15%" >Language</th>
+                    <th style="width:15%">Publisher</th>
+                    <th style="width:15%">Publication Date</th>
+                    <th style="width:15%">Pages</th>
+                    <th style="width:15%">ISBN</th>
+                    <tr>
+                        <td>English</td>
+                        <td>Autonomedia</td>
+                        <td>2004</td>
+                        <td>288</td>
+                        <td>978-0-241-53253-9</td>
+                    </tr>
+                </table>
+            </p>
 
           <img src="book.jpeg" alt="book_cover" width="413" height="666" class="f_right">
           <h2 class="indent_txt">Überblick und Mission des Buches </h2>
@@ -86,6 +84,17 @@
 
           </p>
           <hr> <!-- Horizontal rule -->
+
+          <script>
+            function toggle() {
+                    if (document.getElementById("data_table").style.visibility === "visible") {
+                        document.getElementById("data_table").style.visibility = "hidden"
+                    } else {
+                        document.getElementById("data_table").style.visibility = "visible"
+                    }
+                }
+                document.getElementById('data_table_button').addEventListener('click', toggle);
+          </script>
 
     </body>
 </html>
