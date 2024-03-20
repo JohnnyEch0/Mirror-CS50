@@ -28,7 +28,16 @@ ready function() {
     }
     });
 
+    current=$(location).attr('pathname').substr($(location).attr('pathname').lastIndexOf("/")+1); // get current page: just last part - page name and extension
+    if($.inArray(current, site_index)!==-1) { //check if it is in array
+        index=$.inArray(current, site_index);
+    }
+
     function next() {
+        if(index<site_index.length){
+        next=site_index[index+1];
+        window.location.href = next;
+        }
 
     }
 
