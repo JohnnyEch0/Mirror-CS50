@@ -1,5 +1,5 @@
-( document ).ready(function() {
-    var caseList = [
+ready function() {
+    var site_index = [
     'index.html',
     '1_All_the.html',
     '2_Accumulation.html',
@@ -27,3 +27,9 @@
     window.location.href = prev;
     }
     });
+
+    function next() {
+
+    }
+
+    document.getElementById('next').addEventListener('click', next);
