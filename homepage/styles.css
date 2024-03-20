@@ -8,14 +8,19 @@ h1 {
     border: 2px solid powderblue;
   }
 
+h2 {
+    padding-top: 15pt;
+    padding-bottom: 10pt;
+}
+
 
 
 .f_right {
     float:right;
     padding-right: 20pt;
     padding-left: 20pt;
-    padding-up: 20pt;
-    padding-down: 20pt;
+    padding-top: 20pt;
+    padding-bottom: 20pt;
 }
 
 .indent_txt {
