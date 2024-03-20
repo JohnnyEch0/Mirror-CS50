@@ -3,7 +3,7 @@ Create a simple homepage that introduces yourself, your favorite hobby or extrac
 index + 3 hmtl pages that are all linked to each other
 
 10 different hmtl tags exluding head, main, body and title
-a   button  span    ul  li  nav
+a   button  span    ul  li  nav     hr
 
 Integrate one or more features from Bootstrap into your site.
 Navbar included
