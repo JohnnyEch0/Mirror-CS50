@@ -1,3 +1,13 @@
 Create a simple homepage that introduces yourself, your favorite hobby or extracurricular, or anything else of interest to you.
 
 index + 3 hmtl pages that are all linked to each other
+
+10 different hmtl tags exluding head, main, body and title
+
+Integrate one or more features from Bootstrap into your site.
+
+Style css of my own, with 5 different style selectors
+
+Do a Javascript feature
+
+Make sure it looks good on smartphones aswell
