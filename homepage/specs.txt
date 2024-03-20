@@ -11,3 +11,9 @@ Style css of my own, with 5 different style selectors
 Do a Javascript feature
 
 Make sure it looks good on smartphones aswell
+
+
+
+
+My Plan:
+Doing a website about:
