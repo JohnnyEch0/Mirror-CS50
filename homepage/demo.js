@@ -1,4 +1,4 @@
-ready function() {
+function ready() {
     var site_index = [
     'index.html',
     '1_All_the.html',
@@ -29,8 +29,8 @@ ready function() {
     });
 
     current=$(location).attr('pathname').substr($(location).attr('pathname').lastIndexOf("/")+1); // get current page: just last part - page name and extension
-    if($.inArray(current, site_index)!==-1) { //check if it is in array
-        index=$.inArray(current, site_index);
+    if(current.inArray(current, site_index)!==-1) { //check if it is in array
+        index=current.inArray(current, site_index);
     }
 
     function next() {
