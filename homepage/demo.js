@@ -15,7 +15,7 @@ let site_index = [
 
 function next() {
 
-    current=$(location).attr('pathname').substr($(location).attr('pathname').lastIndexOf("/")+1); // get current page: just last part - page name and extension
+    current=window.location.pathname.split("/").pop(); // get current page: just last part - page name and extension
     if(site_index.indexOf(current)!==-1) { //check if it is in array
         index= site_index.indexOf(current);
     };
