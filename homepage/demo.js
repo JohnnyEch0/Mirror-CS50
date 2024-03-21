@@ -6,13 +6,14 @@ let site_index = [
     '4_Witchhunt.html',
     '5_Colonization.html',
     '6_Final.html'
-    ]
+    ];
 
 current=$(location).attr('pathname').substr($(location).attr('pathname').lastIndexOf("/")+1); // get current page: just last part - page name and extension
-if(site_index.indexof(current)!==-1) { //check if it is in array
-    index=current.inArray(current, site_index);
+if(site_index.indexOf(current)!==-1) { //check if it is in array
+    index= site_index.indexOf(current);
 };
 
+alert('ok');
 
 
     function next() {
