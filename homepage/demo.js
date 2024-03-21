@@ -34,7 +34,7 @@ function next() {
 };
 
 document.getElementById('next').addEventListener('click', next);
-document.getElementById('previous').addEventListener('click', prev)
+document.getElementById('previous').addEventListener('click', prev);
 
 function prev() {
 
@@ -50,9 +50,9 @@ function prev() {
         if index !== 0 {
             next_site=site_index[index-1];
         };
-    else {
-        next_site=
-    }
+        else {
+            next_site='6_Final.html';
+        };
 
         // alert(next_site)
         window.location.href = next_site;
