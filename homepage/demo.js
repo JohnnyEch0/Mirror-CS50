@@ -33,4 +33,31 @@ function next() {
 
 };
 
-    document.getElementById('next').addEventListener('click', next);
+document.getElementById('next').addEventListener('click', next);
+document.getElementById('previous').addEventListener('click', prev)
+
+function prev() {
+
+    current=window.location.pathname.split("/").pop(); // get current page: just last part - page name and extension
+
+    if(site_index.indexOf(current)!==-1) { //check if it is in array
+        index= site_index.indexOf(current);
+        // alert(index)
+    };
+
+    // alert('ok');
+    if(index<site_index.length){
+        if index !== 0 {
+            next_site=site_index[index-1];
+        };
+    else {
+        next_site=
+    }
+
+        // alert(next_site)
+        window.location.href = next_site;
+        // console.log(next_site);
+    };
+
+
+};
