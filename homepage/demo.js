@@ -37,7 +37,7 @@ document.getElementById('next').addEventListener('click', next);
 document.getElementById('previous').addEventListener('click', prev);
 
 function prev() {
-
+    alert('ok');
     current=window.location.pathname.split("/").pop(); // get current page: just last part - page name and extension
 
     if(site_index.indexOf(current)!==-1) { //check if it is in array
