@@ -9,7 +9,7 @@ let site_index = [
     ]
 
 current=$(location).attr('pathname').substr($(location).attr('pathname').lastIndexOf("/")+1); // get current page: just last part - page name and extension
-if(current.inArray(current, site_index)!==-1) { //check if it is in array
+if(site_index.indexof(current)!==-1) { //check if it is in array
     index=current.inArray(current, site_index);
 };
 
