@@ -27,10 +27,10 @@ function next() {
         next_site=site_index[index+1];
         // alert(next_site)
         window.location.href = next_site;
-        console.log(next_site);
+        // console.log(next_site);
     };
 
 
-}
+};
 
     document.getElementById('next').addEventListener('click', next);
