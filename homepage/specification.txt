@@ -15,4 +15,4 @@ Included a previous and next button on my page, it will throw an alert if it goe
 
 
 Make sure it looks good on smartphones aswell
-
+- here i had a huge problem with the image as i found no way of having it floating to the right of my text while still looking good on smartphone
