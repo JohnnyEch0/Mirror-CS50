@@ -16,11 +16,13 @@ let site_index = [
 function next() {
 
     current=window.location.pathname.split("/").pop(); // get current page: just last part - page name and extension
+
     if(site_index.indexOf(current)!==-1) { //check if it is in array
         index= site_index.indexOf(current);
+        // alert(index)
     };
 
-    alert('ok');
+    // alert('ok');
     if(index<site_index.length){
         next_site=site_index[index+1];
         window.location.href = next_site;
