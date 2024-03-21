@@ -28,7 +28,7 @@ function next() {
             next_site=site_index[index+1];
         }
         else {
-            next_site='6_Final.html';
+            alert('This is the last Page, thanks for reading');
         }
 
         // alert(next_site)
@@ -43,7 +43,6 @@ document.getElementById('next').addEventListener('click', next);
 document.getElementById('previous').addEventListener('click', prev);
 
 function prev() {
-    alert('ok');
     current=window.location.pathname.split("/").pop(); // get current page: just last part - page name and extension
 
     if(site_index.indexOf(current)!==-1) { //check if it is in array
@@ -57,7 +56,7 @@ function prev() {
             next_site=site_index[index-1];
         }
         else {
-            next_site='6_Final.html';
+            alert('There is no previous page, go ahead (:')
         }
 
         // alert(next_site)
