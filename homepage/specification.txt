@@ -1,7 +1,7 @@
 
 
 10 different hmtl tags exluding head, main, body and title
-a   button  span    ul  li  nav     hr  img     table tr,th,td, ol
+a   button  span    ul  li  nav     hr  img     table tr,th,td, ol, b
 
 Integrate one or more features from Bootstrap into your site.
 Navbar included and modified with prev/next buttons
