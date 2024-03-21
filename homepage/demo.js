@@ -24,7 +24,13 @@ function next() {
 
     // alert('ok');
     if(index<site_index.length){
-        next_site=site_index[index+1];
+        if (index !== 6) {
+            next_site=site_index[index+1];
+        }
+        else {
+            next_site='6_Final.html';
+        }
+
         // alert(next_site)
         window.location.href = next_site;
         // console.log(next_site);
@@ -47,12 +53,12 @@ function prev() {
 
     // alert('ok');
     if(index<site_index.length){
-        if index !== 0 {
+        if (index !== 0) {
             next_site=site_index[index-1];
-        };
+        }
         else {
             next_site='6_Final.html';
-        };
+        }
 
         // alert(next_site)
         window.location.href = next_site;
