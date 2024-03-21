@@ -1,6 +1,4 @@
-Create a simple homepage that introduces yourself, your favorite hobby or extracurricular, or anything else of interest to you.
 
-index + 3 hmtl pages that are all linked to each other
 
 10 different hmtl tags exluding head, main, body and title
 a   button  span    ul  li  nav     hr  img     table ol
