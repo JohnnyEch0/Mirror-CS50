@@ -8,23 +8,25 @@ let site_index = [
     '6_Final.html'
     ];
 
-current=$(location).attr('pathname').substr($(location).attr('pathname').lastIndexOf("/")+1); // get current page: just last part - page name and extension
-if(site_index.indexOf(current)!==-1) { //check if it is in array
-    index= site_index.indexOf(current);
-};
-
-alert('ok');
 
 
-    function next() {
-
-        alert('ok');
-        if(index<site_index.length){
-            next_site=site_index[index+1];
-            window.location.href = next_site;
-        };
+// alert('ok');
 
 
-    }
+function next() {
+
+    current=$(location).attr('pathname').substr($(location).attr('pathname').lastIndexOf("/")+1); // get current page: just last part - page name and extension
+    if(site_index.indexOf(current)!==-1) { //check if it is in array
+        index= site_index.indexOf(current);
+    };
+
+    alert('ok');
+    if(index<site_index.length){
+        next_site=site_index[index+1];
+        window.location.href = next_site;
+    };
+
+
+}
 
     document.getElementById('next').addEventListener('click', next);
