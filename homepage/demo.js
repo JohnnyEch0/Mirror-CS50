@@ -54,13 +54,14 @@ function prev() {
     if(index<site_index.length){
         if (index !== 0) {
             next_site=site_index[index-1];
+            window.location.href = next_site;
         }
         else {
             alert('There is no previous page, go ahead (:')
         }
 
         // alert(next_site)
-        window.location.href = next_site;
+
         // console.log(next_site);
     };
 
