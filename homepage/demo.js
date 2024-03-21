@@ -26,13 +26,14 @@ function next() {
     if(index<site_index.length){
         if (index !== 6) {
             next_site=site_index[index+1];
+            window.location.href = next_site;
         }
         else {
             alert('This is the last Page, thanks for reading');
         }
 
         // alert(next_site)
-        window.location.href = next_site;
+
         // console.log(next_site);
     };
 
