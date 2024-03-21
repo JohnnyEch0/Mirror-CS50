@@ -25,7 +25,7 @@ function next() {
     // alert('ok');
     if(index<site_index.length){
         next_site=site_index[index+1];
-        alert(next_site)
+        // alert(next_site)
         window.location.href = next_site;
         console.log(next_site);
     };
