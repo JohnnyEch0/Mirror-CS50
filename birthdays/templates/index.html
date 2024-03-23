@@ -19,11 +19,9 @@
 
                     <input name="name" type="text" placeholder="Name">
 
-                    <input name="month" type="number" placeholder="Month">
+                    <input name="month" type="number" placeholder="Month" min="1" max="12">
 
-                    <input name="day" type="number" placeholder="Day">
-
-                    <button type="submit">Submit</button> <!-- this may go out later-->
+                    <input name="day" type="number" placeholder="Day" min="1" max="31">
 
                     <input type="submit" value="Add Birthday">
                 </form>
@@ -39,6 +37,7 @@
                         <tr>
                             <th>Name</th>
                             <th>Birthday</th>
+                            <th>Remove</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -47,6 +46,11 @@
                         <tr>
                             <td>{{ i.name }}</td>
                             <td>{{ i.month }}/{{ i.day }}</td>
+                            <td>
+                                <form action="/" method="post" name="remove">
+                                    <input type="submit" value="Remove Birthday">
+                                </form>
+                            </td>
                         </tr>
 
                         {% endfor %}

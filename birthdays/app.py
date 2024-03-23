@@ -32,17 +32,17 @@ def index():
             redirect("/")
 
         month = request.form.get("month")
-        if not name:
+        if not month or not 0< month <13:
             redirect("/")
 
         day = request.form.get("day")
-        if not name:
+        if not name or not 0 < day < 32:
             redirect("/")
 
         # print(name, month, day)
         db.execute("INSERT INTO birthdays (name, month, day) VALUES(?, ?, ?)", name, month, day)
 
-        # TODO: Add the user's entry into the database
+
 
         return redirect("/")
 
