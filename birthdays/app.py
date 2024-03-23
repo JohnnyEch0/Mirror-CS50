@@ -37,13 +37,12 @@ def index():
             db.execute("DELETE FROM birthdays WHERE id = ?", id_http)
             return redirect("/")
 
-
         name = request.form.get("name")
         if not name:
             return redirect("/")
 
         month = request.form.get("month")
-        if not month or not 0< int(month) <13:
+        if not month or not 0 < int(month) < 13:
             return redirect("/")
 
         day = request.form.get("day")
@@ -52,8 +51,6 @@ def index():
 
         # print(name, month, day
         db.execute("INSERT INTO birthdays (name, month, day) VALUES(?, ?, ?)", name, month, day)
-
-
 
         return redirect("/")
 
@@ -64,5 +61,3 @@ def index():
         birthdays_list = db.execute("SELECT * FROM birthdays")
 
         return render_template("index.html", birthdays=birthdays_list)
-
-
