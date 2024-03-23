@@ -26,7 +26,7 @@ def after_request(response):
 def index():
     if request.method == "POST":
         if "remove" in request.form:
-            db.execute("REMOVE FROM birthdays WHERE )
+            db.execute("REMOVE FROM birthdays WHERE id = ?")
         request.form.get("birthday")
 
         name = request.form.get("name")
