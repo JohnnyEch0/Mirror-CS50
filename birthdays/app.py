@@ -25,6 +25,7 @@ def after_request(response):
 @app.route("/", methods=["GET", "POST"])
 def index():
     if request.method == "POST":
+        remove = 
         # request.form.get("birthday")
 
         if "remove" in request.form:
