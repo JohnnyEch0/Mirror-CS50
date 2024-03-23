@@ -25,26 +25,26 @@ def after_request(response):
 @app.route("/", methods=["GET", "POST"])
 def index():
     if request.method == "POST":
-        request.form.get("birthday")
-        
+        # request.form.get("birthday")
+
         if "remove" in request.form:
             id_http = request.form.get("id")
             print(id_http)
-            # db.execute("REMOVE FROM birthdays WHERE id = ?", id_http)
-            redirect("/")
+            # db.execute("DELETE FROM birthdays WHERE id = ?", id_http)
+            return redirect("/")
 
 
         name = request.form.get("name")
         if not name:
-            redirect("/")
+            return redirect("/")
 
         month = request.form.get("month")
         if not month or not 0< month <13:
-            redirect("/")
+            return redirect("/")
 
         day = request.form.get("day")
         if not day or not 0 < day < 32:
-            redirect("/")
+            return redirect("/")
 
         # print(name, month, day)
         db.execute("INSERT INTO birthdays (name, month, day) VALUES(?, ?, ?)", name, month, day)
