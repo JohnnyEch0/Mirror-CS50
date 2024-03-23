@@ -31,6 +31,7 @@ def index():
         # request.form.get("birthday")
 
         if "remove" in request.form:
+            print("remove in form")
             id_http = request.form.get("id")
             print(id_http)
             db.execute("DELETE FROM birthdays WHERE id = ?", id_http)
