@@ -47,7 +47,7 @@
                             <td>{{ i.name }}</td>
                             <td>{{ i.month }}/{{ i.day }}</td>
                             <td>
-                                <form action="/" method="post" name="remove">
+                                <form action="/" method="post" name="remove" data-id='" . $row['id'] . "'>
                                     <input type="submit" value="Remove Birthday">
                                 </form>
                             </td>
