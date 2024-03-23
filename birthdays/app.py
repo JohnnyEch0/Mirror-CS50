@@ -50,7 +50,7 @@ def index():
         if not day or not 0 < int(day) < 32:
             return redirect("/")
 
-        # print(name, month, day)
+        # print(name, month, day
         db.execute("INSERT INTO birthdays (name, month, day) VALUES(?, ?, ?)", name, month, day)
 
 
