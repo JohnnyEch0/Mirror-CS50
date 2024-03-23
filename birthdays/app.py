@@ -25,6 +25,7 @@ def after_request(response):
 @app.route("/", methods=["GET", "POST"])
 def index():
     if request.method == "POST":
+        if 
         request.form.get("birthday")
 
         name = request.form.get("name")
@@ -36,7 +37,7 @@ def index():
             redirect("/")
 
         day = request.form.get("day")
-        if not name or not 0 < day < 32:
+        if not day or not 0 < day < 32:
             redirect("/")
 
         # print(name, month, day)
