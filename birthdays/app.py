@@ -43,11 +43,11 @@ def index():
             return redirect("/")
 
         month = request.form.get("month")
-        if not month or not 0< month <13:
+        if not month or not 0< int(month) <13:
             return redirect("/")
 
         day = request.form.get("day")
-        if not day or not 0 < day < 32:
+        if not day or not 0 < int(day) < 32:
             return redirect("/")
 
         # print(name, month, day)
@@ -61,7 +61,7 @@ def index():
 
         # TODO: Display the entries in the database on index.html
 
-        birthdays_list = db.execute("SELECT name, month, day FROM birthdays")
+        birthdays_list = db.execute("SELECT * FROM birthdays")
 
         return render_template("index.html", birthdays=birthdays_list)
 
