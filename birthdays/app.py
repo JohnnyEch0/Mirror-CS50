@@ -25,15 +25,14 @@ def after_request(response):
 @app.route("/", methods=["GET", "POST"])
 def index():
     print("indexed")
-    
+
     if request.method == "POST":
-        remove = request.form.get("remove")
         # request.form.get("birthday")
 
         if "remove" in request.form:
             id_http = request.form.get("id")
             print(id_http)
-            # db.execute("DELETE FROM birthdays WHERE id = ?", id_http)
+            db.execute("DELETE FROM birthdays WHERE id = ?", id_http)
             return redirect("/")
 
 
