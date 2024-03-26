@@ -237,6 +237,8 @@ def register():
 @app.route("/sell", methods=["GET", "POST"])
 @login_required
 def sell():
+    if request.method == "POST":
+        
 
     """Sell shares of stock"""
     user = session["user_id"]
@@ -248,4 +250,3 @@ def sell():
             "name": row["stock"]
         } )
     return render_template("sell.html", holdings=holdings)
-    return apology("TODO")
