@@ -56,12 +56,12 @@ def index():
         holdings.append( {
             "name": row["stock"],
             "amount": row["amount"],
-            "price": price,
-            "total": total
+            "price": usd(price),
+            "total": usd(total)
         } )
     # print(holdings)
 
-    return render_template("index.html", current_cash = current_cash, grand_total = grand_total, holdings = holdings)
+    return render_template("index.html", current_cash = usd(current_cash), grand_total = usd(grand_total), holdings = holdings)
 
 
     return apology("TODO")
