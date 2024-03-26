@@ -51,10 +51,11 @@ def buy():
             return apology("Stonks not found")
 
         bank = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])[0]["cash"]
-        print(price, amount, bank)
-        if price * amount > bank:
+        # print(price, amount, bank)
+        if float(price) * float(amount) > bank:
             return apology("u dont have enough money for this transaction")
-
+        else:
+            pass
 
 
     return render_template("buy.html")
