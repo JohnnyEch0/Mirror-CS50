@@ -48,7 +48,7 @@ def index():
     holdings = []
     for i, row in enumerate(holdings_database):
         # print(i, row)
-        print("_______________" , lookup(row["symbol"]) , row["amount"])
+        print("_______________" , lookup(row["stock"]["symbol"]) , row["amount"])
         grand_total += lookup(row["stock"]) * row["amount"]
         holdings.append( {
             "name": row["stock"],
