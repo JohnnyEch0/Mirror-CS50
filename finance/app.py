@@ -129,7 +129,7 @@ def register():
         if not password:
             return apology("must provide password", 403)
 
-        elif not request.form.get("confirm") or not request.form.get("confirm") == request.form.get("password") :
+        elif not request.form.get("confirm") or not request.form.get("confirm") == password:
             return apology("passwords must match", 403)
 
         # hash password and insert into db
