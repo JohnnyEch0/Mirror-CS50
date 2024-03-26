@@ -52,11 +52,12 @@ def buy():
 
         bank = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])[0]["cash"]
         # print(price, amount, bank)
-        if price * amount > bank:
+        total = price * amount
+        if total > bank:
             return apology("u dont have enough money for this transaction")
         else:
-            db.execute("INSERT INTO transactions (user_id, stock, amount, buy_price, total) VALUES (?, ?, ?, ?, ?)", session["user_id"], lookup_return["symbol"], amount, price, amount*price)
-            db.execute("UPDATE users WHERE user_id = ? SET cash = ?)
+            db.execute("INSERT INTO transactions (user_id, stock, amount, buy_price, total) VALUES (?, ?, ?, ?, ?)", session["user_id"], lookup_return["symbol"], amount, price, total)
+            db.execute("UPDATE users SET cash = ? WHERE user_id = ?", bank-total, session["user_id"])
             pass
 
 
