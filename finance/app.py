@@ -36,10 +36,13 @@ def after_request(response):
 def index():
     """Show portfolio of stocks"""
     # Need: current cash, grand total
+    current_cash = db.execute("SELECT cash FROM users WHERE id = ?", user)
     # Need: Holdings with Name, Amount, Price and Total Value
 
     user = session["user_id"]
-    
+    holdings_database = db.execute("SELECT * FROM holdings WHERE user_id = ?", user)
+
+    holdings = []
 
     return apology("TODO")
 
