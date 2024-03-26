@@ -130,7 +130,7 @@ def register():
         elif not request.form.get("confirm") or not request.form.get("confirm") == request.form.get("password") :
             return apology("passwords must match", 403)
 
-    
+        db.execute("INSERT INTO users)
 
 
     # Fallback if no POST, if the button in the navbar was pressed
