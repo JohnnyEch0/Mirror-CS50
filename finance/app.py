@@ -244,10 +244,7 @@ def sell():
     holdings = []
     for i, row in enumerate(holdings_database):
         holdings.append( {
-            "name": row["stock"],
-            "amount": row["amount"],
-            "price": usd(price),
-            "total": usd(total)
+            "name": row["stock"]
         } )
     return render_template("sell.html", holdings=holdings)
     return apology("TODO")

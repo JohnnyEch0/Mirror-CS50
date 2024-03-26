@@ -5,8 +5,8 @@
 {% endblock %}
 
 {% block main %}
-    <form action="/buy" method="post">
-        <select name="cars" id="cars">
+    <form action="/sell" method="post">
+        <select name="symbol" id="symbol">
             {{% for i in holdings}}
                 <option value={{ i.name }}>{{ i.name }}</option>
             {{% endfor %}}
