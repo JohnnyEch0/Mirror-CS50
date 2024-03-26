@@ -36,7 +36,7 @@ def after_request(response):
 def index():
     """Show portfolio of stocks"""
     user = session["user_id"]
-    
+
     # Need: current cash, grand total
     current_cash = db.execute("SELECT cash FROM users WHERE id = ?", user)
     # Need: Holdings with Name, Amount, Price and Total Value
@@ -46,6 +46,7 @@ def index():
 
     holdings = []
     for i, row in enumerate(holdings_database):
+        print(i, row)
         holdings[i] = {
             "name": row["stock"]
         }
