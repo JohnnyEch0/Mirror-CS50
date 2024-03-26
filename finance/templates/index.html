@@ -5,7 +5,24 @@
 {% endblock %}
 
 {% block main %}
+    <h1> THis is your Finance!</h1>
+    {{ current_cash }}
+    {{ grand total }}
+    <h2> Holdings </h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Stock</th>
+                <th>Amount</th>
+                <th>Price</th>
+                <th>total</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in holdings %}
+        </tbody>
+    </table>
 
-    {% for i in holdings %}
+
 
 {% endblock %}
