@@ -46,7 +46,7 @@ def buy():
         stock_request = request.form.get("symbol")
         amount = request.form.get("shares")
         lookup_return = lookup(stock_request)
-        price = lookup_return["price"]
+        price = (lookup_return["price"])
         if lookup_return is None:
             return apology("Stonks not found")
 
@@ -55,6 +55,7 @@ def buy():
         if float(price) * float(amount) > bank:
             return apology("u dont have enough money for this transaction")
         else:
+            db.execute("INSERT INTO transactions (user_id, stock, amount, buy_price, total) VALUES (?, ?, ?, ?, ?)", session["user_id"], lookup_return["symbol"], amount, float(price), )
             pass
 
 
