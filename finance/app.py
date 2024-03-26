@@ -38,7 +38,7 @@ def index():
     user = session["user_id"]
 
     # Need: current cash, grand total
-    current_cash = db.execute("SELECT cash FROM users WHERE id = ?", user)
+    current_cash = db.execute("SELECT cash FROM users WHERE id = ?", user)[0]
     grand_total = float(current_cash)
     # Need: Holdings with Name, Amount, Price and Total Value
 
