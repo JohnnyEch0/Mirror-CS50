@@ -67,6 +67,8 @@ def buy():
             # Finish the transaction
             db.execute("INSERT INTO transactions (user_id, stock, amount, buy_price, total) VALUES (?, ?, ?, ?, ?)", session["user_id"], lookup_return["symbol"], amount, price, total)
             db.execute("UPDATE users SET cash = ? WHERE id = ?", bank-total, session["user_id"])
+            
+            db.execute("INSERT INTO holdings (user_id, stock, amount))
 
             # Redirect user to home page
             return redirect("/")
