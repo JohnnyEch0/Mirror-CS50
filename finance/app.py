@@ -239,6 +239,7 @@ def register():
 def sell():
 
     """Sell shares of stock"""
+    user = session["user_id"]
     holdings_database = db.execute("SELECT * FROM holdings WHERE user_id = ?", user)
 
     holdings = []

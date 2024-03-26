@@ -7,9 +7,9 @@
 {% block main %}
     <form action="/sell" method="post">
         <select name="symbol" id="symbol">
-            {{% for i in holdings}}
+            {% for i in holdings%}
                 <option value={{ i.name }}>{{ i.name }}</option>
-            {{% endfor %}}
+            {% endfor %}
           </select>
     </form>
  {% endblock %}
