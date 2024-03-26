@@ -74,7 +74,7 @@ def buy():
             check = db.execute("SELECT EXISTS (SELECT * FROM holdings WHERE user_id = ? AND stock = ? LIMIT 1)", user, stock_symbol)
 
             if check == 0:
-                # print("holding does not exists")
+                print("holding does not exists")
                 db.execute("INSERT INTO holdings (user_id, stock, amount) VALUES (?, ?, ?)", user, stock_symbol, amount)
             if check == 1:
                 print(" holding existS")
