@@ -112,25 +112,27 @@ def quote():
 @app.route("/register", methods=["GET", "POST"])
 def register():
     """Register user"""
+    username = request.form.get("username")
     if request.method=="POST":
         # Ensure valid username
-        if not request.form.get("username"):
+        if not username:
             return apology("must provide username", 403)
 
         # already in use?
-        querry = db.execute("SELECT username FROM users WHERE username = ?", request.form.get("username"))
+        querry = db.execute("SELECT username FROM users WHERE username = ?", username)
         if querry != []:
             return apology("Username already in use", 403)
 
 
         # Ensure password was submitted
+        password = 
         elif not request.form.get("password"):
             return apology("must provide password", 403)
 
         elif not request.form.get("confirm") or not request.form.get("confirm") == request.form.get("password") :
             return apology("passwords must match", 403)
 
-        db.execute("INSERT INTO users)
+        db.execute("INSERT INTO users (username, hash) VALUES(?, ?)", )
 
 
     # Fallback if no POST, if the button in the navbar was pressed
