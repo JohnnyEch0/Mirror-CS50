@@ -78,7 +78,8 @@ def buy():
                 db.execute("INSERT INTO holdings (user_id, stock, amount) VALUES (?, ?, ?)", user, stock_symbol, amount)
             if check == 1:
                 print(" holding existS")
-                db.execute(")
+                db.execute("UPDATE holdings SET amount = amount + ? WHERE user_id = ? AND stock = ?", )
+                           #UPDATE {table} SET {column} = {column} + {value} WHERE {condition}
             # db.execute("INSERT INTO holdings (user_id, stock, amount))
 
             # Redirect user to home page
