@@ -45,9 +45,9 @@ def buy():
     if request.method == "POST":
         stock_request = request.form.get("symbol")
         amount = request.form.get("shares")
-        lookup = lookup(stock_request)
-        price = lookup["price"]
-        if lookup is None:
+        lookup_return = lookup(stock_request)
+        price = lookup_return["price"]
+        if lookup_return is None:
             return apology("Stonks not found")
 
         bank = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])
