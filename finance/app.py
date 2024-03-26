@@ -117,7 +117,7 @@ def register():
         if not request.form.get("username"):
             return apology("must provide username", 403)
 
-        elif db.execute("SELECT username FROM users WHERE username = ?", request.form.get("username")) != None:
+        elif db.execute("SELECT username FROM users WHERE username = ?", request.form.get("username")) != :
             return apology("Username already in use", 403)
 
 
