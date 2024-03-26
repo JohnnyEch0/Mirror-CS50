@@ -238,11 +238,11 @@ def register():
 @login_required
 def sell():
     user = session["user_id"]
-    
+
     if request.method == "POST":
         stock = request.form.get("symbol")
         amount = request.form.get("shares")
-        # print("___________", stock, amount)
+        # render apology on false Stock input
         pass
 
 
