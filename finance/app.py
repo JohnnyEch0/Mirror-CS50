@@ -49,6 +49,7 @@ def buy():
         price = float(lookup_return["price"])
         if lookup_return is None:
             return apology("Stonks not found")
+        if amount < 1 
 
         bank = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])[0]["cash"]
         # print(price, amount, bank)
@@ -58,8 +59,9 @@ def buy():
         else:
             db.execute("INSERT INTO transactions (user_id, stock, amount, buy_price, total) VALUES (?, ?, ?, ?, ?)", session["user_id"], lookup_return["symbol"], amount, price, total)
             db.execute("UPDATE users SET cash = ? WHERE id = ?", bank-total, session["user_id"])
-            
-            pass
+
+            # Redirect user to home page
+            return redirect("/")
 
 
     return render_template("buy.html")
