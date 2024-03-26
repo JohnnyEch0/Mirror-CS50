@@ -44,13 +44,14 @@ def buy():
     """Buy shares of stock"""
     if request.method == "POST":
         stock_request = request.form.get("symbol")
-        print(stock_request)
         amount = request.form.get("shares")
         price = lookup(stock_request)
         if price is None:
             return apology("Stonks not found")
 
         bank = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])
+        if price * amount > bank:
+            return apology("u dont have enough money for this transaction")
 
 
 
