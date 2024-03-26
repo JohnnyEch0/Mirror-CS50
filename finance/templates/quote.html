@@ -6,5 +6,9 @@
 
 {% block main %}
     <form action="/quote" method="post">
-    </form
+        <div class="mb-3">
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="stock-symbol" placeholder="stock-symbol" type="text">
+            <button class="btn btn-primary" type="submit">Check</button>
+        </div>
+    </form>
  {% endblock %}
