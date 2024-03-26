@@ -39,6 +39,7 @@ def index():
 
     # Need: current cash, grand total
     current_cash = db.execute("SELECT cash FROM users WHERE id = ?", user)
+    grand_total = current_cash
     # Need: Holdings with Name, Amount, Price and Total Value
 
 
@@ -46,11 +47,17 @@ def index():
 
     holdings = []
     for i, row in enumerate(holdings_database):
-        print(i, row)
-        holdings[i] = {
-            "name": row["stock"]
-        }
-    print(holdings)
+        # print(i, row)
+        grand_total += lookup(row["stock"]) * row["amount"]
+        holdings.append( {
+            "name": row["stock"],
+            "amount": row["amount"],
+            "price": lookup(row["stock"]),
+            "total": lookup(row["stock"]) * row["amount"]
+        } )
+    # print(holdings)
+
+    return render_template("index.html", current_cash = current_cash, )
 
 
     return apology("TODO")
