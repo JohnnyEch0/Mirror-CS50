@@ -35,14 +35,22 @@ def after_request(response):
 @login_required
 def index():
     """Show portfolio of stocks"""
+    user = session["user_id"]
+    
     # Need: current cash, grand total
     current_cash = db.execute("SELECT cash FROM users WHERE id = ?", user)
     # Need: Holdings with Name, Amount, Price and Total Value
 
-    user = session["user_id"]
+
     holdings_database = db.execute("SELECT * FROM holdings WHERE user_id = ?", user)
 
     holdings = []
+    for i, row in enumerate(holdings_database):
+        holdings[i] = {
+            "name": row["stock"]
+        }
+    print(holdings)
+
 
     return apology("TODO")
 
