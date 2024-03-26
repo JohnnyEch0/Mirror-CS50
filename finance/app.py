@@ -57,7 +57,7 @@ def buy():
             return apology("u dont have enough money for this transaction")
         else:
             db.execute("INSERT INTO transactions (user_id, stock, amount, buy_price, total) VALUES (?, ?, ?, ?, ?)", session["user_id"], lookup_return["symbol"], amount, price, total)
-            db.execute("UPDATE users SET cash = ? WHERE user_id = ?", bank-total, session["user_id"])
+            db.execute("UPDATE users SET cash = ? WHERE id = ?", bank-total, session["user_id"])
             pass
 
 
