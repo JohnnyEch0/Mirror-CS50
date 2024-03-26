@@ -43,20 +43,28 @@ def index():
 def buy():
     """Buy shares of stock"""
     if request.method == "POST":
+        # Create Variables From the form
         stock_request = request.form.get("symbol")
         amount = int(request.form.get("shares"))
+        # Check for correct Usage
+        if amount < 1 or not isinstance(amount, int):
+            return apology("Amount must be a positive int")
+
+        # Lookup the Stonk
         lookup_return = lookup(stock_request)
         price = float(lookup_return["price"])
         if lookup_return is None:
             return apology("Stonks not found")
-        if amount < 1 
 
+        # get users money
         bank = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])[0]["cash"]
-        # print(price, amount, bank)
+
+        # check if money is enough
         total = price * amount
         if total > bank:
             return apology("u dont have enough money for this transaction")
         else:
+            # Finish the transaction
             db.execute("INSERT INTO transactions (user_id, stock, amount, buy_price, total) VALUES (?, ?, ?, ?, ?)", session["user_id"], lookup_return["symbol"], amount, price, total)
             db.execute("UPDATE users SET cash = ? WHERE id = ?", bank-total, session["user_id"])
 
