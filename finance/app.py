@@ -43,7 +43,10 @@ def index():
 def buy():
     """Buy shares of stock"""
     if request.method == "POST":
-        
+        stock_request = request.form.get("symbol")
+        amount = request.form.get("shares")
+        price = lookup(stock_request)
+
 
 
     return render_template("buy.html")
@@ -116,9 +119,11 @@ def quote():
     if request.method=="POST":
         stock_request = request.form.get("stock-symbol")
         price = lookup(stock_request)
-        print(price["price"], price["symbol"])
-        return render_template("quoted.html", name=price["symbol"], price=price["price"])
-
+        if price is not None:
+        # print(price["price"], price["symbol"])
+            return render_template("quoted.html", name=price["symbol"], price=price["price"])
+        else:
+            return apology("Stonks not Found")
     else:
         return render_template("quote.html")
 
