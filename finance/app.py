@@ -74,12 +74,13 @@ def buy():
             check = db.execute("SELECT EXISTS (SELECT * FROM holdings WHERE user_id = ? AND stock = ? LIMIT 1)", user, stock_symbol)
 
             if check == 0:
-                print("holding does not exists")
+                print("____holding does not exists____")
                 db.execute("INSERT INTO holdings (user_id, stock, amount) VALUES (?, ?, ?)", user, stock_symbol, amount)
-            if check == 1:
-                print(" holding existS")
+            elif check == 1:
+                print("____holding exist____")
                 db.execute("UPDATE holdings SET amount = amount + ? WHERE user_id = ? AND stock = ?", amount, user, stock_symbol)
-
+            else:
+                print("____CHECK DIDNT RETURN ANYTHING____", check)
             # Redirect user to home page
             return redirect("/")
 
