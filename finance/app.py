@@ -57,7 +57,7 @@ def index():
         } )
     # print(holdings)
 
-    return render_template("index.html", current_cash = current_cash, )
+    return render_template("index.html", current_cash = current_cash, grand_total = grand_total, holdings = holdings)
 
 
     return apology("TODO")
