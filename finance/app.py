@@ -69,11 +69,16 @@ def buy():
             stock_symbol = lookup_return["symbol"]
             db.execute("INSERT INTO transactions (user_id, stock, amount, buy_price, total) VALUES (?, ?, ?, ?, ?)", session["user_id"], lookup_return["symbol"], amount, price, total)
             db.execute("UPDATE users SET cash = ? WHERE id = ?", bank-total, user)
-            if db.execute("SELECT EXISTS (SELECT * FROM holdings WHERE user_id = ? AND stock = ? LIMIT 1)", user, stock_symbol == 0):
+
+            # check if stock is already hold
+            check = db.execute("SELECT EXISTS (SELECT * FROM holdings WHERE user_id = ? AND stock = ? LIMIT 1)", user, stock_symbol)
+
+            if check == 0:
                 # print("holding does not exists")
                 db.execute("INSERT INTO holdings (user_id, stock, amount) VALUES (?, ?, ?)", user, stock_symbol, amount)
-            if db.execute("SELECT EXISTS (SELECT * FROM holdings WHERE user_id = ? AND stock = ? LIMIT 1)", user, stock_symbol) == 1:
-                print("existS")
+            if check == 1:
+                print(" holding existS")
+                db.execute(")
             # db.execute("INSERT INTO holdings (user_id, stock, amount))
 
             # Redirect user to home page
