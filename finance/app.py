@@ -50,7 +50,7 @@ def buy():
         if lookup_return is None:
             return apology("Stonks not found")
 
-        bank = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])
+        bank = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])["cash"]
         print(price, amount, bank)
         if price * amount > bank:
             return apology("u dont have enough money for this transaction")
