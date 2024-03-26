@@ -237,11 +237,17 @@ def register():
 @app.route("/sell", methods=["GET", "POST"])
 @login_required
 def sell():
+    user = session["user_id"]
+    
     if request.method == "POST":
-        
+        stock = request.form.get("symbol")
+        amount = request.form.get("shares")
+        # print("___________", stock, amount)
+        pass
+
 
     """Sell shares of stock"""
-    user = session["user_id"]
+
     holdings_database = db.execute("SELECT * FROM holdings WHERE user_id = ?", user)
 
     holdings = []

@@ -6,12 +6,18 @@
 
 {% block main %}
     <form action="/sell" method="post">
-        <select name="symbol" id="symbol">
-            {% for i in holdings%}
-                <option value={{ i.name }}>{{ i.name }}</option>
-            {% endfor %}
+        <p>
+            <select name="symbol" id="symbol">
+                {% for i in holdings%}
+                    <option value={{ i.name }}>{{ i.name }}</option>
+                {% endfor %}
+            </select>
+        </p>
+        <p>
             <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="shares" placeholder="Amount" type="text">
+        </p>
+        <p>
             <button class="btn btn-primary" type="submit">Sell</button>
-          </select>
+        </p>
     </form>
  {% endblock %}
