@@ -49,7 +49,7 @@ def buy():
         if price is None:
             return apology("Stonks not found")
 
-        bank = db.execute("SELECT cash FROM users WHERE username = )
+        bank = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])
 
 
 
