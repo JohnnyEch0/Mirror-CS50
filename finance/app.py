@@ -117,7 +117,9 @@ def register():
         if not request.form.get("username"):
             return apology("must provide username", 403)
 
-        elif db.execute("SELECT username FROM users WHERE username = ?", request.form.get("username")) != :
+        # already in use?
+        querry = db.execute("SELECT username FROM users WHERE username = ?", request.form.get("username"))
+        if querry != []:
             return apology("Username already in use", 403)
 
 
@@ -128,6 +130,7 @@ def register():
         elif not request.form.get("confirm") or not request.form.get("confirm") == request.form.get("password") :
             return apology("passwords must match", 403)
 
+    
 
 
     # Fallback if no POST, if the button in the navbar was pressed
