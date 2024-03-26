@@ -98,7 +98,7 @@ def buy():
             stock_symbol = lookup_return["symbol"]
 
             # Update transactions
-            db.execute("INSERT INTO transactions (user_id, stock, amount, buy_price, total) VALUES (?, ?, ?, ?, ?)", session["user_id"], lookup_return["symbol"], amount, price, total)
+            db.execute("INSERT INTO transactions (user_id, stock, amount, buy_price, total, trans_type) VALUES (?, ?, ?, ?, ?, ?)", session["user_id"], lookup_return["symbol"], amount, price, total, "bought")
             # Decrease user Money
             db.execute("UPDATE users SET cash = ? WHERE id = ?", bank-total, user)
 
