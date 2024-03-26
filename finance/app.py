@@ -237,5 +237,8 @@ def register():
 @app.route("/sell", methods=["GET", "POST"])
 @login_required
 def sell():
+
     """Sell shares of stock"""
+
+    return render_template("sell.html")
     return apology("TODO")
