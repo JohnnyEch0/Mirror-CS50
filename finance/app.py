@@ -125,14 +125,16 @@ def register():
 
 
         # Ensure password was submitted
-        password = 
-        elif not request.form.get("password"):
+        password = request.form.get("password")
+        elif not password:
             return apology("must provide password", 403)
 
         elif not request.form.get("confirm") or not request.form.get("confirm") == request.form.get("password") :
             return apology("passwords must match", 403)
 
-        db.execute("INSERT INTO users (username, hash) VALUES(?, ?)", )
+        # hash password and insert into db
+        hashed_pw = 
+        db.execute("INSERT INTO users (username, hash) VALUES(?, ?)", username, hashed_pw )
 
 
     # Fallback if no POST, if the button in the navbar was pressed
