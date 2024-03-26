@@ -133,7 +133,7 @@ def register():
             return apology("passwords must match", 403)
 
         # hash password and insert into db
-        hashed_pw = 
+        hashed_pw = generate_password_hash(password)
         db.execute("INSERT INTO users (username, hash) VALUES(?, ?)", username, hashed_pw )
 
 
