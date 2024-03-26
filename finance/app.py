@@ -110,10 +110,11 @@ def quote():
         stock_request = request.form.get("stock-symbol")
         price = lookup(stock_request)
         print(price["price"], price["symbol"])
+        return render_template("quoted.html", name=price["symbol"], price=price["price"])
 
-    return render_template("quote.html")
+    else:
+        return render_template("quote.html")
 
-    # return apology("TODO")
 
 
 @app.route("/register", methods=["GET", "POST"])
