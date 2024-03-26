@@ -68,8 +68,10 @@ def buy():
             user = session["user_id"]
             db.execute("INSERT INTO transactions (user_id, stock, amount, buy_price, total) VALUES (?, ?, ?, ?, ?)", session["user_id"], lookup_return["symbol"], amount, price, total)
             db.execute("UPDATE users SET cash = ? WHERE id = ?", bank-total, user)
-            if 0 == db.execute("SELECT EXISTS (SELECT * FROM holdings WHERE user_id = ? AND stock = ? LIMIT 1)", user, lookup_return["symbol"]):
-                print("exists")
+            if db.execute("SELECT EXISTS (SELECT * FROM holdings WHERE user_id = ? AND stock = ? LIMIT 1)", user, lookup_return["symbol"] == 0):
+                print("holding does not exists")
+            if db.execute("SELECT EXISTS (SELECT * FROM holdings WHERE user_id = ? AND stock = ? LIMIT 1)", user, lookup_return["symbol"]) == 1:
+                print("existS")
             # db.execute("INSERT INTO holdings (user_id, stock, amount))
 
             # Redirect user to home page
