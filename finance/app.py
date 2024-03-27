@@ -229,7 +229,7 @@ def quote():
         stock_request = request.form.get("symbol")
         price = lookup(stock_request)
         if price is not None:
-            return render_template("quoted.html", name=price["symbol"], price=price["price"])
+            return render_template("quoted.html", name=price["symbol"], price=usd(price["price"]))
         else:
             return apology("Stonks not Found")
     else:
