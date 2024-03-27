@@ -95,7 +95,10 @@ def buy():
             user = session["user_id"]
             stock_symbol = lookup_return["symbol"]
 
-            
+            # get the time
+            dt = datetime.now()
+            format_day = f"{dt.year}-{dt.month}-{dt.day}"
+            format_time= f"{dt.hour}:{dt.minute}:{dt.second}"
 
             # Update transactions
             db.execute("INSERT INTO transactions (user_id, stock, amount, buy_price, total, trans_type) VALUES (?, ?, ?, ?, ?, ?)", session["user_id"], lookup_return["symbol"], amount, price, total, "bought")
