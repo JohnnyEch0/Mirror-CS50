@@ -243,9 +243,24 @@ def sell():
 
         stock = request.form.get("symbol")
         amount = request.form.get("shares")
-        # render apology on false Stock input
-        if not stock or
+        query = db.execute("SELECT stock FROM holdings WHERE user_id = ? and stock = ?", user, stock)[0]["stock"]
 
+        # render apology on false Stock input
+        if not stock or stock != query:
+            return apology("stonk not found in holdings")
+
+        # check for corrent amount input
+        if amount < 1 or not isinstance(amount, int):
+            return apology("Amount must be a positive int")
+
+        # check if amount of stonk is available
+        if  < amount:
+            return apology("U dont have enough of this stonks")
+
+
+
+
+        # print(query)
         pass
 
 
