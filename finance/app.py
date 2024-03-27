@@ -250,16 +250,16 @@ def register():
         # already in use?
         querry = db.execute("SELECT username FROM users WHERE username = ?", username)
         if querry != []:
-            return apology("Username already in use", 403) # not the problem
+            return apology("Username already in use", 200) # not the problem
 
 
         # Ensure password was submitted
         password = request.form.get("password")
         if not password:
-            return apology("must provide password", 403)
+            return apology("must provide password", 400)
 
-        elif not request.form.get("confirm") or not request.form.get("confirm") == password:
-            return apology("passwords must match", 402)
+        elif not request.form.get("confirmation") or not request.form.get("confirmation") == password:
+            return apology("passwords must match", 400) #problem here
 
         # hash password and insert into db
         hashed_pw = generate_password_hash(password)
