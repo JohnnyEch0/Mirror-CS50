@@ -19,11 +19,13 @@
             </tr>
         </thead>
         <tbody>
-            {% for i in holdings %}
+            {% for i in transactions %}
             <td>{{ i.name }}</td>
-            <td>{{ i.amount }}</td>
+            <td>{{ i.transaction_type }}</td>
             <td>{{ i.price }}</td>
+            <td>{{ i.amount }}</td>
             <td>{{ i.total }}</td>
+            <td>{{ i.date }}</td>
             {% endfor %}
         </tbody>
     </table>
