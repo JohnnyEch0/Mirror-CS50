@@ -240,9 +240,12 @@ def sell():
     user = session["user_id"]
 
     if request.method == "POST":
+
         stock = request.form.get("symbol")
         amount = request.form.get("shares")
         # render apology on false Stock input
+        if not stock or
+
         pass
 
 
