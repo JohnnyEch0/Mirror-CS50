@@ -109,7 +109,7 @@ def buy():
             # either create or upgrade the users current holding
             if check[0]["record_exists"] == 0:
                 # holding does not exist
-                db.execute("INSERT INTO holdings (user_id, stock, amount) VALUES (?, ?, ?)", user, stock_symbol, amount)
+                "²"b.execute("INSERT INTO holdings (user_id, stock, amount) VALUES (?, ?, ?)", user, stock_symbol, amount)
             elif check[0]["record_exists"] == 1:
                 # holding exists
                 db.execute("UPDATE holdings SET amount = amount + ? WHERE user_id = ? AND stock = ?", amount, user, stock_symbol)
@@ -130,6 +130,7 @@ def buy():
 @login_required
 def history():
     """Show history of transactions"""
+    # Show symbol, tans_type,
     return apology("TODO")
 
 
