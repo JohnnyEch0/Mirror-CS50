@@ -242,7 +242,7 @@ def sell():
     if request.method == "POST":
 
         stock = request.form.get("symbol")
-        amount = request.form.get("shares")
+        amount = (request.form.get("shares"))
         query = db.execute("SELECT stock FROM holdings WHERE user_id = ? and stock = ?", user, stock)[0]["stock"]
 
         # render apology on false Stock input
@@ -254,7 +254,8 @@ def sell():
             return apology("Amount must be a positive int")
 
         # check if amount of stonk is available
-        if  < amount:
+        amount_holdings = db.execute("SELECT amount FROM holdings WHERE user_id = ? and stock = ?", user, stock)[0]["amount"]
+        if  int(amount_holdings) < amount:
             return apology("U dont have enough of this stonks")
 
 
