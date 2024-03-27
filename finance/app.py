@@ -240,6 +240,7 @@ def sell():
     user = session["user_id"]
 
     if request.method == "POST":
+        """Sell shares of stock"""
 
         stock = request.form.get("symbol")
 
@@ -264,17 +265,23 @@ def sell():
         if  int(amount_holdings) < amount:
             return apology("U dont have enough of this stonks")
 
+        # get price and total
+        lookup_return = lookup(stock)
+        price = float(lookup_return["price"])
+        total = price * amount
+
+        # update holdings
         db.execute("UPDATE holdings SET amount = amount - ? WHERE user_id = ? and stock = ?", amount, user, stock)
-        db.execute("INSERT INTO transactions (user_id, stock, amount, buy_price, total, trans_type))
+        # update transactions
+        db.execute("INSERT INTO transactions (user_id, stock, amount, buy_price, total, trans_type) VALUES (?, ?, ?, ?, ?, ?)", user, stock, amount, price, total, "sold")
+        # update user money
+        db.execute("UPDATE users SET cash = cash + ? WHERE id = ?", total, user)
+
+        # Redirect user to home page
+        return redirect("/")
 
 
-
-
-        # print(query)
-        pass
-
-
-    """Sell shares of stock"""
+    """Display Selling Page"""
 
     holdings_database = db.execute("SELECT * FROM holdings WHERE user_id = ?", user)
 
