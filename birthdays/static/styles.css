@@ -67,6 +67,7 @@ input[type="text"]:hover, input[type="number"]:hover {
 
 table {
     background-color: transparent;
+    border-collapse: collapse;
     vertical-align: middle;
     margin-bottom: 1rem;
     width: 100%;
