@@ -1,3 +1,5 @@
-from datetime import datetime
+from datetime import datetime, date, time, timezone
+dt = datetime.now()
 
-print(datetime.now())
+
+print(dt)
