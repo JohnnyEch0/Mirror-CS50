@@ -43,8 +43,6 @@ def index():
     print("_______", current_cash)
     grand_total = float(current_cash)
     # Need: Holdings with Name, Amount, Price and Total Value
-
-
     holdings_database = db.execute("SELECT * FROM holdings WHERE user_id = ?", user)
 
     holdings = []
@@ -52,15 +50,14 @@ def index():
         price = lookup(row["stock"])["price"]
         total = price * row["amount"]
         grand_total += total
-        holdings.append( {
+        holdings.append({
             "name": row["stock"],
             "amount": row["amount"],
             "price": usd(price),
             "total": usd(total)
-        } )
+        })
 
-    return render_template("index.html", current_cash = usd(current_cash), grand_total = usd(grand_total), holdings = holdings)
-
+    return render_template("index.html", current_cash=usd(current_cash), grand_total=usd(grand_total), holdings=holdings)
 
 
 @app.route("/buy", methods=["GET", "POST"])
@@ -85,7 +82,6 @@ def buy():
             return apology("Stonks not found")
         price = float(lookup_return["price"])
 
-
         # get users money
         bank = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])[0]["cash"]
 
@@ -100,33 +96,35 @@ def buy():
 
             # get the time
             dt = datetime.now()
-            format = f"{dt.year}-{dt.month}-{dt.day} {dt.hour}:{dt.minute}:{dt.second}"
-
+            format = f"{dt.year}-{dt.month}-{dt.day} {dt.hour}: {dt.minute}: {dt.second}"
 
             # Update transactions
-            db.execute("INSERT INTO transactions (user_id, stock, amount, buy_price, total, trans_type, timestamp) VALUES (?, ?, ?, ?, ?, ?, ?)", session["user_id"], lookup_return["symbol"], amount, price, total, "bought", format)
+            db.execute("INSERT INTO transactions (user_id, stock, amount, buy_price, total, trans_type, timestamp) VALUES (?, ?, ?, ?, ?, ?, ?)",
+                       session["user_id"], lookup_return["symbol"], amount, price, total, "bought", format)
             # Decrease user Money
             db.execute("UPDATE users SET cash = ? WHERE id = ?", bank-total, user)
 
-
             # check if stock is already hold
-            check = db.execute("SELECT EXISTS (SELECT * FROM holdings WHERE user_id = ? AND stock = ? LIMIT 1) AS record_exists", user, stock_symbol)
+            check = db.execute(
+                "SELECT EXISTS (SELECT * FROM holdings WHERE user_id = ? AND stock = ? LIMIT 1) AS record_exists", user, stock_symbol)
 
             # either create or upgrade the users current holding
             if check[0]["record_exists"] == 0:
                 # holding does not exist
-                db.execute("INSERT INTO holdings (user_id, stock, amount) VALUES (?, ?, ?)", user, stock_symbol, amount)
+                db.execute("INSERT INTO holdings (user_id, stock, amount) VALUES (?, ?, ?)",
+                           user, stock_symbol, amount)
             elif check[0]["record_exists"] == 1:
                 # holding exists
-                db.execute("UPDATE holdings SET amount = amount + ? WHERE user_id = ? AND stock = ?", amount, user, stock_symbol)
+                db.execute(
+                    "UPDATE holdings SET amount = amount + ? WHERE user_id = ? AND stock = ?", amount, user, stock_symbol)
             else:
                 return apology("internal server error")
 
             # Redirect user to home page
             return redirect("/")
 
-
     return render_template("buy.html")
+
 
 @app.route("/more_money", methods=["GET", "POST"])
 @login_required
@@ -146,8 +144,6 @@ def more_money():
 
         return redirect("/")
 
-
-
     return render_template("more.html")
 
 
@@ -157,10 +153,11 @@ def history():
     """Show history of transactions"""
     # Show symbol, tans_type, price, amount, total, date and time
     user = session["user_id"]
-    trans_database = db.execute("SELECT * FROM transactions WHERE user_id = ? ORDER BY timestamp DESC", user)
+    trans_database = db.execute(
+        "SELECT * FROM transactions WHERE user_id = ? ORDER BY timestamp DESC", user)
     transactions = []
     for i, row in enumerate(trans_database):
-        transactions.append( {
+        transactions.append({
             "name": row["stock"],
             "transaction_type": row["trans_type"],
             "price": usd(row["buy_price"]),
@@ -225,7 +222,7 @@ def logout():
 @login_required
 def quote():
     """Get stock quote."""
-    if request.method=="POST":
+    if request.method == "POST":
         stock_request = request.form.get("symbol")
         price = lookup(stock_request)
         if price is not None:
@@ -236,12 +233,11 @@ def quote():
         return render_template("quote.html")
 
 
-
 @app.route("/register", methods=["GET", "POST"])
 def register():
     """Register user"""
     username = request.form.get("username")
-    if request.method=="POST":
+    if request.method == "POST":
         # Ensure valid username
         if not username:
             return apology("must provide username", 400)
@@ -249,8 +245,7 @@ def register():
         # already in use?
         querry = db.execute("SELECT username FROM users WHERE username = ?", username)
         if querry != []:
-            return apology("Username already in use", 400) # not the problem
-
+            return apology("Username already in use", 400)
 
         # Ensure password was submitted
         password = request.form.get("password")
@@ -258,12 +253,11 @@ def register():
             return apology("must provide password", 400)
 
         elif not request.form.get("confirmation") or not request.form.get("confirmation") == password:
-            return apology("passwords must match", 400) #problem here
+            return apology("passwords must match", 400)
 
         # hash password and insert into db
         hashed_pw = generate_password_hash(password)
-        db.execute("INSERT INTO users (username, hash) VALUES(?, ?)", username, hashed_pw )
-
+        db.execute("INSERT INTO users (username, hash) VALUES(?, ?)", username, hashed_pw)
 
     # Fallback if no POST, if the button in the navbar was pressed
     return render_template("register.html")
@@ -289,17 +283,17 @@ def sell():
         if amount < 1:
             return apology("Amount must be a positive integer")
 
-
-        query = db.execute("SELECT stock FROM holdings WHERE user_id = ? and stock = ?", user, stock)[0]["stock"]
+        query = db.execute("SELECT stock FROM holdings WHERE user_id = ? and stock = ?", user, stock)[
+            0]["stock"]
 
         # render apology on false Stock input
         if not stock or stock != query:
             return apology("stonk not found in holdings")
 
-
         # check if amount of stonk is available
-        amount_holdings = db.execute("SELECT amount FROM holdings WHERE user_id = ? and stock = ?", user, stock)[0]["amount"]
-        if  int(amount_holdings) < amount:
+        amount_holdings = db.execute(
+            "SELECT amount FROM holdings WHERE user_id = ? and stock = ?", user, stock)[0]["amount"]
+        if int(amount_holdings) < amount:
             return apology("U dont have enough of this stonks")
 
         # get price and total
@@ -308,22 +302,23 @@ def sell():
         total = price * amount
 
         # update holdings
-        db.execute("UPDATE holdings SET amount = amount - ? WHERE user_id = ? and stock = ?", amount, user, stock)
+        db.execute(
+            "UPDATE holdings SET amount = amount - ? WHERE user_id = ? and stock = ?", amount, user, stock)
         # clear holdings if empty
         if db.execute("SELECT amount FROM holdings WHERE user_id = ? and stock = ?", user, stock)[0]["amount"] == 0:
             db.execute("DELETE FROM holdings WHERE user_id = ? and stock = ?", user, stock)
 
         # get the time
         dt = datetime.now()
-        format = f"{dt.year}-{dt.month}-{dt.day} {dt.hour}:{dt.minute}:{dt.second}"
+        format = f"{dt.year}-{dt.month}-{dt.day} {dt.hour}: {dt.minute}: {dt.second}"
         # update transactions
-        db.execute("INSERT INTO transactions (user_id, stock, amount, buy_price, total, trans_type, timestamp) VALUES (?, ?, ?, ?, ?, ?, ?)", user, stock, amount, price, total, "sold", format)
+        db.execute("INSERT INTO transactions (user_id, stock, amount, buy_price, total, trans_type, timestamp) VALUES (?, ?, ?, ?, ?, ?, ?)",
+                   user, stock, amount, price, total, "sold", format)
         # update user money
         db.execute("UPDATE users SET cash = cash + ? WHERE id = ?", total, user)
 
         # Redirect user to home page
         return redirect("/")
-
 
     """Display Selling Page"""
 
@@ -331,7 +326,7 @@ def sell():
 
     holdings = []
     for i, row in enumerate(holdings_database):
-        holdings.append( {
+        holdings.append({
             "name": row["stock"]
-        } )
+        })
     return render_template("sell.html", holdings=holdings)
