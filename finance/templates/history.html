@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+    <h1> This is your History!</h1>
+    <h2> Trades </h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Transaction Type</th>
+                <th>Price</th>
+                <th>Amount</th>
+                <th>Total</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in holdings %}
+            <td>{{ i.name }}</td>
+            <td>{{ i.amount }}</td>
+            <td>{{ i.price }}</td>
+            <td>{{ i.total }}</td>
+            {% endfor %}
+        </tbody>
+    </table>
+
+
+
+{% endblock %}

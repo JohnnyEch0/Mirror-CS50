@@ -49,8 +49,6 @@ def index():
 
     holdings = []
     for i, row in enumerate(holdings_database):
-        # print(i, row)
-        # print("_______________" , lookup(row["stock"])[] ,"amount: ", row["amount"])
         price = lookup(row["stock"])["price"]
         total = price * row["amount"]
         grand_total += total
@@ -130,7 +128,21 @@ def buy():
 @login_required
 def history():
     """Show history of transactions"""
-    # Show symbol, tans_type, symbol, price, amount, total, date and time
+    # Show symbol, tans_type, price, amount, total, date and time
+    user = session["user_id"]
+    trans_database = db.execute("SELECT * FROM transactions WHERE user_id = ?", user)
+    transactions = []
+    for i, row in enumerate(trans_database):
+        transactions.append( {
+            "name": row["stock"],
+            "transaction_type": row["trans_type"],
+            "price": row["buy_price"],
+            "amount": row["amount"],
+            "total": row["total"],
+            "date": row["timestamp"]
+        })
+    return render_template("history.html", transactions=transactions)
+
     return apology("TODO")
 
 
