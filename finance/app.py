@@ -157,7 +157,7 @@ def history():
     """Show history of transactions"""
     # Show symbol, tans_type, price, amount, total, date and time
     user = session["user_id"]
-    trans_database = db.execute("SELECT * FROM transactions WHERE user_id = ? SORT BY date", user)
+    trans_database = db.execute("SELECT * FROM transactions WHERE user_id = ? ORDER BY timestamp DESC", user)
     transactions = []
     for i, row in enumerate(trans_database):
         transactions.append( {
