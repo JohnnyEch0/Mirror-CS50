@@ -136,9 +136,9 @@ def history():
         transactions.append( {
             "name": row["stock"],
             "transaction_type": row["trans_type"],
-            "price": row["buy_price"],
+            "price": usd(row["buy_price"]),
             "amount": row["amount"],
-            "total": row["total"],
+            "total": usd(row["total"]),
             "date": row["timestamp"]
         })
     return render_template("history.html", transactions=transactions)
