@@ -60,7 +60,7 @@ def lookup(symbol):
 
     # Yahoo Finance API
     url = (
-        f"https: //query1.finance.yahoo.com/v7/finance/download/{urllib.parse.quote_plus(symbol)}"
+        f"https://query1.finance.yahoo.com/v7/finance/download/{urllib.parse.quote_plus(symbol)}"
         f"?period1={int(start.timestamp())}"
         f"&period2={int(end.timestamp())}"
         f"&interval=1d&events=history&includeAdjustedClose=true"
@@ -85,4 +85,4 @@ def lookup(symbol):
 
 def usd(value):
     """Format value as USD."""
-    return f"${value: , .2f}"
+    return f"${value:,.2f}"
