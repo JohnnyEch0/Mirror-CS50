@@ -7,7 +7,7 @@ body {
     margin: 0;
     text-align: left;
 }
-red: { background-color: red; }
+
 
 .container {
     margin-left: auto;
@@ -86,5 +86,8 @@ tbody tr:nth-of-type(odd) {
     background-color: rgb(179, 208, 255, 0.3)
 }
 
+.red {
+    background-color: rgb(255, 255, 255, 0.9);
+}
 
 
