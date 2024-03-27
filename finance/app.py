@@ -59,12 +59,9 @@ def index():
             "price": usd(price),
             "total": usd(total)
         } )
-    # print(holdings)
 
     return render_template("index.html", current_cash = usd(current_cash), grand_total = usd(grand_total), holdings = holdings)
 
-
-    return apology("TODO")
 
 
 @app.route("/buy", methods=["GET", "POST"])
@@ -109,7 +106,7 @@ def buy():
             # either create or upgrade the users current holding
             if check[0]["record_exists"] == 0:
                 # holding does not exist
-                "²"b.execute("INSERT INTO holdings (user_id, stock, amount) VALUES (?, ?, ?)", user, stock_symbol, amount)
+                db.execute("INSERT INTO holdings (user_id, stock, amount) VALUES (?, ?, ?)", user, stock_symbol, amount)
             elif check[0]["record_exists"] == 1:
                 # holding exists
                 db.execute("UPDATE holdings SET amount = amount + ? WHERE user_id = ? AND stock = ?", amount, user, stock_symbol)
@@ -122,15 +119,12 @@ def buy():
 
     return render_template("buy.html")
 
-    pass
-    # return apology("TODO")
-
 
 @app.route("/history")
 @login_required
 def history():
     """Show history of transactions"""
-    # Show symbol, tans_type,
+    # Show symbol, tans_type, symbol, price, amount, total, date and time
     return apology("TODO")
 
 
