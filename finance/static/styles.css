@@ -22,7 +22,9 @@ nav .navbar-brand .green
     color: #2e944b;
 }
 
-.red
-{
-    background.color = red;
+tr .green {
+    background-color: red;
+}
+tr .red {
+    background-color: red;
 }
