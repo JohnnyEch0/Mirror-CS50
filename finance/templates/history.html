@@ -20,7 +20,7 @@
         </thead>
         <tbody>
             {% for i in transactions %}
-            <tr class="{% if i.transaction_type == 'bought' %}reddish{% else %}greenish{% endif %}">
+            <tr>
                 <td>{{ i.name }}</td>
                 <td>{{ i.transaction_type }}</td>
                 <td>{{ i.price }}</td>

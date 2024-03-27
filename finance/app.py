@@ -70,7 +70,11 @@ def buy():
     if request.method == "POST":
         # Create Variables From the form
         stock_request = request.form.get("symbol")
-        amount = int(request.form.get("shares"))
+        try:
+            amount = int(request.form.get("shares"))
+        except ValueError:
+            return apology("Amount must be a positive int")
+
         # Check for correct Usage
         if amount < 1 or not isinstance(amount, int):
             return apology("Amount must be a positive int")
@@ -123,6 +127,28 @@ def buy():
 
     return render_template("buy.html")
 
+@app.route("/more_money", methods=["GET", "POST"])
+@login_required
+def more_money():
+    """Allow the user to add money"""
+    if request.method == "POST":
+        # Validate Input
+        try:
+            amount = int(request.form.get("amount"))
+        except ValueError:
+            return apology("Amount must be a positive int")
+        if amount < 1:
+            return apology("Amount must be a positive int")
+        # Update User Money.
+        user = session["user_id"]
+        db.execute("UPDATE users SET cash = cash+ ? WHERE id = ?", amount, user)
+
+        return redirect("/")
+
+
+
+    return render_template("more.html")
+
 
 @app.route("/history")
 @login_required
@@ -142,8 +168,6 @@ def history():
             "date": row["timestamp"]
         })
     return render_template("history.html", transactions=transactions)
-
-    return apology("TODO")
 
 
 @app.route("/login", methods=["GET", "POST"])
