@@ -242,21 +242,30 @@ def sell():
     if request.method == "POST":
 
         stock = request.form.get("symbol")
-        amount = (request.form.get("shares"))
+
+        # check for corrent amount input, render apology
+        try:
+            amount = int(request.form.get("shares"))
+        except ValueError:
+            return apology("amount needs to be positive integer")
+        if amount < 1:
+            return apology("Amount must be a positive integer")
+
+
         query = db.execute("SELECT stock FROM holdings WHERE user_id = ? and stock = ?", user, stock)[0]["stock"]
 
         # render apology on false Stock input
         if not stock or stock != query:
             return apology("stonk not found in holdings")
 
-        # check for corrent amount input
-        if amount < 1 or not isinstance(amount, int):
-            return apology("Amount must be a positive int")
 
         # check if amount of stonk is available
         amount_holdings = db.execute("SELECT amount FROM holdings WHERE user_id = ? and stock = ?", user, stock)[0]["amount"]
         if  int(amount_holdings) < amount:
             return apology("U dont have enough of this stonks")
+
+        db.execute("UPDATE holdings SET amount = amount - ? WHERE user_id = ? and stock = ?", amount, user, stock)
+        db.execute("INSERT INTO transactions (user_id, stock, amount, buy_price, total, trans_type))
 
 
 
