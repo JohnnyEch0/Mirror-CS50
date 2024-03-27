@@ -272,6 +272,9 @@ def sell():
 
         # update holdings
         db.execute("UPDATE holdings SET amount = amount - ? WHERE user_id = ? and stock = ?", amount, user, stock)
+        # clear holdings if empty
+        if db.execute("SELECT amount FROM holdings WHERE user_id = ? and stock = ?", user, stock)[0]["amount"] = 0:
+            db.execute"
         # update transactions
         db.execute("INSERT INTO transactions (user_id, stock, amount, buy_price, total, trans_type) VALUES (?, ?, ?, ?, ?, ?)", user, stock, amount, price, total, "sold")
         # update user money
