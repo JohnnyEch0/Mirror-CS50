@@ -4,6 +4,7 @@ from cs50 import SQL
 from flask import Flask, flash, redirect, render_template, request, session
 from flask_session import Session
 from werkzeug.security import check_password_hash, generate_password_hash
+from datetime import datetime, date, time, timezone
 
 from helpers import apology, login_required, lookup, usd
 
@@ -93,6 +94,8 @@ def buy():
             # Finish the transaction
             user = session["user_id"]
             stock_symbol = lookup_return["symbol"]
+
+
 
             # Update transactions
             db.execute("INSERT INTO transactions (user_id, stock, amount, buy_price, total, trans_type) VALUES (?, ?, ?, ?, ?, ?)", session["user_id"], lookup_return["symbol"], amount, price, total, "bought")
