@@ -4,7 +4,7 @@ from cs50 import SQL
 from flask import Flask, flash, redirect, render_template, request, session
 from flask_session import Session
 from werkzeug.security import check_password_hash, generate_password_hash
-import datetime
+from datetime import datetime
 
 from helpers import apology, login_required, lookup, usd
 
@@ -97,11 +97,11 @@ def buy():
 
             # get the time
             dt = datetime.now()
-            format_day = f"{dt.year}-{dt.month}-{dt.day}"
-            format_time= f"{dt.hour}:{dt.minute}:{dt.second}"
+            format = f"{dt.year}-{dt.month}-{dt.day} {dt.hour}:{dt.minute}:{dt.second}"
+
 
             # Update transactions
-            db.execute("INSERT INTO transactions (user_id, stock, amount, buy_price, total, trans_type) VALUES (?, ?, ?, ?, ?, ?)", session["user_id"], lookup_return["symbol"], amount, price, total, "bought")
+            db.execute("INSERT INTO transactions (user_id, stock, amount, buy_price, total, trans_type, timestamp) VALUES (?, ?, ?, ?, ?, ?, ?)", session["user_id"], lookup_return["symbol"], amount, price, total, "bought", format)
             # Decrease user Money
             db.execute("UPDATE users SET cash = ? WHERE id = ?", bank-total, user)
 
@@ -276,8 +276,12 @@ def sell():
         # clear holdings if empty
         if db.execute("SELECT amount FROM holdings WHERE user_id = ? and stock = ?", user, stock)[0]["amount"] == 0:
             db.execute("DELETE FROM holdings WHERE user_id = ? and stock = ?", user, stock)
+
+        # get the time
+        dt = datetime.now()
+        format = f"{dt.year}-{dt.month}-{dt.day} {dt.hour}:{dt.minute}:{dt.second}"
         # update transactions
-        db.execute("INSERT INTO transactions (user_id, stock, amount, buy_price, total, trans_type) VALUES (?, ?, ?, ?, ?, ?)", user, stock, amount, price, total, "sold")
+        db.execute("INSERT INTO transactions (user_id, stock, amount, buy_price, total, trans_type, timestamp) VALUES (?, ?, ?, ?, ?, ?, ?)", user, stock, amount, price, total, "sold", format)
         # update user money
         db.execute("UPDATE users SET cash = cash + ? WHERE id = ?", total, user)
 
