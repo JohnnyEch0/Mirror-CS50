@@ -226,10 +226,9 @@ def logout():
 def quote():
     """Get stock quote."""
     if request.method=="POST":
-        stock_request = request.form.get("stock-symbol")
+        stock_request = request.form.get("symbol")
         price = lookup(stock_request)
         if price is not None:
-        # print(price["price"], price["symbol"])
             return render_template("quoted.html", name=price["symbol"], price=price["price"])
         else:
             return apology("Stonks not Found")
@@ -245,12 +244,12 @@ def register():
     if request.method=="POST":
         # Ensure valid username
         if not username:
-            return apology("must provide username", 403)
+            return apology("must provide username", 400)
 
         # already in use?
         querry = db.execute("SELECT username FROM users WHERE username = ?", username)
         if querry != []:
-            return apology("Username already in use", 200) # not the problem
+            return apology("Username already in use", 400) # not the problem
 
 
         # Ensure password was submitted
