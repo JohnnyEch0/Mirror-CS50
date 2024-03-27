@@ -20,10 +20,12 @@
         </thead>
         <tbody>
             {% for i in holdings %}
-            <td>{{ i.name }}</td>
-            <td>{{ i.amount }}</td>
-            <td>{{ i.price }}</td>
-            <td>{{ i.total }}</td>
+            <tr>
+                <td>{{ i.name }}</td>
+                <td>{{ i.amount }}</td>
+                <td>{{ i.price }}</td>
+                <td>{{ i.total }}</td>
+            </tr>
             {% endfor %}
         </tbody>
     </table>
