@@ -26,6 +26,6 @@ tr.greenish {
     background-color: green;
 }
 tr.reddish {
-    background-color: red;
+    bgcolor: red;
 }
 
