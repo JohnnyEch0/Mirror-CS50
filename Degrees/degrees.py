@@ -92,7 +92,7 @@ def shortest_path(source, target):
     If no possible path, returns None.
     """
     # node.state is the actors id
-    # node.action is the movie 
+    # node.action is the movie
     frontier = QueueFrontier()
     start = Node(state=source, parent=None, action=None)
     frontier.add(start)
@@ -102,27 +102,25 @@ def shortest_path(source, target):
     while True:
         if frontier.empty():
             return None
-        
+
         node = frontier.remove()
         num_eplored += 1
 
-        
         if node.state == target:
             return target_found(node)
 
-        
         neighbors = neighbors_for_person(node.state)
 
         explored.add(node.state)
 
         for movie_id, person_id in neighbors:
             if person_id not in explored:
-                
 
                 child = Node(state=person_id, parent=node, action=movie_id)
                 if child.state == target:
-                    return target_found(child)                    
+                    return target_found(child)
                 frontier.add(child)
+
 
 def target_found(node):
     actions = []
@@ -130,9 +128,9 @@ def target_found(node):
     path = []
 
     while node.parent is not None:
-                states.append(node.state) # id
-                actions.append(node.action) # movie
-                node = node.parent
+        states.append(node.state)  # id
+        actions.append(node.action)  # movie
+        node = node.parent
     states.reverse()
     actions.reverse()
 
@@ -175,8 +173,9 @@ def neighbors_for_person(person_id):
     try:
         movie_ids = people[person_id]["movies"]
     except KeyError:
-        movie_ids = people[int(person_id)]["movies"] # BUG: if this works, we need to convert the id
-    
+
+        movie_ids = people[int(person_id)]["movies"]
+
     neighbors = set()
     for movie_id in movie_ids:
         for person_id in movies[movie_id]["stars"]:
