@@ -57,7 +57,7 @@ def result(board, action):
     """
     i, j = action
     if not -1 < i < 3 or -1 < j < 3:
-        raise ValueError
+        raise Exception
     board_copy = copy.deepcopy(board)
     if board_copy[i][j] is not None:
         raise Exception
