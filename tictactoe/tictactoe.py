@@ -56,7 +56,7 @@ def result(board, action):
     Returns the board that results from making move (i, j) on the board.
     """
     i, j = action
-    if not -1 < i < 3 or -1 < j < 3:
+    if not -1 < i < 3 or not -1 < j < 3:
         raise Exception
     board_copy = copy.deepcopy(board)
     if board_copy[i][j] is not None:
