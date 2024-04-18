@@ -29,7 +29,7 @@ def player(board):
         for tile in row:
             if tile == EMPTY:
                 empty_tiles +=1
-    
+
     if empty_tiles % 2 == 0:
         # number is even
         return O
@@ -56,6 +56,8 @@ def result(board, action):
     Returns the board that results from making move (i, j) on the board.
     """
     i, j = action
+    if not -1 < i < 3 or -1 < j < 3:
+        raise ValueError
     board_copy = copy.deepcopy(board)
     if board_copy[i][j] is not None:
         raise Exception
@@ -75,7 +77,7 @@ def winner(board):
         column_string = ""
 
         for j, tile in enumerate(row):
-            try: 
+            try:
                 row_string += tile
             except TypeError:
                 pass
@@ -83,20 +85,20 @@ def winner(board):
                 column_string += board[j][i]
             except TypeError:
                 pass
-            
 
 
-            
+
+
         if row_string == "OOO" or column_string=="OOO":
             return O
         elif row_string == "XXX" or column_string == "XXX":
             return X
-        
+
     try:
         diag_string = board[0][0] + board[1][1] + board[2][2]
     except TypeError:
         diag_string = None
-    try: 
+    try:
         diag_string2 = board[0][2] + board[1][1] + board[2][0]
     except TypeError:
         diag_string2 = None
@@ -105,8 +107,8 @@ def winner(board):
         return O
     elif diag_string == "XXX" or diag_string2 == "XXX":
         return X
-        
-    return None       
+
+    return None
 
 
 def terminal(board):
@@ -118,7 +120,7 @@ def terminal(board):
     if winner(board):
         return True
     return False
-    
+
 
 def utility(board):
     """
@@ -140,7 +142,7 @@ def minimax(board):
     """
     if terminal(board):
         return None
-    
+
     player_ = player(board)
 
     move_evaluations = []
@@ -158,15 +160,15 @@ def minimax(board):
             print("terminal found")
             points = utility(result_)
             move_evaluations.append(points)
-    
-    
+
+
     if player_ == X:
         indx = move_evaluations.index(max(move_evaluations))
     elif player_ == O:
-        
+
         indx = move_evaluations.index(min(move_evaluations))
     best_act = actions_[indx]
-    
+
     global count
     count += 1
     # print(count)
