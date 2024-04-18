@@ -28,7 +28,7 @@ def player(board):
     for i, row in enumerate(board):
         for tile in row:
             if tile == EMPTY:
-                empty_tiles +=1
+                empty_tiles += 1
 
     if empty_tiles % 2 == 0:
         # number is even
@@ -67,7 +67,6 @@ def result(board, action):
     return board_copy
 
 
-
 def winner(board):
     """
     Returns the winner of the game, if there is one.
@@ -86,10 +85,7 @@ def winner(board):
             except TypeError:
                 pass
 
-
-
-
-        if row_string == "OOO" or column_string=="OOO":
+        if row_string == "OOO" or column_string == "OOO":
             return O
         elif row_string == "XXX" or column_string == "XXX":
             return X
@@ -153,14 +149,13 @@ def minimax(board):
         result_ = result(board=board, action=act)
         actions_.append(act)
         if terminal(result_):
-                move_evaluations.append(utility(result_))
+            move_evaluations.append(utility(result_))
         else:
             while not terminal(result_):
                 result_ = result(result_, minimax(result_))
             print("terminal found")
             points = utility(result_)
             move_evaluations.append(points)
-
 
     if player_ == X:
         indx = move_evaluations.index(max(move_evaluations))
@@ -176,4 +171,3 @@ def minimax(board):
         raise MemoryError
 
     return best_act
-
