@@ -51,13 +51,10 @@ knowledge1 = And(
 knowledge2 = And(
     # TODO
     # BaseKnowledge
-    Implication(AKnight, Not(AKnave)),
-    Implication(AKnave, Not(AKnight)),
-    Or(AKnight, AKnave),
+    Biconditional(AKnight, Not(AKnave)),
 
-    Implication(BKnight, Not(BKnave)),
-    Implication(BKnave, Not(BKnight)),
-    Or(BKnight, BKnave),
+    Biconditional(BKnight, Not(BKnave)),
+
 
     # specific Knowledge
     Implication(And(AKnave, BKnave), AKnight),
@@ -83,22 +80,16 @@ knowledge2 = And(
 knowledge3 = And(
     # TODO
     # BaseKnowledge
-    Implication(AKnight, Not(AKnave)),
-    Implication(AKnave, Not(AKnight)),
-    Or(AKnight, AKnave),
+    Biconditional(AKnight, Not(AKnave)),
 
-    Implication(BKnight, Not(BKnave)),
-    Implication(BKnave, Not(BKnight)),
-    Or(BKnight, BKnave),
+    Biconditional(BKnight, Not(BKnave)),
 
-    Implication(CKnight, Not(CKnave)),
-    Implication(CKnave, Not(CKnight)),
-    Or(CKnight, CKnave),
+    Biconditional(CKnight, Not(CKnave)),
 
     # specific knowledge
     Biconditional(AKnight, BKnave),
 
-    
+
 
 
     Biconditional(CKnave, Not(BKnight)),  #B says "C is a knave."
