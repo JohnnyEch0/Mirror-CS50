@@ -101,7 +101,8 @@ knowledge3 = And(
             Not(Implication(AKnight, BKnave)),
             Implication(BKnave, CKnight)
         ))
-        ),
+    ),
+
     Or(
         Implication(CKnight, AKnight), Implication(CKnave, AKnave)
     ),
