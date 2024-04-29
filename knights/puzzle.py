@@ -90,8 +90,6 @@ knowledge3 = And(
     Biconditional(AKnight, BKnave),
 
 
-
-
     Biconditional(CKnave, Not(BKnight)),  #B says "C is a knave."
     Biconditional(CKnight, BKnave),
 
