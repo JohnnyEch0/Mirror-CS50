@@ -99,7 +99,7 @@ knowledge3 = And(
     Implication(AKnight, BKnave),
 
 
-    Biconditional(CKnave, BKnight),  #B says "C is a knave."
+    Biconditional(CKnave, Not(BKnight)),  #B says "C is a knave."
     Biconditional(CKnight, BKnave),
 
     Biconditional(AKnight, CKnight),  # C says "A is a knight."
