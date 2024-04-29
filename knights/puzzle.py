@@ -97,8 +97,8 @@ knowledge3 = And(
 
     # specific knowledge
 
-    Implication(BKnight, Implication(AKnight, BKnave)),
-    Implication(BKnave, )
+    
+    Implication(BKnave, OR(A))
 
     Biconditional(CKnave, BKnight),  #B says "C is a knave."
     Biconditional(Not(CKnave), BKnave),
