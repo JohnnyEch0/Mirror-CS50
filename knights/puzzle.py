@@ -23,7 +23,7 @@ knowledge0 = And(
     # specific Knowledge
     Implication(And(AKnight, AKnave), AKnight),
     Implication(Not(And(AKnight, AKnave)), AKnave),
-    
+
 )
 
 # Puzzle 1
@@ -42,7 +42,7 @@ knowledge1 = And(
 
     # specific Knowledge
     Implication(And(AKnave, BKnave), AKnight),
-    Implication(Not(And(AKnave, BKnave)), AKnave)
+    Implication(Not(And(AKnave, BKnave)), And(AKnave, BKnight))
 )
 
 # Puzzle 2
