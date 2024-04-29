@@ -98,8 +98,6 @@ knowledge3 = And(
     # specific knowledge
 
 
-    Biconditional(BKnave, AKnight),
-
     Biconditional(CKnave, BKnight),  #B says "C is a knave."
     Biconditional(CKnight, BKnave),
 
