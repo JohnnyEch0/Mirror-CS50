@@ -151,7 +151,7 @@ class MinesweeperAI():
         self.mines = set()
         self.safes = set()
 
-        # List of sentences about the game known to be true
+        # List of ms about the game known to be true
         self.knowledge = []
 
     def mark_mine(self, cell):
