@@ -94,6 +94,8 @@ class Sentence():
     def __init__(self, cells, count):
         self.cells = set(cells)
         self.count = count
+        self.mines = set()
+        self.safes = set()
 
     def __eq__(self, other):
         return self.cells == other.cells and self.count == other.count
@@ -105,6 +107,7 @@ class Sentence():
         """
         Returns the set of all cells in self.cells known to be mines.
         """
+        
         raise NotImplementedError
 
     def known_safes(self):
@@ -119,7 +122,7 @@ class Sentence():
         a cell is known to be a mine.
         """
         if cell in self.cells:
-            self.mines.append(cell)
+            self.mines.add(cell)
             self.cell.remove(cell)
             self.count -= 1
 
@@ -130,7 +133,7 @@ class Sentence():
         a cell is known to be safe.
         """
         if cell in self.cells:
-            self.safes.append(cell)
+            self.safes.add(cell)
             self.cell.remove(cell)
             self.count -= 1
 
