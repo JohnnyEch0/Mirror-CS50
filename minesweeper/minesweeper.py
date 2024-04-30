@@ -119,7 +119,10 @@ class Sentence():
         a cell is known to be a mine.
         """
         if cell in self.cell:
-            
+            self.mines.append(cell)
+            self.cell.remove(cell)
+            self.count += 1
+
         raise NotImplementedError
 
     def mark_safe(self, cell):
