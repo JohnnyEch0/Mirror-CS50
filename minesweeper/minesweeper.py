@@ -118,19 +118,22 @@ class Sentence():
         Updates internal knowledge representation given the fact that
         a cell is known to be a mine.
         """
-        if cell in self.cell:
+        if cell in self.cells:
             self.mines.append(cell)
             self.cell.remove(cell)
-            self.count += 1
+            self.count -= 1
 
-        raise NotImplementedError
 
     def mark_safe(self, cell):
         """
         Updates internal knowledge representation given the fact that
         a cell is known to be safe.
         """
-        raise NotImplementedError
+        if cell in self.cells:
+            self.safes.append(cell)
+            self.cell.remove(cell)
+            self.count -= 1
+
 
 
 class MinesweeperAI():
