@@ -87,8 +87,9 @@ knowledge3 = And(
     Biconditional(CKnight, Not(CKnave)),
 
     # specific knowledge
-    Biconditional(AKnight, BKnave),
-    Biconditional(AKnave, BKnight),
+
+    # XNOR Gate
+    Or(AndBKnight, AKnave), And(Bknave, AKnight)),
 
 
     Biconditional(BKnight, CKnave),  #B says "C is a knave."
