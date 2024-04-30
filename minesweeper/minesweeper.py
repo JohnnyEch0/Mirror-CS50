@@ -107,14 +107,15 @@ class Sentence():
         """
         Returns the set of all cells in self.cells known to be mines.
         """
-        
-        raise NotImplementedError
+        return self.mines
+
 
     def known_safes(self):
         """
         Returns the set of all cells in self.cells known to be safe.
         """
-        raise NotImplementedError
+        return self.safes
+        
 
     def mark_mine(self, cell):
         """
