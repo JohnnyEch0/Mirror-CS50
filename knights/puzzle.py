@@ -91,7 +91,6 @@ knowledge3 = And(
     # XNOR Gates
     # B XNOR notA
     Or(Not(BKnight), And(Not(BKnight), AKnight)),
-    # Or(And(Not(BKnight), Not(AKnight)), And(Not(BKnight), AKnight)),
     # B Xnor Not C
     Or(And(BKnight, Not(CKnight)), And(Not(BKnight), CKnight)),
     # A Xnor C
