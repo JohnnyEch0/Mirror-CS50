@@ -88,13 +88,15 @@ knowledge3 = And(
 
     # specific knowledge
 
-    # XNOR Gate
-    Or(AndBKnight, AKnave), And(Bknave, AKnight)),
+    # XNOR Gates
+    # B XNOR notA
+    Or(And(BKnight, AKnave), And(BKnave, AKnight)),
+    # B Xnor Not C
+    Or(And(BKnight, CKnave), And(BKnave, CKnight)),
+    # A Xnor C
+    Or(And(AKnight, CKnight), And(AKnave, CKnave)),
 
 
-    Biconditional(BKnight, CKnave),  #B says "C is a knave."
-
-    Biconditional(AKnight, CKnight),  # C says "A is a knight."
 
 
 )
