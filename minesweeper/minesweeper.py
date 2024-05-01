@@ -283,7 +283,7 @@ class MinesweeperAI():
         """
         safes_ls = list(self.safes)
 
-        random.randomchoice)
+        random.choice(safes_ls)
 
     def make_random_move(self):
         """
