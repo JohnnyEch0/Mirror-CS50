@@ -266,7 +266,12 @@ class MinesweeperAI():
         """
         raise NotImplementedError
 
-    def clean_sentences(self, cell, type):
+    def clean_sentences(self, cell, type="safe"):
+        """ This function takes a cell and a type safe/mine and updates all sentences in the knowledge"""
+
+
         for sentence in self.knowledge:
             if cell in sentence.cells:
-                
+                sentence.cells.remove(cell)
+                if type == "mine":
+                    sentence.count -= 1
