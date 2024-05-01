@@ -183,6 +183,8 @@ class MinesweeperAI():
         """
         Called when the Minesweeper board tells us, for a given
         safe cell, how many neighboring cells have mines in them.
+        Gets a move ( the safe cell)
+        and a count of nearby mines.
 
         This function should:
             1) mark the cell as a move that has been made
@@ -198,7 +200,7 @@ class MinesweeperAI():
 
         mark_safe(cell)
 
-        
+
 
 
         # grab all sourrounding cells, if they are not known to be safe, but them in a statement like {D,E;G} = 1
