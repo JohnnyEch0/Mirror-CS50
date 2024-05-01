@@ -200,10 +200,26 @@ class MinesweeperAI():
 
         mark_safe(cell)
 
+        # grab all sourrounding cells,
+        #if they are not known to be safe,
+        # put them in a statement like {D,E;G} = 1
+        cells = []
+
+        for i in range(cell[0] - 1, cell[0] + 2):
+            for j in range(cell[1] - 1, cell[1] + 2):
+
+                # Ignore the cell itself
+                if (i, j) == cell:
+                    continue
+
+                if (i, J) in self.mines or (i,j) in self.safes:
+                    continue
+                else:
+                    cells
 
 
 
-        # grab all sourrounding cells, if they are not known to be safe, but them in a statement like {D,E;G} = 1
+
 
         raise NotImplementedError
 
