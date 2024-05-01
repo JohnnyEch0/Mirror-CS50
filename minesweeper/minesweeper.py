@@ -266,7 +266,7 @@ class MinesweeperAI():
                         knowledge.append(Sentence(cells=cells, count=nu_count))
                         knowledge_changed = True
 
-             if knowledge_changed = False:
+            if knowledge_changed == False:
                 break
 
 
@@ -295,8 +295,17 @@ class MinesweeperAI():
             1) have not already been chosen, and
             2) are not known to be mines
         """
-        random_choice_cells = []
-        raise NotImplementedError
+        board = set()
+        for i in range (self.width):
+            for j in range(self.height):
+                if (i, j) in self.moves_made:
+                    continue
+                elif (i, j) in self.mines:
+                    continue
+                else:
+                    board.add((i,j))
+
+        return random.choice(list(board))
 
     def clean_sentences(self, cell, type="safe"):
         """ This function takes a cell and a type safe/mine and updates all sentences in the knowledge
