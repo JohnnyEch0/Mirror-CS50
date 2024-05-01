@@ -354,6 +354,9 @@ class MinesweeperAI():
                     if cell in sentence.cells:
                         sentence.cells.remove(cell)
 
+            for cell in self.mines:
+                self.mark_mine(cell)
+                
             if knowledge_changed == False:
                     break
 
