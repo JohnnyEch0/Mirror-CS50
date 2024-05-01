@@ -123,6 +123,8 @@ class Sentence():
         """ BUG:( Sentence.known_safes returns mines when conclusion possible
             expected "{(0, 1), (2, 3...", not "set()"
         """
+        if self.count == 0:
+            return self.cells
         return self.safes
 
 
@@ -249,7 +251,7 @@ class MinesweeperAI():
                 if (i, j) in self.mines:
                     count -= 1
                     continue
-                
+
 
                 # ignore out of bounds cells
                 if i >= self.width or j >= self.height or i < 0 or j < 0:
@@ -279,7 +281,7 @@ class MinesweeperAI():
                     mine_cells = []
                     for cell in sentence_.cells:
                         mine_cells.append(cell)
-                    
+
                     # mark the cells as bombs
                     for cell in mine_cells:
                         self.mark_mine(cell)
@@ -293,7 +295,7 @@ class MinesweeperAI():
                         safe_cells.append(cell)
                         # RuntimeError with the set being changed during iteration
 
-                        
+
                         # TODO: do We Have to remove the sentence?
 
                     # Mark the cells as safe
@@ -318,7 +320,7 @@ class MinesweeperAI():
                     if sentence_2 == sentence_:
                         continue
 
-                    
+
                     if sentence_.cells.issubset(sentence_2.cells):
                         cells = set()
                         # every cell in sentence2 which isnt in sentence 1
@@ -328,7 +330,7 @@ class MinesweeperAI():
                         nu_count = sentence_2.count - sentence_.count
                         breakp = False
                         for sentence in self.knowledge:
-                            
+
                             if sentence.cells == cells and sentence.count == nu_count:
                                 # print("AI tried to create duplicate knowledge")
                                 breakp = True
@@ -341,9 +343,9 @@ class MinesweeperAI():
 
 
 
-                        
 
-                    
+
+
                     elif sentence_2.cells.issubset(sentence_.cells):
                         cells = set()
 
@@ -353,7 +355,7 @@ class MinesweeperAI():
                         nu_count = sentence_.count - sentence_2.count
                         breakp = False
                         for sentence in self.knowledge:
-                            
+
                             if sentence.cells == cells and sentence.count == nu_count:
                                 # print("AI tried to create duplicate knowledge")
                                 breakp = True
@@ -362,15 +364,15 @@ class MinesweeperAI():
 
                         self.knowledge.append(Sentence(cells=cells, count=nu_count))
                         knowledge_changed = True
-            
+
             for cell in self.safes:
                 for sentence in self.knowledge:
                     if cell in sentence.cells:
                         sentence.cells.remove(cell)
-            
+
             for cell in self.mines:
                 self.mark_mine(cell)
-                    
+
 
             if knowledge_changed == False:
                     break
@@ -419,7 +421,7 @@ class MinesweeperAI():
                 else:
                     board.add((i,j))
 
-        
+
         try:
             return random.choice(list(board))
         except IndexError:
