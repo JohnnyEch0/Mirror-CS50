@@ -241,9 +241,16 @@ class MinesweeperAI():
                 # Ignore the cell itself
                 if (i, j) == cell:
                     continue
+                """ BUG: maybe we shouldnt do this (or at least not here...)
+                if (i,j) in self.safes:
+                    continue
+                """
+
                 if (i, j) in self.mines:
                     count -= 1
                     continue
+                
+
                 # ignore out of bounds cells
                 if i >= self.width or j >= self.height or i < 0 or j < 0:
                     continue
@@ -253,6 +260,12 @@ class MinesweeperAI():
         # put them in a statement like {D,E;G} = 1
         if cells is not None:
             self.knowledge.append(Sentence(cells=cells, count=count))
+
+        """
+        4) mark any additional cells as safe or as mines
+               if it can be concluded based on the AI's knowledge base
+        """
+
 
         """knowledge processing"""
 
@@ -266,10 +279,7 @@ class MinesweeperAI():
                     mine_cells = []
                     for cell in sentence_.cells:
                         mine_cells.append(cell)
-
-
-                        # TODO: do We Have to remove tthe sentence?
-
+                    
                     # mark the cells as bombs
                     for cell in mine_cells:
                         self.mark_mine(cell)
@@ -281,10 +291,9 @@ class MinesweeperAI():
                     safe_cells = []
                     for cell in sentence_.cells:
                         safe_cells.append(cell)
-                        # self.mark_safe(cell)
                         # RuntimeError with the set being changed during iteration
 
-
+                        
                         # TODO: do We Have to remove the sentence?
 
                     # Mark the cells as safe
@@ -293,9 +302,11 @@ class MinesweeperAI():
 
                     knowledge_changed = True
 
+
                 # filter out empty sentences
                 if len(sentence_.cells) == 0:
                     self.knowledge.remove(sentence_)
+
 
 
                 for sentence_2 in self.knowledge:
@@ -307,7 +318,7 @@ class MinesweeperAI():
                     if sentence_2 == sentence_:
                         continue
 
-
+                    
                     if sentence_.cells.issubset(sentence_2.cells):
                         cells = set()
                         # every cell in sentence2 which isnt in sentence 1
@@ -317,19 +328,22 @@ class MinesweeperAI():
                         nu_count = sentence_2.count - sentence_.count
                         breakp = False
                         for sentence in self.knowledge:
-
+                            
                             if sentence.cells == cells and sentence.count == nu_count:
                                 # print("AI tried to create duplicate knowledge")
                                 breakp = True
+
                         if breakp:
                             continue
+                        else:
+                            self.knowledge.append(Sentence(cells=cells, count=nu_count))
+                            knowledge_changed = True
 
 
 
-                        self.knowledge.append(Sentence(cells=cells, count=nu_count))
-                        knowledge_changed = True
+                        
 
-
+                    
                     elif sentence_2.cells.issubset(sentence_.cells):
                         cells = set()
 
@@ -339,7 +353,7 @@ class MinesweeperAI():
                         nu_count = sentence_.count - sentence_2.count
                         breakp = False
                         for sentence in self.knowledge:
-
+                            
                             if sentence.cells == cells and sentence.count == nu_count:
                                 # print("AI tried to create duplicate knowledge")
                                 breakp = True
@@ -348,15 +362,16 @@ class MinesweeperAI():
 
                         self.knowledge.append(Sentence(cells=cells, count=nu_count))
                         knowledge_changed = True
-
+            
             for cell in self.safes:
                 for sentence in self.knowledge:
                     if cell in sentence.cells:
                         sentence.cells.remove(cell)
-
+            
             for cell in self.mines:
                 self.mark_mine(cell)
-                
+                    
+
             if knowledge_changed == False:
                     break
 
@@ -404,7 +419,7 @@ class MinesweeperAI():
                 else:
                     board.add((i,j))
 
-
+        
         try:
             return random.choice(list(board))
         except IndexError:
