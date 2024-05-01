@@ -246,7 +246,8 @@ class MinesweeperAI():
 
                 for sentence_2 in knowledge:
                     if sentence_.issubset(sentence_2):
-                        cells = 
+                        cells = cell for 
+                        #
                         knowledge.append(Sentence(cells=))
 
              if knowledge_changed = False:
