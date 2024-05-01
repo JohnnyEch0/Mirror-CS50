@@ -265,3 +265,8 @@ class MinesweeperAI():
             2) are not known to be mines
         """
         raise NotImplementedError
+
+    def clean_sentences(self, cell, type):
+        for sentence in self.knowledge:
+            if cell in sentence.cells:
+                
