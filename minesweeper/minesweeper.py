@@ -243,10 +243,6 @@ class MinesweeperAI():
 
 
 
-
-
-
-
     def make_safe_move(self):
         """
         Returns a safe cell to choose on the Minesweeper board.
@@ -268,7 +264,9 @@ class MinesweeperAI():
         raise NotImplementedError
 
     def clean_sentences(self, cell, type="safe"):
-        """ This function takes a cell and a type safe/mine and updates all sentences in the knowledge"""
+        """ This function takes a cell and a type safe/mine and updates all sentences in the knowledge
+            However i think this is already done by the mark_sfe and mine methods...
+        """
 
 
         for sentence in self.knowledge:
