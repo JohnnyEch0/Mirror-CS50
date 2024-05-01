@@ -241,7 +241,9 @@ class MinesweeperAI():
                 # Ignore the cell itself
                 if (i, j) == cell:
                     continue
-
+                if (i, j) in self.mines:
+                    count -= 1
+                    continue
                 # ignore out of bounds cells
                 if i >= self.width or j >= self.height or i < 0 or j < 0:
                     continue
