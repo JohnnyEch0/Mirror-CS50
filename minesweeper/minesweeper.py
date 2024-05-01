@@ -231,7 +231,17 @@ class MinesweeperAI():
             # any sentence with a length of cells equal to its count is full of mines!
             if sentence_.count == len(sentence_.cells):
                 for cell in sentence_.cells:
+                    self.mark_mine(cell)
+                    # TODO: do We Have to remove tthe sentence?
+
+            # any sentence with a count 0 is fully safe :)
+            elif sentence.count == 0:
+                for cell in sentence_.cells:
                     self.mark_safe(cell)
+                    # TODO: do We Have to remove the sentence?
+
+
+
 
 
 
