@@ -123,7 +123,7 @@ class Sentence():
         a cell is known to be a mine.
         """
         if cell in self.cells:
-            self.mines.add(cell)
+            self.mines.add(cell) #TODO: Dont know if this is necessary
             self.cell.remove(cell)
             self.count -= 1
 
@@ -134,7 +134,7 @@ class Sentence():
         a cell is known to be safe.
         """
         if cell in self.cells:
-            self.safes.add(cell)
+            self.safes.add(cell)  #TODO: Dont know if this is necessary
             self.cell.remove(cell)
             self.count -= 1
 
