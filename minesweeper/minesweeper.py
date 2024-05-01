@@ -246,8 +246,25 @@ class MinesweeperAI():
 
                 for sentence_2 in knowledge:
                     if sentence_.issubset(sentence_2):
-                        cells = cell for cell in sentence_2.cells if cell is not in sentence_
-                        knowledge.append(Sentence(cells=))
+                        cells = set()
+                        # every cell in sentence2 which isnt in sentence 1
+                        for cell in sentence_2:
+                            if cell not in sentence_:
+                                cells.add(cell)
+                        nu_count = sentence_2.count - sentence_.count
+
+                        knowledge.append(Sentence(cells=cells, count=nu_count))
+                        knowledge_changed = True
+                    elif sentence_2.issubset(sentence_):
+                        cells = set()
+
+                        for cell in sentence:
+                            if cell not in sentence_2:
+                                cells.add(cell)
+                        nu_count = sentence_.count - sentence_2.count
+
+                        knowledge.append(Sentence(cells=cells, count=nu_count))
+                        knowledge_changed = True
 
              if knowledge_changed = False:
                 break
