@@ -226,19 +226,26 @@ class MinesweeperAI():
 
         """knowledge processing"""
 
-        for sentence_ in knowledge:
+        while True:
+            knowledge_changed = False
+
+            for sentence_ in knowledge:
             # any sentence with a length of cells equal to its count is full of mines!
             if sentence_.count == len(sentence_.cells):
                 for cell in sentence_.cells:
                     self.mark_mine(cell)
-                    self.
+                    knowledge_changed = True
                     # TODO: do We Have to remove tthe sentence?
 
             # any sentence with a count 0 is fully safe :)
             elif sentence.count == 0:
                 for cell in sentence_.cells:
                     self.mark_safe(cell)
+                    knowledge_changed = True
                     # TODO: do We Have to remove the sentence?
+
+             if knowledge_changed = False:
+                break
 
 
 
