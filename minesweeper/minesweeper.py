@@ -202,8 +202,8 @@ class MinesweeperAI():
 
         # grab all sourrounding cells,
         #if they are not known to be safe,
-        # put them in a statement like {D,E;G} = 1
-        cells = {}
+
+        cells = set()
 
         for i in range(cell[0] - 1, cell[0] + 2):
             for j in range(cell[1] - 1, cell[1] + 2):
@@ -212,10 +212,17 @@ class MinesweeperAI():
                 if (i, j) == cell:
                     continue
 
-                if (i, J) in self.mines or (i,j) in self.safes:
+                if (i,j) in self.safes:
+                    continue
+                if (i, J) in self.mines:
+                    count -= 1
                     continue
                 else:
-                    cells
+                    cells.add(i,j)
+
+        # put them in a statement like {D,E;G} = 1
+        if cells is not None:
+            knowledge.append(cells = count)
 
 
 
