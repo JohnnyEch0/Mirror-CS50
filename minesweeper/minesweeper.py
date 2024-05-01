@@ -231,6 +231,7 @@ class MinesweeperAI():
             if sentence_.count == len(sentence_.cells):
                 for cell in sentence_.cells:
                     self.mark_mine(cell)
+                    self.
                     # TODO: do We Have to remove tthe sentence?
 
             # any sentence with a count 0 is fully safe :)
@@ -275,3 +276,8 @@ class MinesweeperAI():
                 sentence.cells.remove(cell)
                 if type == "mine":
                     sentence.count -= 1
+            else:
+                sentences_no_update += 1 #TODO: maybe we can return this value at some point to stop a while true loop?
+
+        if sentences_no_update == len(self.knowledge):
+            return 1 #return that nothing got changed
