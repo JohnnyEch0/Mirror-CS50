@@ -107,12 +107,21 @@ class Sentence():
         """
         Returns the set of all cells in self.cells known to be mines.
         """
+
+        """ BUG:( Sentence.known_mines returns mines when conclusions possible
+            expected "{(0, 1), (2, 3...", not "set()"
+        """
+
         return self.mines
 
 
     def known_safes(self):
         """
         Returns the set of all cells in self.cells known to be safe.
+        """
+
+        """ BUG:( Sentence.known_safes returns mines when conclusion possible
+            expected "{(0, 1), (2, 3...", not "set()"
         """
         return self.safes
 
@@ -195,13 +204,34 @@ class MinesweeperAI():
             5) add any new sentences to the AI's knowledge base
                if they can be inferred from existing knowledge
         """
+
+
+        """
+            BUG:( MinesweeperAI.add_knowledge adds sentence in corner of board
+            did not find sentence {(2, 3), (2, 4), (3, 3)} = 1
+        """
+
+        """
+            BUG: :( MinesweeperAI.add_knowledge can infer mine when given new information
+            expected "{(3, 4)}", not "set()"
+        """
+
+        """
+            BUG: :( MinesweeperAI.add_knowledge combines multiple sentences to draw conclusions
+            did not find (1, 0) in mines when possible to conclude mine
+        """
+
+        """
+        1) + 2) mark cell as move and safe.
+        """
         self.moves_made.add(cell)
 
         self.mark_safe(cell)
 
-        # grab all sourrounding cells,
-        #if they are not known to be safe,
-        # or a mine
+        """
+        3) adda new sentence to knowledge
+        a) grab all sourounding cells, that are not out of bounds
+        """
 
         cells = set()
 
@@ -217,7 +247,8 @@ class MinesweeperAI():
                 if (i, j) in self.mines:
                     count -= 1
                     continue
-                if i >= 8 or j >= 8 or i < 0 or j < 0:
+                # ignore out of bounds cells
+                if i >= self.width or j >= self.height or i < 0 or j < 0:
                     continue
                 else:
                     cells.add((i,j))
@@ -340,6 +371,12 @@ class MinesweeperAI():
 
         This function may use the knowledge in self.mines, self.safes
         and self.moves_made, but should not modify any of those values.
+        """
+
+
+        """
+        BUG:( MinesweeperAI.make_safe_move makes safe move when possible
+        move made not one of the safe options
         """
         # remove done moves from the safe cells we know about and convert to list
         safes_ls = [cell for cell in self.safes if cell not in self.moves_made]
