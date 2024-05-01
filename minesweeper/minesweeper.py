@@ -198,8 +198,6 @@ class MinesweeperAI():
 
         mark_safe(cell)
 
-        
-
 
         # grab all sourrounding cells, if they are not known to be safe, but them in a statement like {D,E;G} = 1
 
