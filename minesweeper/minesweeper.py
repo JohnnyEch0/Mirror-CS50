@@ -281,7 +281,9 @@ class MinesweeperAI():
         This function may use the knowledge in self.mines, self.safes
         and self.moves_made, but should not modify any of those values.
         """
-        random.randomchoise(self.safes)
+        safes_ls = list(self.safes)
+
+        random.randomchoice)
 
     def make_random_move(self):
         """
