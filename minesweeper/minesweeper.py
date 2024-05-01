@@ -225,6 +225,16 @@ class MinesweeperAI():
         if cells is not None:
             knowledge.append(Sentence(cells=cells, count=count))
 
+        # knowledge processing
+
+        for sentence_ in knowledge:
+            # any sentence with a length of cells equal to its count is full of mines!
+            if sentence_.count == len(sentence_.cells):
+                for cell in sentence_.cells:
+                    mark
+
+
+
 
     def make_safe_move(self):
         """
