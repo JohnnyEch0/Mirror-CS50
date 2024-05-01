@@ -203,7 +203,7 @@ class MinesweeperAI():
         # grab all sourrounding cells,
         #if they are not known to be safe,
         # put them in a statement like {D,E;G} = 1
-        cells = []
+        cells = {}
 
         for i in range(cell[0] - 1, cell[0] + 2):
             for j in range(cell[1] - 1, cell[1] + 2):
