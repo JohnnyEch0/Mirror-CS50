@@ -202,6 +202,7 @@ class MinesweeperAI():
 
         # grab all sourrounding cells,
         #if they are not known to be safe,
+        # or a mine
 
         cells = set()
 
@@ -222,13 +223,8 @@ class MinesweeperAI():
 
         # put them in a statement like {D,E;G} = 1
         if cells is not None:
-            knowledge.append(cells = count)
+            knowledge.append(Sentence(cells=cells, count=count))
 
-
-
-
-
-        raise NotImplementedError
 
     def make_safe_move(self):
         """
