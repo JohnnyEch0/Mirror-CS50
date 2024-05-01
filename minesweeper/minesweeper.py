@@ -136,7 +136,6 @@ class Sentence():
         if cell in self.cells:
             self.safes.add(cell)  #TODO: Dont know if this is necessary
             self.cell.remove(cell)
-            self.count -= 1
 
 
 
