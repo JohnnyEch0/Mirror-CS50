@@ -124,7 +124,7 @@ class Sentence():
         """
         if cell in self.cells:
             self.mines.add(cell) #TODO: Dont know if this is necessary
-            self.cell.remove(cell)
+            self.cells.remove(cell)
             self.count -= 1
 
 
@@ -135,7 +135,7 @@ class Sentence():
         """
         if cell in self.cells:
             self.safes.add(cell)  #TODO: Dont know if this is necessary
-            self.cell.remove(cell)
+            self.cells.remove(cell)
 
 
 
@@ -197,7 +197,7 @@ class MinesweeperAI():
         """
         self.moves_made.add(cell)
 
-        mark_safe(cell)
+        self.mark_safe(cell)
 
         # grab all sourrounding cells,
         #if they are not known to be safe,
@@ -214,60 +214,120 @@ class MinesweeperAI():
 
                 if (i,j) in self.safes:
                     continue
-                if (i, J) in self.mines:
+                if (i, j) in self.mines:
                     count -= 1
                     continue
+                if i >= 8 or j >= 8 or i < 0 or j < 0:
+                    continue
                 else:
-                    cells.add(i,j)
+                    cells.add((i,j))
 
         # put them in a statement like {D,E;G} = 1
         if cells is not None:
-            knowledge.append(Sentence(cells=cells, count=count))
+            self.knowledge.append(Sentence(cells=cells, count=count))
 
         """knowledge processing"""
 
         while True:
             knowledge_changed = False
 
-            for sentence_ in knowledge:
+            for sentence_ in self.knowledge:
+
             # any sentence with a length of cells equal to its count is full of mines!
                 if sentence_.count == len(sentence_.cells):
+                    mine_cells = []
                     for cell in sentence_.cells:
-                        self.mark_mine(cell)
-                        knowledge_changed = True
+                        mine_cells.append(cell)
+
+                        
                         # TODO: do We Have to remove tthe sentence?
+                    
+                    # mark the cells as bombs
+                    for cell in mine_cells:
+                        self.mark_mine(cell)
+
+                    knowledge_changed = True
 
                 # any sentence with a count 0 is fully safe :)
-                elif sentence.count == 0:
+                elif sentence_.count == 0:
+                    safe_cells = []
                     for cell in sentence_.cells:
-                        self.mark_safe(cell)
-                        knowledge_changed = True
+                        safe_cells.append(cell)
+                        # self.mark_safe(cell) 
+                        # RuntimeError with the set being changed during iteration
+
+                        
                         # TODO: do We Have to remove the sentence?
 
-                for sentence_2 in knowledge:
-                    if sentence_.issubset(sentence_2):
+                    # Mark the cells as safe
+                    for cell in safe_cells:
+                        self.mark_safe(cell)
+
+                    knowledge_changed = True
+
+                # filter out empty sentences
+                if len(sentence_.cells) == 0:
+                    self.knowledge.remove(sentence_)
+
+
+                for sentence_2 in self.knowledge:
+                    # ignore empty sentences
+                    if len(sentence_2.cells) == 0:
+                        continue
+
+                    # ignore same sentences
+                    if sentence_2 == sentence_:
+                        continue
+
+                    
+                    if sentence_.cells.issubset(sentence_2.cells):
                         cells = set()
                         # every cell in sentence2 which isnt in sentence 1
-                        for cell in sentence_2:
-                            if cell not in sentence_:
+                        for cell in sentence_2.cells:
+                            if cell not in sentence_.cells:
                                 cells.add(cell)
                         nu_count = sentence_2.count - sentence_.count
+                        breakp = False
+                        for sentence in self.knowledge:
+                            
+                            if sentence.cells == cells and sentence.count == nu_count:
+                                # print("AI tried to create duplicate knowledge")
+                                breakp = True
+                        if breakp:
+                            continue
 
-                        knowledge.append(Sentence(cells=cells, count=nu_count))
+
+
+                        self.knowledge.append(Sentence(cells=cells, count=nu_count))
                         knowledge_changed = True
-                    elif sentence_2.issubset(sentence_):
+
+                    
+                    elif sentence_2.cells.issubset(sentence_.cells):
                         cells = set()
 
-                        for cell in sentence:
-                            if cell not in sentence_2:
+                        for cell in sentence_.cells:
+                            if cell not in sentence_2.cells:
                                 cells.add(cell)
                         nu_count = sentence_.count - sentence_2.count
+                        breakp = False
+                        for sentence in self.knowledge:
+                            
+                            if sentence.cells == cells and sentence.count == nu_count:
+                                # print("AI tried to create duplicate knowledge")
+                                breakp = True
+                        if breakp:
+                            continue
 
-                        knowledge.append(Sentence(cells=cells, count=nu_count))
+                        self.knowledge.append(Sentence(cells=cells, count=nu_count))
                         knowledge_changed = True
+            
+            for cell in self.safes:
+                for sentence in self.knowledge:
+                    if cell in sentence.cells:
+                        sentence.cells.remove(cell)
 
             if knowledge_changed == False:
-                break
+                    break
 
 
 
@@ -284,8 +344,10 @@ class MinesweeperAI():
         # remove done moves from the safe cells we know about and convert to list
         safes_ls = [cell for cell in self.safes if cell not in self.moves_made]
 
-
-        return random.choice(safes_ls)
+        try:
+            return random.choice(safes_ls)
+        except IndexError:
+            return None
 
 
     def make_random_move(self):
@@ -305,7 +367,11 @@ class MinesweeperAI():
                 else:
                     board.add((i,j))
 
-        return random.choice(list(board))
+        
+        try:
+            return random.choice(list(board))
+        except IndexError:
+            return None
 
     def clean_sentences(self, cell, type="safe"):
         """ This function takes a cell and a type safe/mine and updates all sentences in the knowledge
