@@ -281,9 +281,12 @@ class MinesweeperAI():
         This function may use the knowledge in self.mines, self.safes
         and self.moves_made, but should not modify any of those values.
         """
-        safes_ls = list(self.safes)
+        # remove done moves from the safe cells we know about and convert to list
+        safes_ls = [cell for cell in self.safes if cell not in self.moves_made]
 
-        random.choice(safes_ls)
+
+        return random.choice(safes_ls)
+
 
     def make_random_move(self):
         """
@@ -292,6 +295,7 @@ class MinesweeperAI():
             1) have not already been chosen, and
             2) are not known to be mines
         """
+        random_choice_cells = []
         raise NotImplementedError
 
     def clean_sentences(self, cell, type="safe"):
