@@ -111,7 +111,9 @@ class Sentence():
         """ BUG:( Sentence.known_mines returns mines when conclusions possible
             expected "{(0, 1), (2, 3...", not "set()"
         """
-        
+        if self.count == len(self.cells):
+            return self.cells
+
 
         return self.mines
 
@@ -252,7 +254,7 @@ class MinesweeperAI():
                 if (i, j) in self.mines:
                     count -= 1
                     continue
-                
+
 
                 # ignore out of bounds cells
                 if i >= self.width or j >= self.height or i < 0 or j < 0:
@@ -285,7 +287,7 @@ class MinesweeperAI():
                         if cell in self.mines:
                             known_mines += 1
                         mine_cells.append(cell)
-                    
+
                     if known_mines == sentence_.count:
                         pass
                     else:
@@ -302,7 +304,7 @@ class MinesweeperAI():
                         safe_cells.append(cell)
                         # RuntimeError with the set being changed during iteration
 
-                        
+
                         # TODO: do We Have to remove the sentence?
 
                     # Mark the cells as safe
@@ -329,31 +331,31 @@ class MinesweeperAI():
                     if sentence_2 == sentence_:
                         continue
 
-                    
+
                     if sentence_.cells.issubset(sentence_2.cells):
                         if self.subsentence_processing(sentence_, sentence_2) == 0:
                             knowledge_changed = True
                             print("Knowledge changed bc of subsentence 1 of 2")
                             print(f"sentence: {sentence_}, sentence2: {sentence_2}")
 
-                    
+
                     elif sentence_2.cells.issubset(sentence_.cells):
                         if self.subsentence_processing(sentence_2, sentence_) == 0:
                             knowledge_changed = True
                             print("Knowledge changed bc of subsentence 2 of 1")
                             print(f"sentence: {sentence_}, sentence2: {sentence_2}")
 
-                    
+
             # process known safes and known mines
             for cell in self.safes:
                 for sentence in self.knowledge:
                     if cell in sentence.cells:
                         sentence.cells.remove(cell)
-            
+
             for cell in self.mines:
                 self.mark_mine(cell)
 
-                
+
             # break if no new knowledge could be created
             if knowledge_changed == False:
                     break
@@ -367,15 +369,15 @@ class MinesweeperAI():
         for cell in s2.cells:
             if cell not in s1.cells:
                 cells.add(cell)
-        
+
         nu_count = s2.count - s1.count
 
         breakp = False
 
         for sentence in self.knowledge:
             if sentence.cells == cells and sentence.count== nu_count:
-                return 1 
-        
+                return 1
+
         self.knowledge.append(Sentence(cells=cells, count=nu_count))
         return 0
 
@@ -422,7 +424,7 @@ class MinesweeperAI():
                 else:
                     board.add((i,j))
 
-        
+
         try:
             return random.choice(list(board))
         except IndexError:
