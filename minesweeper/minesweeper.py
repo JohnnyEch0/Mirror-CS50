@@ -280,14 +280,20 @@ class MinesweeperAI():
             # any sentence with a length of cells equal to its count is full of mines!
                 if sentence_.count == len(sentence_.cells):
                     mine_cells = []
+                    known_mines = 0
                     for cell in sentence_.cells:
+                        if cell in self.mines:
+                            known_mines += 1
                         mine_cells.append(cell)
                     
-                    # mark the cells as bombs
-                    for cell in mine_cells:
-                        self.mark_mine(cell)
+                    if known_mines == sentence_.count:
+                        pass
+                    else:
+                        # mark the cells as bombs
+                        for cell in mine_cells:
+                            self.mark_mine(cell)
 
-                    knowledge_changed = True
+                        knowledge_changed = True
 
                 # any sentence with a count 0 is fully safe :)
                 elif sentence_.count == 0:
@@ -301,17 +307,16 @@ class MinesweeperAI():
 
                     # Mark the cells as safe
                     for cell in safe_cells:
-                        self.mark_safe(cell)
+                        if cell not in self.safes:
+                            self.mark_safe(cell)
 
                     knowledge_changed = True
 
 
-                """
-                # filter out empty sentences
+
                 if len(sentence_.cells) == 0:
                     self.knowledge.remove(sentence_)
-                    
-                """
+
 
 
                 """ Check for conclusions based on subsets"""
@@ -324,16 +329,19 @@ class MinesweeperAI():
                     if sentence_2 == sentence_:
                         continue
 
-
                     
                     if sentence_.cells.issubset(sentence_2.cells):
                         if self.subsentence_processing(sentence_, sentence_2) == 0:
                             knowledge_changed = True
+                            print("Knowledge changed bc of subsentence 1 of 2")
+                            print(f"sentence: {sentence_}, sentence2: {sentence_2}")
 
                     
                     elif sentence_2.cells.issubset(sentence_.cells):
                         if self.subsentence_processing(sentence_2, sentence_) == 0:
                             knowledge_changed = True
+                            print("Knowledge changed bc of subsentence 2 of 1")
+                            print(f"sentence: {sentence_}, sentence2: {sentence_2}")
 
                     
             # process known safes and known mines
@@ -360,9 +368,10 @@ class MinesweeperAI():
             if cell not in s1.cells:
                 cells.add(cell)
         
-        nu_count = s2.count + s1.count
+        nu_count = s2.count - s1.count
 
         breakp = False
+
         for sentence in self.knowledge:
             if sentence.cells == cells and sentence.count== nu_count:
                 return 1 
