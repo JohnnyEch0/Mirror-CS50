@@ -257,7 +257,7 @@ class MinesweeperAI():
 
 
                 # ignore out of bounds cells
-                if i >= self.width or j >= self.height or i < 0 or j < 0:
+                if i >= self.height or j >= self.width or i < 0 or j < 0:
                     continue
                 else:
                     cells.add((i,j))
