@@ -114,9 +114,7 @@ class Sentence():
         if self.count == len(self.cells):
             return self.cells
 
-
         return self.mines
-
 
     def known_safes(self):
         """
@@ -130,17 +128,15 @@ class Sentence():
             return self.cells
         return self.safes
 
-
     def mark_mine(self, cell):
         """
         Updates internal knowledge representation given the fact that
         a cell is known to be a mine.
         """
         if cell in self.cells:
-            self.mines.add(cell) #TODO: Dont know if this is necessary
+            self.mines.add(cell)  # TODO: Dont know if this is necessary
             self.cells.remove(cell)
             self.count -= 1
-
 
     def mark_safe(self, cell):
         """
@@ -148,9 +144,8 @@ class Sentence():
         a cell is known to be safe.
         """
         if cell in self.cells:
-            self.safes.add(cell)  #TODO: Dont know if this is necessary
+            self.safes.add(cell)  # TODO: Dont know if this is necessary
             self.cells.remove(cell)
-
 
 
 class MinesweeperAI():
@@ -210,22 +205,6 @@ class MinesweeperAI():
                if they can be inferred from existing knowledge
         """
 
-
-        """
-            BUG:( MinesweeperAI.add_knowledge adds sentence in corner of board
-            did not find sentence {(2, 3), (2, 4), (3, 3)} = 1
-        """
-
-        """
-            BUG: :( MinesweeperAI.add_knowledge can infer mine when given new information
-            expected "{(3, 4)}", not "set()"
-        """
-
-        """
-            BUG: :( MinesweeperAI.add_knowledge combines multiple sentences to draw conclusions
-            did not find (1, 0) in mines when possible to conclude mine
-        """
-
         """
         1) + 2) mark cell as move and safe.
         """
@@ -255,12 +234,11 @@ class MinesweeperAI():
                     count -= 1
                     continue
 
-
                 # ignore out of bounds cells
                 if i >= self.height or j >= self.width or i < 0 or j < 0:
                     continue
                 else:
-                    cells.add((i,j))
+                    cells.add((i, j))
 
         # put them in a statement like {D,E;G} = 1
         if cells is not None:
@@ -271,7 +249,6 @@ class MinesweeperAI():
                if it can be concluded based on the AI's knowledge base
         """
 
-
         """knowledge processing"""
 
         while True:
@@ -279,7 +256,7 @@ class MinesweeperAI():
 
             for sentence_ in self.knowledge:
 
-            # any sentence with a length of cells equal to its count is full of mines!
+                # any sentence with a length of cells equal to its count is full of mines!
                 if sentence_.count == len(sentence_.cells):
                     mine_cells = []
                     known_mines = 0
@@ -302,11 +279,6 @@ class MinesweeperAI():
                     safe_cells = []
                     for cell in sentence_.cells:
                         safe_cells.append(cell)
-                        # RuntimeError with the set being changed during iteration
-
-
-                        # TODO: do We Have to remove the sentence?
-
                     # Mark the cells as safe
                     for cell in safe_cells:
                         if cell not in self.safes:
@@ -314,12 +286,8 @@ class MinesweeperAI():
 
                     knowledge_changed = True
 
-
-
                 if len(sentence_.cells) == 0:
                     self.knowledge.remove(sentence_)
-
-
 
                 """ Check for conclusions based on subsets"""
                 for sentence_2 in self.knowledge:
@@ -331,20 +299,17 @@ class MinesweeperAI():
                     if sentence_2 == sentence_:
                         continue
 
-
                     if sentence_.cells.issubset(sentence_2.cells):
                         if self.subsentence_processing(sentence_, sentence_2) == 0:
                             knowledge_changed = True
                             print("Knowledge changed bc of subsentence 1 of 2")
                             print(f"sentence: {sentence_}, sentence2: {sentence_2}")
 
-
                     elif sentence_2.cells.issubset(sentence_.cells):
                         if self.subsentence_processing(sentence_2, sentence_) == 0:
                             knowledge_changed = True
                             print("Knowledge changed bc of subsentence 2 of 1")
                             print(f"sentence: {sentence_}, sentence2: {sentence_2}")
-
 
             # process known safes and known mines
             for cell in self.safes:
@@ -355,11 +320,9 @@ class MinesweeperAI():
             for cell in self.mines:
                 self.mark_mine(cell)
 
-
             # break if no new knowledge could be created
             if knowledge_changed == False:
-                    break
-
+                break
 
     def subsentence_processing(self, s1, s2):
         """ Takes 2 Sentences where s1 is subset of s2, inferes new knowledge."""
@@ -375,13 +338,11 @@ class MinesweeperAI():
         breakp = False
 
         for sentence in self.knowledge:
-            if sentence.cells == cells and sentence.count== nu_count:
+            if sentence.cells == cells and sentence.count == nu_count:
                 return 1
 
         self.knowledge.append(Sentence(cells=cells, count=nu_count))
         return 0
-
-
 
     def make_safe_move(self):
         """
@@ -393,11 +354,6 @@ class MinesweeperAI():
         and self.moves_made, but should not modify any of those values.
         """
 
-
-        """
-        BUG:( MinesweeperAI.make_safe_move makes safe move when possible
-        move made not one of the safe options
-        """
         # remove done moves from the safe cells we know about and convert to list
         safes_ls = [cell for cell in self.safes if cell not in self.moves_made]
 
@@ -405,7 +361,6 @@ class MinesweeperAI():
             return random.choice(safes_ls)
         except IndexError:
             return None
-
 
     def make_random_move(self):
         """
@@ -415,15 +370,14 @@ class MinesweeperAI():
             2) are not known to be mines
         """
         board = set()
-        for i in range (self.width):
+        for i in range(self.width):
             for j in range(self.height):
                 if (i, j) in self.moves_made:
                     continue
                 elif (i, j) in self.mines:
                     continue
                 else:
-                    board.add((i,j))
-
+                    board.add((i, j))
 
         try:
             return random.choice(list(board))
@@ -435,14 +389,13 @@ class MinesweeperAI():
             However i think this is already done by the mark_sfe and mine methods...
         """
 
-
         for sentence in self.knowledge:
             if cell in sentence.cells:
                 sentence.cells.remove(cell)
                 if type == "mine":
                     sentence.count -= 1
             else:
-                sentences_no_update += 1 #TODO: maybe we can return this value at some point to stop a while true loop?
+                sentences_no_update += 1  # TODO: maybe we can return this value at some point to stop a while true loop?
 
         if sentences_no_update == len(self.knowledge):
-            return 1 #return that nothing got changed
+            return 1  # return that nothing got changed
