@@ -111,6 +111,7 @@ class Sentence():
         """ BUG:( Sentence.known_mines returns mines when conclusions possible
             expected "{(0, 1), (2, 3...", not "set()"
         """
+        
 
         return self.mines
 
@@ -251,7 +252,7 @@ class MinesweeperAI():
                 if (i, j) in self.mines:
                     count -= 1
                     continue
-
+                
 
                 # ignore out of bounds cells
                 if i >= self.width or j >= self.height or i < 0 or j < 0:
@@ -281,7 +282,7 @@ class MinesweeperAI():
                     mine_cells = []
                     for cell in sentence_.cells:
                         mine_cells.append(cell)
-
+                    
                     # mark the cells as bombs
                     for cell in mine_cells:
                         self.mark_mine(cell)
@@ -295,7 +296,7 @@ class MinesweeperAI():
                         safe_cells.append(cell)
                         # RuntimeError with the set being changed during iteration
 
-
+                        
                         # TODO: do We Have to remove the sentence?
 
                     # Mark the cells as safe
@@ -305,12 +306,15 @@ class MinesweeperAI():
                     knowledge_changed = True
 
 
+                """
                 # filter out empty sentences
                 if len(sentence_.cells) == 0:
                     self.knowledge.remove(sentence_)
+                    
+                """
 
 
-
+                """ Check for conclusions based on subsets"""
                 for sentence_2 in self.knowledge:
                     # ignore empty sentences
                     if len(sentence_2.cells) == 0:
@@ -321,62 +325,50 @@ class MinesweeperAI():
                         continue
 
 
+                    
                     if sentence_.cells.issubset(sentence_2.cells):
-                        cells = set()
-                        # every cell in sentence2 which isnt in sentence 1
-                        for cell in sentence_2.cells:
-                            if cell not in sentence_.cells:
-                                cells.add(cell)
-                        nu_count = sentence_2.count - sentence_.count
-                        breakp = False
-                        for sentence in self.knowledge:
-
-                            if sentence.cells == cells and sentence.count == nu_count:
-                                # print("AI tried to create duplicate knowledge")
-                                breakp = True
-
-                        if breakp:
-                            continue
-                        else:
-                            self.knowledge.append(Sentence(cells=cells, count=nu_count))
+                        if self.subsentence_processing(sentence_, sentence_2) == 0:
                             knowledge_changed = True
 
-
-
-
-
-
+                    
                     elif sentence_2.cells.issubset(sentence_.cells):
-                        cells = set()
+                        if self.subsentence_processing(sentence_2, sentence_) == 0:
+                            knowledge_changed = True
 
-                        for cell in sentence_.cells:
-                            if cell not in sentence_2.cells:
-                                cells.add(cell)
-                        nu_count = sentence_.count - sentence_2.count
-                        breakp = False
-                        for sentence in self.knowledge:
-
-                            if sentence.cells == cells and sentence.count == nu_count:
-                                # print("AI tried to create duplicate knowledge")
-                                breakp = True
-                        if breakp:
-                            continue
-
-                        self.knowledge.append(Sentence(cells=cells, count=nu_count))
-                        knowledge_changed = True
-
+                    
+            # process known safes and known mines
             for cell in self.safes:
                 for sentence in self.knowledge:
                     if cell in sentence.cells:
                         sentence.cells.remove(cell)
-
+            
             for cell in self.mines:
                 self.mark_mine(cell)
 
-
+                
+            # break if no new knowledge could be created
             if knowledge_changed == False:
                     break
 
+
+    def subsentence_processing(self, s1, s2):
+        """ Takes 2 Sentences where s1 is subset of s2, inferes new knowledge."""
+        cells = set()
+
+        # get every cell in S2 which isnt in S1.
+        for cell in s2.cells:
+            if cell not in s1.cells:
+                cells.add(cell)
+        
+        nu_count = s2.count + s1.count
+
+        breakp = False
+        for sentence in self.knowledge:
+            if sentence.cells == cells and sentence.count== nu_count:
+                return 1 
+        
+        self.knowledge.append(Sentence(cells=cells, count=nu_count))
+        return 0
 
 
 
@@ -421,7 +413,7 @@ class MinesweeperAI():
                 else:
                     board.add((i,j))
 
-
+        
         try:
             return random.choice(list(board))
         except IndexError:
