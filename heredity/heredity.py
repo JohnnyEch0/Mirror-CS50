@@ -196,7 +196,8 @@ def joint_probability(people, one_gene, two_genes, have_trait):
                 gene_prob = parent_probs[0] * parent_probs[1]
                 gene_ev = 2
             elif person in one_gene:
-                gene_prob = parent_probs[0] * parent_not_probs[1] + parent_probs[1] * parent_not_probs[0]
+                gene_prob = parent_probs[0] * parent_not_probs[1] +
+                parent_probs[1] * parent_not_probs[0]
                 gene_ev = 1
             else:
                 gene_prob = parent_not_probs[0] * parent_not_probs[1]
