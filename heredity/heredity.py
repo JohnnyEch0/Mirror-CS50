@@ -196,8 +196,8 @@ def joint_probability(people, one_gene, two_genes, have_trait):
                 gene_prob = parent_probs[0] * parent_probs[1]
                 gene_ev = 2
             elif person in one_gene:
-                gene_prob = parent_probs[0] * parent_not_probs[1] +
-                parent_probs[1] * parent_not_probs[0]
+                gene_prob = parent_probs[0] * parent_not_probs[1] + \
+                    parent_probs[1] * parent_not_probs[0]
                 gene_ev = 1
             else:
                 gene_prob = parent_not_probs[0] * parent_not_probs[1]
@@ -218,20 +218,7 @@ def joint_probability(people, one_gene, two_genes, have_trait):
         # print(prob)
         final_prob = final_prob * prob
 
-    # print(f"final prob: {final_prob}")
-    # sys.exit("in dev.")
     return final_prob
-
-
-
-
-
-
-
-
-
-
-    sys.exit("In dev.")
 
 
 def update(probabilities, one_gene, two_genes, have_trait, p):
@@ -260,7 +247,6 @@ def update(probabilities, one_gene, two_genes, have_trait, p):
             probabilities[person]["trait"][False] += p
 
 
-
 def normalize(probabilities):
     """
     Update `probabilities` such that each probability distribution
@@ -268,21 +254,22 @@ def normalize(probabilities):
     """
     for person in probabilities:
         # genes
-        gene_prob_sum = probabilities[person]["gene"][2] + probabilities[person]["gene"][1] + probabilities[person]["gene"][0]
-        if  gene_prob_sum != 1:
+        gene_prob_sum = probabilities[person]["gene"][2] + \
+            probabilities[person]["gene"][1] + probabilities[person]["gene"][0]
+        if gene_prob_sum != 1:
             multiplier = 1 / gene_prob_sum
 
         probabilities[person]["gene"][0] *= multiplier
         probabilities[person]["gene"][1] *= multiplier
         probabilities[person]["gene"][2] *= multiplier
 
-        trait_prob_sum = probabilities[person]["trait"][True] + probabilities[person]["trait"][False]
+        trait_prob_sum = probabilities[person]["trait"][True] + \
+            probabilities[person]["trait"][False]
         if trait_prob_sum != 1:
             multiplier = 1 / trait_prob_sum
 
         probabilities[person]["trait"][True] *= multiplier
         probabilities[person]["trait"][False] *= multiplier
-
 
 
 if __name__ == "__main__":
