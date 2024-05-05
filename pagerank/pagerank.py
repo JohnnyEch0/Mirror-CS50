@@ -62,17 +62,17 @@ def transition_model(corpus, page, damping_factor):
 
     # damping
     damp_prob = (1-damping_factor) / len(list(corpus))
-    
+
     for site in list(corpus):
         prob = damp_prob
-        
+
         try:
             if site in corpus[page]:
                 # if the site is linked to, distribute damp factor across all
                 prob += damping_factor / len(corpus[page])
         except TypeError:
             raise TypeError("unhashable Type", f"{corpus} indexed {page}")
-        
+
         distribution.update({f"{site}": round(prob, 15)})
 
 
@@ -81,7 +81,7 @@ def transition_model(corpus, page, damping_factor):
         for site in list(corpus):
             prob = 1 / len(list(corpus))
             distribution[site] = prob
-        
+
 
     """
     Debugging
@@ -90,12 +90,12 @@ def transition_model(corpus, page, damping_factor):
     for key, item in distribution.items():
         total += item
 
-        
+
     if total > 1.001 or total < 0.999:
 
         print(f"DEBUG: Trans_Model:{page} --> {distribution}")
         raise ValueError("trans_model Error, total Values dont Sum.")
-    
+
 
     return distribution
 
@@ -112,7 +112,7 @@ def sample_pagerank(corpus, damping_factor, n):
     page_rank = dict()
     for page in list(corpus):
         page_rank.update({page: 0})
-    
+
     """
     TODO: Make A dictionary of the TRANS_Model returns, in order not to recalc that every time.
     """
@@ -120,7 +120,7 @@ def sample_pagerank(corpus, damping_factor, n):
 
     sample0 = random.choice(list(corpus))
     page_rank[sample0] += 1
-    
+
     for _ in range(n-1):
 
         model = transition_model(corpus, sample0, damping_factor)
@@ -147,7 +147,7 @@ def sample_pagerank(corpus, damping_factor, n):
     """
     Debugging
     """
-        
+
     if total_ranks > 1.001 or total_ranks < 0.999:
 
         print(f"DEBUG: Sample_Pagerank: --> {page_rank}")
@@ -157,8 +157,8 @@ def sample_pagerank(corpus, damping_factor, n):
     return page_rank
 
 
-        
-    
+
+
 
 def iterate_pagerank(corpus, damping_factor):
     """
@@ -179,15 +179,15 @@ def iterate_pagerank(corpus, damping_factor):
 
 
     # a page that has no links at all, shall be treated as having links to all pages
-    
+
     for key, value in corpus.items():
         if value == set():
             corpus[key] = all_pages
-    
-    
+
+
     # this dictionary will have a key for each site, and a set as a dict which holds every page that links to the key
     linked_by = dict()
-    
+
     for site in list(corpus):
         # for every page, get the pages that have a link to it.
         linked_by_set = set()
@@ -195,12 +195,12 @@ def iterate_pagerank(corpus, damping_factor):
         for site_, links in corpus.items():
             if site in links:
                 linked_by_set.add(site_)
-        
+
         linked_by.update({site: linked_by_set})
 
     # print("DEBUG CORPUS:   ", corpus)
-    
-    
+
+
     # print(f" Page, gets linked by :  {linked_by}")
 
     # update the ranking for each site in the corpus
@@ -212,22 +212,23 @@ def iterate_pagerank(corpus, damping_factor):
         old_values = copy.deepcopy(ranking)
         damping_value = (1 - damping_factor) / pages_count
 
-        non_damp = 0
+
 
         for site in list(corpus):
+            non_damp = 0
             linked_by_set = linked_by[site]
-            
+
             for site_links in linked_by_set:
                 value_for_lin = old_values[site_links] / len(corpus[site_links])
-                non_damp +=  value_for_lin / len(linked_by[site])
+                non_damp +=  value_for_lin # / len(linked_by[site])
                 # print(f"Non_damp Value for {site} for linked by {site_links}:    +=  {old_values[site_links]}  / {len(corpus[site_links])} /  {len(linked_by[site])}")
 
 
-            
+
 
             # print(f"nu Value for {site} =   ", damping_value, "+  ", f"( {non_damp} * {damping_factor} / {len(linked_by[site])})")
             try:
-                nu_value = damping_value + non_damp * damping_factor  / len(linked_by[site])
+                nu_value = damping_value + non_damp * damping_factor  # / len(linked_by[site])
             except ZeroDivisionError:
                 raise ValueError(f" site: {site}, len linked by was 0, {linked_by[site]}")
             ranking[site] = nu_value
@@ -237,33 +238,33 @@ def iterate_pagerank(corpus, damping_factor):
         # check if the values converged
 
         process_finished = 0
-        
+
         for page, rank in ranking.items():
             value_change = rank - old_values[page]
             if rank > 1:
                 raise ValueError("Pagerank exceedet 1")
             if value_change < 0.001 and value_change > -0.001:
                 process_finished += 1
-        
+
         if process_finished == len(list(corpus)):
             total = 0
             for key, value in ranking.items():
                 total += value
                 # print(key, value)
             # print(total)
-            
+
             if not total < 1.01 or not total > 0.99:
                 # raise ValueError(f"total doesnt add up to 1, it is {total}")
                 nutotal = 0
                 for key, value in ranking.items():
                     ranking[key] /= total
                     nutotal += ranking[key]
-                    
+
                     # print(key, value)
-                
+
                 # print(nutotal)
-            
-                
+
+
             return ranking
 
 
