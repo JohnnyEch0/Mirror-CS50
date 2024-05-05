@@ -143,7 +143,7 @@ def joint_probability(people, one_gene, two_genes, have_trait):
     # print("people =    ")
     # for person, values in people.items():
     #     print(person, ":    ",values)
-    
+
     # print("one gene =    ", two_genes)
 
     probs = []
@@ -169,12 +169,12 @@ def joint_probability(people, one_gene, two_genes, have_trait):
                 prob2 = PROBS["trait"][gene_ev][False]
 
             # print(f"Probs for {person}:   gene: {prob_1}   trait: {prob2}, joined: {prob_1*prob2}")
-            
+
             person_joined_prob = prob_1 * prob2
             probs.append(person_joined_prob)
         #  people with parents
         else:
-            
+
             mother = people[person]["mother"]
             father = people[person]["father"]
             parents = {mother, father}
@@ -190,7 +190,7 @@ def joint_probability(people, one_gene, two_genes, have_trait):
                     gene_from_p = 0 + PROBS["mutation"]
                 parent_probs.append(gene_from_p)
                 parent_not_probs.append(1 - gene_from_p)
-            
+
             # gene_prob for child
             if person in two_genes:
                 gene_prob = parent_probs[0] * parent_probs[1]
@@ -211,7 +211,7 @@ def joint_probability(people, one_gene, two_genes, have_trait):
             person_joined_prob = gene_prob * prob2
 
             probs.append(person_joined_prob)
-        
+
     final_prob = 1
     for prob in probs:
         # print(prob)
@@ -220,10 +220,10 @@ def joint_probability(people, one_gene, two_genes, have_trait):
     # print(f"final prob: {final_prob}")
     # sys.exit("in dev.")
     return final_prob
-    
 
-        
-        
+
+
+
 
 
 
@@ -246,22 +246,18 @@ def update(probabilities, one_gene, two_genes, have_trait, p):
 
         # genes
         if person in two_genes:
-            probabilities[person]["gene"][2] = p
+            probabilities[person]["gene"][2] += p
         elif person in one_gene:
-            probabilities[person]["gene"][1] = p
+            probabilities[person]["gene"][1] += p
         else:
-            probabilities[person]["gene"][0] = p
-        
+            probabilities[person]["gene"][0] += p
+
         # trait
         if person in have_trait:
-            probabilities[person]["trait"][True] = p
+            probabilities[person]["trait"][True] += p
         else:
-            probabilities[person]["trait"][False] = p
+            probabilities[person]["trait"][False] += p
 
-    # print(probabilities)
-
-
-    # raise NotImplementedError
 
 
 def normalize(probabilities):
@@ -274,7 +270,7 @@ def normalize(probabilities):
         gene_prob_sum = probabilities[person]["gene"][2] + probabilities[person]["gene"][1] + probabilities[person]["gene"][0]
         if  gene_prob_sum != 1:
             multiplier = 1 / gene_prob_sum
-        
+
         probabilities[person]["gene"][0] *= multiplier
         probabilities[person]["gene"][1] *= multiplier
         probabilities[person]["gene"][2] *= multiplier
@@ -282,7 +278,7 @@ def normalize(probabilities):
         trait_prob_sum = probabilities[person]["trait"][True] + probabilities[person]["trait"][False]
         if trait_prob_sum != 1:
             multiplier = 1 / trait_prob_sum
-        
+
         probabilities[person]["trait"][True] *= multiplier
         probabilities[person]["trait"][False] *= multiplier
 
