@@ -104,10 +104,10 @@ class CrosswordCreator():
             for item in items:
                 if len(item) != key.length:
                     items_to_remove.append(item)
-            
+
             for wrong_word in items_to_remove:
                 self.domains[key].remove(wrong_word)
-            
+
 
         # revise test
         """
@@ -118,7 +118,7 @@ class CrosswordCreator():
         for i in range(5):
             print(self.revise(words[i], words[i+1]))
         """
-      
+
 
     def revise(self, x, y):
         """
@@ -141,13 +141,13 @@ class CrosswordCreator():
 
                 if connection_found == False:
                     words_remove.append(word)
-            
+
             if words_remove is not None:
                 for word_r in words_remove:
                     self.domains[x].remove(word_r)
                 return True
-                
-        return False    
+
+        return False
 
     def ac3(self, arcs=None):
         """
@@ -160,11 +160,15 @@ class CrosswordCreator():
         """
         # print(self.crossword.overlaps)
         count = 0
+
         if arcs == None:
             arcs = [arc for arc in self.crossword.overlaps if arc is not None]
-        
+        else:
+            raise Exception
+
+
         while arcs:
-            
+
             try:
                 x,y = arcs.pop(-1)
             except IndexError:
@@ -180,14 +184,14 @@ class CrosswordCreator():
                     for neighbor in neighbors:
                         arcs.append(   (neighbor, x)   )
                     # print(neighbors)
-            
+
             """
             count +=1
             if count == 100:
                 sys.exit("count 100, in dev")
             """
         return True
-               
+
 
     def assignment_complete(self, assignment):
         """
@@ -221,23 +225,23 @@ class CrosswordCreator():
             # print(f"Debug, consistent, {key}, {value}, len: {len(value)} , key.len: {key.length}")
             if len(value) != key.length:
                 return False
-            
+
         # no conflicts on intersecting variables
         if not self.check_intersections_consistent(assignment):
             return False
-        
+
         return True
-            
+
     def check_intersections_consistent(self, assignment):
 
         intersections = [arc for arc in self.crossword.overlaps if arc[0] in assignment and arc[1] in assignment]
         # print("Debug Intersections", intersections)
-        
+
         while intersections:
             x,y = intersections.pop(-1)
             #print(f"x,y = {x,y}")
             #print(x, y)
-            
+
             # print("debug overlaps", self.crossword.overlaps)
             overlap = self.crossword.overlaps[x, y]
             if overlap is None:
@@ -247,7 +251,7 @@ class CrosswordCreator():
             # print(assignment[x], assignment[y], overlap)
             if assignment[x][overlap[0]] != assignment[y][overlap[1]]:
                 return False
-        
+
         return True
 
 
@@ -262,12 +266,12 @@ class CrosswordCreator():
         """
         # TODO: Order.
         list = [word for word in self.domains[var]]
-        
+
 
         def evaluate_word_outruling(wordx):
             neighbors = [neighbor for neighbor in self.crossword.neighbors(var)]
             conflict_count = 0
-            
+
             for neighbor in neighbors:
                 overlap = self.crossword.overlaps[var, neighbor]
                 for wordy in self.domains[neighbor]:
@@ -275,9 +279,9 @@ class CrosswordCreator():
                     if wordx[overlap[0]] != wordy[overlap[1]]:
                         conflict_count += 1
             return conflict_count
-        
-        
-        list = sorted(list, key=evaluate_word_outruling)    
+
+
+        list = sorted(list, key=evaluate_word_outruling)
 
 
         return list
@@ -295,12 +299,12 @@ class CrosswordCreator():
         # get lowest
         if not unass_vars:
             return None
-        
+
         lowest_var = unass_vars[0]
         for var in unass_vars:
             if len(self.domains[var]) < len(self.domains[lowest_var]):
                 lowest_var = var
-        
+
 
         return lowest_var
 
