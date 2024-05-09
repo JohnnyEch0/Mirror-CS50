@@ -108,7 +108,6 @@ class CrosswordCreator():
             for wrong_word in items_to_remove:
                 self.domains[key].remove(wrong_word)
 
-
         # revise test
         """
         words = []
@@ -118,7 +117,6 @@ class CrosswordCreator():
         for i in range(5):
             print(self.revise(words[i], words[i+1]))
         """
-
 
     def revise(self, x, y):
         """
@@ -167,21 +165,20 @@ class CrosswordCreator():
         while arcs:
 
             try:
-                x,y = arcs.pop(0)
+                x, y = arcs.pop(0)
             except IndexError:
-                print("INDEXERROR",arcs)
+                print("INDEXERROR", arcs)
 
             if self.revise(x, y):
-                #print(self.domains[x])
                 if len(self.domains[x]) == 0:
                     return False
                 else:
-                    neighbors = [neighbor for neighbor in self.crossword.neighbors(x) if neighbor is not y]
+                    neighbors = [neighbor for neighbor in self.crossword.neighbors
+                                 (x) if neighbor is not y and (x, neighbor) in arcs]
                     for neighbor in neighbors:
-                        if ( neighbor, x ) not in arcs:
-                            arcs.append(   (neighbor, x)   )
+                        if (neighbor, x) not in arcs:
+                            arcs.append((neighbor, x))
         return True
-
 
     def assignment_complete(self, assignment):
         """
@@ -224,28 +221,24 @@ class CrosswordCreator():
 
     def check_intersections_consistent(self, assignment):
 
-        intersections = [arc for arc in self.crossword.overlaps if arc[0] in assignment and arc[1] in assignment]
+        intersections = [arc for arc in self.crossword.overlaps if arc[0]
+                         in assignment and arc[1] in assignment]
         # print("Debug Intersections", intersections)
 
         while intersections:
-            x,y = intersections.pop(-1)
-            #print(f"x,y = {x,y}")
-            #print(x, y)
+            x, y = intersections.pop(-1)
 
             # print("debug overlaps", self.crossword.overlaps)
             overlap = self.crossword.overlaps[x, y]
             if overlap is None:
                 continue
             else:
-                pass  #print(overlap)
+                pass
             # print(assignment[x], assignment[y], overlap)
             if assignment[x][overlap[0]] != assignment[y][overlap[1]]:
                 return False
 
         return True
-
-
-
 
     def order_domain_values(self, var, assignment):
         """
@@ -256,7 +249,6 @@ class CrosswordCreator():
         """
         # TODO: Order.
         list = [word for word in self.domains[var]]
-
 
         def evaluate_word_outruling(wordx):
             neighbors = [neighbor for neighbor in self.crossword.neighbors(var)]
@@ -270,9 +262,7 @@ class CrosswordCreator():
                         conflict_count += 1
             return conflict_count
 
-
         list = sorted(list, key=evaluate_word_outruling)
-
 
         return list
 
@@ -294,7 +284,6 @@ class CrosswordCreator():
         for var in unass_vars:
             if len(self.domains[var]) < len(self.domains[lowest_var]):
                 lowest_var = var
-
 
         return lowest_var
 
