@@ -167,7 +167,7 @@ class CrosswordCreator():
         while arcs:
 
             try:
-                x,y = arcs.pop(-1)
+                x,y = arcs.pop(0)
             except IndexError:
                 print("INDEXERROR",arcs)
 
@@ -179,7 +179,8 @@ class CrosswordCreator():
                     # print(f"x neighbors are  {self.crossword.neighbors(x)}")
                     neighbors = [neighbor for neighbor in self.crossword.neighbors(x) if neighbor is not y]
                     for neighbor in neighbors:
-                        arcs.append(   (neighbor, x)   )
+                        if ( neighbor, x ) not in arcs:
+                            arcs.append(   (neighbor, x)   )
                     # print(neighbors)
 
             """
