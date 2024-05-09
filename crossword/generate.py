@@ -176,18 +176,10 @@ class CrosswordCreator():
                 if len(self.domains[x]) == 0:
                     return False
                 else:
-                    # print(f"x neighbors are  {self.crossword.neighbors(x)}")
                     neighbors = [neighbor for neighbor in self.crossword.neighbors(x) if neighbor is not y]
                     for neighbor in neighbors:
                         if ( neighbor, x ) not in arcs:
                             arcs.append(   (neighbor, x)   )
-                    # print(neighbors)
-
-            """
-            count +=1
-            if count == 100:
-                sys.exit("count 100, in dev")
-            """
         return True
 
 
