@@ -163,14 +163,11 @@ class CrosswordCreator():
 
         if arcs == None:
             arcs = [arc for arc in self.crossword.overlaps if arc is not None]
-        else:
-            raise Exception(f"{arcs}")
-arcs
 
         while arcs:
 
             try:
-                x,y = arcs.pop(-1)
+                x,y = arcs.pop(0)
             except IndexError:
                 print("INDEXERROR",arcs)
 
