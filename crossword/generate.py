@@ -167,7 +167,7 @@ class CrosswordCreator():
         while arcs:
 
             try:
-                x,y = arcs.pop(0)
+                x,y = arcs.pop(-1)
             except IndexError:
                 print("INDEXERROR",arcs)
 
