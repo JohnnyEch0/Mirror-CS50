@@ -164,8 +164,8 @@ class CrosswordCreator():
         if arcs == None:
             arcs = [arc for arc in self.crossword.overlaps if arc is not None]
         else:
-            raise Exception
-
+            raise Exception(f"{arcs}")
+arcs
 
         while arcs:
 
