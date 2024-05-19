@@ -112,7 +112,6 @@ class NimAI():
         except KeyError:
             return 0
 
-
     def update_q_value(self, state, action, old_q, reward, future_rewards):
         """
         Update the Q-value for the state `state` and the action `action`
@@ -154,7 +153,7 @@ class NimAI():
                     best = self.q[(state, action)]
             except KeyError:
                 continue
-        
+
         return best
 
     def choose_action(self, state, epsilon=True):
@@ -172,13 +171,12 @@ class NimAI():
         If multiple actions have the same Q-value, any of those
         options is an acceptable return value.
         """
-        actions = Nim.available_actions(state) 
+        actions = Nim.available_actions(state)
         actions_ls = [action for action in actions]
         if epsilon == True:
             if random.random() > self.epsilon:
                 return random.choice(actions_ls)
 
-        
         max_q = 0
         max_action = None
         state = tuple(state)
@@ -193,9 +191,7 @@ class NimAI():
         if max_action == None:
             return random.choice(actions_ls)
 
-                
         return max_action
-
 
 
 def train(n):
