@@ -98,14 +98,14 @@ def load_data(filename):
     with open(filename, "r") as file:
 
         reader = csv.reader(file)
-        header = next(reader, None) # skip header
+        header = next(reader, None)  # skip header
         # print(header)
         for line in reader:
             evidence_line = []
             for i in range(17):
                 if i == 10:
                     ev = months[line[i]]
-                    
+
                 elif i == 15:
                     if line[i] == "Returning_Visitor":
                         ev = 1
@@ -117,8 +117,8 @@ def load_data(filename):
                         ev = 1
                     else:
                         ev = 0
-                    
-                else:                    
+
+                else:
                     ev = value_dict[i](line[i])
 
                 evidence_line.append(ev)
@@ -129,12 +129,10 @@ def load_data(filename):
             else:
                 raise ValueError("Line[17] is not TRUE or FALSE")
             labels.append(lab)
-                    
+
             evidence.append(evidence_line)
 
     return evidence, labels
-    
-    
 
 
 def train_model(evidence, labels):
@@ -163,7 +161,28 @@ def evaluate(labels, predictions):
     representing the "true negative rate": the proportion of
     actual negative labels that were accurately identified.
     """
-    raise NotImplementedError
+    positives = 0
+    negatives = 0
+
+    pos_predictions = 0
+    neg_preditions = 0
+
+    for i, label in enumerate(labels):
+        # positives
+        if label == 1:
+            positives += 1
+            if predictions[i] == 1:
+                pos_predictions += 1
+        # negatives
+        elif label == 0:
+            negatives += 1
+            if predictions[i] == 0:
+                neg_preditions += 1
+
+    sensitivity = pos_predictions/positives
+    specificity = neg_preditions/negatives
+
+    return (sensitivity, specificity)
 
 
 if __name__ == "__main__":
