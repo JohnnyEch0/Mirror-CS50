@@ -84,8 +84,6 @@ def load_data(data_dir):
     return (images, labels)
 
 
-
-
 def get_model():
     """
     Returns a compiled convolutional neural network model. Assume that the
@@ -93,8 +91,8 @@ def get_model():
     The output layer should have `NUM_CATEGORIES` units, one for each category.
     """
     FILTER_AMT = 32
-    KERNEL = (3,3)
-    POOL_SIZE = (3,3)
+    KERNEL = (3, 3)
+    POOL_SIZE = (3, 3)
 
     model = tf.keras.models.Sequential([
 
