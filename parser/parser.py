@@ -95,7 +95,6 @@ def np_chunk(tree):
 
         if node.label() == "NP":
 
-
             for node2 in node.subtrees():
                 # print(node, node2)
                 if node2.label() == "NP" and node2 != node:
@@ -104,7 +103,6 @@ def np_chunk(tree):
 
             if not has_children:
                 NP_chunks.append(node)
-
 
     return NP_chunks
 
