@@ -45,7 +45,6 @@ def get_mask_token_index(mask_token_id, inputs):
     Return the index of the token with the specified `mask_token_id`, or
     `None` if not present in the `inputs`.
     """
-    #print(inputs)
     # sys.exit()
 
     tf_object = inputs.input_ids
@@ -54,10 +53,9 @@ def get_mask_token_index(mask_token_id, inputs):
     if mask_token_id in numpy_array:
         index = numpy_array.tolist()[0].index(mask_token_id)
         return index
-    
+
     else:
         return None
-
 
 
 def get_color_for_attention_score(attention_score):
@@ -69,8 +67,6 @@ def get_color_for_attention_score(attention_score):
     if value > 255:
         raise ValueError("attention score color vlaue to damn high.")
     return (value, value, value)
-
-
 
 
 def visualize_attentions(tokens, attentions):
@@ -85,8 +81,8 @@ def visualize_attentions(tokens, attentions):
     """
     # The value attentions is a tuple of tensors (a “tensor” can be thought of as a multi-dimensional array in this context).
 
-    for i in range(12): # layer index
-        for j in range(12): # head index
+    for i in range(12):  # layer index
+        for j in range(12):  # head index
             generate_diagram(
                 i+1,
                 j+1,
