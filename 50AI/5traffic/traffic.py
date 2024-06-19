@@ -111,10 +111,6 @@ def get_model():
         tf.keras.layers.Dense(512, activation="relu"),
         tf.keras.layers.Dropout(0.5),
 
-
-
-
-
         # Output Layer, Units equal to the number of categories.
         tf.keras.layers.Dense(NUM_CATEGORIES, activation="softmax")
     ])
