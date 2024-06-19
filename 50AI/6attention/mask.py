@@ -45,8 +45,6 @@ def get_mask_token_index(mask_token_id, inputs):
     Return the index of the token with the specified `mask_token_id`, or
     `None` if not present in the `inputs`.
     """
-    # sys.exit()
-
     tf_object = inputs.input_ids
     numpy_array = tf_object.numpy()
 
